@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FIT STUDIO - Reserva de Clases</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Teko:wght@600&family=Jura:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #CCFF00;     /* Amarillo Eléctrico / Neón */
+            --secondary: #18181A;   /* Gris Carbón muy oscuro */
+            --accent: #FF5500;      /* Naranja Energético */
+            --bg-color: #0A0A0B;    /* Negro Puro */
+            --text-light: #F0F0F0;  /* Blanco Humo */
+            --card-bg: #222225;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Jura', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navbar */
+        header {
+            background: rgba(10, 10, 11, 0.95);
+            border-bottom: 1px solid #333;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+        }
+
+        .logo {
+            font-family: 'Teko', sans-serif;
+            font-size: 2.5rem;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        .btn {
+            background: var(--primary);
+            color: var(--bg-color);
+            padding: 0.6rem 1.8rem;
+            border-radius: 2px;
+            text-decoration: none;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 1rem;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+            clip-path: polygon(10% 0, 100% 0, 90% 100%, 0% 100%); /* Diseño futurista / deportivo */
+        }
+
+        .btn:hover {
+            background: var(--text-light);
+            transform: scale(1.05);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 10rem 5% 5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 85vh;
+            background: linear-gradient(90deg, rgba(10, 10, 11, 1) 0%, rgba(10, 10, 11, 0.6) 100%), url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&q=80&w=1920') center/cover no-repeat;
+        }
+
+        .hero-content {
+            max-width: 600px;
+            animation: slideInLeft 1s ease forwards;
+        }
+
+        .hero h1 {
+            font-family: 'Teko', sans-serif;
+            font-size: 5.5rem;
+            line-height: 0.9;
+            margin-bottom: 1rem;
+            color: var(--text-light);
+            text-transform: uppercase;
+        }
+
+        .hero h1 span {
+            color: var(--primary);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: #AAA;
+            font-weight: 700;
+        }
+
+        /* Booking Section */
+        .booking-section {
+            padding: 5rem 5%;
+            background: var(--secondary);
+        }
+
+        .section-title h2 {
+            font-family: 'Teko', sans-serif;
+            font-size: 4rem;
+            color: var(--text-light);
+            text-transform: uppercase;
+            text-align: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-title p {
+            text-align: center;
+            color: var(--primary);
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 3rem;
+            text-transform: uppercase;
+        }
+
+        .calendar-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.8);
+            border: 1px solid #333;
+        }
+
+        .days-filter {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 2rem;
+            overflow-x: auto;
+            padding-bottom: 10px;
+        }
+
+        .day-btn {
+            background: var(--bg-color);
+            color: #888;
+            border: 1px solid #444;
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 700;
+            transition: 0.3s;
+            white-space: nowrap;
+        }
+
+        .day-btn.active, .day-btn:hover {
+            background: var(--primary);
+            color: var(--bg-color);
+            border-color: var(--primary);
+        }
+
+        .classes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .class-card {
+            background: var(--bg-color);
+            border-left: 4px solid var(--primary);
+            padding: 1.5rem;
+            border-radius: 5px;
+            transition: transform 0.3s;
+        }
+
+        .class-card:hover {
+            transform: translateX(10px);
+            border-left-color: var(--accent);
+        }
+
+        .class-time {
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .class-title {
+            font-family: 'Teko', sans-serif;
+            font-size: 2rem;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+
+        .class-coach {
+            color: #888;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .spots-left {
+            display: inline-block;
+            background: rgba(255, 85, 0, 0.2);
+            color: var(--accent);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .btn-book {
+            width: 100%;
+            background: transparent;
+            color: var(--primary);
+            border: 1px solid var(--primary);
+            padding: 0.8rem;
+            text-align: center;
+            text-transform: uppercase;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn-book:hover {
+            background: var(--primary);
+            color: var(--bg-color);
+        }
+
+        /* CTA WhatsApp Membership */
+        .cta-suscripcion {
+            background: var(--primary);
+            color: var(--bg-color);
+            text-align: center;
+            padding: 6rem 5%;
+        }
+
+        .cta-suscripcion h2 {
+            font-family: 'Teko', sans-serif;
+            font-size: 4rem;
+            line-height: 1;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        .btn-whatsapp {
+            background: var(--bg-color);
+            color: var(--primary);
+            padding: 1rem 3rem;
+            font-size: 1.2rem;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            margin-top: 2rem;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: transform 0.3s;
+            clip-path: polygon(5% 0, 100% 0, 95% 100%, 0% 100%);
+        }
+        
+        .btn-whatsapp:hover {
+            transform: scale(1.05);
+            background: var(--text-light);
+            color: var(--bg-color);
+        }
+
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 4rem; }
+            .hero { padding-top: 8rem; text-align: center; }
+            .hero-content { margin: 0 auto; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">FIT<span>CORE</span></div>
+        <a href="#reservas" class="btn">Área de Socios</a>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>NO EXCUSES.<br>JUST <span>RESULTS.</span></h1>
+            <p>Reserva tus clases grupales, paga tu membresía online y lleva el control de tu progreso desde tu teléfono.</p>
+            <a href="#reservas" class="btn" style="background: var(--accent); color: var(--text-light);">Ver Horarios de Hoy</a>
+        </div>
+    </section>
+
+    <section class="booking-section" id="reservas">
+        <div class="section-title">
+            <p>Controla tu Entrenamiento</p>
+            <h2>Reserva tu Lugar</h2>
+        </div>
+
+        <div class="calendar-container">
+            <div class="days-filter">
+                <button class="day-btn active">HOY (LUNES)</button>
+                <button class="day-btn">MARTES</button>
+                <button class="day-btn">MIÉRCOLES</button>
+                <button class="day-btn">JUEVES</button>
+                <button class="day-btn">VIERNES</button>
+            </div>
+
+            <div class="classes-grid">
+                <!-- Clase 1 -->
+                <div class="class-card">
+                    <div class="class-time">06:00 AM - 07:00 AM</div>
+                    <div class="class-title">CrossFit Wod</div>
+                    <div class="class-coach">👨‍🏫 Coach: Marcos R.</div>
+                    <div class="spots-left">🔥 Quedan 3 lugares</div>
+                    <button class="btn-book" onclick="alert('Demo: El sistema manda WhatsApp automático separando el cupo del socio o pidiendo el pago por link.')">Reservar Bici / Barra</button>
+                </div>
+                <!-- Clase 2 -->
+                <div class="class-card">
+                    <div class="class-time">08:00 AM - 09:00 AM</div>
+                    <div class="class-title">Spinning Pro</div>
+                    <div class="class-coach">👩‍🏫 Coach: Sofía T.</div>
+                    <div class="spots-left">✅ Hay lugares (12 disponibles)</div>
+                    <button class="btn-book" onclick="alert('Demo: El sistema manda WhatsApp automático separando el cupo del socio o pidiendo el pago por link.')">Reservar Bici / Barra</button>
+                </div>
+                <!-- Clase 3 -->
+                <div class="class-card" style="border-left-color: #555;">
+                    <div class="class-time">06:00 PM - 07:00 PM</div>
+                    <div class="class-title">Funcional Box</div>
+                    <div class="class-coach">👨‍🏫 Coach: David M.</div>
+                    <div class="spots-left" style="background: rgba(255,255,255,0.1); color: #888;">❌ Clase Llena (Lista de Espera)</div>
+                    <button class="btn-book" style="border-color: #555; color: #555; cursor: not-allowed;">Anotarse en Espera</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-suscripcion">
+        <h2>ÚNETE A LA REVOLUCIÓN FITNESS</h2>
+        <p style="font-size: 1.2rem; margin-bottom: 2rem; color: var(--secondary); font-weight: 700;">Inscríbete hoy. Pagos recurrentes seguros con tarjeta de crédito/débito.</p>
+        <a href="#" onclick="alert('Demo Pagos: Abre un portal de Stripe/MercadoPago para cobrar sin que el dueño del gym persiga a los deudores.')" class="btn-whatsapp">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 10px;"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
+            Inscribirme Online Ahora
+        </a>
+    </section>
+
+</body>
+</html>
