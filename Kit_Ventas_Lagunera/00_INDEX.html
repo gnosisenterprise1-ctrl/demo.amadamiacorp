@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kit de Ventas — Antigravity Web | Comarca Lagunera</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg:#040810; --surface:#0b1322; --surface2:#101d33;
+      --accent:#00d4ff; --gold:#f59e0b; --green:#10b981; --purple:#7c3aed;
+      --text:#e2e8f0; --muted:#64748b; --border:rgba(0,212,255,0.12);
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:'Inter',sans-serif; background:var(--bg); color:var(--text); min-height:100vh; }
+
+    /* HERO */
+    .hero {
+      min-height:100vh; display:flex; flex-direction:column;
+      align-items:center; justify-content:center;
+      text-align:center; padding:80px 24px;
+      background:
+        radial-gradient(ellipse at 25% 20%, rgba(0,212,255,0.14) 0%, transparent 50%),
+        radial-gradient(ellipse at 75% 80%, rgba(124,58,237,0.12) 0%, transparent 50%),
+        var(--bg);
+      position:relative; overflow:hidden;
+    }
+    .grid-bg {
+      position:absolute; inset:0;
+      background-image:
+        linear-gradient(rgba(0,212,255,0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,212,255,0.05) 1px, transparent 1px);
+      background-size:60px 60px; pointer-events:none;
+    }
+    .hero-content { position:relative; z-index:1; }
+    .badge-wrap {
+      display:inline-flex; align-items:center; gap:8px;
+      background:rgba(0,0,0,0.5); border:1px solid rgba(0,212,255,0.25);
+      border-radius:100px; padding:8px 22px;
+      font-size:0.76rem; font-weight:700; letter-spacing:1.5px; text-transform:uppercase;
+      color:var(--accent); margin-bottom:28px;
+    }
+    .live-dot { width:7px; height:7px; border-radius:50%; background:var(--accent); animation:pulse 1.5s infinite; display:inline-block; }
+    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1);}50%{opacity:0.4;transform:scale(0.6);} }
+    h1 {
+      font-size:clamp(2.5rem,7vw,5rem); font-weight:900; line-height:1.05;
+      background:linear-gradient(135deg,#fff 0%,var(--accent) 50%,var(--purple) 100%);
+      -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
+      margin-bottom:14px;
+    }
+    .hero-sub { font-size:1.1rem; color:var(--muted); max-width:520px; margin:0 auto 50px; }
+
+    /* MODULES GRID */
+    .modules { padding:0 24px 100px; max-width:1000px; margin:0 auto; }
+    .grid-label {
+      font-size:0.72rem; font-weight:700; letter-spacing:2px;
+      text-transform:uppercase; color:var(--muted);
+      text-align:center; margin-bottom:36px;
+      display:flex; align-items:center; gap:12px; justify-content:center;
+    }
+    .grid-label::before, .grid-label::after {
+      content:''; flex:1; height:1px; background:var(--border); max-width:120px;
+    }
+    .cards-grid {
+      display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:20px;
+    }
+    .kit-card {
+      background:var(--surface);
+      border:1px solid var(--border);
+      border-radius:20px; padding:32px 28px;
+      text-decoration:none; color:var(--text);
+      display:flex; flex-direction:column;
+      transition:all 0.3s; position:relative; overflow:hidden;
+    }
+    .kit-card::after {
+      content:''; position:absolute; inset:0;
+      background:linear-gradient(135deg, rgba(0,212,255,0.04), transparent);
+      opacity:0; transition:opacity 0.3s;
+    }
+    .kit-card:hover { transform:translateY(-6px); border-color:rgba(0,212,255,0.35); }
+    .kit-card:hover::after { opacity:1; }
+    .card-num {
+      font-size:0.7rem; font-weight:700; letter-spacing:2px;
+      text-transform:uppercase; color:var(--muted); margin-bottom:16px;
+    }
+    .card-icon { font-size:2.5rem; margin-bottom:16px; }
+    .card-title { font-size:1.15rem; font-weight:800; color:#fff; margin-bottom:8px; }
+    .card-desc { font-size:0.86rem; color:var(--muted); line-height:1.6; flex:1; }
+    .card-arrow {
+      display:inline-flex; align-items:center; gap:6px;
+      margin-top:20px; font-size:0.82rem; font-weight:700;
+      color:var(--accent); transition:gap 0.2s;
+    }
+    .kit-card:hover .card-arrow { gap:10px; }
+    .card-tag {
+      position:absolute; top:20px; right:20px;
+      font-size:0.65rem; font-weight:700; padding:3px 10px; border-radius:6px;
+    }
+
+    /* QUICK START */
+    .quick-start {
+      max-width:700px; margin:0 auto 60px; padding:0 24px;
+      background:linear-gradient(135deg, rgba(16,185,129,0.07), rgba(0,212,255,0.05));
+      border:1px solid rgba(16,185,129,0.18); border-radius:20px; padding:36px 40px;
+    }
+    .quick-start h2 { font-size:1.25rem; font-weight:800; color:#fff; margin-bottom:20px; }
+    .steps-mini { display:flex; flex-direction:column; gap:14px; }
+    .step-mini {
+      display:flex; align-items:flex-start; gap:14px;
+      font-size:0.9rem; color:var(--muted);
+    }
+    .snum {
+      min-width:26px; height:26px; border-radius:8px;
+      background:rgba(16,185,129,0.12); border:1px solid rgba(16,185,129,0.2);
+      display:flex; align-items:center; justify-content:center;
+      font-size:0.75rem; font-weight:800; color:var(--green); flex-shrink:0;
+    }
+    .step-mini strong { color:#fff; }
+    .step-mini a { color:var(--accent); text-decoration:none; }
+    .step-mini a:hover { text-decoration:underline; }
+
+    footer { text-align:center; padding:40px 24px; color:var(--muted); font-size:0.82rem; border-top:1px solid var(--border); }
+    footer strong { color:var(--accent); }
+  </style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="grid-bg"></div>
+  <div class="hero-content">
+    <div class="badge-wrap"><div class="live-dot"></div> Antigravity Web — Comarca Lagunera 2025</div>
+    <h1>Kit de Ventas<br>Completo</h1>
+    <p class="hero-sub">Todo lo que necesitas para vender servicios de presencia digital en la Comarca Lagunera. Empieza aquí.</p>
+  </div>
+</div>
+
+<!-- QUICK START -->
+<div class="modules">
+  <div style="max-width:700px; margin:0 auto 50px; background:linear-gradient(135deg,rgba(16,185,129,0.07),rgba(0,212,255,0.05)); border:1px solid rgba(16,185,129,0.18); border-radius:20px; padding:36px 40px;">
+    <h2 style="font-size:1.25rem; font-weight:800; color:#fff; margin-bottom:20px;">⚡ Inicio Rápido — Por dónde empezar</h2>
+    <div style="display:flex; flex-direction:column; gap:14px;">
+      <div class="step-mini"><div class="snum">1</div><div>Lee completa la <strong><a href="01_guia_del_vendedor.html">Guía del Vendedor</a></strong> — el proceso de venta, el pitch en persona y las reglas de oro.</div></div>
+      <div class="step-mini"><div class="snum">2</div><div>Practica el pitch 3 veces en voz alta hasta que salga fluído y sin dudar en los precios.</div></div>
+      <div class="step-mini"><div class="snum">3</div><div>Personaliza la <strong><a href="04_tarjeta_digital.html">Tarjeta Digital</a></strong> con tu nombre y número de WhatsApp.</div></div>
+      <div class="step-mini"><div class="snum">4</div><div>Identifica 10 negocios locales sin página web o con presencia digital débil. Empieza con médicos y restaurantes.</div></div>
+      <div class="step-mini"><div class="snum">5</div><div>Contacta usando los <strong><a href="03_guiones_por_nicho.html">Guiones por Nicho</a></strong>. Manda máximo 30 mensajes al día.</div></div>
+      <div class="step-mini"><div class="snum">6</div><div>En el primer encuentro muéstrale la <strong><a href="02_presentacion_clientes.html">Presentación para Clientes</a></strong> — empieza siempre por el Plan Profesional.</div></div>
+      <div class="step-mini"><div class="snum">7</div><div>Si objetan, consulta el <strong><a href="05_objeciones_y_respuestas.html">Manejo de Objeciones</a></strong> y usa las respuestas exactas.</div></div>
+    </div>
+  </div>
+
+  <div class="grid-label">Archivos del Kit</div>
+
+  <div class="cards-grid">
+
+    <a href="01_guia_del_vendedor.html" class="kit-card">
+      <span class="card-tag" style="background:rgba(0,212,255,0.1);color:var(--accent);border:1px solid rgba(0,212,255,0.2);">LEER PRIMERO</span>
+      <div class="card-num">Módulo 01</div>
+      <div class="card-icon">🗂️</div>
+      <div class="card-title">Guía del Vendedor</div>
+      <div class="card-desc">El proceso completo de ventas: desde identificar el nicho hasta cerrar y hacer el upsell. Incluye guión cara a cara y reglas de oro.</div>
+      <div class="card-arrow">Abrir guía <span>→</span></div>
+    </a>
+
+    <a href="02_presentacion_clientes.html" class="kit-card">
+      <span class="card-tag" style="background:rgba(245,158,11,0.1);color:var(--gold);border:1px solid rgba(245,158,11,0.2);">MOSTRAR AL CLIENTE</span>
+      <div class="card-num">Módulo 02</div>
+      <div class="card-icon">📊</div>
+      <div class="card-title">Presentación para Clientes</div>
+      <div class="card-desc">Presentación profesional de los 3 paquetes de servicios con precios, beneficios y proceso. Ábrela en tu celular frente al prospecto.</div>
+      <div class="card-arrow">Abrir presentación <span>→</span></div>
+    </a>
+
+    <a href="03_guiones_por_nicho.html" class="kit-card">
+      <span class="card-tag" style="background:rgba(16,185,129,0.1);color:var(--green);border:1px solid rgba(16,185,129,0.2);">COPIAR & ENVIAR</span>
+      <div class="card-num">Módulo 03</div>
+      <div class="card-icon">💬</div>
+      <div class="card-title">Guiones por Nicho</div>
+      <div class="card-desc">Mensajes de WhatsApp listos para copiar y pegar para 7 nichos diferentes: médicos, restaurantes, belleza, talleres, ferreterías, gimnasios y veterinarias.</div>
+      <div class="card-arrow">Ver guiones <span>→</span></div>
+    </a>
+
+    <a href="04_tarjeta_digital.html" class="kit-card">
+      <span class="card-tag" style="background:rgba(124,58,237,0.1);color:#a78bfa;border:1px solid rgba(124,58,237,0.2);">PERSONALIZAR</span>
+      <div class="card-num">Módulo 04</div>
+      <div class="card-icon">🪪</div>
+      <div class="card-title">Tarjeta Digital</div>
+      <div class="card-desc">Tu tarjeta de presentación digital premium. Personalízala con tu nombre y número. Compártela por WhatsApp o muéstrala en tu celular.</div>
+      <div class="card-arrow">Ver tarjeta <span>→</span></div>
+    </a>
+
+    <a href="05_objeciones_y_respuestas.html" class="kit-card">
+      <span class="card-tag" style="background:rgba(239,68,68,0.1);color:#f87171;border:1px solid rgba(239,68,68,0.2);">CUANDO OBJETAN</span>
+      <div class="card-num">Módulo 05</div>
+      <div class="card-icon">🛡️</div>
+      <div class="card-title">Manejo de Objeciones</div>
+      <div class="card-desc">Las 7 objeciones más comunes con respuestas incorrectas vs. correctas. Incluye el mindset correcto y la frase universal de cierre.</div>
+      <div class="card-arrow">Ver objeciones <span>→</span></div>
+    </a>
+
+  </div>
+
+  <!-- PRECIOS RÁPIDOS -->
+  <div style="margin-top:60px; background:var(--surface); border:1px solid var(--border); border-radius:20px; padding:36px; text-align:center;">
+    <div style="font-size:0.72rem; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--muted); margin-bottom:24px;">💰 MEMORIZA ESTOS PRECIOS</div>
+    <div style="display:flex; flex-wrap:wrap; gap:16px; justify-content:center;">
+      <div style="padding:16px 28px; background:rgba(16,185,129,0.08); border:1px solid rgba(16,185,129,0.2); border-radius:14px;">
+        <div style="font-size:1.6rem; font-weight:900; color:#fff;">$3,500</div>
+        <div style="font-size:0.78rem; color:var(--green); margin-top:4px;">Plan Básico · 4 días</div>
+      </div>
+      <div style="padding:16px 28px; background:rgba(245,158,11,0.08); border:2px solid rgba(245,158,11,0.3); border-radius:14px; position:relative;">
+        <div style="position:absolute;top:-12px;left:50%;transform:translateX(-50%); background:var(--gold); color:#000; font-size:0.65rem; font-weight:800; padding:3px 12px; border-radius:6px; white-space:nowrap;">⭐ EL MÁS PEDIDO</div>
+        <div style="font-size:1.6rem; font-weight:900; color:#fff;">$6,500</div>
+        <div style="font-size:0.78rem; color:var(--gold); margin-top:4px;">Plan Profesional · 10 días</div>
+      </div>
+      <div style="padding:16px 28px; background:rgba(124,58,237,0.08); border:1px solid rgba(124,58,237,0.2); border-radius:14px;">
+        <div style="font-size:1.6rem; font-weight:900; color:#fff;">$12,000</div>
+        <div style="font-size:0.78rem; color:#a78bfa; margin-top:4px;">Plan Premium · 3 semanas</div>
+      </div>
+    </div>
+    <p style="margin-top:20px; font-size:0.84rem; color:var(--muted);">Anticipo: 50% al contratar · Resto: contra entrega · Condición de pago: SPEI, efectivo o depósito</p>
+  </div>
+
+</div>
+
+<footer>
+  <p><strong>ANTIGRAVITY WEB</strong> — Kit de Ventas Comarca Lagunera 2025</p>
+  <p style="margin-top:6px;">Material exclusivo para uso del equipo comercial. No distribuir externamente.</p>
+</footer>
+
+</body>
+</html>

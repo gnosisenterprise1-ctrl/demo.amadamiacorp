@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Antigravity Web — Digitaliza tu Negocio en la Comarca Lagunera</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #040810;
+      --surface: #0b1322;
+      --surface2: #101d33;
+      --accent: #00d4ff;
+      --gold: #f59e0b;
+      --green: #10b981;
+      --purple: #7c3aed;
+      --text: #e2e8f0;
+      --muted: #64748b;
+      --border: rgba(0,212,255,0.12);
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:'Inter',sans-serif; background:var(--bg); color:var(--text); }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex; flex-direction:column; align-items:center; justify-content:center;
+      text-align:center; padding: 80px 24px;
+      background:
+        radial-gradient(ellipse at 30% 20%, rgba(0,212,255,0.12) 0%, transparent 50%),
+        radial-gradient(ellipse at 70% 80%, rgba(124,58,237,0.1) 0%, transparent 50%),
+        var(--bg);
+      position:relative; overflow:hidden;
+    }
+    .hero::after {
+      content:'';
+      position:absolute; inset:0;
+      background-image:
+        radial-gradient(circle, rgba(0,212,255,0.08) 1px, transparent 1px);
+      background-size: 40px 40px;
+      pointer-events:none;
+    }
+    .logo-tag {
+      display:inline-flex; align-items:center; gap:10px;
+      background:rgba(0,0,0,0.5); border:1px solid rgba(0,212,255,0.25);
+      border-radius:100px; padding:8px 20px; margin-bottom:32px;
+      font-size:0.8rem; font-weight:700; letter-spacing:1px;
+      text-transform:uppercase; color:var(--accent);
+    }
+    .hero h1 {
+      font-size: clamp(2.5rem, 8vw, 5.5rem);
+      font-weight: 900; line-height:1.05;
+      color: #fff; margin-bottom: 12px;
+    }
+    .hero h1 .highlight {
+      background: linear-gradient(135deg, var(--accent), var(--purple));
+      -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
+    }
+    .hero-sub {
+      font-size: 1.25rem; color: var(--muted);
+      max-width: 600px; margin: 16px auto 40px;
+    }
+    .hero-cta { display:flex; gap:16px; flex-wrap:wrap; justify-content:center; }
+    .btn {
+      padding: 15px 36px; border-radius:14px; font-weight:700; font-size:1rem;
+      cursor:pointer; text-decoration:none; transition:all 0.3s ease;
+      display:inline-flex; align-items:center; gap:10px;
+    }
+    .btn-main {
+      background: linear-gradient(135deg, var(--accent), #0099bb);
+      color:#000; box-shadow: 0 0 40px rgba(0,212,255,0.4);
+      border: none;
+    }
+    .btn-main:hover { transform:translateY(-3px); box-shadow:0 10px 50px rgba(0,212,255,0.6); }
+    .btn-ghost { border:1px solid var(--border); color:var(--text); background:rgba(255,255,255,0.03); }
+    .btn-ghost:hover { border-color:rgba(0,212,255,0.4); color:var(--accent); }
+
+    /* TRUST STRIP */
+    .trust {
+      background:var(--surface);
+      border-top:1px solid var(--border); border-bottom:1px solid var(--border);
+      padding: 28px 24px;
+      display:flex; flex-wrap:wrap; justify-content:center; gap:32px;
+    }
+    .trust-item { display:flex; align-items:center; gap:10px; font-size:0.9rem; color:var(--muted); }
+    .trust-icon { font-size:1.2rem; }
+    .trust-item strong { color:var(--text); }
+
+    /* PROBLEM SECTION */
+    .problem-section {
+      padding: 90px 24px;
+      max-width:1000px; margin:0 auto; text-align:center;
+    }
+    .section-chip {
+      display:inline-block;
+      padding:5px 16px; border-radius:8px; margin-bottom:20px;
+      font-size:0.75rem; font-weight:700; letter-spacing:1.5px; text-transform:uppercase;
+    }
+    .chip-red { background:rgba(239,68,68,0.15); color:#f87171; border:1px solid rgba(239,68,68,0.25); }
+    .chip-blue { background:rgba(0,212,255,0.12); color:var(--accent); border:1px solid rgba(0,212,255,0.2); }
+    .chip-green { background:rgba(16,185,129,0.12); color:var(--green); border:1px solid rgba(16,185,129,0.2); }
+    .chip-gold { background:rgba(245,158,11,0.12); color:var(--gold); border:1px solid rgba(245,158,11,0.2); }
+    .sec-title { font-size:clamp(1.8rem,4vw,2.8rem); font-weight:800; color:#fff; margin-bottom:16px; }
+    .sec-desc { color:var(--muted); font-size:1.05rem; max-width:560px; margin:0 auto 50px; }
+
+    .problem-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:20px; }
+    .problem-card {
+      background:rgba(239,68,68,0.06);
+      border:1px solid rgba(239,68,68,0.2);
+      border-radius:16px; padding:28px 24px;
+      text-align:left;
+    }
+    .problem-card .icon { font-size:2rem; margin-bottom:12px; }
+    .problem-card h4 { font-size:1rem; font-weight:700; color:#fff; margin-bottom:8px; }
+    .problem-card p { font-size:0.88rem; color:var(--muted); }
+
+    /* SOLUTION */
+    .solution-section {
+      padding: 90px 24px;
+      background: var(--surface);
+      border-top:1px solid var(--border); border-bottom:1px solid var(--border);
+    }
+    .solution-inner { max-width:1100px; margin:0 auto; }
+    .solution-grid {
+      display:grid; grid-template-columns:1fr 1fr; gap:50px;
+      align-items:center;
+    }
+    @media(max-width:768px) { .solution-grid { grid-template-columns:1fr; } }
+    .solution-text h2 { font-size:clamp(1.8rem,4vw,2.5rem); font-weight:800; color:#fff; margin-bottom:20px; }
+    .solution-text p { color:var(--muted); margin-bottom:24px; line-height:1.7; }
+    .solution-list { list-style:none; }
+    .solution-list li {
+      display:flex; align-items:flex-start; gap:12px;
+      padding:12px 0; border-bottom:1px solid var(--border);
+      font-size:0.92rem; color:var(--muted);
+    }
+    .solution-list li:last-child { border-bottom:none; }
+    .solution-list .check { color:var(--green); font-size:1rem; flex-shrink:0; margin-top:2px; }
+    .solution-list strong { color:#fff; }
+    .visual-box {
+      background: linear-gradient(135deg, rgba(0,212,255,0.08), rgba(124,58,237,0.08));
+      border:1px solid rgba(0,212,255,0.2);
+      border-radius:20px; padding:32px;
+    }
+    .stat-big { margin-bottom:24px; }
+    .stat-big .num {
+      font-size:3.5rem; font-weight:900;
+      background:linear-gradient(135deg,var(--accent),var(--purple));
+      -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
+    }
+    .stat-big .label { color:var(--muted); font-size:0.9rem; margin-top:4px; }
+
+    /* PAQUETES */
+    .pricing-section { padding:90px 24px; max-width:1100px; margin:0 auto; }
+    .pricing-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:24px; }
+    .price-card {
+      background:var(--surface);
+      border:1px solid var(--border);
+      border-radius:20px; padding:36px 28px;
+      position:relative; transition:all 0.3s;
+    }
+    .price-card:hover { transform:translateY(-6px); }
+    .price-card.featured {
+      border-color:var(--gold);
+      background: linear-gradient(160deg, var(--surface2), rgba(245,158,11,0.05));
+    }
+    .featured-badge {
+      position:absolute; top:-14px; left:50%; transform:translateX(-50%);
+      background: linear-gradient(135deg,var(--gold),#d97706);
+      color:#000; font-weight:800; font-size:0.72rem;
+      padding:5px 20px; border-radius:100px; letter-spacing:1px;
+    }
+    .plan-name { font-size:0.8rem; font-weight:700; letter-spacing:2px; text-transform:uppercase; margin-bottom:8px; }
+    .plan-icon { font-size:2.2rem; margin-bottom:16px; }
+    .plan-price-container { margin-bottom:8px; display:flex; align-items:flex-end; gap:4px; }
+    .plan-price { font-size:3rem; font-weight:900; color:#fff; line-height:1; }
+    .plan-currency { font-size:1.2rem; color:var(--muted); margin-bottom:8px; }
+    .plan-period { font-size:0.82rem; color:var(--muted); margin-bottom:20px; }
+    .plan-desc { color:var(--muted); font-size:0.88rem; margin-bottom:24px; line-height:1.6; }
+    .plan-features { list-style:none; border-top:1px solid var(--border); padding-top:20px; }
+    .plan-features li {
+      display:flex; align-items:flex-start; gap:10px;
+      font-size:0.88rem; color:var(--muted);
+      padding: 9px 0; border-bottom:1px solid rgba(255,255,255,0.04);
+    }
+    .plan-features li:last-child { border-bottom:none; }
+    .check-g { color:var(--green); flex-shrink:0; }
+    .plan-cta {
+      width:100%; margin-top:28px; padding:14px; border-radius:12px;
+      font-weight:700; font-size:0.95rem; cursor:pointer;
+      text-align:center; border:none; transition:all 0.3s;
+    }
+    .cta-accent {
+      background: linear-gradient(135deg, #00d4ff, #0099cc);
+      color:#000; box-shadow:0 0 28px rgba(0,212,255,0.35);
+    }
+    .cta-accent:hover { box-shadow:0 0 50px rgba(0,212,255,0.6); transform:translateY(-2px); }
+    .cta-gold {
+      background: linear-gradient(135deg, var(--gold), #d97706);
+      color:#000;
+    }
+    .cta-purple {
+      background: linear-gradient(135deg, var(--purple), #5b21b6);
+      color:#fff;
+    }
+
+    /* MONTHLY */
+    .monthly-section {
+      padding:60px 24px; background:var(--surface);
+      border-top:1px solid var(--border); border-bottom:1px solid var(--border);
+    }
+    .monthly-inner { max-width:800px; margin:0 auto; }
+    .monthly-grid { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+    @media(max-width:560px){ .monthly-grid{ grid-template-columns:1fr; } }
+    .monthly-card {
+      background:var(--surface2);
+      border:1px solid var(--border);
+      border-radius:16px; padding:24px;
+    }
+    .monthly-card h4 { font-size:1rem; font-weight:700; color:#fff; margin-bottom:6px; }
+    .monthly-card .price-m { font-size:1.6rem; font-weight:900; color:var(--green); margin-bottom:8px; }
+    .monthly-card p { font-size:0.85rem; color:var(--muted); }
+
+    /* PROCESS */
+    .process-section { padding:90px 24px; max-width:900px; margin:0 auto; }
+    .process-steps { display:flex; flex-direction:column; gap:20px; }
+    .proc-step {
+      display:flex; gap:20px; align-items:flex-start;
+      background:var(--surface); border:1px solid var(--border);
+      border-radius:16px; padding:24px 28px;
+      transition: all 0.3s;
+    }
+    .proc-step:hover { border-color:rgba(0,212,255,0.3); }
+    .proc-num {
+      min-width:44px; height:44px; border-radius:12px;
+      background: linear-gradient(135deg, rgba(0,212,255,0.12), rgba(124,58,237,0.12));
+      border:1px solid rgba(0,212,255,0.2);
+      display:flex; align-items:center; justify-content:center;
+      font-size:0.95rem; font-weight:900; color:var(--accent);
+    }
+    .proc-content h4 { font-size:1rem; font-weight:700; color:#fff; margin-bottom:5px; }
+    .proc-content p { font-size:0.88rem; color:var(--muted); }
+    .proc-time {
+      margin-left:auto; flex-shrink:0;
+      font-size:0.76rem; font-weight:600;
+      padding:4px 12px; border-radius:8px;
+      background:rgba(16,185,129,0.12); color:var(--green);
+      border:1px solid rgba(16,185,129,0.2);
+    }
+
+    /* CTA FINAL */
+    .final-cta {
+      padding:100px 24px; text-align:center;
+      background: radial-gradient(ellipse at center, rgba(0,212,255,0.1) 0%, transparent 60%);
+    }
+    .final-cta h2 { font-size:clamp(1.8rem,5vw,3rem); font-weight:900; color:#fff; margin-bottom:16px; }
+    .final-cta p { color:var(--muted); max-width:500px; margin:0 auto 40px; }
+    .contact-box {
+      display:inline-flex; flex-direction:column; gap:12px;
+      background:var(--surface); border:1px solid rgba(0,212,255,0.2);
+      border-radius:20px; padding:32px 40px;
+    }
+    .contact-row { display:flex; align-items:center; gap:12px; font-size:0.95rem; color:var(--text); }
+    .contact-icon { font-size:1.3rem; }
+
+    footer { text-align:center; padding:40px 24px; color:var(--muted); font-size:0.82rem; border-top:1px solid var(--border); }
+    footer strong { color:var(--accent); }
+  </style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="logo-tag">🚀 ANTIGRAVITY WEB — COMARCA LAGUNERA</div>
+  <h1>Tu Negocio en Internet,<br><span class="highlight">Clientes Todos los Días</span></h1>
+  <p class="hero-sub">Diseñamos tu pagina web profesional en 4 días. Pago único, sin mensualidades, sin complicaciones.</p>
+  <div class="hero-cta">
+    <a href="#precios" class="btn btn-main">💎 Ver Paquetes y Precios</a>
+    <a href="#proceso" class="btn btn-ghost">¿Cómo funciona?</a>
+  </div>
+</div>
+
+<!-- TRUST -->
+<div class="trust">
+  <div class="trust-item"><span class="trust-icon">✅</span><span><strong>Pago único</strong> sin rentas mensuales</span></div>
+  <div class="trust-item"><span class="trust-icon">⚡</span><span>Listo en <strong>4 a 10 días</strong> hábiles</span></div>
+  <div class="trust-item"><span class="trust-icon">📱</span><span><strong>100% optimizado</strong> para celular</span></div>
+  <div class="trust-item"><span class="trust-icon">🌐</span><span><strong>Dominio</strong> gratis el primer año</span></div>
+  <div class="trust-item"><span class="trust-icon">💬</span><span>Conectado directo a <strong>WhatsApp</strong></span></div>
+</div>
+
+<!-- PROBLEMA -->
+<section class="problem-section">
+  <div class="section-chip chip-red">❌ El problema</div>
+  <h2 class="sec-title">¿Qué pasa cuando no tienes página web?</h2>
+  <p class="sec-desc">En la Comarca Lagunera, el 80% de los clientes busca en Google antes de contactar a cualquier negocio.</p>
+  <div class="problem-grid">
+    <div class="problem-card">
+      <div class="icon">🔍</div>
+      <h4>No te encuentran en Google</h4>
+      <p>Cuando alguien busca "dentista en Torreón" o "mecánico en Gómez Palacio", tu negocio simplemente no aparece.</p>
+    </div>
+    <div class="problem-card">
+      <div class="icon">💸</div>
+      <h4>Clientes que se van con la competencia</h4>
+      <p>El primer negocio con página profesional que aparece se lleva al cliente. Así de simple.</p>
+    </div>
+    <div class="problem-card">
+      <div class="icon">📵</div>
+      <h4>Pierdes clientes fuera del horario</h4>
+      <p>Un cliente que te busca a las 10 PM y no encuentra cómo contactarte, mañana ya no regresa.</p>
+    </div>
+    <div class="problem-card">
+      <div class="icon">⏰</div>
+      <h4>Tu equipo pierde tiempo dando información</h4>
+      <p>Precios, horarios, servicios... Una página web responde todo esto automáticamente 24/7.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SOLUCIÓN -->
+<div class="solution-section">
+  <div class="solution-inner">
+    <div style="text-align:center;margin-bottom:60px;">
+      <div class="section-chip chip-green">✅ La solución</div>
+      <h2 class="sec-title" style="font-size:clamp(1.8rem,4vw,2.5rem);">Lo que hacemos por ti</h2>
+    </div>
+    <div class="solution-grid">
+      <div class="solution-text">
+        <p>Creamos tu página web profesional hecha a la medida de tu negocio. Sin plantillas genéricas. Sin tecnicismos. Solo resultados.</p>
+        <ul class="solution-list">
+          <li>
+            <span class="check">✓</span>
+            <div><strong>Diseño profesional y moderno</strong> — Tu negocio se verá más grande y confiable que la competencia.</div>
+          </li>
+          <li>
+            <span class="check">✓</span>
+            <div><strong>Botón directo a WhatsApp</strong> — El cliente ve lo que quiere y te escribe en un clic.</div>
+          </li>
+          <li>
+            <span class="check">✓</span>
+            <div><strong>Mayor visibilidad en Google</strong> — Optimizamos para que aparezcan cuando busquen tu giro cerca.</div>
+          </li>
+          <li>
+            <span class="check">✓</span>
+            <div><strong>Hosting gratuito</strong> — Tu página no cuesta nada mensual de hospedaje. Solo pagas el dominio (~$500/año).</div>
+          </li>
+          <li>
+            <span class="check">✓</span>
+            <div><strong>Optimizada para celular</strong> — Se ve perfecta en cualquier pantalla.</div>
+          </li>
+          <li>
+            <span class="check">✓</span>
+            <div><strong>Soporte post-entrega</strong> — Si algo falla, lo resolvemos.</div>
+          </li>
+        </ul>
+      </div>
+      <div class="visual-box">
+        <div class="stat-big">
+          <div class="num">68%</div>
+          <div class="label">de clientes elige su proveedor según lo que encuentra en Google</div>
+        </div>
+        <div class="stat-big">
+          <div class="num">+30%</div>
+          <div class="label">más ingresos promedio en negocios con sistema de citas online</div>
+        </div>
+        <div class="stat-big" style="margin-bottom:0">
+          <div class="num">4 días</div>
+          <div class="label">es todo lo que tardamos en tener tu página lista y publicada</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PRECIOS -->
+<section class="pricing-section" id="precios">
+  <div style="text-align:center;margin-bottom:60px;">
+    <div class="section-chip chip-blue">💎 Paquetes</div>
+    <h2 class="sec-title">Elige el plan para tu negocio</h2>
+    <p class="sec-desc">Precios de lanzamiento en la comarca. Sin sorpresas ocultas.</p>
+  </div>
+  <div class="pricing-grid">
+
+    <!-- BÁSICO -->
+    <div class="price-card">
+      <div class="plan-name" style="color: var(--green);">🚀 Plan Básico</div>
+      <div class="plan-icon">🌐</div>
+      <div class="plan-price-container">
+        <span class="plan-currency">$</span>
+        <span class="plan-price">3,500</span>
+      </div>
+      <div class="plan-period">MXN · Pago único · Entrega en 4 días</div>
+      <p class="plan-desc">Perfecto para negocios que quieren salir del anonimato digital por primera vez.</p>
+      <ul class="plan-features">
+        <li><span class="check-g">✓</span> Landing Page profesional (1 página)</li>
+        <li><span class="check-g">✓</span> Diseño 100% responsivo para celular</li>
+        <li><span class="check-g">✓</span> Secciones: Servicios, Contacto, Ubicación</li>
+        <li><span class="check-g">✓</span> Botón flotante de WhatsApp</li>
+        <li><span class="check-g">✓</span> Google Maps integrado</li>
+        <li><span class="check-g">✓</span> Hosting gratuito incluido (Netlify)</li>
+      </ul>
+      <button class="plan-cta cta-accent">Quiero este Plan →</button>
+    </div>
+
+    <!-- PROFESIONAL -->
+    <div class="price-card featured">
+      <div class="featured-badge">⭐ MÁS POPULAR</div>
+      <div class="plan-name" style="color:var(--gold);">⚡ Plan Profesional</div>
+      <div class="plan-icon">💼</div>
+      <div class="plan-price-container">
+        <span class="plan-currency">$</span>
+        <span class="plan-price">6,500</span>
+      </div>
+      <div class="plan-period">MXN · Pago único · Entrega en 10 días</div>
+      <p class="plan-desc">Funciona como un asesor de ventas 24/7 para tu negocio. El paquete que más resultados genera.</p>
+      <ul class="plan-features">
+        <li><span class="check-g">✓</span> Todo lo del Plan Básico, más:</li>
+        <li><span class="check-g">✓</span> Sitio multi-sección (hasta 5 páginas)</li>
+        <li><span class="check-g">✓</span> Catálogo de servicios con imágenes</li>
+        <li><span class="check-g">✓</span> Sistema de citas/pedidos a WhatsApp</li>
+        <li><span class="check-g">✓</span> SEO local para aparecer en Google de tu zona</li>
+        <li><span class="check-g">✓</span> <strong>Dominio gratis el primer año</strong></li>
+      </ul>
+      <button class="plan-cta cta-gold">Quiero este Plan →</button>
+    </div>
+
+    <!-- PREMIUM -->
+    <div class="price-card">
+      <div class="plan-name" style="color:#a78bfa;">💎 Plan Premium</div>
+      <div class="plan-icon">🏆</div>
+      <div class="plan-price-container">
+        <span class="plan-currency">$</span>
+        <span class="plan-price">12,000</span>
+      </div>
+      <div class="plan-period">MXN · Pago único · Entrega en 3 semanas</div>
+      <p class="plan-desc">Ecosistema completo para capturar prospectos y crecer con automatización.</p>
+      <ul class="plan-features">
+        <li><span class="check-g">✓</span> Todo lo del Plan Profesional, más:</li>
+        <li><span class="check-g">✓</span> Hasta 10 páginas + blog para SEO</li>
+        <li><span class="check-g">✓</span> CRM integrado (guarda contactos)</li>
+        <li><span class="check-g">✓</span> Galería "Antes y Después"</li>
+        <li><span class="check-g">✓</span> Pop-ups para captar correos con descuento</li>
+        <li><span class="check-g">✓</span> Reporte mensual de visitantes (Analytics)</li>
+      </ul>
+      <button class="plan-cta cta-purple">Quiero este Plan →</button>
+    </div>
+
+  </div>
+</section>
+
+<!-- MENSUALES -->
+<div class="monthly-section">
+  <div class="monthly-inner">
+    <div style="text-align:center;margin-bottom:36px;">
+      <div class="section-chip chip-gold">📈 Servicios Mensuales</div>
+      <h2 class="sec-title" style="font-size:1.8rem;">Opcional: Añade servicios recurrentes</h2>
+    </div>
+    <div class="monthly-grid">
+      <div class="monthly-card">
+        <h4>🛠️ Mantenimiento Plus</h4>
+        <div class="price-m">$500 / mes</div>
+        <p>Cambio de hasta 3 banners, actualización de precios y textos, monitoreo de que todo funcione correctamente.</p>
+      </div>
+      <div class="monthly-card">
+        <h4>⭐ Pack Reseñas 5 Estrellas</h4>
+        <div class="price-m">$800 / mes</div>
+        <p>QR y sistema automático que dirige a tus clientes satisfechos a dejarte 5 estrellas en Google Maps. Filtra reseñas negativas internamente.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PROCESO -->
+<section class="process-section" id="proceso">
+  <div style="text-align:center;margin-bottom:60px;">
+    <div class="section-chip chip-blue">⚙️ Proceso</div>
+    <h2 class="sec-title">¿Cómo funciona?</h2>
+    <p class="sec-desc">Simple, rápido y sin complicaciones para ti.</p>
+  </div>
+  <div class="process-steps">
+    <div class="proc-step">
+      <div class="proc-num">1</div>
+      <div class="proc-content">
+        <h4>Nos contactas y elegimos tu paquete</h4>
+        <p>Platicamos 20 minutos para entender tu negocio, tus servicios y tus clientes ideales.</p>
+      </div>
+      <div class="proc-time">Día 0</div>
+    </div>
+    <div class="proc-step">
+      <div class="proc-num">2</div>
+      <div class="proc-content">
+        <h4>Pagas el 50% de anticipo</h4>
+        <p>Transferencia SPEI, efectivo o depósito. Con eso tu proyecto entra a producción.</p>
+      </div>
+      <div class="proc-time">Día 0</div>
+    </div>
+    <div class="proc-step">
+      <div class="proc-num">3</div>
+      <div class="proc-content">
+        <h4>Diseñamos tu página</h4>
+        <p>Nuestro equipo construye tu sitio. Solo necesitamos tu logo, fotos y la descripción de tus servicios.</p>
+      </div>
+      <div class="proc-time">Días 1 – 4</div>
+    </div>
+    <div class="proc-step">
+      <div class="proc-num">4</div>
+      <div class="proc-content">
+        <h4>Revisión y ajustes</h4>
+        <p>Te mandamos la vista previa. Tú apruebas o solicitas cambios. Aquí aplicas tus últimas correcciones.</p>
+      </div>
+      <div class="proc-time">Día 5</div>
+    </div>
+    <div class="proc-step">
+      <div class="proc-num">5</div>
+      <div class="proc-content">
+        <h4>¡Tu página está viva! Pagas el resto</h4>
+        <p>Publicamos con tu dominio, te entregamos los accesos y tu negocio ya está en internet captando clientes.</p>
+      </div>
+      <div class="proc-time">Día 6 – 10</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<div class="final-cta">
+  <h2>¿Listo para tener más clientes?</h2>
+  <p>Habla con nosotros hoy. Los lugares de esta quincena son limitados.</p>
+  <div class="contact-box">
+    <div class="contact-row"><span class="contact-icon">💬</span> WhatsApp directo: <strong>Escríbenos ahora</strong></div>
+    <div class="contact-row"><span class="contact-icon">🌐</span> Web: <strong>antigravity.web</strong></div>
+    <div class="contact-row"><span class="contact-icon">📍</span> Atendemos toda la <strong>Comarca Lagunera</strong></div>
+  </div>
+</div>
+
+<footer>
+  <p><strong>ANTIGRAVITY WEB</strong> — Paginas Web Profesionales para Negocios Locales</p>
+  <p style="margin-top:6px;">Comarca Lagunera, Durango · México · 2025</p>
+</footer>
+
+</body>
+</html>
