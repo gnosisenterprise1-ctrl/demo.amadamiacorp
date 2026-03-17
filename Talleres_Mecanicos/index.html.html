@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tu Taller Automotriz - Portal del Cliente</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #FF2E00;     /* Rojo Racing / Emergencia */
+            --secondary: #121212;   /* Negro Metálico */
+            --accent: #2C2C2C;      /* Gris Oscuro / Carbono */
+            --bg-color: #0F0F0F;    /* Fondo muy oscuro industrial */
+            --text-light: #E0E0E0;  /* Texto Claro */
+            --white: #FFFFFF;
+            --success: #00FF66;     /* Verde Neón para Estatus Listos */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto Condensed', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* Navbar */
+        header {
+            background: rgba(18, 18, 18, 0.95);
+            border-bottom: 2px solid var(--primary);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(255, 46, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+        }
+
+        .logo {
+            font-family: 'Oswald', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--white);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        .btn {
+            background: var(--primary);
+            color: var(--white);
+            padding: 0.8rem 1.8rem;
+            border-radius: 4px; /* Bordes cuadrados, más industrial */
+            text-decoration: none;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 1rem;
+            letter-spacing: 1px;
+            transition: background 0.3s, box-shadow 0.3s;
+            display: inline-block;
+            border: 1px solid var(--primary);
+        }
+
+        .btn:hover {
+            background: transparent;
+            color: var(--primary);
+            box-shadow: inset 0 0 10px rgba(255, 46, 0, 0.3);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 9rem 5% 5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            min-height: 80vh;
+            background: linear-gradient(rgba(18, 18, 18, 0.8), rgba(15, 15, 15, 0.95)), url('https://images.unsplash.com/photo-1625047509168-a71c6f78f8c0?auto=format&fit=crop&q=80&w=1920') center/cover no-repeat;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            animation: fadeIn 1s ease forwards;
+        }
+
+        .hero h1 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 4.5rem;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            color: var(--white);
+            text-transform: uppercase;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2.5rem;
+            color: #AAA;
+        }
+
+        /* Status Tracker Section */
+        .tracker-section {
+            padding: 5rem 5%;
+            background: var(--secondary);
+            text-align: center;
+            border-top: 1px solid #333;
+            border-bottom: 1px solid #333;
+        }
+
+        .section-title h2 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 3.5rem;
+            color: var(--white);
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-title p {
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 3rem;
+        }
+
+        .tracker-box {
+            background: var(--bg-color);
+            border: 1px solid #444;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .status-steps {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            margin-bottom: 3rem;
+        }
+
+        .status-steps::before {
+            content: '';
+            position: absolute;
+            top: 25px;
+            left: 10%;
+            right: 10%;
+            height: 4px;
+            background: #444;
+            z-index: 1;
+        }
+
+        .step {
+            position: relative;
+            z-index: 2;
+            width: 25%;
+            text-align: center;
+        }
+
+        .step-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--accent);
+            border: 4px solid var(--bg-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            color: var(--white);
+            font-weight: bold;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+        }
+
+        .step.active .step-icon {
+            background: var(--primary);
+            box-shadow: 0 0 15px var(--primary);
+        }
+
+        .step.done .step-icon {
+            background: var(--success);
+            color: var(--secondary);
+            border-color: var(--success);
+        }
+
+        .step-label {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #888;
+            text-transform: uppercase;
+        }
+
+        .step.active .step-label { color: var(--primary); }
+        .step.done .step-label { color: var(--success); }
+
+        .search-box {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .search-box input {
+            padding: 1rem;
+            font-size: 1.1rem;
+            background: var(--accent);
+            border: 1px solid #555;
+            color: white;
+            border-radius: 4px;
+            width: 300px;
+            outline: none;
+        }
+
+        .search-box input:focus { border-color: var(--primary); }
+
+        /* CTA WhatsApp Directo - SOS / Grúa */
+        .cta-emergencia {
+            background: url('https://images.unsplash.com/photo-1542282088-fe8426682b8f?auto=format&fit=crop&q=80&w=1920') center/cover no-repeat;
+            position: relative;
+            text-align: center;
+            padding: 8rem 5%;
+        }
+
+        .cta-emergencia::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(255, 46, 0, 0.85); /* Overlay Rojo Fuerte */
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta-emergencia h2 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            color: var(--white);
+            text-transform: uppercase;
+        }
+
+        .btn-whatsapp-sos {
+            background: var(--white);
+            color: var(--primary);
+            padding: 1.2rem 3rem;
+            font-size: 1.5rem;
+            font-family: 'Oswald', sans-serif;
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            margin-top: 2rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: transform 0.3s;
+        }
+        
+        .btn-whatsapp-sos:hover {
+            transform: scale(1.05);
+            background: var(--secondary);
+            color: var(--white);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 3rem; }
+            .status-steps { flex-direction: column; gap: 2rem; }
+            .status-steps::before { display: none; }
+            .step { width: 100%; }
+            .search-box { flex-direction: column; align-items: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">AUTO<span>CLINIC</span></div>
+        <a href="#emergencia" class="btn">Solicitar Grúa 24/7</a>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Transparencia Total en tu Reparación</h1>
+            <p>Monitorea el estatus de tu vehículo en tiempo real. Adiós a las llamadas interminables, recibe tu presupuesto directo a WhatsApp.</p>
+            <a href="#estatus" class="btn">Consultar Mi Vehículo</a>
+        </div>
+    </section>
+
+    <section class="tracker-section" id="estatus">
+        <div class="section-title">
+            <p>Ingresa tus placas o folio</p>
+            <h2>Portal de Estatus del Cliente</h2>
+        </div>
+
+        <div class="tracker-box">
+            
+            <div class="status-steps">
+                <div class="step done">
+                    <div class="step-icon">✓</div>
+                    <div class="step-label">Recepción</div>
+                </div>
+                <div class="step done">
+                    <div class="step-icon">✓</div>
+                    <div class="step-label">Diagnóstico</div>
+                </div>
+                <div class="step active">
+                    <div class="step-icon">⚙</div>
+                    <div class="step-label">Taller / Reparación</div>
+                </div>
+                <div class="step">
+                    <div class="step-icon">★</div>
+                    <div class="step-label">Listo / Entregado</div>
+                </div>
+            </div>
+
+            <div class="search-box">
+                <input type="text" placeholder="Ej: YUC-123-A o Folio #4589">
+                <button class="btn" onclick="alert('Demo Web App: Aquí el sistema mostraría si el coche ya está pintado, en colisión, o esperando piezas. El dueño del taller actualiza esto con 1 clic.')">Buscar Estatus</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-emergencia" id="emergencia">
+        <div class="cta-content">
+            <h2>¿Te Quedaste Tirado?</h2>
+            <p style="font-size: 1.5rem; color: white; margin-bottom: 2rem;">Asistencia Inmediata en todo Mérida.</p>
+            <a href="#" onclick="alert('Demo SOS: Este botón abre WhatsApp enviando automáticamente la ubicación GPS del cliente y el mensaje: AYUDA, NECESITO GRÚA/MECÁNICO URGENTE.')" class="btn-whatsapp-sos">
+                <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                Mandar Ubicación por WhatsApp
+            </a>
+        </div>
+    </section>
+
+</body>
+</html>

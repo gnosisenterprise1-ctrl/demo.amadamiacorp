@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tu Restaurante - Menú Digital</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #FF5A5F;     /* Rojo Apetitoso */
+            --secondary: #1E1E24;   /* Carbón Oscuro */
+            --accent: #F9A03F;      /* Naranja Cálido */
+            --bg-color: #FAFAFA;    /* Fondo Limpio */
+            --text-dark: #333333;   /* Texto Oscuro */
+            --white: #FFFFFF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* Navbar */
+        header {
+            background: var(--white);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--secondary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        .btn {
+            background: var(--primary);
+            color: var(--white);
+            padding: 0.70rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s, transform 0.3s;
+            display: inline-block;
+        }
+
+        .btn:hover {
+            background: #E0484D;
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 8rem 5% 5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 80vh;
+            background: url('https://images.unsplash.com/photo-1544148103-0773bf10d330?auto=format&fit=crop&q=80&w=1920') center/cover no-repeat;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(30, 30, 36, 0.75); /* Overlay oscuro */
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 600px;
+            color: var(--white);
+            animation: fadeIn 1s ease forwards;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        /* Menu Section */
+        .menu-section {
+            padding: 5rem 5%;
+            background: var(--white);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--secondary);
+        }
+
+        .section-title p {
+            color: var(--primary);
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .menu-item {
+            display: flex;
+            gap: 1rem;
+            border-bottom: 1px dashed #DDD;
+            padding-bottom: 1.5rem;
+            align-items: center;
+        }
+
+        .menu-item img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .menu-info {
+            flex: 1;
+        }
+
+        .menu-info h4 {
+            font-size: 1.2rem;
+            color: var(--secondary);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .price {
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .menu-info p {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        /* CTA WhatsApp Directo */
+        .cta-reservas {
+            background: var(--secondary);
+            color: var(--white);
+            text-align: center;
+            padding: 5rem 5%;
+        }
+
+        .cta-reservas h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-reservas .btn-whatsapp {
+            background: #25D366; /* Verde Oficial WA */
+            color: white;
+            padding: 1rem 2rem;
+            font-size: 1.2rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s;
+        }
+        .cta-reservas .btn-whatsapp:hover {
+            transform: scale(1.05);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .menu-item { flex-direction: column; text-align: center; }
+            .menu-info h4 { flex-direction: column; gap: 5px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            Logo <span>Restaurante</span>
+        </div>
+        <a href="#menu" class="btn">Ver Menú</a>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>El Sabor Auténtico de Mérida en tu Mesa</h1>
+            <p>Descubre nuestro menú interactivo. Pide en línea y recoge o reserva tu mesa en segundos desde tu celular.</p>
+            <a href="#menu" class="btn" style="background: var(--accent); color: var(--secondary);">Explorar Platillos</a>
+        </div>
+    </section>
+
+    <section class="menu-section" id="menu">
+        <div class="section-title">
+            <p>Especialidades</p>
+            <h2>Menú Digital Automático</h2>
+        </div>
+
+        <div class="menu-grid">
+            <!-- Platillo 1 -->
+            <div class="menu-item">
+                <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&q=80&w=200" alt="Pizza Artesanal">
+                <div class="menu-info">
+                    <h4>Pizza Artesanal de Especialidad <span class="price">$180 MXN</span></h4>
+                    <p>Masa madre horneada a la leña con salsa rústica, mozzarella fresca y albahaca.</p>
+                </div>
+            </div>
+            <!-- Platillo 2 -->
+            <div class="menu-item">
+                <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&q=80&w=200" alt="Hamburguesa Gourmet">
+                <div class="menu-info">
+                    <h4>Hamburguesa Doble Gourmet <span class="price">$150 MXN</span></h4>
+                    <p>Doble carne de res premium, queso cheddar derretido, cebolla caramelizada y papas a la francesa.</p>
+                </div>
+            </div>
+            <!-- Platillo 3 -->
+            <div class="menu-item">
+                <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&q=80&w=200" alt="Pasta">
+                <div class="menu-info">
+                    <h4>Pasta Carbonara Original <span class="price">$165 MXN</span></h4>
+                    <p>Pasta fresca bañada en crema ligera con panceta italiana y queso pecorino.</p>
+                </div>
+            </div>
+            <!-- Platillo 4 -->
+            <div class="menu-item">
+                <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&q=80&w=200" alt="Corte de Carne">
+                <div class="menu-info">
+                    <h4>Ribeye a la Parrilla (400g) <span class="price">$420 MXN</span></h4>
+                    <p>Corte jugoso acompañado de vegetales asados y puré de papa rústico.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-reservas">
+        <h2>¿Listo para ordenar o reservar tu mesa?</h2>
+        <p>No hagas filas ni esperes en la línea telefónica. Escríbenos y te atendemos al instante.</p>
+        <a href="#" onclick="alert('Demo: Este botón conectará directo a tu número de WhatsApp con un mensaje pre-llenado (Ej: Hola, quiero hacer un pedido).')" class="btn-whatsapp">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            Pedir por WhatsApp
+        </a>
+    </section>
+
+</body>
+</html>

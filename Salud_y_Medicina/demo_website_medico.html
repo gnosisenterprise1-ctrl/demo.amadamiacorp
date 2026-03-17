@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clínica Especializada - Portal de Pacientes</title>
+    <style>
+        :root {
+            --primary: #0A5C8E;
+            --secondary: #1E90FF;
+            --accent: #27AE60;
+            --light: #F8FBFF;
+            --dark: #2C3E50;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+        }
+
+        header {
+            background-color: white;
+            padding: 20px 50px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary);
+        }
+
+        .hero {
+            display: flex;
+            align-items: center;
+            padding: 80px 50px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            min-height: 70vh;
+        }
+
+        .hero-text {
+            flex: 1;
+            padding-right: 50px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 35px;
+            background-color: var(--accent);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 18px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(39, 174, 96, 0.3);
+        }
+
+        .services {
+            padding: 80px 50px;
+            text-align: center;
+        }
+
+        .services h2 {
+            font-size: 36px;
+            color: var(--primary);
+            margin-bottom: 50px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        .card h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 24px;
+        }
+
+        .card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .appointment-form {
+            background-color: white;
+            padding: 40px;
+            border-radius: 20px;
+            flex: 1;
+            max-width: 450px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+
+        .appointment-form h3 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            font-size: 16px;
+        }
+
+        .btn-form {
+            width: 100%;
+            border: none;
+            cursor: pointer;
+        }
+
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 30px;
+            text-decoration: none;
+            box-shadow: 0 10px 20px rgba(37, 211, 102, 0.4);
+            z-index: 1000;
+            transition: transform 0.3s;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+
+        @media(max-width: 768px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding: 40px 20px;
+            }
+            .hero-text {
+                padding-right: 0;
+                margin-bottom: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">OdonMédica Mérida</div>
+        <a href="#agendar" class="btn" style="padding: 10px 25px; font-size: 16px;">Reservar Cita</a>
+    </header>
+
+    <div class="hero">
+        <div class="hero-text">
+            <h1>Tu Salud y Sonrisa en Manos Expertas</h1>
+            <p>Atención médica de primer nivel. Olvídate de esperar al teléfono, agenda tu cita directamente en línea y obtén confirmación inmediata vía WhatsApp.</p>
+            <a href="#agendar" class="btn">Agendar mi Consulta</a>
+        </div>
+        
+        <div class="appointment-form" id="agendar">
+            <h3>Agenda tu Cita Rápido</h3>
+            <form onsubmit="sendToWhatsApp(event)">
+                <input type="text" id="nombre" placeholder="Nombre completo del paciente" required>
+                <input type="tel" id="telefono" placeholder="Teléfono" required>
+                <select id="servicio" required>
+                    <option value="" disabled selected>Selecciona tu especialidad...</option>
+                    <option value="Consulta General">Consulta Médica General</option>
+                    <option value="Limpieza Dental">Limpieza Dental</option>
+                    <option value="Ortodoncia">Valoración Ortodoncia</option>
+                    <option value="Urgencia">Urgencia Médica/Dental</option>
+                </select>
+                <input type="datetime-local" id="fecha" required>
+                <button type="submit" class="btn btn-form">Confirmar en WhatsApp</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="services">
+        <h2>Servicios Médicos Premium</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Atención Rápida</h3>
+                <p>Priorizamos tu tiempo. Nuestro sistema digital agiliza tu expediente para que pases directo a consulta sin demoras en la sala de espera.</p>
+            </div>
+            <div class="card">
+                <h3>Especialistas Certificados</h3>
+                <p>Contamos con la tecnología más avanzada y un equipo médico en constante capacitación para garantizar tratamientos indoloros y eficaces.</p>
+            </div>
+            <div class="card">
+                <h3>Urgencias 24/7</h3>
+                <p>El dolor no tiene horario. Contáctanos inmediatamente usando nuestro botón de urgencias en WhatsApp y el doctor en turno te atenderá.</p>
+            </div>
+        </div>
+    </div>
+
+    <a href="https://wa.me/529990000000?text=Hola,%20tengo%20una%20urgencia%20médica." class="whatsapp-float" target="_blank">
+        💬
+    </a>
+
+    <script>
+        function sendToWhatsApp(e) {
+            e.preventDefault();
+            const nombre = document.getElementById('nombre').value;
+            const servicio = document.getElementById('servicio').value;
+            const fecha = document.getElementById('fecha').value.replace('T', ' a las ');
+            
+            const mensaje = `Hola, me gustaría confirmar una cita médica.%0A%0A*Paciente:* ${nombre}%0A*Especialidad:* ${servicio}%0A*Horario Deseado:* ${fecha}%0A%0A¿Me confirman disponibilidad por favor?`;
+            
+            window.open(`https://wa.me/529990000000?text=${mensaje}`, '_blank');
+        }
+    </script>
+</body>
+</html>
