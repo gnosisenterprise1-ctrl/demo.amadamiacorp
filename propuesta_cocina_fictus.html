@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Propuesta Comercial — Cocina Fictus | Antigravity Web</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #040810; --surface: #0b1322; --accent: #00d4ff; --gold: #c5a059;
+      --text: #e2e8f0; --muted: #94a3b8; --border: rgba(197, 160, 89, 0.2);
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:'Inter',sans-serif; background:var(--bg); color:var(--text); line-height:1.6; }
+    
+    header { min-height: 80vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 40px 20px; background: radial-gradient(circle at center, rgba(197, 160, 89, 0.08) 0%, transparent 70%); }
+    .hero-img { width: 100%; max-width: 600px; border-radius: 24px; margin-bottom: 40px; box-shadow: 0 0 80px rgba(197, 160, 89, 0.15); border: 1px solid var(--border); }
+    h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 6vw, 4rem); font-weight: 700; color: #fff; margin-bottom: 10px; }
+    .subtitle { color: var(--gold); font-weight: 600; text-transform: uppercase; letter-spacing: 4px; font-size: 0.9rem; margin-bottom: 20px; }
+
+    section { max-width: 1000px; margin: 0 auto; padding: 100px 20px; }
+    .sec-title { font-family: 'Playfair Display', serif; font-size: 2.2rem; color: #fff; margin-bottom: 40px; text-align: center; }
+    
+    .analysis-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+    @media(max-width: 768px) { .analysis-grid { grid-template-columns: 1fr; } }
+    .analysis-card { background: var(--surface); border: 1px solid var(--border); border-radius: 20px; padding: 30px; position: relative; overflow: hidden; }
+    .analysis-card h4 { color: var(--gold); margin-bottom: 15px; font-size: 1.1rem; text-transform: uppercase; letter-spacing: 1px; }
+    .analysis-card ul { list-style: none; color: var(--muted); }
+    .analysis-card ul li { margin-bottom: 12px; display: flex; gap: 10px; align-items: flex-start; }
+    .icon { color: var(--gold); font-style: normal; }
+
+    .solution-box { background: linear-gradient(135deg, rgba(197, 160, 89, 0.05), rgba(0, 212, 255, 0.03)); border-radius: 30px; padding: 60px 40px; border: 1px solid var(--border); text-align: center; }
+    .solution-box h3 { font-family: 'Playfair Display', serif; font-size: 2.5rem; color: #fff; margin-bottom: 20px; }
+    .solution-box p { color: var(--muted); max-width: 700px; margin: 0 auto 40px; font-size: 1.1rem; }
+
+    .feature-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-bottom: 40px; }
+    .feature { padding: 20px; background: rgba(255,255,255,0.02); border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); }
+    .feature h5 { color: #fff; margin-bottom: 10px; font-weight: 700; }
+    .feature p { font-size: 0.85rem; color: var(--muted); }
+
+    .pricing-card { background: #fff; color: #000; border-radius: 24px; padding: 60px 40px; text-align: center; max-width: 500px; margin: 0 auto; box-shadow: 0 30px 60px rgba(0,0,0,0.5); }
+    .pricing-card .price { font-size: 4rem; font-weight: 900; line-height: 1; }
+    .pricing-card .currency { font-size: 1.5rem; vertical-align: super; }
+    .pricing-card .package-name { color: var(--gold); font-weight: 800; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px; }
+    .pricing-card ul { list-style: none; margin: 30px 0; text-align: left; }
+    .pricing-card ul li { margin-bottom: 15px; font-weight: 500; display: flex; gap: 10px; }
+    .btn-close { display: block; background: #000; color: #fff; padding: 20px; border-radius: 12px; font-weight: 800; text-decoration: none; transition: 0.3s; }
+    .btn-close:hover { transform: scale(1.05); }
+
+    .whatsapp-float { position: fixed; bottom: 30px; right: 30px; background: #25D366; color: #fff; padding: 15px 25px; border-radius: 100px; font-weight: 700; text-decoration: none; box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4); display: flex; align-items: center; gap: 10px; z-index: 1000; }
+
+    footer { text-align: center; padding: 60px 20px; border-top: 1px solid var(--border); color: var(--muted); font-size: 0.8rem; }
+  </style>
+</head>
+<body>
+
+<a href="https://wa.me/521XXXXXXXXXX?text=Hola!%20Me%20interesa%20la%20propuesta%20para%20Gnosis%20Mérida" class="whatsapp-float">
+  💬 Contactar Consultor
+</a>
+
+<header>
+  <img src="gnosis_cover.png" alt="Cocina Fictus Proposal" class="hero-img">
+  <div class="hero">
+    <h1>Propuesta de Digitalización</h1>
+    <h2 style="color:var(--accent); font-family:'Playfair Display',serif; font-size:2.5rem; margin-bottom:20px;">Cocina Fictus</h2>
+    <p>Elevando la tradición yucateca a una experiencia digital premium.</p>
+  </div>
+</header>
+
+<section>
+  <h2 class="sec-title">Análisis de Situación Actual</h2>
+  <div class="analysis-grid">
+    <div class="analysis-card">
+      <h4>🔍 Visibilidad en Google Maps</h4>
+      <ul>
+        <li><i class="icon">✗</i> Falta de información de contacto (teléfono/web).</li>
+        <li><i class="icon">✗</i> Perfil incompleto que genera desconfianza.</li>
+        <li><i class="icon">✗</i> Dificultad para que nuevos alumnos localicen el centro.</li>
+      </ul>
+    </div>
+    <div class="analysis-card">
+      <h4>📑 Gestión de Inscripciones</h4>
+      <ul>
+        <li><i class="icon">✗</i> Formularios globales ineficientes (errores de carga).</li>
+        <li><i class="icon">✗</i> Proceso de registro complejo que aleja prospectos.</li>
+        <li><i class="icon">✗</i> Falta de una base de datos local organizada.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="solution-box">
+  <div class="subtitle">Nuestra Solución</div>
+  <h3>Portal de Pedidos Online</h3>
+    <div class="card">
+      <div class="card-title">Análisis de la situación</div>
+      <p>Tras analizar el perfil de <strong>Cocina Fictus</strong>, hemos detectado que su sabor es inmejorable, pero su proceso de venta actual por WhatsApp manual genera fricción y posibles pérdidas de clientes en horas pico.</p>
+    </div>
+  
+  <div class="feature-list">
+    <div class="feature">
+      <h5>Landing Page Premium</h5>
+      <p>Diseño sobrio y elegante enfocado en los beneficios del curso.</p>
+    </div>
+    <div class="feature">
+      <h5>Registro a WhatsApp</h5>
+      <p>Eliminamos fricción: el alumno se registra y te llega su ficha al instante.</p>
+    </div>
+    <div class="feature">
+      <h5>SEO Local Mérida</h5>
+      <p>Aparece primero cuando busquen "cursos de meditación" o "filosofía" en la zona.</p>
+    </div>
+    <div class="feature">
+      <h5>Infraestructura Cloudflare</h5>
+      <p>Velocidad de carga inmediata y seguridad nivel bancario.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2 class="sec-title">Inversión Sugerida</h2>
+  <div class="pricing-card">
+    <div class="package-name">Plan Profesional</div>
+    <div class="price"><span class="currency">$</span>6,500</div>
+    <p style="color:var(--gold); font-weight:700; font-size:0.8rem;">INVERSIÓN ÚNICA · SIN MENSUALIDADES</p>
+    <ul>
+      <li>✅ Sitio Web Centralizado (Gnosis Mérida)</li>
+      <li>✅ Catálogo Detallado de las 23 Clases</li>
+      <li>✅ Sistema de Registro Directo a WhatsApp</li>
+      <li>✅ Dominio .com o .org Gratis (1er año)</li>
+      <li>✅ Optimización de Ficha Google Maps</li>
+      <li>✅ Hosting de Alta Velocidad (Cloudflare)</li>
+    </ul>
+    <a href="https://wa.me/521XXXXXXXXXX?text=Confirmado!%20Comencemos%20con%20el%20Plan%20Profesional%20para%20Gnosis" class="btn-close">¡Comenzar Proyecto Hoy!</a>
+  </div>
+</section>
+
+<section style="text-align:center;">
+  <h2 class="sec-title">¿Cómo empezamos?</h2>
+  <p style="color:var(--muted); margin-bottom:40px;">Entregamos tu portal listo en un máximo de 10 días hábiles.</p>
+  <div style="display:flex; justify-content:center; gap:20px; flex-wrap:wrap;">
+    <div style="padding:20px; border:1px solid var(--border); border-radius:15px; width:200px;">
+      <h3 style="color:var(--gold); margin-bottom:10px;">50%</h3>
+      <p style="font-size:0.8rem;">Anticipo para reservar lugar y diseño inicial.</p>
+    </div>
+    <div style="padding:20px; border:1px solid var(--border); border-radius:15px; width:200px;">
+      <h3 style="color:var(--gold); margin-bottom:10px;">50%</h3>
+      <p style="font-size:0.8rem;">A la entrega final y capacitación de uso.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p><strong>ANTIGRAVITY WEB</strong> — Digitalizando la sabiduría local.</p>
+  <p>Comarca Lagunera - Mérida - 2025</p>
+</footer>
+
+</body>
+</html>
