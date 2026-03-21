@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LUMINA | Dental Studio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        :root {
+            --bg: #FFFFFF;
+            --surface: #F8FAF9;
+            --text-dark: #1A1A1A;
+            --text-light: #737373;
+            --brand-main: #34E0A1; /* Vivid Mint / Cyan */
+            --brand-dark: #00AB76;
+            --font: 'Outfit', sans-serif;
+            --radius: 24px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: var(--font); color: var(--text-dark); background: var(--bg); overflow-x: hidden;
+        }
+
+        /* Nav */
+        nav {
+            padding: 30px 5%; display: flex; justify-content: space-between; align-items: center; position: absolute; width: 100%; z-index: 10;
+        }
+        .logo { font-size: 1.5rem; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; }
+        .logo span { color: var(--brand-dark); }
+        .hamburger { display: flex; flex-direction: column; gap: 6px; cursor: pointer; }
+        .hamburger span { display: block; width: 30px; height: 2px; background: var(--text-dark); border-radius: 2px; }
+        .hamburger span:nth-child(2) { width: 20px; align-self: flex-end; }
+
+        /* Layout Split */
+        .wrapper { display: flex; min-height: 100vh; }
+        .left-panel { flex: 1; padding: 150px 8% 80px; display: flex; flex-direction: column; justify-content: center; }
+        .right-panel { flex: 1; position: relative; padding: 30px; }
+
+        .image-container { width: 100%; height: 100%; border-radius: var(--radius); overflow: hidden; position: relative; box-shadow: 0 40px 80px rgba(0, 171, 118, 0.15); }
+        .image-container img { width: 100%; height: 100%; object-fit: cover; }
+        
+        .overlay-card {
+            position: absolute; bottom: 40px; left: -50px; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(20px); padding: 30px; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.08); display: flex; gap: 20px; align-items: center; max-width: 380px;
+        }
+        .icon-circle { width: 60px; height: 60px; border-radius: 50%; background: var(--surface); display: flex; justify-content: center; align-items: center; color: var(--brand-dark); }
+        .overlay-card p { font-size: 0.95rem; font-weight: 600; line-height: 1.4; margin-bottom: 5px;}
+        .overlay-card span { font-size: 0.8rem; color: var(--text-light); }
+
+        h1 { font-size: 5rem; font-weight: 800; line-height: 1; margin-bottom: 30px; letter-spacing: -2px;}
+        h1 span { font-weight: 300; display: block; color: var(--brand-dark); }
+
+        p.desc { font-size: 1.2rem; color: var(--text-light); line-height: 1.6; margin-bottom: 50px; max-width: 450px; font-weight: 300; }
+
+        .btn-modern {
+            padding: 20px 40px; background: var(--text-dark); color: #fff; text-decoration: none; border-radius: 100px; font-weight: 600; font-size: 1rem; transition: 0.4s ease; display: inline-flex; align-items: center; gap: 10px; border: 1px solid var(--text-dark);
+        }
+        .btn-modern:hover { background: var(--bg); color: var(--text-dark); }
+        .btn-modern.outline { background: transparent; color: var(--text-dark); margin-left: 15px; }
+        .btn-modern.outline:hover { background: var(--surface); border-color: var(--surface); }
+
+        /* Stats */
+        .stats { display: flex; gap: 40px; margin-top: 80px; }
+        .stat-item h4 { font-size: 2.5rem; font-weight: 800; margin-bottom: 5px; color: var(--brand-dark); }
+        .stat-item p { font-size: 0.9rem; color: var(--text-light); font-weight: 600; text-transform: uppercase; letter-spacing: 1px;}
+        
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">LUMINA<span>.</span></div>
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <div class="wrapper">
+        <div class="left-panel">
+            <h1>Diseñamos <span>Sonrisas</span></h1>
+            <p class="desc">Odontología estética avanzada sin dolor, ni ansiedad. Experimenta el nuevo estándar de clínicas dentales boutique en Mérida.</p>
+            
+            <div class="buttons">
+                <a href="#" class="btn-modern">Agendar Valoración <i data-lucide="arrow-right"></i></a>
+                <a href="#" class="btn-modern outline"><i data-lucide="play-circle"></i> Ver Caso Clínico</a>
+            </div>
+
+            <div class="stats">
+                <div class="stat-item">
+                    <h4>+1,200</h4>
+                    <p>Diseños Perfectos</p>
+                </div>
+                <div class="stat-item">
+                    <h4>4D</h4>
+                    <p>Tecnología Láser</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="right-panel">
+            <div class="image-container">
+                <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?q=80&w=1500&auto=format&fit=crop" alt="Smile Design">
+                
+                <div class="overlay-card">
+                    <div class="icon-circle"><i data-lucide="smile"></i></div>
+                    <div>
+                        <p>"Simplemente no sentí nada. Una experiencia de lujo desde que cruzas la puerta."</p>
+                        <span>— Mariana T., Carillas de Porcelana</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- WhatsApp Fast Trigger -->
+    <a href="https://wa.me/521" style="position:fixed; bottom: 30px; right: 30px; background:#25D366; color:white; width: 60px; height: 60px; border-radius:50%; display:flex; justify-content:center; align-items:center; z-index:100; box-shadow: 0 10px 20px rgba(37,211,102,0.4)"><i data-lucide="message-circle" style="fill:white"></i></a>
+
+    <script>lucide.createIcons();</script>
+</body>
+</html>

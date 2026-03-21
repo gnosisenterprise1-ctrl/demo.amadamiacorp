@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maison | Beauty & Spa</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        :root {
+            --bg: #F8F3ED; /* Arena/Hueso */
+            --ink: #2b2725;
+            --rose: #D1B3AD;
+            --sand: #e6dfd5;
+            --font-display: 'Playfair Display', serif;
+            --font-body: 'Jost', sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body { font-family: var(--font-body); color: var(--ink); background: var(--bg); font-weight: 300; }
+
+        /* Elegante Menu Horizontal */
+        nav { padding: 40px 10%; display: flex; justify-content: center; gap: 80px; text-transform: uppercase; letter-spacing: 3px; font-size: 0.8rem; border-bottom: 1px solid var(--sand); }
+        nav a { color: var(--ink); text-decoration: none; position: relative; }
+        nav a.brand { font-family: var(--font-display); font-size: 1.5rem; letter-spacing: 5px; font-weight: 500; text-transform: none; }
+        
+        .magazine-hero {
+            display: flex; height: calc(100vh - 110px); padding: 50px 10%; gap: 50px;
+        }
+
+        .img-editorial { flex: 1; position: relative; }
+        .img-editorial img { width: 100%; height: 100%; object-fit: cover; border-radius: 200px 200px 0 0; }
+        
+        .hero-copy {
+            flex: 1; display: flex; flex-direction: column; justify-content: center;
+        }
+
+        .tagline { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 4px; color: var(--rose); margin-bottom: 20px;}
+        h1 { font-family: var(--font-display); font-size: 5rem; font-weight: 400; line-height: 1.1; margin-bottom: 30px; letter-spacing: -1px; }
+        h1 em { color: var(--rose); }
+
+        .desc-text {
+            font-size: 1.1rem; line-height: 1.8; color: #666; margin-bottom: 50px; max-width: 400px;
+        }
+
+        .btn-chic {
+            border: 1px solid var(--ink); color: var(--ink); text-transform: uppercase; letter-spacing: 2px; padding: 20px 40px; text-decoration: none; font-size: 0.8rem; display: inline-block; width: max-content; transition: 0.4s ease;
+        }
+        .btn-chic:hover { background: var(--ink); color: var(--bg); }
+
+        /* Floating Appointments */
+        .agenda-widget { position: fixed; right: 0; bottom: 10vh; background: #fff; padding: 30px; width: 350px; box-shadow: -20px 20px 50px rgba(0,0,0,0.05); border-radius: 20px 0 0 20px; z-index: 100; transform: translateX(280px); transition: 0.5s cubic-bezier(0.25, 1, 0.5, 1); cursor: pointer; display: flex; gap: 20px; align-items: center;}
+        
+        .agenda-widget:hover { transform: translateX(0); }
+        .widget-icon { writing-mode: vertical-rl; text-transform: uppercase; letter-spacing: 2px; font-size: 0.8rem; transform: rotate(180deg); opacity: 0.5; }
+
+        .widget-content { flex: 1; }
+        .widget-content h4 { font-family: var(--font-display); font-size: 1.5rem; margin-bottom: 15px; font-weight: 400;}
+        .dates { display: flex; gap: 10px; margin-bottom: 15px; }
+        .date { border: 1px solid var(--sand); padding: 10px; border-radius: 8px; text-align: center; flex: 1; transition: 0.3s; }
+        .date:hover { border-color: var(--ink); background: var(--ink); color: var(--bg); }
+        .date span { display: block; font-size: 0.7rem; text-transform: uppercase; }
+        .date strong { font-size: 1.2rem; font-family: var(--font-display); }
+
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#">Tratamientos</a>
+        <a href="#" class="brand">Maison.</a>
+        <a href="#">La Experiencia</a>
+    </nav>
+
+    <div class="magazine-hero">
+        <div class="hero-copy">
+            <div class="tagline">Premium Hair & Spa Boutique</div>
+            <h1>El arte del <em>cuidado</em> personal.</h1>
+            <p class="desc-text">Escapa de la rutina en un santuario dedicado a tu belleza. Diseños de color precisos, tratamientos relajantes y una estética atemporal.</p>
+            <a href="#" class="btn-chic">Agendar Sesión</a>
+        </div>
+        <div class="img-editorial">
+            <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?q=80&w=1500&auto=format&fit=crop" alt="Spa Experience">
+        </div>
+    </div>
+
+    <!-- Interactive slide-out widget -->
+    <div class="agenda-widget">
+        <div class="widget-icon">Reservar</div>
+        <div class="widget-content">
+            <h4>Agenda Inmediata</h4>
+            <div class="dates">
+                <div class="date"><span>Mañana</span><strong>9:00</strong></div>
+                <div class="date"><span>Mañana</span><strong>11:30</strong></div>
+            </div>
+            <p style="font-size: 0.8rem; color: #888;">Reserva segura vía WhatsApp</p>
+        </div>
+    </div>
+
+    <script>lucide.createIcons();</script>
+</body>
+</html>

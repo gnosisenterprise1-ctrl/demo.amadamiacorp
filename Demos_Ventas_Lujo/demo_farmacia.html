@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pharma | Entrega Rápida</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        :root {
+            --bg: #F5FAF8;
+            --surface: #FFFFFF;
+            --text-dark: #1F2937;
+            --mint-light: #E0F2EC;
+            --mint: #10B981;
+            --mint-dark: #047857;
+            --font: 'Plus Jakarta Sans', sans-serif;
+            --radius-lg: 24px;
+            --radius-md: 12px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body { font-family: var(--font); color: var(--text-dark); background: var(--bg); }
+
+        nav { padding: 25px 5%; display: flex; justify-content: space-between; align-items: center; background: var(--bg); position: sticky; top: 0; z-index: 50; }
+        .logo { font-size: 1.8rem; font-weight: 800; color: var(--mint-dark); display: flex; align-items: center; gap: 8px;}
+        
+        .search-bar { background: var(--surface); border-radius: 100px; padding: 5px; display: flex; width: 500px; box-shadow: 0 4px 6px rgba(0,0,0,0.02); }
+        .search-bar input { border: none; padding: 15px 25px; width: 100%; border-radius: 100px; outline: none; font-family: var(--font); font-size: 1rem;}
+        .search-btn { background: var(--mint); color: #fff; border: none; width: 50px; height: 50px; border-radius: 50%; cursor: pointer; display: flex; justify-content: center; align-items: center;}
+        
+        .hero { padding: 60px 10%; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+        .hero h1 { font-size: 3.5rem; font-weight: 800; line-height: 1.1; margin-bottom: 20px; color: var(--text-dark); }
+        .hero h1 span { color: var(--mint); }
+        .hero p { font-size: 1.1rem; color: #4B5563; line-height: 1.6; margin-bottom: 40px; }
+        
+        .featured-products { padding: 50px 10%; }
+        .featured-products h2 { font-size: 2rem; margin-bottom: 30px; font-weight: 800; }
+        
+        .product-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; }
+        
+        .product-card { background: var(--surface); padding: 20px; border-radius: var(--radius-lg); box-shadow: 0 10px 25px rgba(0,0,0,0.03); transition: 0.3s ease; display: flex; flex-direction: column;}
+        .product-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.06); }
+        
+        .card-img { width: 100%; height: 200px; background: var(--bg); border-radius: var(--radius-md); margin-bottom: 20px; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+        .card-img img { max-width: 80%; height: auto; object-fit: contain; mix-blend-mode: multiply; }
+        
+        .card-title { font-weight: 600; font-size: 1.1rem; margin-bottom: 5px;}
+        .card-desc { font-size: 0.85rem; color: #6B7280; margin-bottom: 15px; flex-grow: 1; }
+        .card-price { font-weight: 800; font-size: 1.3rem; color: var(--mint-dark); margin-bottom: 15px; }
+        
+        .btn-add { background: var(--mint-light); color: var(--mint-dark); border: none; padding: 12px; border-radius: var(--radius-md); font-weight: 600; font-family: var(--font); cursor: pointer; transition: 0.3s; width: 100%; }
+        .btn-add:hover { background: var(--mint); color: #fff; }
+
+        .prescription-box { background: var(--mint-dark); border-radius: var(--radius-lg); padding: 40px; color: #fff; margin: 40px 10%; display: flex; align-items: center; justify-content: space-between; }
+        .p-text h3 { font-size: 2rem; margin-bottom: 10px; }
+        .p-btn { background: #fff; color: var(--mint-dark); padding: 15px 30px; border-radius: 100px; text-decoration: none; font-weight: 800; display: inline-flex; align-items: center; gap: 10px; }
+
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo"><i data-lucide="cross"></i> Pharma</div>
+        <div class="search-bar">
+            <input type="text" placeholder="Buscar paracetamol, vitaminas...">
+            <button class="search-btn"><i data-lucide="search" size="20"></i></button>
+        </div>
+        <div style="display: flex; gap: 20px; align-items: center;">
+            <i data-lucide="shopping-cart"></i>
+            <span style="font-weight: 800;">$0.00</span>
+        </div>
+    </nav>
+
+    <div class="hero">
+        <div>
+            <h1>Medicamentos en tu puerta en <span>30 minutos.</span></h1>
+            <p>Conecta tu receta médica con nuestra API o pide tus productos de mostrador directamente desde nuestro catálogo inteligente. Envío gratis en tu primera compra.</p>
+        </div>
+        <div>
+            <img src="https://images.unsplash.com/photo-1584308666744-24d5e1819d45?q=80&w=1000&auto=format&fit=crop" style="width: 100%; border-radius: 24px;" alt="Delivery">
+        </div>
+    </div>
+
+    <div class="prescription-box">
+        <div class="p-text">
+            <h3>¿Tienes Receta Médica?</h3>
+            <p>Súbela directamente a nuestro WhatsApp y procesaremos el surtido inmediato.</p>
+        </div>
+        <a href="#" class="p-btn"><i data-lucide="upload-cloud"></i> Cargar Receta</a>
+    </div>
+
+    <section class="featured-products">
+        <h2>Populares esta temporada</h2>
+        <div class="product-grid">
+            <div class="product-card">
+                <div class="card-img"><img src="https://images.unsplash.com/photo-1550572017-cedce4cfc328?q=80&w=500&auto=format&fit=crop" alt="Vitaminas"></div>
+                <div class="card-title">Vitamina C + Zinc 500mg</div>
+                <div class="card-desc">Frasco con 60 cápsulas. Fortalece el sistema inmune.</div>
+                <div class="card-price">$285.00</div>
+                <button class="btn-add">Añadir al carrito</button>
+            </div>
+        </div>
+    </section>
+
+    <script>lucide.createIcons();</script>
+</body>
+</html>

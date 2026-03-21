@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TITAN | Performance Gym</title>
+    <link href="https://fonts.googleapis.com/css2?family=Teko:wght@600;700&family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        :root {
+            --neon: #CCFF00;
+            --black: #000000;
+            --dark: #111111;
+            --text: #FFFFFF;
+            --font-head: 'Teko', sans-serif;
+            --font-body: 'Montserrat', sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: var(--font-body); color: var(--text); background: var(--black); overflow-x: hidden; }
+
+        nav { padding: 30px 5%; display: flex; justify-content: space-between; align-items: center; position: absolute; width: 100%; z-index: 100;}
+        .logo { font-family: var(--font-head); font-size: 3rem; letter-spacing: 2px; line-height: 1; }
+        .logo span { color: var(--neon); }
+
+        .btn-neon { background: var(--neon); color: var(--black); font-family: var(--font-head); font-size: 1.5rem; text-transform: uppercase; padding: 10px 30px; text-decoration: none; border: 2px solid var(--neon); display: inline-block; cursor: pointer; transition: 0.3s; transform: skewX(-15deg);}
+        .btn-neon span { display: inline-block; transform: skewX(15deg); }
+        .btn-neon:hover { background: transparent; color: var(--neon); box-shadow: 0 0 20px rgba(204, 255, 0, 0.4);}
+
+        .hero { height: 100vh; position: relative; display: flex; flex-direction: column; justify-content: center; padding: 0 5%; }
+        
+        .hero-video-bg { position: absolute; top:0; left:0; width:100%; height:100%; object-fit: cover; z-index: -2; opacity: 0.5; filter: grayscale(100%) contrast(1.2); }
+        /* Using an image as video placeholder for demo */
+        
+        .overlay-gradient { position: absolute; top:0; left:0; width: 100%; height: 100%; background: linear-gradient(180deg, rgba(0,0,0,0) 0%, var(--black) 100%); z-index: -1; }
+
+        .hero-content { position: relative; z-index: 10; max-width: 800px;}
+        h1 { font-family: var(--font-head); font-size: 9rem; line-height: 0.8; text-transform: uppercase; margin-bottom: 20px;}
+        h1 em { color: var(--neon); font-style: normal; }
+
+        p.sub-hero { font-size: 1.2rem; font-weight: 400; letter-spacing: 1px; line-height: 1.6; margin-bottom: 40px; max-width: 500px; color: #AAA;}
+
+        /* Scrolling Marquee */
+        .marquee-container { background: var(--neon); padding: 10px 0; border-top: 2px solid #000; border-bottom: 2px solid #000; transform: rotate(-2deg) scale(1.05); position: absolute; bottom: 80px; left: 0; width: 100%; z-index: 20;}
+        .marquee { font-family: var(--font-head); font-size: 2.5rem; color: var(--black); text-transform: uppercase; white-space: nowrap; overflow: hidden; display: flex;}
+        .marquee span { padding-right: 50px; animation: scrollLeft 10s linear infinite; }
+        @keyframes scrollLeft { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
+
+        /* Memberships fast access */
+        .bottom-bar { position: absolute; bottom: 0; left: 0; width: 100%; padding: 20px 5%; display: flex; justify-content: flex-end; z-index: 30;}
+        
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">TITAN<span>.</span></div>
+    </nav>
+
+    <div class="hero">
+        <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=2000&auto=format&fit=crop" class="hero-video-bg" alt="Gym Workout">
+        <div class="overlay-gradient"></div>
+
+        <div class="hero-content">
+            <h1>Sin<br> <em>Excusas.</em></h1>
+            <p class="sub-hero">Equipamiento hammer strength, zona de pesas de alto rendimiento y asesoría real. Para los que vienen a trabajar, no a tomarse fotos.</p>
+            <a href="#" class="btn-neon"><span>Inscríbete Hoy</span></a>
+        </div>
+    </div>
+
+    <div class="marquee-container">
+        <div class="marquee">
+            <span>// PRIMERA CLASE GRATIS // ALTO RENDIMIENTO // COACHING 1:1 // EQUIPO OLÍMPICO // ABIERTO 24/7 //</span>
+            <span>// PRIMERA CLASE GRATIS // ALTO RENDIMIENTO // COACHING 1:1 // EQUIPO OLÍMPICO // ABIERTO 24/7 //</span>
+        </div>
+    </div>
+
+    <!-- WhatsApp Floating Action -->
+    <a href="https://wa.me/521" style="position:fixed; bottom: 40px; right: 5%; background: var(--dark); border: 2px solid var(--neon); color: var(--neon); width: 60px; height: 60px; border-radius: 50%; display: flex; justify-content: center; align-items: center; z-index: 100; transition: 0.3s; cursor: pointer;">
+        <i data-lucide="message-circle" size="24"></i>
+    </a>
+
+    <script>lucide.createIcons();</script>
+</body>
+</html>
