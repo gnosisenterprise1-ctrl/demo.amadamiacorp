@@ -1055,3 +1055,14 @@ footer {
     opacity: 1;
     transform: translateY(0);
 }
+
+/* FontAwesome Icon Colors */
+.visual-icon i, .servicio-icon i, .paquete-icon i, .extra-icon i, .difer-icon i, .contact-icon i {
+    color: var(--primary);
+}
+.fa-whatsapp {
+    color: #25D366 !important;
+}
+.fa-star {
+    color: #F59E0B !important; /* Dorado para las estrellas */
+}
