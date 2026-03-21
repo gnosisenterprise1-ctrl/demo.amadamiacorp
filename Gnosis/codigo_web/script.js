@@ -128,7 +128,7 @@ function initFormHandler() {
                 whatsappMessage += `%0A*Mensaje:*%0A${data.mensaje}`;
             }
             
-            const whatsappNumber = '9999999999';
+            const whatsappNumber = '525532521938';
             window.open(`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`, '_blank');
             
             const submitBtn = form.querySelector('button[type="submit"]');

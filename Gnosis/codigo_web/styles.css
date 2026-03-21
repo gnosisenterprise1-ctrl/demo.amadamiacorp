@@ -1,7 +1,7 @@
 :root {
-    --primary: #556B2F;
-    --primary-light: #6A823B;
-    --secondary: #001F3F;
+    --primary: #001F3F;
+    --primary-light: #1A3A5A;
+    --secondary: #556B2F;
     --accent: #A52A2A;
     --accent-light: #000000;
     --text-dark: #000000;
@@ -87,14 +87,14 @@ h4 { font-size: 1.25rem; }
 }
 
 .btn-secondary {
-    background: transparent;
-    color: var(--secondary);
-    border: 2px solid var(--border);
+    background: var(--secondary);
+    color: white;
+    border: 2px solid var(--secondary);
 }
 
 .btn-secondary:hover {
-    border-color: var(--primary);
-    color: var(--primary);
+    background: transparent;
+    color: var(--secondary);
 }
 
 .btn-outline {
@@ -139,6 +139,13 @@ h4 { font-size: 1.25rem; }
     font-weight: 800;
     color: var(--secondary);
     letter-spacing: -0.5px;
+}
+
+.logo-img {
+    height: 44px;
+    width: auto;
+    object-fit: contain;
+    display: block;
 }
 
 .nav-links {
@@ -323,7 +330,7 @@ h4 { font-size: 1.25rem; }
     font-size: 3rem;
     font-weight: 800;
     display: block;
-    color: var(--accent-light);
+    color: var(--bg-light);
 }
 
 .stat-item p {
