@@ -10,6 +10,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Calendly widget -->
+    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+    <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
 </head>
 <body>
     <nav class="navbar">
@@ -19,12 +22,17 @@
             </a>
             <ul class="nav-links">
                 <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="servicios.html">Servicios</a></li>
+                <li><a href="portafolio.html">Portafolio</a></li>
+                <li><a href="nosotros.html">Nosotros</a></li>
                 <li><a href="#precios">Paquetes</a></li>
-                <li><a href="#extras">Extras</a></li>
                 <li><a href="#contacto">Contacto</a></li>
             </ul>
             <a href="#contacto" class="btn btn-primary">Cotiza gratis</a>
+            <button class="cart-toggle-btn" id="cartToggleBtn" onclick="toggleCart()" title="Ver carrito">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span class="cart-badge" id="cartBadge">0</span>
+            </button>
             <button class="mobile-menu" id="mobileMenu">
                 <span></span>
                 <span></span>
@@ -190,7 +198,9 @@
                         <li>Entrega en 4 días hábiles</li>
                     </ul>
                     <p class="paquete-note">*Dominio aprox. $400-600/año por tu cuenta</p>
-                    <a href="#contacto" class="btn btn-outline">Elegir Escaparate</a>
+                    <button class="btn btn-outline" onclick="addToCart('Escaparate Digital', 3500, 'Una landing page de alto impacto lista en 4 días.')">
+                        <i class="fa-solid fa-cart-plus"></i> Agregar al Carrito
+                    </button>
                 </div>
 
                 <div class="paquete-card popular fade-in" data-paquete="maquina">
@@ -214,7 +224,9 @@
                         <li><strong>Dominio .com gratis 1 año</strong></li>
                     </ul>
                     <p class="paquete-note">50% anticipo, 50% a los 10 días</p>
-                    <a href="#contacto" class="btn btn-primary">Elegir Máquina de Ventas</a>
+                    <button class="btn btn-primary" onclick="addToCart('Máquina de Ventas', 6500, 'Micrositio completo con catálogo, agenda y SEO local.')">
+                        <i class="fa-solid fa-cart-plus"></i> Agregar al Carrito
+                    </button>
                 </div>
 
                 <div class="paquete-card fade-in" data-paquete="premium">
@@ -239,7 +251,9 @@
                         <li>Entrega en 3 semanas</li>
                     </ul>
                     <p class="paquete-note">50% anticipo, 50% a la entrega</p>
-                    <a href="#contacto" class="btn btn-outline">Elegir Premium</a>
+                    <button class="btn btn-outline" onclick="addToCart('Embudo Premium', 12000, 'Ecosistema completo con CRM, blog SEO y galería avanzada.')">
+                        <i class="fa-solid fa-cart-plus"></i> Agregar al Carrito
+                    </button>
                 </div>
             </div>
 
@@ -377,8 +391,8 @@
             <div class="difer-grid">
                 <div class="difer-card fade-in">
                     <div class="difer-icon"><i class="fa-solid fa-location-dot"></i></div>
-                    <h3>Locales en Mérida</h3>
-                    <p>Conocemos la zona. Te podemos ayudar en persona si lo necesitas.</p>
+                    <h3>Visita a tu negocio</h3>
+                    <p>Te visitamos personalmente, sin costo. Vemos tu negocio en vivo para adaptar la página a tus necesidades reales.</p>
                 </div>
                 <div class="difer-card fade-in">
                     <div class="difer-icon"><i class="fa-brands fa-whatsapp"></i></div>
@@ -395,6 +409,22 @@
                     <h3>Sin rentas</h3>
                     <p>Pagas una vez y es tuyo. Sin cobros mensuales forever.</p>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== VISITA GRATUITA BANNER ====== -->
+    <section class="visita-banner">
+        <div class="container">
+            <div class="visita-banner-inner fade-in">
+                <div class="visita-banner-icon">🏪</div>
+                <div class="visita-banner-text">
+                    <h3>Te visitamos en tu negocio — sin costo</h3>
+                    <p>Antes de diseñar tu página, nos presentamos personalmente en tu negocio. Sin costo y sin compromiso. Así conocemos de primera mano cómo trabajas, qué necesitas y cómo podemos adaptar la página web a la realidad de tu empresa — no a un molde genérico.</p>
+                </div>
+                <a href="#contacto" class="btn btn-primary btn-lg visita-banner-btn">
+                    <i class="fa-solid fa-calendar-check"></i> Agendar visita gratis
+                </a>
             </div>
         </div>
     </section>
@@ -432,6 +462,13 @@
 
                     <div class="urgencia-box">
                         <p>¿Tienes prisa? Dinos qué necesitas y te cotizamos en <strong>menos de 1 hora</strong>.</p>
+                    </div>
+
+                    <div class="calendly-cta" style="margin-top:1.5rem;">
+                        <p style="margin-bottom: 0.75rem; font-weight: 600;"><i class="fa-solid fa-calendar-check" style="color: var(--primary); margin-right: 6px;"></i>¿Prefieres agendar una llamada?</p>
+                        <a href="#" onclick="Calendly.initPopupWidget({url:'https://calendly.com/gnosis-merida/consultoria'});return false;" class="btn btn-secondary btn-block">
+                            <i class="fa-regular fa-calendar"></i> Agendar Consultoría Gratis
+                        </a>
                     </div>
                 </div>
                 <div class="contact-form fade-in">
@@ -508,6 +545,112 @@
             </div>
         </div>
     </footer>
+
+    <!-- Cart Sidebar Overlay -->
+    <div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+    
+    <!-- Cart Sidebar -->
+    <aside class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3><i class="fa-solid fa-cart-shopping"></i> Tu Carrito</h3>
+            <button class="cart-close-btn" onclick="toggleCart()">&times;</button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <div class="cart-empty" id="cartEmpty">
+                <i class="fa-solid fa-box-open"></i>
+                <p>Tu carrito está vacío</p>
+                <small>Agrega un paquete para continuar</small>
+            </div>
+        </div>
+        <div class="cart-footer" id="cartFooter" style="display:none;">
+            <div class="cart-total-row">
+                <span>Anticipo (50%): </span>
+                <strong class="cart-total-price" id="cartAnticipo">$0 MXN</strong>
+            </div>
+            <div class="cart-total-row" style="margin-bottom:1.5rem;">
+                <span>Total del paquete: </span>
+                <strong id="cartTotal">$0 MXN</strong>
+            </div>
+            <button class="btn btn-primary btn-block" onclick="openCheckout()">
+                <i class="fa-solid fa-lock"></i> Pagar Anticipo Online
+            </button>
+            <button class="btn btn-secondary btn-block" style="margin-top:0.75rem;" onclick="sendCartWhatsApp()">
+                <i class="fa-brands fa-whatsapp"></i> Agendar por WhatsApp
+            </button>
+            <p class="cart-disclaimer">* Pagas solo el 50% de anticipo ahora. El 50% restante al recibir tu página.</p>
+        </div>
+    </aside>
+
+    <!-- Checkout Modal -->
+    <div class="gnosis-modal-overlay" id="checkoutModal">
+        <div class="gnosis-modal">
+            <div class="gnosis-modal-header">
+                <h3><i class="fa-solid fa-lock" style="color:var(--primary);"></i> Pago Seguro</h3>
+                <button class="cart-close-btn" onclick="closeGnosisModals()">&times;</button>
+            </div>
+            <div class="checkout-summary" id="checkoutSummary"></div>
+            <form id="gnosisPaymentForm" onsubmit="processGnosisPayment(event)">
+                <div class="form-group">
+                    <label>Nombre Completo *</label>
+                    <input type="text" id="gnosis-client-name" required placeholder="Como aparece en tu tarjeta">
+                </div>
+                <div class="form-group">
+                    <label>Nombre del Negocio *</label>
+                    <input type="text" id="gnosis-business-name" required placeholder="¿Cómo se llama tu negocio?">
+                </div>
+                <div class="form-group">
+                    <label>Número de Tarjeta *</label>
+                    <input type="text" id="gnosis-card" maxlength="19" required placeholder="1234 5678 9012 3456" oninput="formatCardNumber(this)">
+                </div>
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+                    <div class="form-group">
+                        <label>Vencimiento *</label>
+                        <input type="text" placeholder="MM/AA" required maxlength="5" oninput="formatExpiry(this)">
+                    </div>
+                    <div class="form-group">
+                        <label>CVV *</label>
+                        <input type="password" placeholder="123" required maxlength="4">
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block" id="gnosis-pay-btn">
+                    <span id="gnosis-pay-text"><i class="fa-solid fa-lock"></i> Confirmar Pago</span>
+                    <span id="gnosis-pay-spinner" class="gnosis-spinner" style="display:none;"></span>
+                </button>
+                <p style="text-align:center;font-size:0.8rem;color:var(--text-muted);margin-top:1rem;">
+                    <i class="fa-solid fa-shield-halved"></i> Transacción segura y encriptada
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Receipt Modal -->
+    <div class="gnosis-modal-overlay" id="receiptModal">
+        <div class="gnosis-modal receipt-modal" id="gnosis-print-area">
+            <div class="receipt-success-header">
+                <div class="success-check"><i class="fa-solid fa-check"></i></div>
+                <h3>¡Anticipo Recibido!</h3>
+                <p>Comenzamos a trabajar en tu proyecto de inmediato.</p>
+            </div>
+            <div class="receipt-body">
+                <div class="receipt-row-g"><span>ID Transacción:</span><strong id="g-receipt-txn">—</strong></div>
+                <div class="receipt-row-g"><span>Fecha y hora:</span><strong id="g-receipt-date">—</strong></div>
+                <div class="receipt-row-g"><span>Cliente:</span><strong id="g-receipt-client">—</strong></div>
+                <div class="receipt-row-g"><span>Negocio:</span><strong id="g-receipt-biz">—</strong></div>
+                <div class="receipt-row-g"><span>Paquete:</span><strong id="g-receipt-plan">—</strong></div>
+                <div class="receipt-row-g receipt-total"><span>Anticipo (50%) Pagado:</span><strong id="g-receipt-amount" style="color:var(--primary);">—</strong></div>
+            </div>
+            <p style="font-size:0.85rem;color:var(--text-muted);text-align:center;margin-bottom:1.5rem;">
+                Guarda este comprobante. Nos contactaremos en las próximas horas para iniciar tu proyecto.
+            </p>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;" class="no-print">
+                <button class="btn btn-secondary" onclick="window.print()"><i class="fa-solid fa-print"></i> Imprimir</button>
+                <button class="btn btn-primary" onclick="sendGnosisReceiptWhatsApp()" style="background:#25D366;border-color:#25D366;">
+                    <i class="fa-brands fa-whatsapp"></i> Notificar al Equipo
+                </button>
+            </div>
+            <button class="cart-close-btn no-print" onclick="closeGnosisModals()" style="position:absolute;top:15px;right:15px;">&times;</button>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>

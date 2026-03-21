@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Padrino's Fitness & Muscle | Sitio Oficial</title>
+    <meta name="description" content="Bienvenido a Padrino's Fitness & Muscle. Transforma tu cuerpo y mente con los mejores entrenadores e instalaciones.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Calendly Link Widget Dependencies -->
+    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+    <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">PADRINO'S</a>
+            <div class="nav-links">
+                <a href="#inicio">Inicio</a>
+                <a href="#nosotros">Nosotros</a>
+                <a href="#clases">Clases</a>
+                <a href="#precios">Precios</a>
+                <a href="#instalaciones">Instalaciones</a>
+                <a href="#contacto" class="btn-primary" style="padding: 0.5rem 1rem;">Contacto</a>
+            </div>
+            <button class="mobile-menu-btn">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <a href="#inicio">Inicio</a>
+        <a href="#nosotros">Nosotros</a>
+        <a href="#clases">Clases</a>
+        <a href="#precios">Precios</a>
+        <a href="#instalaciones">Instalaciones</a>
+        <a href="#contacto">Contacto</a>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content reveal">
+            <h1>TRANSFORMA TU <span class="highlight">VIDA</span></h1>
+            <p>Únete a Padrino's Fitness & Muscle y alcanza tus metas con el mejor equipo y ambiente.</p>
+            <div class="hero-btns">
+                <a href="#contacto" class="btn-primary">Empieza Hoy</a>
+                <a href="#clases" class="btn-secondary">Ver Clases</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="nosotros" class="about">
+        <div class="container grids-2">
+            <div class="about-image reveal">
+                <img src="https://padrinosfitnessandmuscle.com.mx/img/CarruselPrincipal/2FINAL.jpg" alt="Entrenador del Gimnasio" class="img-fluid rounded shadow">
+            </div>
+            <div class="about-text reveal">
+                <span class="section-subtitle">CONÓCENOS</span>
+                <h2>Más que un gimnasio, una <br/><span class="highlight">Comunidad</span></h2>
+                <p>En Padrino's Fitness & Muscle nos enfocamos en brindarte la mejor experiencia de entrenamiento. Contamos con equipo de última generación y profesionales apasionados por el fitness.</p>
+                <ul class="features-list">
+                    <li><i data-lucide="check-circle-2"></i> Entrenadores Certificados</li>
+                    <li><i data-lucide="check-circle-2"></i> Equipo de Alta Gama</li>
+                    <li><i data-lucide="check-circle-2"></i> Ambiente Motivador</li>
+                    <li><i data-lucide="check-circle-2"></i> Flexibilidad de Horarios</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Classes/Services Section -->
+    <section id="clases" class="classes bg-alt">
+        <div class="container text-center reveal">
+            <span class="section-subtitle">NUESTROS SERVICIOS</span>
+            <h2>Encuentra tu <span class="highlight">Pasión</span></h2>
+            
+            <div class="classes-grid">
+                <!-- Class 1 -->
+                <div class="class-card">
+                    <img src="https://padrinosfitnessandmuscle.com.mx/img/CarruselPrincipal/3FINAL.jpg" alt="Clase de Cardio" class="card-img">
+                    <div class="class-content">
+                        <div class="class-icon"><i data-lucide="activity"></i></div>
+                        <h3>Cardio & HIIT</h3>
+                        <p>Quema calorías y mejora tu resistencia cardiovascular con nuestras sesiones intensas.</p>
+                    </div>
+                </div>
+                <!-- Class 2 -->
+                <div class="class-card">
+                    <img src="https://padrinosfitnessandmuscle.com.mx/img/CarruselPrincipal/4FINAL.jpg" alt="Levantamiento de Pesas" class="card-img">
+                    <div class="class-content">
+                        <div class="class-icon"><i data-lucide="dumbbell"></i></div>
+                        <h3>Pesas y Fuerza</h3>
+                        <p>Zona dedicada al levantamiento con equipo de primer nivel para construir músculo.</p>
+                    </div>
+                </div>
+                <!-- Class 3 -->
+                <div class="class-card">
+                    <img src="https://padrinosfitnessandmuscle.com.mx/img/CarruselPrincipal/5FINAL.jpg" alt="Clases Grupales" class="card-img">
+                    <div class="class-content">
+                        <div class="class-icon"><i data-lucide="users"></i></div>
+                        <h3>Clases Grupales</h3>
+                        <p>Zumba, Yoga, Spinning y más. Entrena en grupo y mantén la motivación alta.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Precios Section -->
+    <section id="precios" class="pricing">
+        <div class="container text-center">
+            <span class="section-subtitle">MEMBRESÍAS</span>
+            <h2>Nuestros <span class="highlight">Planes</span></h2>
+            
+            <div class="pricing-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 3rem;">
+                <!-- Plan 1 -->
+                <div class="pricing-card reveal">
+                    <div class="pricing-header">
+                        <h3>Pase de Visita</h3>
+                        <div class="price">
+                            <span class="currency">$</span><span class="amount">60</span><span class="period">/día</span>
+                        </div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i data-lucide="check"></i> Acceso por un día</li>
+                        <li><i data-lucide="check"></i> Uso de todas las áreas</li>
+                        <li><i data-lucide="check"></i> Sin inscripción</li>
+                    </ul>
+                    <button class="btn-primary w-100" onclick="openCheckout('Pase de Visita', 60)">Adquirir Plan</button>
+                </div>
+
+                <!-- Plan 2 -->
+                <div class="pricing-card popular reveal" style="transition-delay: 0.1s">
+                    <div class="popular-badge">MÁS POPULAR</div>
+                    <div class="pricing-header">
+                        <h3>Mensualidad</h3>
+                        <div class="price">
+                            <span class="currency">$</span><span class="amount">400</span><span class="period">/mes</span>
+                        </div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i data-lucide="check"></i> Acceso ilimitado 24/7</li>
+                        <li><i data-lucide="check"></i> Clases grupales incluidas</li>
+                        <li><i data-lucide="check"></i> Rutina personalizada</li>
+                    </ul>
+                    <button class="btn-primary w-100" onclick="openCheckout('Mensualidad', 400)">Adquirir Plan</button>
+                </div>
+
+                <!-- Plan 3 -->
+                <div class="pricing-card reveal" style="transition-delay: 0.2s">
+                    <div class="pricing-header">
+                        <h3>Anualidad</h3>
+                        <div class="price">
+                            <span class="currency">$</span><span class="amount">3,500</span><span class="period">/año</span>
+                        </div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i data-lucide="check"></i> Ahorra 27% (2 meses gratis)</li>
+                        <li><i data-lucide="check"></i> Acceso ilimitado total</li>
+                        <li><i data-lucide="check"></i> Evaluación nutricional mensual</li>
+                    </ul>
+                    <button class="btn-primary w-100" onclick="openCheckout('Anualidad', 3500)">Adquirir Plan</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="instalaciones" class="gallery bg-alt">
+        <div class="container text-center reveal">
+            <span class="section-subtitle">INSTALACIONES</span>
+            <h2>Entrena al <span class="highlight">Máximo Nivel</span></h2>
+            
+            <div class="gallery-grid">
+                <img src="https://padrinosfitnessandmuscle.com.mx/img/CarruselPrincipal/wCarruselNew1.jpeg" alt="Instalación Gimnasio 1" class="gallery-img">
+                <img src="https://padrinosfitnessandmuscle.com.mx/img/CarruselPrincipal/wCarruselNew2.jpeg" alt="Instalación Gimnasio 2" class="gallery-img">
+                <img src="https://padrinosfitnessandmuscle.com.mx/img/CarruselPrincipal/wCarruselNew3.jpeg" alt="Instalación Vertical" class="gallery-img tall">
+                <img src="https://padrinosfitnessandmuscle.com.mx/img/CarruselPrincipal/Carrusel7.jpeg" alt="Instalación Gimnasio 4" class="gallery-img">
+                <img src="https://padrinosfitnessandmuscle.com.mx/img/CarruselPrincipal/Carrusel8.jpeg" alt="Instalación Gimnasio 5" class="gallery-img">
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Booking Section -->
+    <section id="contacto" class="contact bg-alt">
+        <div class="container grids-2">
+            <div class="contact-info reveal">
+                <span class="section-subtitle">CONTACTO</span>
+                <h2>Agenda tu <span class="highlight">Visita</span></h2>
+                <p>Déjanos tus datos o contáctanos por WhatsApp para reservar tu cita o clase de prueba.</p>
+                
+                <div class="info-items">
+                    <div class="info-item">
+                        <i data-lucide="map-pin"></i>
+                        <div style="width: 100%;">
+                            <h4>Ubicación</h4>
+                            <p>Plaza Gran Saudela carretera Mérida - Motul km 1.</p>
+                            <iframe src="https://maps.google.com/maps?q=Padrinos+Fitness+and+Muscle+Cholul&t=&z=16&ie=UTF8&iwloc=&output=embed" width="100%" height="250" style="border:0; border-radius: 8px; margin-top: 15px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i data-lucide="phone"></i>
+                        <div>
+                            <h4>Teléfono / WhatsApp</h4>
+                            <p>999 7504 755</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i data-lucide="clock"></i>
+                        <div>
+                            <h4>Horarios</h4>
+                            <p>Lunes a Viernes: 5:00 AM - 11:00 PM <br> Sábados: 7:00 AM - 5:00 PM <br> Domingos: 8:00 AM - 1:30 PM</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="contact-form reveal">
+                <div class="glass-form">
+                    <h3>Reserva tu Lugar</h3>
+                    <p style="text-align: center; color: var(--text-muted); margin-bottom: 2rem;">Agenda tu cita de prueba directamente en nuestro calendario o contáctanos por WhatsApp para más detalles.</p>
+                    
+                    <!-- Botón para abrir Popup de Calendly -->
+                    <!-- NOTA: Reemplazar el enlace (TU_ENLACE_AQUI) con el URL real de Calendly del gimnasio -->
+                    <a href="#" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/gym-demo-placeholder'});return false;" class="btn-primary w-100 text-center" style="display:block; margin-bottom: 1rem;"><i data-lucide="calendar" style="margin-right: 8px; vertical-align: middle;"></i> Agendar Cita en Calendario</a>
+
+                    <div style="text-align: center; margin: 1.5rem 0; color: rgba(255,255,255,0.2);">O TAMBIÉN</div>
+
+                    <!-- Alternate WhatsApp form/button structure -->
+                    <form id="booking-form">
+                        <div class="input-group">
+                            <input type="text" id="nombre" placeholder="Tu Nombre Completo" required>
+                        </div>
+                        <button type="submit" class="btn-secondary w-100" style="border-color: #25D366; color: #f5f5f5;">Contactar por WhatsApp <i data-lucide="message-circle" style="margin-left: 8px; vertical-align: middle; color: #25D366;"></i></button>
+                        <!-- Variable temporal para el JS -->
+                        <input type="hidden" id="gym-phone" value="5219997504755"> <!-- [Reemplazar con el número del cliente] -->
+                        <input type="hidden" id="interes" value="Información">
+                        <input type="hidden" id="fecha" value="">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container text-center">
+            <h2 class="logo-footer">PADRINO'S</h2>
+            <div class="social-links">
+                <a href="https://www.instagram.com/padrinosfitnessandmuscle" target="_blank" aria-label="Instagram"><i data-lucide="instagram"></i></a>
+                <a href="#" aria-label="Facebook"><i data-lucide="facebook"></i></a>
+            </div>
+            <p>&copy; <span id="year"></span> Padrino's Fitness & Muscle. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Checkout Modal -->
+    <div id="checkoutModal" class="modal-overlay">
+        <div class="modal-box">
+            <div class="modal-header">
+                <h3 style="margin:0;">Completar Pago</h3>
+                <button type="button" class="close-btn" onclick="closeModals()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="order-summary">
+                    <p style="margin:0; color: var(--text-muted);">Plan: <strong id="checkout-plan" style="color:var(--text-light);">...</strong></p>
+                    <p style="margin-top:0.5rem; margin-bottom: 0;">Total a pagar: <strong class="checkout-price">$<span id="checkout-amount">0</span> MXN</strong></p>
+                </div>
+                <form id="payment-form" onsubmit="processPayment(event)">
+                    <div class="input-group">
+                        <label>Nombre Completo</label>
+                        <input type="text" id="client-name" required placeholder="Ej: Juan Pérez">
+                    </div>
+                    <div class="input-group">
+                        <label>Número de Tarjeta</label>
+                        <input type="text" pattern="\d{16}" maxlength="16" required placeholder="1234 5678 9012 3456" title="Debe contener 16 dígitos" style="letter-spacing: 2px;">
+                    </div>
+                    <div class="grids-2" style="gap:1rem; margin-bottom: 1.5rem;">
+                        <div class="input-group" style="margin-bottom:0;">
+                            <label>Vencimiento</label>
+                            <input type="text" placeholder="MM/YY" required pattern="\d{2}/\d{2}">
+                        </div>
+                        <div class="input-group" style="margin-bottom:0;">
+                            <label>CVV</label>
+                            <input type="password" placeholder="123" required pattern="\d{3,4}" maxlength="4">
+                        </div>
+                    </div>
+                    <button type="submit" class="btn-primary w-100" id="pay-btn" style="height: 45px;">
+                        <span id="pay-btn-text">Pagar Ahora</span>
+                        <span id="pay-spinner" class="spinner" style="display:none;"></span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Receipt Modal -->
+    <div id="receiptModal" class="modal-overlay">
+        <div class="modal-box receipt-box" id="print-area">
+            <div class="receipt-header">
+                <i data-lucide="check-circle" class="success-icon"></i>
+                <h3 style="margin-bottom: 0.5rem;">Pago Exitoso</h3>
+                <p style="color: var(--text-muted); font-size: 0.9rem;">Tu inscripción ha sido confirmada.</p>
+            </div>
+            <div class="receipt-details">
+                <div class="receipt-row"><span>ID Transacción:</span> <strong id="receipt-id">TXN-0000</strong></div>
+                <div class="receipt-row"><span>Fecha:</span> <strong id="receipt-date">DD/MM/YYYY</strong></div>
+                <div class="receipt-row"><span>Cliente:</span> <strong id="receipt-client">Nombre</strong></div>
+                <div class="receipt-row"><span>Plan:</span> <strong id="receipt-plan">Plan</strong></div>
+                <div class="receipt-row total-row" style="margin-top: 0.8rem;"><span>Total Pagado:</span> <strong class="highlight" style="font-size: 1.2rem;">$<span id="receipt-amount">0</span> MXN</strong></div>
+            </div>
+            <p class="receipt-note no-print">Muestra este comprobante en recepción o envíalo por WhatsApp para validar tu acceso inmediato.</p>
+            <div class="grids-2 no-print" style="gap: 1rem; margin-top: 1.5rem;">
+                <button type="button" class="btn-secondary w-100" onclick="window.print()" style="display: flex; align-items: center; justify-content: center; gap: 8px;">
+                    <i data-lucide="printer"></i> Imprimir
+                </button>
+                <button type="button" class="btn-primary w-100" onclick="sendReceiptWhatsApp()" style="background-color: #25D366; color: #fff; border:none; display: flex; align-items: center; justify-content: center; gap: 8px;">
+                    <i data-lucide="message-circle"></i> Enviar a Gym
+                </button>
+            </div>
+            
+            <button type="button" class="close-btn no-print" onclick="closeModals()" style="position: absolute; top: 15px; right: 15px;">&times;</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Inicializar iconos de Lucide
+        lucide.createIcons();
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

@@ -1064,3 +1064,324 @@ footer {
 .fa-star {
     color: #F59E0B !important; /* Dorado para las estrellas */
 }
+
+/* ===== VISITA GRATUITA BANNER ===== */
+.visita-banner {
+    background: linear-gradient(135deg, #001f3f 0%, var(--primary) 100%);
+    padding: 60px 0;
+}
+.visita-banner-inner {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 24px;
+    padding: 40px 48px;
+    backdrop-filter: blur(6px);
+}
+.visita-banner-icon {
+    font-size: 4rem;
+    flex-shrink: 0;
+    filter: drop-shadow(0 4px 16px rgba(0,0,0,0.3));
+}
+.visita-banner-text {
+    flex: 1;
+}
+.visita-banner-text h3 {
+    color: white;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+.visita-banner-text p {
+    color: rgba(255,255,255,0.8);
+    font-size: 1rem;
+    line-height: 1.75;
+    margin: 0;
+}
+.visita-banner-btn {
+    flex-shrink: 0;
+    background: white !important;
+    color: var(--primary) !important;
+    white-space: nowrap;
+    font-weight: 700;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+.visita-banner-btn:hover {
+    background: var(--bg-light) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(0,0,0,0.4);
+}
+@media (max-width: 768px) {
+    .visita-banner-inner {
+        flex-direction: column;
+        text-align: center;
+        padding: 32px 24px;
+        gap: 24px;
+    }
+    .visita-banner-text h3 { font-size: 1.25rem; }
+    .visita-banner-btn { width: 100%; justify-content: center; }
+}
+
+/* ===== CART & CHECKOUT SYSTEM ===== */
+
+/* Cart Toggle Button in Navbar */
+.cart-toggle-btn {
+    position: relative;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 14px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    margin-left: 8px;
+    transition: background 0.3s;
+}
+.cart-toggle-btn:hover { background: var(--primary-light); }
+.cart-badge {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: var(--accent);
+    color: white;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Cart Overlay (dark backdrop) */
+.cart-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 1999;
+    display: none;
+    animation: fadeIn 0.3s ease;
+}
+.cart-overlay.active { display: block; }
+
+/* Cart Sidebar */
+.cart-sidebar {
+    position: fixed;
+    right: -420px;
+    top: 0;
+    width: 400px;
+    max-width: 95vw;
+    height: 100vh;
+    background: var(--bg-white);
+    z-index: 2000;
+    box-shadow: -4px 0 24px rgba(0,0,0,0.15);
+    display: flex;
+    flex-direction: column;
+    transition: right 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow-y: auto;
+}
+.cart-sidebar.open { right: 0; }
+.cart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 24px;
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    background: var(--bg-white);
+    z-index: 1;
+}
+.cart-header h3 { font-size: 1.2rem; color: var(--primary); }
+.cart-close-btn {
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: var(--text-medium);
+    line-height: 1;
+    padding: 0 4px;
+    transition: color 0.2s;
+}
+.cart-close-btn:hover { color: var(--accent); }
+
+.cart-items { flex: 1; padding: 16px; }
+.cart-empty {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--text-light);
+}
+.cart-empty i { font-size: 4rem; margin-bottom: 16px; display: block; }
+.cart-empty p { font-size: 1.1rem; font-weight: 600; margin-bottom: 4px; }
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    background: var(--bg-light);
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 12px;
+    border: 1px solid var(--border);
+}
+.cart-item-info h4 { font-size: 1rem; color: var(--primary); margin-bottom: 4px; }
+.cart-item-info p { font-size: 0.85rem; color: var(--text-medium); max-width: 220px; }
+.cart-item-price { font-size: 1.1rem; font-weight: 700; color: var(--secondary); white-space: nowrap; }
+.cart-item-remove {
+    background: none;
+    border: none;
+    color: var(--text-light);
+    cursor: pointer;
+    font-size: 0.8rem;
+    margin-top: 4px;
+    transition: color 0.2s;
+}
+.cart-item-remove:hover { color: var(--accent); }
+
+.cart-footer {
+    padding: 16px 24px 24px;
+    border-top: 1px solid var(--border);
+    background: var(--bg-white);
+    position: sticky;
+    bottom: 0;
+}
+.cart-total-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+    color: var(--text-medium);
+}
+.cart-total-price { font-size: 1.3rem; color: var(--accent); font-weight: 700; }
+.cart-disclaimer {
+    font-size: 0.78rem;
+    color: var(--text-light);
+    text-align: center;
+    margin-top: 12px;
+    margin-bottom: 0;
+}
+
+/* Gnosis Modals (Checkout & Receipt) */
+.gnosis-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.7);
+    z-index: 3000;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+.gnosis-modal-overlay.active { display: flex; }
+.gnosis-modal {
+    background: var(--bg-white);
+    border-radius: 20px;
+    width: 100%;
+    max-width: 480px;
+    max-height: 90vh;
+    overflow-y: auto;
+    padding: 32px;
+    position: relative;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+    animation: modalPop 0.3s ease-out;
+}
+@keyframes modalPop {
+    from { opacity: 0; transform: translateY(-20px) scale(0.96); }
+    to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+.gnosis-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 16px;
+}
+.checkout-summary {
+    background: var(--bg-light);
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 24px;
+    border: 1px solid var(--border);
+}
+.checkout-summary .summary-plan { font-weight: 700; color: var(--primary); font-size: 1rem; }
+.checkout-summary .summary-amount { font-size: 1.4rem; font-weight: 800; color: var(--accent); margin-top: 4px; }
+.checkout-summary .summary-note { font-size: 0.78rem; color: var(--text-light); margin-top: 4px; }
+
+/* Receipt Modal */
+.receipt-modal { border-top: 6px solid var(--secondary); }
+.receipt-success-header { text-align: center; margin-bottom: 24px; }
+.success-check {
+    width: 72px;
+    height: 72px;
+    background: var(--secondary);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    margin: 0 auto 16px;
+}
+.receipt-success-header h3 { color: var(--secondary); margin-bottom: 8px; }
+.receipt-success-header p { color: var(--text-medium); font-size: 0.95rem; }
+.receipt-body {
+    background: var(--bg-light);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 1px dashed var(--border);
+}
+.receipt-row-g {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.9rem;
+    color: var(--text-medium);
+}
+.receipt-row-g:last-child { border-bottom: none; }
+.receipt-row-g.receipt-total {
+    font-size: 1.05rem;
+    font-weight: 700;
+    padding-top: 14px;
+    border-top: 2px solid var(--border);
+    margin-top: 8px;
+}
+
+/* Gnosis spinner */
+.gnosis-spinner {
+    display: inline-block;
+    width: 22px; height: 22px;
+    border: 3px solid rgba(255,255,255,0.4);
+    border-radius: 50%;
+    border-top-color: white;
+    animation: spin 0.9s linear infinite;
+    vertical-align: middle;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* Form labels inside modals */
+.gnosis-modal label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-medium);
+    margin-bottom: 6px;
+}
+.gnosis-modal .form-group { margin-bottom: 16px; }
+
+/* Print Styles */
+@media print {
+    body * { visibility: hidden; }
+    #gnosis-print-area, #gnosis-print-area * { visibility: visible; }
+    #gnosis-print-area {
+        position: absolute; left: 0; top: 0; width: 100%;
+        background: white !important; border: none !important; box-shadow: none !important;
+    }
+    .no-print { display: none !important; }
+}

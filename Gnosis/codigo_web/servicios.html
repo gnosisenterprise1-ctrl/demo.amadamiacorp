@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicios | Gnosis – Diseño Web para Negocios Locales</title>
+    <meta name="description" content="Conoce todos los servicios de diseño web, SEO y marketing digital que Gnosis ofrece para tu negocio en Mérida.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .page-hero {
+            background: linear-gradient(135deg, var(--secondary) 0%, #3a4f1e 100%);
+            padding: 140px 0 80px;
+            text-align: center;
+            color: white;
+        }
+        .page-hero h1 { color: white; font-size: clamp(2rem,5vw,3rem); margin-bottom: 16px; }
+        .page-hero p  { color: rgba(255,255,255,.8); font-size: 1.15rem; max-width: 600px; margin: 0 auto; }
+
+        .active-nav { color: var(--primary) !important; font-weight: 700 !important; }
+
+        /* Services detail cards */
+        .service-detail-section { padding: 80px 0; }
+        .service-detail-section:nth-child(even) { background: var(--bg-light); }
+        .service-detail-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        .service-detail-grid.reverse { direction: rtl; }
+        .service-detail-grid.reverse > * { direction: ltr; }
+        .service-detail-visual {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: var(--shadow-lg);
+            text-align: center;
+            border: 1px solid var(--border);
+        }
+        .service-detail-visual .big-icon {
+            font-size: 5rem;
+            margin-bottom: 24px;
+            display: block;
+        }
+        .service-detail-visual h4 { color: var(--primary); margin-bottom: 16px; }
+        .service-included-list { list-style: none; text-align: left; }
+        .service-included-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--text-medium);
+            font-size: .92rem;
+        }
+        .service-included-list li:last-child { border-bottom: none; }
+        .service-included-list i { color: var(--accent); min-width: 16px; }
+
+        .service-detail-text h2 { margin-bottom: 16px; }
+        .service-detail-text p { color: var(--text-medium); margin-bottom: 20px; line-height: 1.8; }
+        .service-time-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--bg-light);
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            font-size: .9rem;
+            color: var(--primary);
+            border: 1px solid var(--border);
+        }
+
+        /* Process section */
+        .process-visual {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+        .process-step-card {
+            background: white;
+            border-radius: 16px;
+            padding: 28px 20px;
+            text-align: center;
+            border: 1px solid var(--border);
+            position: relative;
+        }
+        .process-step-card::after {
+            content: '→';
+            position: absolute;
+            right: -16px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.4rem;
+            color: var(--border);
+            font-weight: 300;
+        }
+        .process-step-card:last-child::after { display: none; }
+        .process-step-num {
+            width: 48px; height: 48px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.2rem; font-weight: 800;
+            margin: 0 auto 16px;
+        }
+        .process-step-card h4 { font-size: 1rem; margin-bottom: 8px; }
+        .process-step-card p { font-size: .85rem; color: var(--text-medium); }
+
+        @media (max-width: 968px) {
+            .service-detail-grid { grid-template-columns: 1fr; gap: 32px; }
+            .service-detail-grid.reverse { direction: ltr; }
+            .process-visual { grid-template-columns: repeat(2, 1fr); }
+            .process-step-card::after { display: none; }
+        }
+        @media (max-width: 540px) {
+            .process-visual { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo-text">
+                <img src="logo_gnosis.png" alt="Gnosis" class="logo-img" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+                <span style="display:none;">GNOSIS</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="servicios.html" class="active-nav">Servicios</a></li>
+                <li><a href="portafolio.html">Portafolio</a></li>
+                <li><a href="nosotros.html">Nosotros</a></li>
+                <li><a href="index.html#precios">Paquetes</a></li>
+                <li><a href="index.html#contacto">Contacto</a></li>
+            </ul>
+            <div style="display:flex;align-items:center;gap:8px;">
+                <a href="index.html#precios" class="btn btn-primary">Cotiza gratis</a>
+            </div>
+            <button class="mobile-menu" id="mobileMenu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <section class="page-hero">
+        <div class="container">
+            <h1><i class="fa-solid fa-gears" style="margin-right:12px;"></i>Nuestros Servicios</h1>
+            <p>Todo lo que necesitas para que tu negocio brille en internet desde el primer día.</p>
+        </div>
+    </section>
+
+    <!-- Service 1: Landing Page -->
+    <section class="service-detail-section">
+        <div class="container">
+            <div class="service-detail-grid">
+                <div class="service-detail-text fade-in">
+                    <span class="service-time-badge"><i class="fa-solid fa-clock"></i> Entrega en 4 días hábiles</span>
+                    <h2>Landing Page de Alto Impacto</h2>
+                    <p>Tu escaparate digital disponible las 24 horas. Una página bien diseñada convierte visitantes en clientes recurrentes, incluso mientras duermes.</p>
+                    <p>Diseñamos cada sección con un objetivo claro: que el visitante tome acción — ya sea llamarte, mandarte un WhatsApp o comprar directamente.</p>
+                    <a href="index.html#precios" class="btn btn-primary"><i class="fa-solid fa-rocket"></i> Ver Paquete Escaparate</a>
+                </div>
+                <div class="service-detail-visual fade-in">
+                    <span class="big-icon">🖥️</span>
+                    <h4>¿Qué incluye?</h4>
+                    <ul class="service-included-list">
+                        <li><i class="fa-solid fa-check"></i> Diseño mobile-first personalizado</li>
+                        <li><i class="fa-solid fa-check"></i> Sección Hero con foto real</li>
+                        <li><i class="fa-solid fa-check"></i> Botón WhatsApp interactivo</li>
+                        <li><i class="fa-solid fa-check"></i> Google Maps integrado</li>
+                        <li><i class="fa-solid fa-check"></i> SEO básico (título, meta, keywords)</li>
+                        <li><i class="fa-solid fa-check"></i> Hosting gratuito en Netlify</li>
+                        <li><i class="fa-solid fa-check"></i> SSL (HTTPS) incluido</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service 2: Micrositio -->
+    <section class="service-detail-section">
+        <div class="container">
+            <div class="service-detail-grid reverse">
+                <div class="service-detail-text fade-in">
+                    <span class="service-time-badge"><i class="fa-solid fa-clock"></i> Entrega en 10 días hábiles</span>
+                    <h2>Micrositio – Máquina de Ventas</h2>
+                    <p>Más que una página: un ecosistema completo de captación. Ideal para negocios que ya tienen clientes y quieren automatizar y profesionalizar su presencia digital.</p>
+                    <p>Incluye catálogo de servicios, agenda por WhatsApp y un dominio .com gratuito el primer año. El paquete más popular de Gnosis.</p>
+                    <a href="index.html#precios" class="btn btn-primary"><i class="fa-solid fa-star"></i> Ver Paquete Máquina</a>
+                </div>
+                <div class="service-detail-visual fade-in">
+                    <span class="big-icon">🚀</span>
+                    <h4>¿Qué incluye?</h4>
+                    <ul class="service-included-list">
+                        <li><i class="fa-solid fa-check"></i> Todo del Escaparate Digital</li>
+                        <li><i class="fa-solid fa-check"></i> Catálogo de servicios (hasta 15)</li>
+                        <li><i class="fa-solid fa-check"></i> Sistema de agenda a WhatsApp</li>
+                        <li><i class="fa-solid fa-check"></i> SEO Local optimizado</li>
+                        <li><i class="fa-solid fa-check"></i> Botón de llamada directa</li>
+                        <li><i class="fa-solid fa-check"></i> Dominio .com gratis 1 año</li>
+                        <li><i class="fa-solid fa-check"></i> Galería de fotos</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service 3: Corporativo -->
+    <section class="service-detail-section">
+        <div class="container">
+            <div class="service-detail-grid">
+                <div class="service-detail-text fade-in">
+                    <span class="service-time-badge"><i class="fa-solid fa-clock"></i> Entrega en 3 semanas</span>
+                    <h2>Embudo Premium Corporativo</h2>
+                    <p>Para franquicias, hospitales, clínicas o despachos que necesitan un ecosistema digital robusto. Hasta 10 páginas internas, CRM, blog y más.</p>
+                    <p>Integramos herramientas como HubSpot para seguimiento de leads, formularios avanzados y reportes mensuales de analytics.</p>
+                    <a href="index.html#contacto" class="btn btn-primary"><i class="fa-solid fa-envelope"></i> Agendar Llamada</a>
+                </div>
+                <div class="service-detail-visual fade-in">
+                    <span class="big-icon">🏢</span>
+                    <h4>¿Qué incluye?</h4>
+                    <ul class="service-included-list">
+                        <li><i class="fa-solid fa-check"></i> Todo del paquete Máquina</li>
+                        <li><i class="fa-solid fa-check"></i> Hasta 10 páginas internas</li>
+                        <li><i class="fa-solid fa-check"></i> Blog SEO avanzado</li>
+                        <li><i class="fa-solid fa-check"></i> CRM integrado (HubSpot)</li>
+                        <li><i class="fa-solid fa-check"></i> Galería avanzada (antes/después)</li>
+                        <li><i class="fa-solid fa-check"></i> Pop-ups para captar emails</li>
+                        <li><i class="fa-solid fa-check"></i> Reporte analítico mensual</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section style="background: var(--primary); padding: 80px 0;">
+        <div class="container">
+            <div class="section-header" style="color:white;">
+                <h2 style="color:white;">¿Cómo trabajamos?</h2>
+                <p style="color:rgba(255,255,255,.7);">Un proceso simple, transparente y rápido.</p>
+            </div>
+            <div class="process-visual fade-in">
+                <div class="process-step-card">
+                    <div class="process-step-num">1</div>
+                    <h4>Visita a tu negocio</h4>
+                    <p>Nos presentamos en persona, sin costo. Vemos tu operación de primera mano</p>
+                </div>
+                <div class="process-step-card">
+                    <div class="process-step-num">2</div>
+                    <h4>Propuesta & anticipo</h4>
+                    <p>Te mandamos cotización personalizada y empezamos con el 50%</p>
+                </div>
+                <div class="process-step-card">
+                    <div class="process-step-num">3</div>
+                    <h4>Diseño & revisión</h4>
+                    <p>Trabajamos y te mostramos avances para tus comentarios</p>
+                </div>
+                <div class="process-step-card">
+                    <div class="process-step-num">4</div>
+                    <h4>Entrega & lanzamiento</h4>
+                    <p>Tu página live, dominio activo y el 50% restante</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VISITA GRATUITA BANNER -->
+    <section class="visita-banner">
+        <div class="container">
+            <div class="visita-banner-inner fade-in">
+                <div class="visita-banner-icon">🏪</div>
+                <div class="visita-banner-text">
+                    <h3>Te visitamos en tu negocio — sin costo</h3>
+                    <p>Antes de diseñar tu página, nos presentamos personalmente en tu negocio. Sin costo y sin compromiso. Así conocemos de primera mano cómo trabajas, qué necesitas y cómo podemos adaptar la página web a la realidad de tu empresa — no a un molde genérico.</p>
+                </div>
+                <a href="index.html#contacto" class="btn btn-primary btn-lg visita-banner-btn">
+                    <i class="fa-solid fa-calendar-check"></i> Agendar visita gratis
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Maintenance Upsells -->
+    <section style="padding: 80px 0; background: var(--bg-light);">
+        <div class="container">
+            <div class="section-header">
+                <h2>Servicios Mensuales</h2>
+                <p>Mantén tu página actualizada y sigue captando clientes con nuestros planes de mantenimiento.</p>
+            </div>
+            <div class="extras-grid fade-in">
+                <div class="extra-card">
+                    <div class="extra-icon">🔧</div>
+                    <h3>Mantenimiento Web</h3>
+                    <div class="extra-price">
+                        <span class="price-main">$500</span>
+                        <span class="price-sub"> MXN/mes</span>
+                    </div>
+                    <ul class="extra-features">
+                        <li>Actualizaciones de contenido</li>
+                        <li>Cambio de fotos y textos</li>
+                        <li>Soporte técnico prioritario</li>
+                        <li>Monitoreo de disponibilidad</li>
+                    </ul>
+                    <a href="index.html#contacto" class="btn btn-outline btn-block">Contratar</a>
+                </div>
+                <div class="extra-card">
+                    <div class="extra-icon">⭐</div>
+                    <h3>Pack Reseñas Google</h3>
+                    <div class="extra-price">
+                        <span class="price-main">$800</span>
+                        <span class="price-sub"> MXN/mes</span>
+                    </div>
+                    <ul class="extra-features">
+                        <li>Estrategia de reputación online</li>
+                        <li>Mensajes automáticos post-visita</li>
+                        <li>Respuesta a reseñas negativas</li>
+                        <li>Reporte mensual de reputación</li>
+                    </ul>
+                    <a href="index.html#contacto" class="btn btn-primary btn-block">Contratar</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <div class="footer-logo">GNOSIS</div>
+                <p class="footer-tagline">Tu negocio en internet, listo en días. No en meses.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Navegación</h4>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="servicios.html">Servicios</a></li>
+                    <li><a href="portafolio.html">Portafolio</a></li>
+                    <li><a href="nosotros.html">Nosotros</a></li>
+                    <li><a href="index.html#contacto">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Contacto</h4>
+                <ul>
+                    <li><a href="#">Mérida, Yucatán</a></li>
+                    <li><a href="https://wa.me/525532521938">WhatsApp disponible</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2026 Gnosis. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('mobileMenu').addEventListener('click', () => {
+            const navLinks = document.querySelector('.nav-links');
+            const isOpen = navLinks.style.display === 'flex';
+            navLinks.style.display = isOpen ? 'none' : 'flex';
+            if (!isOpen) {
+                Object.assign(navLinks.style, {
+                    position:'absolute', top:'100%', left:'0', right:'0',
+                    background:'white', flexDirection:'column', padding:'20px',
+                    gap:'16px', boxShadow:'0 4px 6px -1px rgba(0,0,0,0.1)', zIndex:'999'
+                });
+            }
+        });
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>

@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio | Gnosis – Diseño Web para Negocios Locales</title>
+    <meta name="description" content="Mira los proyectos de páginas web que hemos creado para negocios en Mérida y toda la República Mexicana.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ---- Page-specific overrides ---- */
+        .page-hero {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            padding: 140px 0 80px;
+            text-align: center;
+            color: white;
+        }
+        .page-hero h1 { color: white; font-size: clamp(2rem,5vw,3rem); margin-bottom: 16px; }
+        .page-hero p  { color: rgba(255,255,255,.8); font-size: 1.15rem; max-width: 600px; margin: 0 auto; }
+
+        /* Filter tabs */
+        .portfolio-filters {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            padding: 40px 0 20px;
+        }
+        .filter-btn {
+            padding: 10px 24px;
+            border-radius: 30px;
+            border: 2px solid var(--border);
+            background: white;
+            color: var(--text-medium);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all .25s;
+            font-size: .9rem;
+        }
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        /* Portfolio grid */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+            gap: 32px;
+            padding-bottom: 80px;
+        }
+        .portfolio-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow-md);
+            transition: transform .3s ease, box-shadow .3s ease;
+        }
+        .portfolio-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-xl);
+        }
+        .portfolio-card-img {
+            position: relative;
+            overflow: hidden;
+            height: 240px;
+            background: var(--bg-light);
+        }
+        .portfolio-card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top;
+            transition: transform .4s ease;
+        }
+        .portfolio-card:hover .portfolio-card-img img { transform: scale(1.05); }
+        .portfolio-img-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0,31,63,.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            opacity: 0;
+            transition: opacity .3s ease;
+        }
+        .portfolio-card:hover .portfolio-img-overlay { opacity: 1; }
+        .portfolio-img-overlay a {
+            background: white;
+            color: var(--primary);
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: 700;
+            text-decoration: none;
+            font-size: .9rem;
+            transition: background .2s;
+        }
+        .portfolio-img-overlay a:hover { background: var(--bg-light); }
+
+        .portfolio-card-body { padding: 24px; }
+        .portfolio-card-tag {
+            display: inline-block;
+            background: var(--bg-light);
+            color: var(--secondary);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: .78rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            letter-spacing: .5px;
+        }
+        .portfolio-card-body h3 { font-size: 1.2rem; margin-bottom: 8px; }
+        .portfolio-card-body p  { color: var(--text-medium); font-size: .92rem; margin-bottom: 16px; line-height: 1.6; }
+        .portfolio-features-mini {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .portfolio-features-mini li {
+            background: var(--bg-light);
+            border: 1px solid var(--border);
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: .8rem;
+            color: var(--text-medium);
+        }
+        .portfolio-card-footer {
+            padding: 16px 24px;
+            border-top: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .portfolio-card-footer .paquete-badge {
+            font-size: .8rem;
+            font-weight: 600;
+            color: var(--primary);
+        }
+        .portfolio-card-footer a {
+            color: var(--secondary);
+            font-weight: 600;
+            text-decoration: none;
+            font-size: .85rem;
+        }
+        .portfolio-card-footer a:hover { color: var(--primary); }
+
+        /* Mockup Browser Frame */
+        .browser-frame {
+            background: #f0f0f0;
+            border-radius: 10px 10px 0 0;
+            padding: 10px 14px 0;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            border-bottom: 1px solid #ddd;
+        }
+        .browser-dot { width: 10px; height: 10px; border-radius: 50%; }
+        .browser-dot.r { background: #ff5f57; }
+        .browser-dot.y { background: #febc2e; }
+        .browser-dot.g { background: #28c840; }
+        .browser-bar {
+            flex: 1;
+            height: 18px;
+            background: white;
+            border-radius: 4px;
+            margin-left: 8px;
+        }
+
+        /* CTA Section */
+        .portfolio-cta {
+            background: var(--secondary);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+        .portfolio-cta h2 { color: white; margin-bottom: 16px; }
+        .portfolio-cta p { color: rgba(255,255,255,.8); font-size: 1.1rem; margin-bottom: 32px; }
+        .portfolio-cta .btn { margin: 0 8px; }
+
+        @media (max-width: 768px) {
+            .portfolio-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo-text">
+                <img src="logo_gnosis.png" alt="Gnosis" class="logo-img" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+                <span style="display:none;">GNOSIS</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="servicios.html">Servicios</a></li>
+                <li><a href="portafolio.html" class="active-nav">Portafolio</a></li>
+                <li><a href="nosotros.html">Nosotros</a></li>
+                <li><a href="index.html#precios">Paquetes</a></li>
+                <li><a href="index.html#contacto">Contacto</a></li>
+            </ul>
+            <div style="display:flex;align-items:center;gap:8px;">
+                <a href="index.html#precios" class="btn btn-primary">Cotiza gratis</a>
+            </div>
+            <button class="mobile-menu" id="mobileMenu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <h1><i class="fa-solid fa-briefcase" style="margin-right:12px;"></i>Nuestro Portafolio</h1>
+            <p>Mira ejemplos reales de las páginas web que construimos. Cada proyecto es único, hecho a medida para el negocio y sus clientes.</p>
+        </div>
+    </section>
+
+    <!-- Filter Tabs -->
+    <div class="container">
+        <div class="portfolio-filters">
+            <button class="filter-btn active" onclick="filterPortfolio('todos', this)">Todos</button>
+            <button class="filter-btn" onclick="filterPortfolio('gimnasio', this)">Gimnasios & Fitness</button>
+            <button class="filter-btn" onclick="filterPortfolio('restaurante', this)">Restaurantes</button>
+            <button class="filter-btn" onclick="filterPortfolio('estetica', this)">Estéticas & Belleza</button>
+            <button class="filter-btn" onclick="filterPortfolio('corporativo', this)">Corporativo</button>
+        </div>
+    </div>
+
+    <!-- Portfolio Grid -->
+    <section style="padding-top: 0; background: var(--bg-light);">
+        <div class="container">
+            <div class="portfolio-grid" id="portfolioGrid">
+
+                <!-- Card 1: Padrino's Fitness -->
+                <div class="portfolio-card fade-in" data-category="gimnasio">
+                    <div class="browser-frame">
+                        <div class="browser-dot r"></div>
+                        <div class="browser-dot y"></div>
+                        <div class="browser-dot g"></div>
+                        <div class="browser-bar"></div>
+                    </div>
+                    <div class="portfolio-card-img">
+                        <img src="portfolio_padrinos_hero.png" alt="Padrino's Fitness & Muscle">
+                        <div class="portfolio-img-overlay">
+                            <a href="../../Padrinos_Fitness_Web/index.html" target="_blank">
+                                <i class="fa-solid fa-eye"></i> Ver Demo
+                            </a>
+                        </div>
+                    </div>
+                    <div class="portfolio-card-body">
+                        <span class="portfolio-card-tag">🏋️ Gimnasio & Fitness</span>
+                        <h3>Padrino's Fitness & Muscle</h3>
+                        <p>Landing page premium con tema oscuro navy blue para un gimnasio en el norte del país. Incluye galería de instalaciones, clases, precios y sistema de citas por Calendly.</p>
+                        <ul class="portfolio-features-mini">
+                            <li>Dark Mode</li>
+                            <li>Calendly</li>
+                            <li>Google Maps</li>
+                            <li>Galería</li>
+                            <li>WhatsApp</li>
+                        </ul>
+                    </div>
+                    <div class="portfolio-card-footer">
+                        <span class="paquete-badge"><i class="fa-solid fa-box"></i> Máquina de Ventas</span>
+                        <a href="../../Padrinos_Fitness_Web/index.html" target="_blank">Ver Demo <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Card 2: Plantilla Gimnasio (template showcase) -->
+                <div class="portfolio-card fade-in" data-category="gimnasio">
+                    <div class="browser-frame">
+                        <div class="browser-dot r"></div>
+                        <div class="browser-dot y"></div>
+                        <div class="browser-dot g"></div>
+                        <div class="browser-bar"></div>
+                    </div>
+                    <div class="portfolio-card-img">
+                        <img src="portfolio_gym_hero.png" alt="Plantilla Gimnasio – Template Oscuro">
+                        <div class="portfolio-img-overlay">
+                            <a href="../../Plantilla_Gimnasios/index.html" target="_blank">
+                                <i class="fa-solid fa-eye"></i> Ver Demo
+                            </a>
+                        </div>
+                    </div>
+                    <div class="portfolio-card-body">
+                        <span class="portfolio-card-tag">🏋️ Gimnasio & Fitness</span>
+                        <h3>Plantilla Premium – Gym Dark</h3>
+                        <p>Template de alto impacto para gimnasios con fondo negro, acentos en naranja y llamadas a la acción claras. Lista para personalizar con tu marca en 4 días hábiles.</p>
+                        <ul class="portfolio-features-mini">
+                            <li>Diseño Dark</li>
+                            <li>Clases</li>
+                            <li>Galería</li>
+                            <li>Contacto</li>
+                            <li>Mobile First</li>
+                        </ul>
+                    </div>
+                    <div class="portfolio-card-footer">
+                        <span class="paquete-badge"><i class="fa-solid fa-box"></i> Escaparate Digital</span>
+                        <a href="../../Plantilla_Gimnasios/index.html" target="_blank">Ver Demo <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Card 3: Coming Soon Placeholder - Restaurante -->
+                <div class="portfolio-card fade-in" data-category="restaurante">
+                    <div class="browser-frame">
+                        <div class="browser-dot r"></div>
+                        <div class="browser-dot y"></div>
+                        <div class="browser-dot g"></div>
+                        <div class="browser-bar"></div>
+                    </div>
+                    <div class="portfolio-card-img" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); display:flex; align-items:center; justify-content:center; flex-direction:column; color:white; text-align:center;">
+                        <i class="fa-solid fa-utensils" style="font-size:3rem; margin-bottom:12px; opacity:0.5;"></i>
+                        <p style="opacity:0.6; font-size:.9rem;">Próximamente</p>
+                    </div>
+                    <div class="portfolio-card-body">
+                        <span class="portfolio-card-tag">🍽️ Restaurante</span>
+                        <h3>Restaurante / Taquería</h3>
+                        <p>Sitio de menú digital con carta interactiva, fotos de platillos y sistema de pedidos por WhatsApp. Próximo proyecto en producción.</p>
+                        <ul class="portfolio-features-mini">
+                            <li>Menú Digital</li>
+                            <li>Fotos HD</li>
+                            <li>Reservaciones</li>
+                            <li>Ubicación</li>
+                        </ul>
+                    </div>
+                    <div class="portfolio-card-footer">
+                        <span class="paquete-badge"><i class="fa-solid fa-clock"></i> En proceso</span>
+                        <a href="index.html#contacto">Tu negocio aquí <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Card 4: Coming Soon Placeholder - Estetica -->
+                <div class="portfolio-card fade-in" data-category="estetica">
+                    <div class="browser-frame">
+                        <div class="browser-dot r"></div>
+                        <div class="browser-dot y"></div>
+                        <div class="browser-dot g"></div>
+                        <div class="browser-bar"></div>
+                    </div>
+                    <div class="portfolio-card-img" style="background: linear-gradient(135deg, #2d1b69 0%, #11998e 100%); display:flex; align-items:center; justify-content:center; flex-direction:column; color:white; text-align:center;">
+                        <i class="fa-solid fa-scissors" style="font-size:3rem; margin-bottom:12px; opacity:0.5;"></i>
+                        <p style="opacity:0.6; font-size:.9rem;">Próximamente</p>
+                    </div>
+                    <div class="portfolio-card-body">
+                        <span class="portfolio-card-tag">✂️ Estética & Belleza</span>
+                        <h3>Salón de Belleza / Spa</h3>
+                        <p>Página elegante con catálogo de servicios, galería de trabajos y agenda online para barberías, salones de uñas o spas.</p>
+                        <ul class="portfolio-features-mini">
+                            <li>Agenda Online</li>
+                            <li>Catálogo</li>
+                            <li>Instagram Feed</li>
+                            <li>Reseñas</li>
+                        </ul>
+                    </div>
+                    <div class="portfolio-card-footer">
+                        <span class="paquete-badge"><i class="fa-solid fa-clock"></i> En proceso</span>
+                        <a href="index.html#contacto">Tu negocio aquí <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Bottom -->
+    <section class="portfolio-cta">
+        <div class="container">
+            <h2>¿Quieres un sitio como estos?</h2>
+            <p>Cada proyecto empieza con una conversación de 15 minutos. Sin costo. Sin compromiso.</p>
+            <a href="index.html#precios" class="btn btn-primary btn-lg">
+                <i class="fa-solid fa-rocket"></i> Ver Paquetes
+            </a>
+            <a href="index.html#contacto" class="btn btn-outline btn-lg" style="color:white;border-color:white;">
+                <i class="fa-brands fa-whatsapp"></i> Hablar con nosotros
+            </a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <div class="footer-logo">GNOSIS</div>
+                <p class="footer-tagline">Tu negocio en internet, listo en días. No en meses.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Navegación</h4>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="servicios.html">Servicios</a></li>
+                    <li><a href="portafolio.html">Portafolio</a></li>
+                    <li><a href="nosotros.html">Nosotros</a></li>
+                    <li><a href="index.html#contacto">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Paquetes</h4>
+                <ul>
+                    <li><a href="index.html#precios">Escaparate - $3,500</a></li>
+                    <li><a href="index.html#precios">Máquina - $6,500</a></li>
+                    <li><a href="index.html#precios">Premium - $12K-15K</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Contacto</h4>
+                <ul>
+                    <li><a href="#">Mérida, Yucatán</a></li>
+                    <li><a href="https://wa.me/525532521938">WhatsApp disponible</a></li>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">Facebook</a></li>
+                    <li><span>Lun - Sáb: 9am - 6pm</span></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2026 Gnosis. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu
+        document.getElementById('mobileMenu').addEventListener('click', () => {
+            const navLinks = document.querySelector('.nav-links');
+            const isOpen = navLinks.style.display === 'flex';
+            navLinks.style.display = isOpen ? 'none' : 'flex';
+            if (!isOpen) {
+                Object.assign(navLinks.style, {
+                    position:'absolute', top:'100%', left:'0', right:'0',
+                    background:'white', flexDirection:'column', padding:'20px',
+                    gap:'16px', boxShadow:'0 4px 6px -1px rgba(0,0,0,0.1)', zIndex:'999'
+                });
+            }
+        });
+
+        // Fade-in on scroll
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // Portfolio filter
+        function filterPortfolio(cat, btn) {
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            document.querySelectorAll('.portfolio-card').forEach(card => {
+                if (cat === 'todos' || card.dataset.category === cat) {
+                    card.style.display = '';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
