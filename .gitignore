@@ -1,29 +1,19 @@
-# Dependencias de Node.js - NO deben subirse a GitHub
-node_modules/
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-
-# Archivos del sistema
 .DS_Store
 Thumbs.db
-desktop.ini
-
-# Variables de entorno / secretos
+node_modules/
 .env
-.env.local
-.env.production
-
-# Builds y temporales
-dist/
-build/
-.cache/
-tmp/
-*.tmp
-
-# Logs
 *.log
-
-# Editor configs
 .vscode/
 .idea/
+.sass-cache/
+*.swp
+*.bak
+*.tmp
+*.temp
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Icon?
+Desktop.ini
