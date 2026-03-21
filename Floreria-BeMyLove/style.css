@@ -496,3 +496,245 @@ footer {
         text-align: left;
     }
 }
+
+/* Shopping Cart UI */
+
+.cart-sidebar {
+    position: fixed;
+    top: 0;
+    right: -400px;
+    width: 400px;
+    height: 100vh;
+    background: white;
+    z-index: 2000;
+    box-shadow: -10px 0 50px rgba(0,0,0,0.1);
+    transition: var(--transition-smooth);
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.cart-sidebar.open {
+    right: 0;
+}
+
+.cart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #eee;
+}
+
+.cart-header h3 {
+    font-size: 1.5rem;
+    color: var(--gold);
+}
+
+.close-cart {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: var(--text-muted);
+}
+
+#cart-items-container {
+    flex: 1;
+    overflow-y: auto;
+    margin-bottom: 2rem;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    position: relative;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #f9f9f9;
+}
+
+.cart-item img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.cart-item-info h5 {
+    font-size: 1rem;
+    margin-bottom: 0.3rem;
+    font-family: 'Playfair Display', serif;
+}
+
+.cart-item-info span {
+    color: var(--gold);
+    font-weight: 600;
+    font-size: 0.9rem;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.quantity-controls {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    border: 1px solid #eee;
+    padding: 0.3rem 0.8rem;
+    width: fit-content;
+}
+
+.quantity-controls button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: var(--text-muted);
+}
+
+.remove-item {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: #ccc;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+}
+
+.remove-item:hover {
+    color: var(--accent-red);
+}
+
+.cart-footer {
+    border-top: 1px solid #eee;
+    padding-top: 2rem;
+}
+
+.total-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    font-weight: 600;
+}
+
+.total-row.deposit-row {
+    font-size: 1rem;
+    color: var(--accent-red);
+    margin-top: -1.5rem;
+    margin-bottom: 2rem;
+    border-top: 1px dashed #eee;
+    padding-top: 1rem;
+}
+
+.deposit-selector {
+    background: #fdfdfd;
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid #eee;
+    margin-bottom: 2rem;
+}
+
+.deposit-selector label {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 0.85rem;
+    cursor: pointer;
+    color: var(--text-main);
+}
+
+.deposit-selector input[type="radio"] {
+    accent-color: var(--gold);
+    width: 18px;
+    height: 18px;
+}
+
+.checkout-options {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.btn-checkout {
+    width: 100%;
+    padding: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.75rem;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    border: none;
+    transition: var(--transition-smooth);
+}
+
+.btn-whatsapp-checkout {
+    background: #25D366;
+    color: white;
+}
+
+.btn-card-checkout {
+    background: var(--text-main);
+    color: white;
+}
+
+.btn-checkout:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+}
+
+/* Add to Cart small button */
+.btn-add-cart {
+    background: var(--secondary-bg);
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    padding: 0.6rem 1rem;
+    cursor: pointer;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: var(--transition-smooth);
+    margin-top: 0.5rem;
+    width: 100%;
+    margin-bottom: 0.5rem;
+}
+
+.btn-add-cart:hover {
+    background: var(--gold);
+    color: white;
+}
+
+/* Nav Cart Icon */
+.cart-nav-item {
+    position: relative;
+    cursor: pointer;
+}
+
+.cart-badge {
+    position: absolute;
+    top: -12px;
+    right: -15px;
+    background: var(--gold);
+    color: white;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    font-size: 0.6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+}
+
+@media (max-width: 600px) {
+    .cart-sidebar {
+        width: 100%;
+        padding: 2rem;
+    }
+}

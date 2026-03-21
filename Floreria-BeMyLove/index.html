@@ -22,6 +22,12 @@
                 <li><a href="#productos" onclick="toggleMenu()">Colecciones</a></li>
                 <li><a href="bodas.html">Bodas y Eventos</a></li>
                 <li><a href="#contacto" onclick="toggleMenu()">Contacto</a></li>
+                <li class="cart-nav-item" onclick="toggleCart()">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                    </svg>
+                    <span id="cart-badge" class="cart-badge" style="display: none;">0</span>
+                </li>
             </ul>
             <div class="menu-toggle" id="menuToggle" onclick="toggleMenu()">
                 <span></span>
@@ -85,6 +91,7 @@
                         <h4>Maxiramo 100 Rosas</h4>
                         <span class="product-price">$3,000 MXN</span>
                         <p class="product-details">Impacto total con 100 rosas de exportación.</p>
+                        <button class="btn-add-cart" onclick="addToCart('Maxiramo 100 Rosas', 3000, 'assets/images/rosas_100.png')">Añadir al Carrito</button>
                         <a href="https://wa.me/5219996503963?text=Hola,%20quiero%20el%20arreglo%20Maxiramo%20100%20Rosas%20de%20$3,000%20MXN" target="_blank" class="btn-whatsapp-card">Pedir por WhatsApp</a>
                     </div>
                 </article>
@@ -97,6 +104,7 @@
                         <h4>Maxiramo 50 Rosas</h4>
                         <span class="product-price">$1,800 MXN</span>
                         <p class="product-details">Elegancia y volumen con 50 rosas premium.</p>
+                        <button class="btn-add-cart" onclick="addToCart('Maxiramo 50 Rosas', 1800, 'assets/images/rosas_50.png')">Añadir al Carrito</button>
                         <a href="https://wa.me/5219996503963?text=Hola,%20quiero%20el%20arreglo%20Maxiramo%2050%20Rosas%20de%20$1,800%20MXN" target="_blank" class="btn-whatsapp-card">Pedir por WhatsApp</a>
                     </div>
                 </article>
@@ -111,6 +119,7 @@
                         <h4>Maxiramo 15 Girasoles</h4>
                         <span class="product-price">$1,600 MXN</span>
                         <p class="product-details">La belleza del sol en un ramo excepcional.</p>
+                        <button class="btn-add-cart" onclick="addToCart('Maxiramo 15 Girasoles', 1600, 'assets/images/girasoles.png')">Añadir al Carrito</button>
                         <a href="https://wa.me/5219996503963?text=Hola,%20quiero%20el%20arreglo%20Maxiramo%2015%20Girasoles%20de%20$1,600%20MXN" target="_blank" class="btn-whatsapp-card">Pedir por WhatsApp</a>
                     </div>
                 </article>
@@ -124,6 +133,7 @@
                         <h4>Corazón de Rosas</h4>
                         <span class="product-price">$950 MXN</span>
                         <p class="product-details">Caja de lujo con 24-26 rosas rojas.</p>
+                        <button class="btn-add-cart" onclick="addToCart('Corazón de Rosas', 950, 'assets/images/box_corazon.png')">Añadir al Carrito</button>
                         <a href="https://wa.me/5219996503963?text=Hola,%20quiero%20el%20arreglo%20Corazón%20de%20Rosas%20de%20$950%20MXN" target="_blank" class="btn-whatsapp-card">Pedir por WhatsApp</a>
                     </div>
                 </article>
@@ -136,6 +146,7 @@
                         <h4>Corazón Mixto</h4>
                         <span class="product-price">$800 MXN</span>
                         <p class="product-details">15-18 Rosas + 3 Girasoles en caja.</p>
+                        <button class="btn-add-cart" onclick="addToCart('Corazón Mixto', 800, 'assets/images/box_corazon.png')">Añadir al Carrito</button>
                         <a href="https://wa.me/5219996503963?text=Hola,%20quiero%20el%20arreglo%20Corazón%20Mixto%20de%20$800%20MXN" target="_blank" class="btn-whatsapp-card">Pedir por WhatsApp</a>
                     </div>
                 </article>
@@ -149,6 +160,7 @@
                         <h4>Cono Elegance</h4>
                         <span class="product-price">$700 MXN</span>
                         <p class="product-details">Presentación moderna con 16 rosas.</p>
+                        <button class="btn-add-cart" onclick="addToCart('Cono Elegance', 700, 'assets/images/cono_elegance.png')">Añadir al Carrito</button>
                         <a href="https://wa.me/5219996503963?text=Hola,%20quiero%20el%20arreglo%20Cono%20Elegance%20de%20$700%20MXN" target="_blank" class="btn-whatsapp-card">Pedir por WhatsApp</a>
                     </div>
                 </article>
@@ -272,6 +284,44 @@
         </svg>
     </a>
 
+    <!-- Cart Sidebar -->
+    <div id="cart-sidebar" class="cart-sidebar">
+        <div class="cart-header">
+            <h3 class="serif">Tu Carrito</h3>
+            <button class="close-cart" onclick="closeCart()">×</button>
+        </div>
+        <div id="cart-items-container">
+            <!-- Items injected by JS -->
+        </div>
+        <div class="cart-footer">
+            <div class="deposit-selector">
+                <p style="font-size: 0.75rem; font-weight: 600; margin-bottom: 0.8rem; text-transform: uppercase; letter-spacing: 1px;">Modalidad de Pago:</p>
+                <label>
+                    <input type="radio" name="payment-mode" value="full" checked onclick="toggleDeposit(false)">
+                    <span>Pago Total (Saldado)</span>
+                </label>
+                <label style="margin-top: 0.8rem;">
+                    <input type="radio" name="payment-mode" value="deposit" onclick="toggleDeposit(true)">
+                    <span>Anticipo 50% (Garantía de Diseño)</span>
+                </label>
+            </div>
+            <div class="total-row">
+                <span>Total Pedido:</span>
+                <span id="cart-total-price">$0.00 MXN</span>
+            </div>
+            <div id="cart-deposit-row" class="total-row deposit-row" style="display: none;">
+                <span>Pagar Hoy (50%):</span>
+                <span id="cart-deposit-amount">$0.00 MXN</span>
+            </div>
+            <div class="checkout-options">
+                <button class="btn-checkout btn-whatsapp-checkout" onclick="checkoutWhatsApp()">Finalizar por WhatsApp</button>
+                <button class="btn-checkout btn-card-checkout" onclick="checkoutOnline()">Pagar con Tarjeta</button>
+            </div>
+            <p style="font-size: 0.7rem; color: #999; margin-top: 1rem; text-align: center;">* Envío calculado al finalizar pedido</p>
+        </div>
+    </div>
+
+    <script src="cart.js"></script>
     <script>
         window.onscroll = function() {
             var nav = document.getElementById('navbar');
