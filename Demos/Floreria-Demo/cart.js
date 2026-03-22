@@ -1,11 +1,11 @@
 
 // Cart state management
-let cart = JSON.parse(localStorage.getItem('bemylove_cart')) || [];
+let cart = JSON.parse(localStorage.getItem('florademo_cart')) || [];
 let isDepositOnly = false; // New state for the 50% deposit option
 
 // Save to localStorage
 function saveCart() {
-    localStorage.setItem('bemylove_cart', JSON.stringify(cart));
+    localStorage.setItem('florademo_cart', JSON.stringify(cart));
     updateCartIcon();
     renderCartItems();
 }
@@ -125,7 +125,7 @@ function renderCartItems() {
 function checkoutWhatsApp() {
     if (cart.length === 0) return;
     
-    let message = "¡Hola BeMyLove! 👋 Quiero realizar un pedido:\n\n";
+    let message = "¡Hola FLORA Boutique! 👋 Quiero realizar un pedido:\n\n";
     let total = 0;
     
     cart.forEach(item => {
@@ -145,7 +145,7 @@ function checkoutWhatsApp() {
     message += `\n\n¿Me podrían confirmar disponibilidad y envío?`;
     
     const encoded = encodeURIComponent(message);
-    const whatsappUrl = `https://wa.me/5219996503963?text=${encoded}`;
+    const whatsappUrl = `https://wa.me/5210000000000?text=${encoded}`;
     window.open(whatsappUrl, '_blank');
 }
 
