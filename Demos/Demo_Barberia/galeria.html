@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THE GUILD | Galería & Experiencia</title>
+    <!-- Modern Typefaces -->
+    <link href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .page-header {
+            padding: 180px 5% 80px;
+            text-align: center;
+            background: linear-gradient(180deg, rgba(7,7,9,0.8) 0%, var(--bg-surface) 60%, var(--bg-dark) 100%);
+            border-bottom: 1px solid var(--border-glass);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .glow-bg {
+            position: absolute;
+            background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+            width: 800px;
+            height: 400px;
+            top: -50px;
+            left: -20%;
+            filter: blur(60px);
+            z-index: 0;
+            opacity: 0.5;
+            pointer-events: none;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Masonic / Pinterest style grid with Glassmorphism */
+        .gallery-grid {
+            column-count: 3;
+            column-gap: 20px;
+            padding: 40px 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .gallery-item {
+            break-inside: avoid;
+            margin-bottom: 20px;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid var(--border-glass);
+            border-radius: var(--radius);
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: var(--transition);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0; left: 0; width: 100%; height: 50%;
+            background: linear-gradient(0deg, rgba(10,10,13,0.9), transparent);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: flex-start;
+            padding: 30px;
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+            /* filter: grayscale(100%); */
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-badge {
+            background: var(--accent);
+            color: var(--bg-dark);
+            font-family: var(--font-body);
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            padding: 4px 10px;
+            border-radius: 4px;
+            margin-bottom: 8px;
+        }
+
+        .gallery-title {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            color: var(--text-main);
+        }
+
+        .filter-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 0px 5% 40px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background: var(--surface-glass);
+            backdrop-filter: blur(10px);
+            color: var(--text-muted);
+            border: 1px solid var(--border-glass);
+            padding: 10px 24px;
+            font-family: var(--font-body);
+            font-weight: 500;
+            font-size: 0.95rem;
+            border-radius: 100px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .filter-btn.active, .filter-btn:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            background: rgba(229, 169, 60, 0.05);
+        }
+
+        @media (max-width: 900px) {
+            .gallery-grid { column-count: 2; }
+        }
+        @media (max-width: 600px) {
+            .gallery-grid { column-count: 1; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="logo">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"></circle><circle cx="6" cy="18" r="3"></circle><line x1="20" y1="4" x2="8.12" y2="15.88"></line><line x1="14.47" y1="14.48" x2="20" y2="20"></line><line x1="8.12" y1="8.12" x2="12" y2="12"></line></svg> 
+            THE GUILD
+        </a>
+        <div class="nav-links">
+            <a href="index.html">Inicio</a>
+            <a href="servicios.html">Servicios</a>
+            <a href="barberos.html">El Equipo</a>
+            <a href="galeria.html" class="active">Galería</a>
+            <a href="reserva.html" class="btn-solid">Agendar Cita</a>
+        </div>
+        <div class="menu-toggle">
+            <span></span><span></span><span></span>
+        </div>
+    </nav>
+
+    <div class="page-header">
+        <div class="glow-bg"></div>
+        <div class="header-content">
+            <div style="color: var(--accent); font-weight: 600; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 15px; font-size: 0.9rem;">Portafolio Visual</div>
+            <h1>Nuestra <span class="text-accent">Muestra.</span></h1>
+            <p style="max-width: 600px; margin: 20px auto 0;">Explora las instalaciones diseñadas para el hermetismo y el descanso, junto con nuestro portafolio de degradados estructurales impecables.</p>
+        </div>
+    </div>
+
+    <div class="main-wrapper" style="padding-top: 50px;">
+        
+        <div class="filter-buttons">
+            <button class="filter-btn active">Todo el Portafolio</button>
+            <button class="filter-btn">Fade & Cortes</button>
+            <button class="filter-btn">Diseño de Barba</button>
+            <button class="filter-btn">Lounge e Instalaciones</button>
+        </div>
+
+        <div class="gallery-grid">
+            
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1593702275687-f8b402bf1ef5?q=80&w=1000&auto=format&fit=crop" alt="Corte Skin Fade">
+                <div class="gallery-overlay">
+                    <div class="gallery-badge">Corte</div>
+                    <div class="gallery-title">Taper Fade Extremo</div>
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?q=80&w=1000&auto=format&fit=crop" alt="Arreglo de Barba">
+                <div class="gallery-overlay">
+                    <div class="gallery-badge">Barba</div>
+                    <div class="gallery-title">Esculpido Geométrico</div>
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?q=80&w=1000&auto=format&fit=crop" alt="Sillones Vintage">
+                <div class="gallery-overlay">
+                    <div class="gallery-badge">Instalaciones</div>
+                    <div class="gallery-title">Lounge Principal VIP</div>
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1593702284287-41656801dc89?q=80&w=1000&auto=format&fit=crop" alt="Textura y Tijera">
+                <div class="gallery-overlay">
+                    <div class="gallery-badge">Textura</div>
+                    <div class="gallery-title">Clásico a Tijera (Crop)</div>
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1605497788044-5a32c707d2f4?q=80&w=1000&auto=format&fit=crop" alt="Barbero trabajando">
+                <div class="gallery-overlay">
+                    <div class="gallery-badge">Experiencia</div>
+                    <div class="gallery-title">Precisión en Acción</div>
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1532713031318-db2d14e4b3e1?q=80&w=1000&auto=format&fit=crop" alt="Afeitado Toalla Caliente">
+                <div class="gallery-overlay">
+                    <div class="gallery-badge">Afeitado</div>
+                    <div class="gallery-title">Ritual Toalla Caliente</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <a href="https://wa.me/521" class="whatsapp-float" title="Soporte y Dudas">
+        <i data-lucide="message-circle" size="28"></i>
+    </a>
+
+    <script>lucide.createIcons();</script>
+</body>
+</html>

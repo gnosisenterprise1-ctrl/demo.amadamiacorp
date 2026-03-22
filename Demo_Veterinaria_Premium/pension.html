@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel y Pensión | VetCare Premium</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="styles.css">
+    
+    <style>
+        .page-header { background: var(--bg-white); padding: 60px 5%; text-align: center; border-bottom: 2px solid var(--bg-light); }
+        .page-header h1 { font-size: 3.5rem; margin-bottom: 15px; }
+        .page-header p { max-width: 600px; margin: 0 auto; }
+        
+        .process-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; margin-top: 50px; }
+        .step-card { text-align: center; background: var(--bg-white); padding: 30px 20px; border-radius: var(--radius); box-shadow: var(--shadow-soft); position: relative; }
+        .step-number { position: absolute; top:-15px; left: 50%; transform: translateX(-50%); width: 40px; height: 40px; background: var(--orange); color:#fff; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-weight: 900; font-size: 1.2rem; border: 4px solid var(--bg-light); }
+        
+        .gallery-wrap { margin-top: 80px; }
+        .gallery-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px;}
+        .gallery-grid img { width: 100%; height: 300px; object-fit: cover; border-radius: var(--radius); }
+
+        @media (max-width: 900px) {
+            .process-steps, .gallery-grid { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 600px) {
+            .process-steps, .gallery-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="logo">
+            <i data-lucide="paw-print" size="32" style="color:var(--orange)"></i> VetCare
+        </a>
+        <div class="nav-links">
+            <a href="index.html">Inicio</a>
+            <a href="servicios.html">Cirugía & Clínica</a>
+            <a href="pension.html" class="active">Pensión / Hotel</a>
+            <a href="estetica.html">Estética</a>
+        </div>
+        <div>
+            <a href="tel:+529990000000" class="btn btn-emergency"><i data-lucide="phone"></i> Urgencias 24h</a>
+        </div>
+    </nav>
+
+    <div class="page-header">
+        <h1 class="highlight-orange">Hotel Pet-Friendly.</h1>
+        <p>Proceso de alojamiento seguro. Si tienes que viajar por unos días, tu animal estará supervisado 24/7 por veterinarios y gozará de aromaterapia y música relajante.</p>
+    </div>
+
+    <section class="section">
+        
+        <h2 style="text-align:center;">El proceso de <span class="highlight-blue">Ingreso.</span></h2>
+        
+        <div class="process-steps">
+            <div class="step-card">
+                <div class="step-number">1</div>
+                <i data-lucide="calendar-check" size="40" style="color:var(--blue); margin-bottom:15px; margin-top: 10px;"></i>
+                <h4 style="margin-bottom:10px;">Reserva Virtual</h4>
+                <p style="font-size:0.95rem;">Agenda las fechas exactas a través de nuestra web. Validamos cupos al instante.</p>
+            </div>
+            
+            <div class="step-card">
+                <div class="step-number">2</div>
+                <i data-lucide="shield" size="40" style="color:var(--blue); margin-bottom:15px; margin-top: 10px;"></i>
+                <h4 style="margin-bottom:10px;">Filtro Médico</h4>
+                <p style="font-size:0.95rem;">A su llegada, un MVZ realiza un chequeo general gratuito para evitar riesgos.</p>
+            </div>
+            
+            <div class="step-card">
+                <div class="step-number">3</div>
+                <i data-lucide="home" size="40" style="color:var(--blue); margin-bottom:15px; margin-top: 10px;"></i>
+                <h4 style="margin-bottom:10px;">Suite Privada</h4>
+                <p style="font-size:0.95rem;">Se le asigna una zona individual climatizada con feromonas apaciguantes.</p>
+            </div>
+            
+            <div class="step-card">
+                <div class="step-number">4</div>
+                <i data-lucide="smartphone" size="40" style="color:var(--blue); margin-bottom:15px; margin-top: 10px;"></i>
+                <h4 style="margin-bottom:10px;">Monitoreo Diario</h4>
+                <p style="font-size:0.95rem;">Te enviaremos reportes diarios con fotografías o video vía WhatsApp.</p>
+            </div>
+        </div>
+
+        <div class="gallery-wrap">
+            <h2 style="margin-bottom: 20px;">Instalaciones Seguras</h2>
+            <div class="gallery-grid">
+                <img src="https://plus.unsplash.com/premium_photo-1664300305018-b21a3617be34?q=80&w=1500&auto=format&fit=crop" alt="Pensión Perros">
+                <img src="https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?q=80&w=1500&auto=format&fit=crop" alt="Gatos Pensión">
+            </div>
+        </div>
+        
+        <div style="text-align: center; margin-top: 60px;">
+            <a href="reserva.html" class="btn btn-primary" style="font-size: 1.2rem; padding: 20px 40px;">Reservar Fechas de Hospedaje</a>
+        </div>
+
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="grid-4" style="align-items:start;">
+            <div>
+                <div class="logo"><i data-lucide="paw-print" size="28" style="color:var(--orange)"></i> VetCare</div>
+                <p style="color:#aaa; font-size:0.9rem; margin-top:15px;">Hospital veterinario de referencia. Tu mascota es nuestra vocación máxima.</p>
+            </div>
+            <div>
+                <h4>Servicios</h4>
+                <ul style="list-style:none;">
+                    <li style="margin-bottom:10px;"><a href="servicios.html">Clínica & Cirugía</a></li>
+                    <li style="margin-bottom:10px;"><a href="pension.html">Hotel (Pensión)</a></li>
+                    <li style="margin-bottom:10px;"><a href="estetica.html">Estética & Spa</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>¿Urgencias Médicas?</h4>
+                <p style="color:#aaa; font-size:0.9rem; margin-bottom:15px;">Comunícate de inmediato y dirígete a la clínica.</p>
+                <a href="#" class="btn btn-emergency" style="font-size: 0.9rem; padding: 10px 20px;"><i data-lucide="phone"></i> +52 999 000 0000</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>lucide.createIcons();</script>
+</body>
+</html>

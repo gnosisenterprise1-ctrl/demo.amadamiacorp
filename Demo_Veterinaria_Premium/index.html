@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VetCare Premium | Clínica Veterinaria</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="styles.css">
+    
+    <style>
+        .hero { display: flex; align-items: center; padding: 40px 5%; gap: 60px; min-height: 85vh; }
+        .hero-text { flex: 1.2; }
+        .hero-text p.lead { font-size: 1.25rem; margin-bottom: 40px; font-weight: 600; max-width: 550px; }
+        
+        .hero-img { flex: 1; position: relative; }
+        .hero-img img { 
+            width: 100%; 
+            border-radius: var(--radius); 
+            transform: rotate(2deg); 
+            transition: 0.5s; 
+            box-shadow: 20px 20px 0px rgba(74, 144, 226, 0.2); 
+            max-height: 600px;
+            object-fit: cover;
+        }
+        .hero-img:hover img { transform: rotate(0deg); }
+
+        .services-bar { 
+            background: #fff; 
+            border-radius: 100px; 
+            padding: 20px 40px; 
+            display: flex; 
+            justify-content: space-between; 
+            margin: -50px 5% 80px; 
+            position: relative; 
+            z-index: 10; 
+            box-shadow: var(--shadow-soft); 
+        }
+        
+        .srv-item { display: flex; align-items: center; gap: 15px; font-weight: 800; font-size: 1.15rem; color: var(--ink); text-decoration: none; transition: 0.3s; }
+        .srv-item:hover { color: var(--blue); transform: translateY(-5px); }
+        .srv-item .icon-w { transition: 0.3s; background: var(--bg-light); }
+        .srv-item:hover .icon-w { background: var(--blue-light); }
+
+        .trust-badge {
+            background: var(--blue-light);
+            color: var(--blue);
+            padding: 8px 16px;
+            border-radius: 100px;
+            font-weight: 800;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="logo">
+            <i data-lucide="paw-print" size="32" style="color:var(--orange)"></i> VetCare
+        </a>
+        <div class="nav-links">
+            <a href="index.html" class="active">Inicio</a>
+            <a href="servicios.html">Cirugía & Clínica</a>
+            <a href="pension.html">Pensión / Hotel</a>
+            <a href="estetica.html">Estética</a>
+        </div>
+        <div>
+            <a href="tel:+529990000000" class="btn btn-emergency"><i data-lucide="phone"></i> Urgencias 24h</a>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-text">
+            <div class="trust-badge"><i data-lucide="shield-check" size="18"></i> Centro Veterinario Certificado</div>
+            <h1>Cuidamos a los miembros de <span class="highlight-blue">tu familia.</span></h1>
+            <p class="lead">Atención veterinaria de alta especialidad, quirófano avanzado, pensión monitoreada y servicio de emergencias nocturnas para brindarte total tranquilidad.</p>
+            <div style="display: flex; gap: 20px;">
+                <a href="reserva.html" class="btn btn-primary">Agendar Consulta <i data-lucide="calendar"></i></a>
+                <a href="servicios.html" class="btn" style="background:#fff; box-shadow:var(--shadow-soft);">Conocer Servicios</a>
+            </div>
+        </div>
+        <div class="hero-img">
+            <img src="https://images.unsplash.com/photo-1543852786-1cf6624b9987?q=80&w=1500&auto=format&fit=crop" alt="Veterinaria Perro">
+        </div>
+    </header>
+
+    <div class="services-bar">
+        <a href="servicios.html" class="srv-item">
+            <div class="icon-w"><i data-lucide="stethoscope"></i></div>
+            Consultas
+        </a>
+        <a href="servicios.html" class="srv-item">
+            <div class="icon-w"><i data-lucide="activity"></i></div>
+            Cirugías Especiales
+        </a>
+        <a href="pension.html" class="srv-item">
+            <div class="icon-w"><i data-lucide="moon"></i></div>
+            Pensión 24x7
+        </a>
+        <a href="estetica.html" class="srv-item">
+            <div class="icon-w"><i data-lucide="scissors"></i></div>
+            Estética / Spa
+        </a>
+    </div>
+
+    <!-- About Section -->
+    <section class="section grid-2">
+        <div style="position:relative;">
+            <img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?q=80&w=1000&auto=format&fit=crop" alt="Gato y Veterinario" class="img-rounded" style="height: 500px;">
+            <div class="card" style="position:absolute; bottom:-30px; right:-30px; width:250px; padding:25px;">
+                <h3 style="font-size: 2.5rem; color: var(--orange); margin-bottom:10px;">98%</h3>
+                <p style="font-size: 0.95rem; font-weight:700; margin:0; line-height:1.4;">De éxito clínico en cirugías complejas de tejido blando.</p>
+            </div>
+        </div>
+        <div style="padding-left: 40px;">
+            <div class="trust-badge" style="background: rgba(255, 123, 84, 0.1); color: var(--orange);">¿Por qué elegirnos?</div>
+            <h2>Más que un hospital, es un lugar <br><span class="highlight-orange">seguro.</span></h2>
+            <p style="margin-bottom: 25px;">Comprendemos la ansiedad que genera dejar a tu mascota en manos de terceros. Por ello, hemos diseñado nuestras instalaciones y procesos bajo los más altos estándares "Fear-Free" (Libres de miedo).</p>
+            <ul style="list-style: none;">
+                <li style="margin-bottom: 15px; display:flex; gap:15px; font-weight:700;"><i data-lucide="check-circle" style="color:var(--blue);"></i> Especialistas residentes con maestrías comprobadas.</li>
+                <li style="margin-bottom: 15px; display:flex; gap:15px; font-weight:700;"><i data-lucide="check-circle" style="color:var(--blue);"></i> Quirófano equipado con anestesia inhalatoria segura.</li>
+                <li style="margin-bottom: 15px; display:flex; gap:15px; font-weight:700;"><i data-lucide="check-circle" style="color:var(--blue);"></i> Laboratorio interno para resultados inmediatos.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Testimonials or Highlight -->
+    <section class="section-white" style="text-align: center;">
+        <h2>Familias <span class="highlight-blue">Tranquilas</span>.</h2>
+        <p style="margin: 0 auto 50px; max-width: 600px;">No solo curamos pacientes, construimos relaciones a largo plazo con las familias.</p>
+        
+        <div class="grid-3">
+            <div class="card" style="text-align:left;">
+                <div style="display:flex; gap:5px; margin-bottom: 15px; color: #facc15;"><i data-lucide="star" fill="currentColor"></i><i data-lucide="star" fill="currentColor"></i><i data-lucide="star" fill="currentColor"></i><i data-lucide="star" fill="currentColor"></i><i data-lucide="star" fill="currentColor"></i></div>
+                <p><strong>"Increíble tacto"</strong><br>Operaron a mi perro Dóberman de urgencia a las 2 AM. El equipo siempre estuvo calmado, profesional y me mantuvieron al tanto por WhatsApp. Salvaron su vida.</p>
+                <div style="margin-top: 20px; font-weight:800;">- Familia Montes</div>
+            </div>
+            <div class="card" style="text-align:left;">
+                <div style="display:flex; gap:5px; margin-bottom: 15px; color: #facc15;"><i data-lucide="star" fill="currentColor"></i><i data-lucide="star" fill="currentColor"></i><i data-lucide="star" fill="currentColor"></i><i data-lucide="star" fill="currentColor"></i><i data-lucide="star" fill="currentColor"></i></div>
+                <p><strong>"La mejor Pensión"</strong><br>Salí del país por 2 semanas. Mi gato es súper territorial, pero en el Hotel de VetCare tuvo su módulo privado y regresó muy tranquilo. Me mandaban fotos diario.</p>
+                <div style="margin-top: 20px; font-weight:800;">- Sofía Álvarez</div>
+            </div>
+            <div class="card" style="text-align:left;">
+                <div style="display:flex; gap:5px; margin-bottom: 15px; color: #facc15;"><i data-lucide="star" fill="currentColor"></i><i data-lucide="star" fill="currentColor"></i><i data-lucide="star" fill="currentColor"></i><i data-lucide="star" fill="currentColor"></i><i data-lucide="star" fill="currentColor"></i></div>
+                <p><strong>"Excelencia Médica"</strong><br>Diagnosticaron la insuficiencia de mi gatito viejo a tiempo gracias a sus equipos de rayos X y sangre que tienen ahí mismo. Ahora tiene una gran calidad de vida.</p>
+                <div style="margin-top: 20px; font-weight:800;">- Eduardo R.</div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="grid-4" style="align-items:start;">
+            <div>
+                <div class="logo"><i data-lucide="paw-print" size="28" style="color:var(--orange)"></i> VetCare</div>
+                <p style="color:#aaa; font-size:0.9rem; margin-top:15px;">Hospital veterinario de referencia. Tu mascota es nuestra vocación máxima.</p>
+            </div>
+            <div>
+                <h4>Servicios</h4>
+                <ul style="list-style:none;">
+                    <li style="margin-bottom:10px;"><a href="servicios.html">Clínica & Cirugía</a></li>
+                    <li style="margin-bottom:10px;"><a href="pension.html">Hotel (Pensión)</a></li>
+                    <li style="margin-bottom:10px;"><a href="estetica.html">Estética & Spa</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>¿Urgencias Médicas?</h4>
+                <p style="color:#aaa; font-size:0.9rem; margin-bottom:15px;">Comunícate de inmediato y dirígete a la clínica.</p>
+                <a href="#" class="btn btn-emergency" style="font-size: 0.9rem; padding: 10px 20px;"><i data-lucide="phone"></i> +52 999 000 0000</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>lucide.createIcons();</script>
+</body>
+</html>

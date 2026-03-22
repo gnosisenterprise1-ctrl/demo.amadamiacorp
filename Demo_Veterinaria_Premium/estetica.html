@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estética y Spa | VetCare Premium</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="styles.css">
+    
+    <style>
+        .page-header { background: var(--bg-white); padding: 60px 5%; text-align: center; border-bottom: 2px solid var(--bg-light); }
+        .page-header h1 { font-size: 3.5rem; margin-bottom: 15px; }
+        .page-header p { max-width: 600px; margin: 0 auto; }
+        
+        .price-menu { max-width: 800px; margin: 0 auto; background: var(--bg-white); padding: 50px; border-radius: var(--radius); box-shadow: var(--shadow-soft); }
+        .menu-item { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px dashed #ddd; padding: 20px 0; }
+        .menu-item:last-child { border-bottom: none; padding-bottom: 0; }
+        
+        .item-info h4 { font-size: 1.3rem; margin-bottom: 5px; display:flex; align-items:center; gap:8px;}
+        .item-info p { margin: 0; font-size: 0.95rem; }
+        .item-price { font-size: 1.4rem; font-weight: 900; color: var(--blue); background: var(--blue-light); padding: 5px 15px; border-radius: 100px; }
+
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="logo">
+            <i data-lucide="paw-print" size="32" style="color:var(--orange)"></i> VetCare
+        </a>
+        <div class="nav-links">
+            <a href="index.html">Inicio</a>
+            <a href="servicios.html">Cirugía & Clínica</a>
+            <a href="pension.html">Pensión / Hotel</a>
+            <a href="estetica.html" class="active">Estética</a>
+        </div>
+        <div>
+            <a href="tel:+529990000000" class="btn btn-emergency"><i data-lucide="phone"></i> Urgencias 24h</a>
+        </div>
+    </nav>
+
+    <div class="page-header">
+        <h1 class="highlight-orange" style="color: var(--blue);">Peluquería & Spa.</h1>
+        <p>No se trata solo de que se vean bien, sino de que su piel y pelaje estén sanos. Utilizamos exclusivamente productos dermatológicos.</p>
+    </div>
+
+    <section class="section" style="padding-top: 60px;">
+        
+        <div class="price-menu">
+            <div style="text-align:center; margin-bottom: 40px;">
+                <i data-lucide="scissors" size="40" style="color:var(--orange);"></i>
+                <h2 style="margin-top: 15px;">Servicios Frecuentes</h2>
+            </div>
+
+            <div class="menu-item">
+                <div class="item-info">
+                    <h4><i data-lucide="droplet" size="18" style="color:var(--blue);"></i> Baño Terapéutico</h4>
+                    <p>Champú de avena médica, limpieza de oídos, corte de uñas y cepillado dental.</p>
+                </div>
+                <div class="item-price">Desde $350</div>
+            </div>
+
+            <div class="menu-item">
+                <div class="item-info">
+                    <h4><i data-lucide="scissors" size="18" style="color:var(--blue);"></i> Corte de Raza / Grooming</h4>
+                    <p>Baño completo + corte a tijera estructurado según la raza (Poodle, Schnauzer, Pomerania).</p>
+                </div>
+                <div class="item-price">Desde $450</div>
+            </div>
+
+            <div class="menu-item">
+                <div class="item-info">
+                    <h4><i data-lucide="sparkles" size="18" style="color:var(--blue);"></i> Pack Deslanado VIP</h4>
+                    <p>Ideal para épocas de muda (Pug, Husky, Golden). Reduce la caída del cabello en casa hasta un 80%.</p>
+                </div>
+                <div class="item-price">Desde $600</div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="reserva.html" class="btn btn-primary">Agendar Turno en Spa</a>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="grid-4" style="align-items:start;">
+            <div>
+                <div class="logo"><i data-lucide="paw-print" size="28" style="color:var(--orange)"></i> VetCare</div>
+                <p style="color:#aaa; font-size:0.9rem; margin-top:15px;">Hospital veterinario de referencia. Tu mascota es nuestra vocación máxima.</p>
+            </div>
+            <div>
+                <h4>Servicios</h4>
+                <ul style="list-style:none;">
+                    <li style="margin-bottom:10px;"><a href="servicios.html">Clínica & Cirugía</a></li>
+                    <li style="margin-bottom:10px;"><a href="pension.html">Hotel (Pensión)</a></li>
+                    <li style="margin-bottom:10px;"><a href="estetica.html">Estética & Spa</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>¿Urgencias Médicas?</h4>
+                <p style="color:#aaa; font-size:0.9rem; margin-bottom:15px;">Comunícate de inmediato y dirígete a la clínica.</p>
+                <a href="#" class="btn btn-emergency" style="font-size: 0.9rem; padding: 10px 20px;"><i data-lucide="phone"></i> +52 999 000 0000</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>lucide.createIcons();</script>
+</body>
+</html>
