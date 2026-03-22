@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galería | Khai Nail Bar – Minimalist Luxury en Mérida</title>
+    <meta name="description" content="Explora nuestro portafolio de Neutral Nails y Nail Art especializado. El estilo Clean Girl en su máxima expresión.">
+    
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="page-gallery">
+
+    <!-- Navbar -->
+    <nav class="navbar scrolled">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">K</div>
+                <span class="logo-name">Khai</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="nosotros.html">Nosotros</a></li>
+                <li><a href="servicios.html">Servicios</a></li>
+                <li><a href="galeria.html" class="active">Galería</a></li>
+                <li><a href="index.html#contacto">Contacto</a></li>
+            </ul>
+            <a href="javascript:void(0)" class="btn btn-primary btn-book-trigger">Reservar</a>
+            <button class="mobile-menu" id="mobileMenu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Header Interno -->
+    <header class="header-internal" style="background-image: url('https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?q=80&w=2070&auto=format&fit=crop'); background-position: center 60%;">
+        <div class="internal-overlay"></div>
+        <div class="container">
+            <div class="header-internal-content fade-in">
+                <span class="badge">Portfolio</span>
+                <h1>nuestra<br><em>mirada</em></h1>
+            </div>
+        </div>
+    </header>
+
+    <!-- Galería Editorial -->
+    <section class="section-gallery-full" style="padding: 100px 0;">
+        <div class="container">
+            <div class="gallery-grid" style="display: grid; grid-template-columns: repeat(12, 1fr); gap: 20px;">
+                
+                <!-- Large Vertical -->
+                <div class="gallery-item fade-in" style="grid-column: span 6; grid-row: span 2;">
+                    <img src="https://images.unsplash.com/photo-1620916566398-39f1143af7be?q=80&w=2070&auto=format&fit=crop" alt="Neutral Set" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                
+                <!-- Small Squares -->
+                <div class="gallery-item fade-in" style="grid-column: span 3;">
+                    <img src="https://images.unsplash.com/photo-1632345031435-81979cd75a6a?q=80&w=2070&auto=format&fit=crop" alt="Detail" style="width: 100%; height: 250px; object-fit: cover;">
+                </div>
+                <div class="gallery-item fade-in" style="grid-column: span 3;">
+                    <img src="https://images.unsplash.com/photo-1620916566398-39f1143af7be?q=80&w=2070&auto=format&fit=crop" alt="Detail 2" style="width: 100%; height: 250px; object-fit: cover;">
+                </div>
+                
+                <!-- Wide Horizontal -->
+                <div class="gallery-item fade-in" style="grid-column: span 6;">
+                    <img src="https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?q=80&w=2070&auto=format&fit=crop" alt="Studio" style="width: 100%; height: 350px; object-fit: cover;">
+                </div>
+                
+                <!-- Boutique View -->
+                <div class="gallery-item fade-in" style="grid-column: span 4; grid-row: span 2;">
+                    <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?q=80&w=2070&auto=format&fit=crop" alt="Boutique" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <div class="gallery-item fade-in" style="grid-column: span 8;">
+                    <img src="https://images.unsplash.com/photo-1512678000570-39e99a1310bc?q=80&w=2070&auto=format&fit=crop" alt="Relax" style="width: 100%; height: 300px; object-fit: cover;">
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 80px;" class="fade-in">
+                <p style="margin-bottom: 30px;">Inspírate en nuestro Instagram <a href="https://instagram.com/khainailbar" target="_blank" style="color:var(--khai-gold); font-weight: 600;">@khainailbar</a></p>
+                <a href="servicios.html" class="btn btn-primary">Ver Menú de Servicios</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-content text-center">
+            <div class="footer-brand">
+                <div class="footer-logo">Khai</div>
+                <p>Nail bar & Luxury Studio. Plaza Fontana, Mérida.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicios | Bambú Spa – Nails & Rituals en Torreón</title>
+    <meta name="description" content="Descubre nuestra selección de servicios premium. Desde manicuria spa hasta tratamientos faciales y peluquería de lujo en Bambú Spa.">
+    
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,500&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="page-services">
+
+    <!-- Navbar -->
+    <nav class="navbar scrolled" id="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon"><i class="fa-solid fa-leaf"></i></div>
+                <span class="logo-name">Bambú</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="nosotros.html">Nosotros</a></li>
+                <li><a href="servicios.html" class="active">Servicios</a></li>
+                <li><a href="index.html#galeria">Galería</a></li>
+                <li><a href="index.html#contacto">Contacto</a></li>
+            </ul>
+            <a href="javascript:void(0)" class="btn btn-primary nav-cta btn-book-trigger">
+                Reservar Cita
+            </a>
+            <button class="mobile-menu" id="mobileMenu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Header Interno -->
+    <header class="header-internal" style="background-image: url('https://images.unsplash.com/photo-1620916566398-39f1143af7be?q=80&w=2070&auto=format&fit=crop');">
+        <div class="internal-overlay"></div>
+        <div class="container">
+            <div class="header-internal-content fade-in">
+                <span class="badge">Nuestros Rituales</span>
+                <h1>Menú de <em>Servicios</em></h1>
+                <p>Cada tratamiento ha sido diseñado como un ritual de bienestar.</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Services Grid con Filtro -->
+    <section class="section-services-menu">
+        <div class="container">
+            <div class="gallery-tabs">
+                <button class="gallery-tab active" data-filter="all">Todos</button>
+                <button class="gallery-tab" data-filter="nails">Nails & Rituals</button>
+                <button class="gallery-tab" data-filter="spa">Spa & Bienestar</button>
+                <button class="gallery-tab" data-filter="hair">Peluquería</button>
+            </div>
+            
+            <div class="servicios-full-grid">
+                <!-- Nails Category -->
+                <div class="servicio-full-card fade-in" data-cat="nails">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1632345031435-81979cd75a6a?q=80&w=1000&auto=format&fit=crop" alt="Manicure Spa">
+                    </div>
+                    <div class="card-content">
+                        <h3>Manicure Spa Bambú</h3>
+                        <p>Ritual completo con exfoliación de sales orgánicas, masaje relajante y esmaltado de lujo.</p>
+                        <div class="card-meta">
+                            <span><i class="fa-solid fa-clock"></i> 45 min</span>
+                            <span><i class="fa-solid fa-tag"></i> $180</span>
+                        </div>
+                        <a href="javascript:void(0)" class="btn btn-outline btn-book-trigger" data-service="Manicure Spa" data-price="180">Agendar</a>
+                    </div>
+                </div>
+
+                <div class="servicio-full-card fade-in" data-cat="nails">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?q=80&w=1000&auto=format&fit=crop" alt="Uñas Acrílicas">
+                    </div>
+                    <div class="card-content">
+                        <h3>Uñas Acrílicas</h3>
+                        <p>Extensiones esculpidas a mano con técnicas avanzadas para una apariencia ultra natural y duradera.</p>
+                        <div class="card-meta">
+                            <span><i class="fa-solid fa-clock"></i> 90 min</span>
+                            <span><i class="fa-solid fa-tag"></i> $450</span>
+                        </div>
+                        <a href="javascript:void(0)" class="btn btn-outline btn-book-trigger" data-service="Uñas Acrílicas" data-price="450">Agendar</a>
+                    </div>
+                </div>
+
+                <!-- Spa Category -->
+                <div class="servicio-full-card fade-in featured" data-cat="spa">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1600334129128-685c5582fd35?q=80&w=1000&auto=format&fit=crop" alt="Masaje Relajante">
+                    </div>
+                    <div class="card-content">
+                        <h3>Masaje Relajante</h3>
+                        <p>Protocolo exclusivo con aceites esenciales calientes para liberar tensiones musculares profundas.</p>
+                        <div class="card-meta">
+                            <span><i class="fa-solid fa-clock"></i> 60 min</span>
+                            <span><i class="fa-solid fa-tag"></i> $650</span>
+                        </div>
+                        <a href="javascript:void(0)" class="btn btn-primary btn-book-trigger" data-service="Masaje Relajante" data-price="650">Agendar Ritual</a>
+                    </div>
+                </div>
+
+                <div class="servicio-full-card fade-in" data-cat="spa">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1512290923902-8a9f81dc2069?q=80&w=1000&auto=format&fit=crop" alt="Facial Hidratante">
+                    </div>
+                    <div class="card-content">
+                        <h3>Facial Hidratante</h3>
+                        <p>Tratamiento de hidratación profunda que recupera la luminosidad y frescura de tu rostro.</p>
+                        <div class="card-meta">
+                            <span><i class="fa-solid fa-clock"></i> 50 min</span>
+                            <span><i class="fa-solid fa-tag"></i> $550</span>
+                        </div>
+                        <a href="javascript:void(0)" class="btn btn-outline btn-book-trigger" data-service="Facial Hidratante" data-price="550">Agendar</a>
+                    </div>
+                </div>
+
+                <!-- Hair Category -->
+                <div class="servicio-full-card fade-in" data-cat="hair">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?q=80&w=1000&auto=format&fit=crop" alt="Corte y Peinado">
+                    </div>
+                    <div class="card-content">
+                        <h3>Corte de Autor</h3>
+                        <p>Asesoría personalizada y corte diseñado según la estructura de tu rostro y estilo de vida.</p>
+                        <div class="card-meta">
+                            <span><i class="fa-solid fa-clock"></i> 60 min</span>
+                            <span><i class="fa-solid fa-tag"></i> $350</span>
+                        </div>
+                        <a href="javascript:void(0)" class="btn btn-outline btn-book-trigger" data-service="Corte de Autor" data-price="350">Agendar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Promo Bar -->
+    <section class="section-promo-simple">
+        <div class="container text-center">
+            <h3>¿Quieres llevar la experiencia Bambú a casa?</h3>
+            <p>Pregunta por nuestra línea exclusiva de aceites y cremas orgánicas en tu próxima visita.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <div class="footer-logo"><i class="fa-solid fa-leaf"></i> Bambú</div>
+                <p>Tu santuario de belleza y bienestar.<br>Nails, Spa & Peluquería de lujo.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Enlaces</h4>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="nosotros.html">Nosotros</a></li>
+                    <li><a href="servicios.html">Servicios</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2026 Bambú Spa & Nails. Torreón, Coah.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
