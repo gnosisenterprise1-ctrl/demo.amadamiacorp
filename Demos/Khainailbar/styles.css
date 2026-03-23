@@ -1438,6 +1438,15 @@ em { font-style: italic; color: var(--khai-gold); }
     font-size: 1.4rem;
     color: var(--dark);
 }
+.menu-duration {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 10px;
+    font-size: 0.8rem;
+    color: var(--khai-gold);
+    font-weight: 500;
+}
 
 @media (max-width: 768px) {
     .menu-grid { grid-template-columns: 1fr; }
