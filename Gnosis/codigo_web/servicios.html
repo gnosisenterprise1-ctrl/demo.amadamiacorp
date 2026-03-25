@@ -116,9 +116,14 @@
             .service-detail-grid.reverse { direction: ltr; }
             .process-visual { grid-template-columns: repeat(2, 1fr); }
             .process-step-card::after { display: none; }
+            .servicios-grid-section > div { grid-template-columns: repeat(2, 1fr) !important; }
         }
         @media (max-width: 540px) {
             .process-visual { grid-template-columns: 1fr; }
+            .servicios-grid-section > div { grid-template-columns: 1fr !important; }
+            .servicio-card-expandible { padding: 24px 20px !important; }
+            .servicio-card-expandible h3 { font-size: 1.2rem !important; }
+            .servicio-card-expandible > div:first-child { width: 60px !important; height: 60px !important; font-size: 2rem !important; }
         }
     </style>
 </head>
@@ -150,6 +155,118 @@
         <div class="container">
             <h1><i class="fa-solid fa-gears" style="margin-right:12px;"></i>Nuestros Servicios</h1>
             <p>Todo lo que necesitas para que tu negocio brille en internet desde el primer día.</p>
+        </div>
+    </section>
+
+    <!-- Quick Services Grid - BIG CARDS -->
+    <section class="servicios-grid-section" style="padding: 80px 0; background: var(--bg-light);">
+        <div class="container">
+            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;">
+                <div class="servicio-card-expandible" onclick="toggleServicioCard(this)" style="background: white; padding: 40px 32px; border-radius: 24px; border: 2px solid var(--border); cursor: pointer; position: relative; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); box-shadow: 0 4px 20px rgba(0,0,0,0.08);">
+                    <div style="font-size: 3.5rem; color: var(--primary); margin-bottom: 20px; display: flex; align-items: center; justify-content: center; width: 80px; height: 80px; background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); border-radius: 20px; color: white;"><i class="fa-brands fa-whatsapp"></i></div>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 12px; font-weight: 700; color: var(--text-dark);">WhatsApp</h3>
+                    <p style="color: var(--text-medium); font-size: 1rem; margin: 0; line-height: 1.6;">Todo llega directo a tu WhatsApp</p>
+                    <div class="servicio-dropdown" style="max-height: 0; opacity: 0; overflow: hidden; transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%); border-radius: 16px; margin: 0 -32px -32px -32px; padding: 0 32px;">
+                        <ul style="list-style: none; padding: 24px 0; margin: 0; border-top: 1px solid var(--border);">
+                            <li style="padding: 12px 0; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 12px; font-size: 1rem;"><i class="fa-solid fa-check-circle" style="color: var(--accent); font-size: 1.2rem;"></i> Botón flotante siempre visible</li>
+                            <li style="padding: 12px 0; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 12px; font-size: 1rem;"><i class="fa-solid fa-check-circle" style="color: var(--accent); font-size: 1.2rem;"></i> Mensajes prellenados</li>
+                            <li style="padding: 12px 0; display: flex; align-items: center; gap: 12px; font-size: 1rem;"><i class="fa-solid fa-check-circle" style="color: var(--accent); font-size: 1.2rem;"></i> Sin apps adicionales</li>
+                        </ul>
+                    </div>
+                    <span class="servicio-toggle" style="position: absolute; top: 24px; right: 24px; font-size: 2rem; color: var(--primary); transition: transform 0.3s;">+</span>
+                </div>
+                <div class="servicio-card-expandible" onclick="toggleServicioCard(this)" style="background: white; padding: 40px 32px; border-radius: 24px; border: 2px solid var(--border); cursor: pointer; position: relative; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); box-shadow: 0 4px 20px rgba(0,0,0,0.08);">
+                    <div style="font-size: 3.5rem; color: var(--primary); margin-bottom: 20px; display: flex; align-items: center; justify-content: center; width: 80px; height: 80px; background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); border-radius: 20px; color: white;"><i class="fa-brands fa-google"></i></div>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 12px; font-weight: 700; color: var(--text-dark);">Google SEO</h3>
+                    <p style="color: var(--text-medium); font-size: 1rem; margin: 0; line-height: 1.6;">Aparece cuando te buscan</p>
+                    <div class="servicio-dropdown" style="max-height: 0; opacity: 0; overflow: hidden; transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%); border-radius: 16px; margin: 0 -32px -32px -32px; padding: 0 32px;">
+                        <ul style="list-style: none; padding: 24px 0; margin: 0; border-top: 1px solid var(--border);">
+                            <li style="padding: 12px 0; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 12px; font-size: 1rem;"><i class="fa-solid fa-check-circle" style="color: var(--accent); font-size: 1.2rem;"></i> SEO local optimizado</li>
+                            <li style="padding: 12px 0; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 12px; font-size: 1rem;"><i class="fa-solid fa-check-circle" style="color: var(--accent); font-size: 1.2rem;"></i> Palabras clave de tu ciudad</li>
+                            <li style="padding: 12px 0; display: flex; align-items: center; gap: 12px; font-size: 1rem;"><i class="fa-solid fa-check-circle" style="color: var(--accent); font-size: 1.2rem;"></i> Más visibilidad</li>
+                        </ul>
+                    </div>
+                    <span class="servicio-toggle" style="position: absolute; top: 24px; right: 24px; font-size: 2rem; color: var(--primary); transition: transform 0.3s;">+</span>
+                </div>
+                <div class="servicio-card-expandible" onclick="toggleServicioCard(this)" style="background: white; padding: 40px 32px; border-radius: 24px; border: 2px solid var(--border); cursor: pointer; position: relative; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); box-shadow: 0 4px 20px rgba(0,0,0,0.08);">
+                    <div style="font-size: 3.5rem; color: var(--primary); margin-bottom: 20px; display: flex; align-items: center; justify-content: center; width: 80px; height: 80px; background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); border-radius: 20px; color: white;"><i class="fa-solid fa-map-location-dot"></i></div>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 12px; font-weight: 700; color: var(--text-dark);">Google Maps</h3>
+                    <p style="color: var(--text-medium); font-size: 1rem; margin: 0; line-height: 1.6;">Tu negocio en el mapa</p>
+                    <div class="servicio-dropdown" style="max-height: 0; opacity: 0; overflow: hidden; transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%); border-radius: 16px; margin: 0 -32px -32px -32px; padding: 0 32px;">
+                        <ul style="list-style: none; padding: 24px 0; margin: 0; border-top: 1px solid var(--border);">
+                            <li style="padding: 12px 0; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 12px; font-size: 1rem;"><i class="fa-solid fa-check-circle" style="color: var(--accent); font-size: 1.2rem;"></i> Perfil de Google Business</li>
+                            <li style="padding: 12px 0; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 12px; font-size: 1rem;"><i class="fa-solid fa-check-circle" style="color: var(--accent); font-size: 1.2rem;"></i> Horario y dirección</li>
+                            <li style="padding: 12px 0; display: flex; align-items: center; gap: 12px; font-size: 1rem;"><i class="fa-solid fa-check-circle" style="color: var(--accent); font-size: 1.2rem;"></i> Fotos de tu negocio</li>
+                        </ul>
+                    </div>
+                    <span class="servicio-toggle" style="position: absolute; top: 24px; right: 24px; font-size: 2rem; color: var(--primary); transition: transform 0.3s;">+</span>
+                </div>
+                <div class="servicio-card-expandible" onclick="toggleServicioCard(this)" style="background: white; padding: 40px 32px; border-radius: 24px; border: 2px solid var(--border); cursor: pointer; position: relative; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); box-shadow: 0 4px 20px rgba(0,0,0,0.08);">
+                    <div style="font-size: 3.5rem; color: var(--primary); margin-bottom: 20px; display: flex; align-items: center; justify-content: center; width: 80px; height: 80px; background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); border-radius: 20px; color: white;"><i class="fa-solid fa-cart-shopping"></i></div>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 12px; font-weight: 700; color: var(--text-dark);">Tienda Online</h3>
+                    <p style="color: var(--text-medium); font-size: 1rem; margin: 0; line-height: 1.6;">Vende productos 24/7</p>
+                    <div class="servicio-dropdown" style="max-height: 0; opacity: 0; overflow: hidden; transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%); border-radius: 16px; margin: 0 -32px -32px -32px; padding: 0 32px;">
+                        <ul style="list-style: none; padding: 24px 0; margin: 0; border-top: 1px solid var(--border);">
+                            <li style="padding: 12px 0; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 12px; font-size: 1rem;"><i class="fa-solid fa-check-circle" style="color: var(--accent); font-size: 1.2rem;"></i> Catálogo de productos</li>
+                            <li style="padding: 12px 0; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 12px; font-size: 1rem;"><i class="fa-solid fa-check-circle" style="color: var(--accent); font-size: 1.2rem;"></i> Carrito de compras</li>
+                            <li style="padding: 12px 0; display: flex; align-items: center; gap: 12px; font-size: 1rem;"><i class="fa-solid fa-check-circle" style="color: var(--accent); font-size: 1.2rem;"></i> Pagos en línea</li>
+                        </ul>
+                    </div>
+                    <span class="servicio-toggle" style="position: absolute; top: 24px; right: 24px; font-size: 2rem; color: var(--primary); transition: transform 0.3s;">+</span>
+                </div>
+                <div class="servicio-card-expandible" onclick="toggleServicioCard(this)" style="background: white; padding: 40px 32px; border-radius: 24px; border: 2px solid var(--border); cursor: pointer; position: relative; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); box-shadow: 0 4px 20px rgba(0,0,0,0.08);">
+                    <div style="font-size: 3.5rem; color: var(--primary); margin-bottom: 20px; display: flex; align-items: center; justify-content: center; width: 80px; height: 80px; background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); border-radius: 20px; color: white;"><i class="fa-solid fa-calendar-check"></i></div>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 12px; font-weight: 700; color: var(--text-dark);">Citas Online</h3>
+                    <p style="color: var(--text-medium); font-size: 1rem; margin: 0; line-height: 1.6;">Agenda desde la web</p>
+                    <div class="servicio-dropdown" style="max-height: 0; opacity: 0; overflow: hidden; transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%); border-radius: 16px; margin: 0 -32px -32px -32px; padding: 0 32px;">
+                        <ul style="list-style: none; padding: 24px 0; margin: 0; border-top: 1px solid var(--border);">
+                            <li style="padding: 12px 0; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 12px; font-size: 1rem;"><i class="fa-solid fa-check-circle" style="color: var(--accent); font-size: 1.2rem;"></i> Formulario de citas</li>
+                            <li style="padding: 12px 0; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 12px; font-size: 1rem;"><i class="fa-solid fa-check-circle" style="color: var(--accent); font-size: 1.2rem;"></i> Selección de horarios</li>
+                            <li style="padding: 12px 0; display: flex; align-items: center; gap: 12px; font-size: 1rem;"><i class="fa-solid fa-check-circle" style="color: var(--accent); font-size: 1.2rem;"></i> Llega a tu WhatsApp</li>
+                        </ul>
+                    </div>
+                    <span class="servicio-toggle" style="position: absolute; top: 24px; right: 24px; font-size: 2rem; color: var(--primary); transition: transform 0.3s;">+</span>
+                </div>
+                <div class="servicio-card-expandible" onclick="toggleServicioCard(this)" style="background: white; padding: 40px 32px; border-radius: 24px; border: 2px solid var(--border); cursor: pointer; position: relative; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); box-shadow: 0 4px 20px rgba(0,0,0,0.08);">
+                    <div style="font-size: 3.5rem; color: var(--primary); margin-bottom: 20px; display: flex; align-items: center; justify-content: center; width: 80px; height: 80px; background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); border-radius: 20px; color: white;"><i class="fa-solid fa-star"></i></div>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 12px; font-weight: 700; color: var(--text-dark);">Reseñas</h3>
+                    <p style="color: var(--text-medium); font-size: 1rem; margin: 0; line-height: 1.6;">5 estrellas automáticas</p>
+                    <div class="servicio-dropdown" style="max-height: 0; opacity: 0; overflow: hidden; transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%); border-radius: 16px; margin: 0 -32px -32px -32px; padding: 0 32px;">
+                        <ul style="list-style: none; padding: 24px 0; margin: 0; border-top: 1px solid var(--border);">
+                            <li style="padding: 12px 0; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 12px; font-size: 1rem;"><i class="fa-solid fa-check-circle" style="color: var(--accent); font-size: 1.2rem;"></i> QR en tu negocio</li>
+                            <li style="padding: 12px 0; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 12px; font-size: 1rem;"><i class="fa-solid fa-check-circle" style="color: var(--accent); font-size: 1.2rem;"></i> Auto-reseñas Google</li>
+                            <li style="padding: 12px 0; display: flex; align-items: center; gap: 12px; font-size: 1rem;"><i class="fa-solid fa-check-circle" style="color: var(--accent); font-size: 1.2rem;"></i> Filtro de malas reseñas</li>
+                        </ul>
+                    </div>
+                    <span class="servicio-toggle" style="position: absolute; top: 24px; right: 24px; font-size: 2rem; color: var(--primary); transition: transform 0.3s;">+</span>
+                </div>
+                <div class="servicio-card-expandible" onclick="toggleServicioCard(this)" style="background: white; padding: 40px 32px; border-radius: 24px; border: 2px solid var(--border); cursor: pointer; position: relative; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); box-shadow: 0 4px 20px rgba(0,0,0,0.08);">
+                    <div style="font-size: 3.5rem; color: var(--primary); margin-bottom: 20px; display: flex; align-items: center; justify-content: center; width: 80px; height: 80px; background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); border-radius: 20px; color: white;"><i class="fa-solid fa-mobile-screen"></i></div>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 12px; font-weight: 700; color: var(--text-dark);">Mobile First</h3>
+                    <p style="color: var(--text-medium); font-size: 1rem; margin: 0; line-height: 1.6;">Diseño para celular</p>
+                    <div class="servicio-dropdown" style="max-height: 0; opacity: 0; overflow: hidden; transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%); border-radius: 16px; margin: 0 -32px -32px -32px; padding: 0 32px;">
+                        <ul style="list-style: none; padding: 24px 0; margin: 0; border-top: 1px solid var(--border);">
+                            <li style="padding: 12px 0; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 12px; font-size: 1rem;"><i class="fa-solid fa-check-circle" style="color: var(--accent); font-size: 1.2rem;"></i> Adaptado a móviles</li>
+                            <li style="padding: 12px 0; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 12px; font-size: 1rem;"><i class="fa-solid fa-check-circle" style="color: var(--accent); font-size: 1.2rem;"></i> Carga rápida</li>
+                            <li style="padding: 12px 0; display: flex; align-items: center; gap: 12px; font-size: 1rem;"><i class="fa-solid fa-check-circle" style="color: var(--accent); font-size: 1.2rem;"></i> UX optimizada</li>
+                        </ul>
+                    </div>
+                    <span class="servicio-toggle" style="position: absolute; top: 24px; right: 24px; font-size: 2rem; color: var(--primary); transition: transform 0.3s;">+</span>
+                </div>
+                <div class="servicio-card-expandible" onclick="toggleServicioCard(this)" style="background: white; padding: 40px 32px; border-radius: 24px; border: 2px solid var(--border); cursor: pointer; position: relative; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); box-shadow: 0 4px 20px rgba(0,0,0,0.08);">
+                    <div style="font-size: 3.5rem; color: var(--primary); margin-bottom: 20px; display: flex; align-items: center; justify-content: center; width: 80px; height: 80px; background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); border-radius: 20px; color: white;"><i class="fa-solid fa-rocket"></i></div>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 12px; font-weight: 700; color: var(--text-dark);">Listo en 4 Días</h3>
+                    <p style="color: var(--text-medium); font-size: 1rem; margin: 0; line-height: 1.6;">Publicación rápida</p>
+                    <div class="servicio-dropdown" style="max-height: 0; opacity: 0; overflow: hidden; transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%); border-radius: 16px; margin: 0 -32px -32px -32px; padding: 0 32px;">
+                        <ul style="list-style: none; padding: 24px 0; margin: 0; border-top: 1px solid var(--border);">
+                            <li style="padding: 12px 0; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 12px; font-size: 1rem;"><i class="fa-solid fa-check-circle" style="color: var(--accent); font-size: 1.2rem;"></i> 4 días hábiles</li>
+                            <li style="padding: 12px 0; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 12px; font-size: 1rem;"><i class="fa-solid fa-check-circle" style="color: var(--accent); font-size: 1.2rem;"></i> Sin largas esperas</li>
+                            <li style="padding: 12px 0; display: flex; align-items: center; gap: 12px; font-size: 1rem;"><i class="fa-solid fa-check-circle" style="color: var(--accent); font-size: 1.2rem;"></i> Empieza a vender antes</li>
+                        </ul>
+                    </div>
+                    <span class="servicio-toggle" style="position: absolute; top: 24px; right: 24px; font-size: 2rem; color: var(--primary); transition: transform 0.3s;">+</span>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -351,6 +468,34 @@
     </footer>
 
     <script>
+        function toggleServicioCard(card) {
+            const wasActive = card.classList.contains('active');
+            const dropdown = card.querySelector('.servicio-dropdown');
+            const toggle = card.querySelector('.servicio-toggle');
+            
+            document.querySelectorAll('.servicio-card-expandible').forEach(c => {
+                c.classList.remove('active');
+                c.style.borderColor = 'var(--border)';
+                const d = c.querySelector('.servicio-dropdown');
+                if (d) {
+                    d.style.maxHeight = '0';
+                    d.style.opacity = '0';
+                }
+                const t = c.querySelector('.servicio-toggle');
+                if (t) t.style.transform = 'rotate(0deg)';
+            });
+            
+            if (!wasActive) {
+                card.classList.add('active');
+                card.style.borderColor = 'var(--primary)';
+                if (dropdown) {
+                    dropdown.style.maxHeight = '300px';
+                    dropdown.style.opacity = '1';
+                }
+                if (toggle) toggle.style.transform = 'rotate(45deg)';
+            }
+        }
+        
         document.getElementById('mobileMenu').addEventListener('click', () => {
             const navLinks = document.querySelector('.nav-links');
             const isOpen = navLinks.style.display === 'flex';
