@@ -111,19 +111,106 @@
         .process-step-card h4 { font-size: 1rem; margin-bottom: 8px; }
         .process-step-card p { font-size: .85rem; color: var(--text-medium); }
 
-        @media (max-width: 968px) {
-            .service-detail-grid { grid-template-columns: 1fr; gap: 32px; }
-            .service-detail-grid.reverse { direction: ltr; }
-            .process-visual { grid-template-columns: repeat(2, 1fr); }
-            .process-step-card::after { display: none; }
-            .servicios-grid-section > div { grid-template-columns: repeat(2, 1fr) !important; }
+        /* Quick Services Grid responsive */
+        .servicios-grid-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
         }
-        @media (max-width: 540px) {
-            .process-visual { grid-template-columns: 1fr; }
-            .servicios-grid-section > div { grid-template-columns: 1fr !important; }
-            .servicio-card-expandible { padding: 24px 20px !important; }
-            .servicio-card-expandible h3 { font-size: 1.2rem !important; }
-            .servicio-card-expandible > div:first-child { width: 60px !important; height: 60px !important; font-size: 2rem !important; }
+        .servicios-grid-section > .container > div:not(.servicios-grid-container) {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        @media (max-width: 1024px) {
+            .servicios-grid-section > div {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .service-detail-grid { gap: 40px; }
+        }
+        @media (max-width: 768px) {
+            .page-hero {
+                padding: 120px 0 60px;
+            }
+            .servicios-grid-section > div {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+            .servicio-card-expandible {
+                padding: 28px 24px !important;
+            }
+            .servicio-card-expandible > div:first-child {
+                width: 64px !important;
+                height: 64px !important;
+                font-size: 2rem !important;
+                margin-bottom: 16px;
+            }
+            .servicio-card-expandible h3 {
+                font-size: 1.3rem !important;
+                margin-bottom: 8px;
+            }
+            .servicio-card-expandible p {
+                font-size: 0.95rem !important;
+            }
+            .service-detail-section {
+                padding: 60px 0;
+            }
+            .service-detail-grid {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+            .service-detail-grid.reverse {
+                direction: ltr;
+            }
+            .service-detail-visual {
+                padding: 28px 20px;
+            }
+            .service-detail-visual .big-icon {
+                font-size: 3.5rem;
+            }
+            .service-detail-text h2 {
+                font-size: 1.75rem;
+            }
+            .service-detail-text p {
+                font-size: 1rem;
+            }
+            .process-visual {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 16px;
+            }
+            .process-step-card {
+                padding: 20px 16px;
+            }
+            .process-step-card::after {
+                display: none;
+            }
+            .process-step-num {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+        }
+        @media (max-width: 480px) {
+            .servicio-card-expandible {
+                padding: 24px 20px !important;
+            }
+            .servicio-card-expandible > div:first-child {
+                width: 56px !important;
+                height: 56px !important;
+                font-size: 1.75rem !important;
+            }
+            .servicio-card-expandible h3 {
+                font-size: 1.15rem !important;
+            }
+            .servicio-toggle {
+                top: 16px !important;
+                right: 16px !important;
+                font-size: 1.5rem !important;
+            }
+            .process-visual {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -161,7 +248,7 @@
     <!-- Quick Services Grid - BIG CARDS -->
     <section class="servicios-grid-section" style="padding: 80px 0; background: var(--bg-light);">
         <div class="container">
-            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;">
+            <div class="servicios-grid-container">
                 <div class="servicio-card-expandible" onclick="toggleServicioCard(this)" style="background: white; padding: 40px 32px; border-radius: 24px; border: 2px solid var(--border); cursor: pointer; position: relative; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); box-shadow: 0 4px 20px rgba(0,0,0,0.08);">
                     <div style="font-size: 3.5rem; color: var(--primary); margin-bottom: 20px; display: flex; align-items: center; justify-content: center; width: 80px; height: 80px; background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); border-radius: 20px; color: white;"><i class="fa-brands fa-whatsapp"></i></div>
                     <h3 style="font-size: 1.5rem; margin-bottom: 12px; font-weight: 700; color: var(--text-dark);">WhatsApp</h3>

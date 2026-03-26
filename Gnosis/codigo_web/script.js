@@ -735,44 +735,165 @@ const demoBiz = {
 
 function setDemoColor(color) {
     const theme = demoThemes[color];
-    const content = document.getElementById('demoScreenContent');
+    
+    // Obtener elementos del navegador
     const browserFrame = document.querySelector('.browser-frame');
     const browserToolbar = document.querySelector('.browser-toolbar');
     const urlBar = document.querySelector('.browser-url-bar');
+    const browserContent = document.getElementById('demoScreenContent');
     
-    if (content) {
-        content.style.setProperty('--demo-bg', theme.bg);
-        content.style.setProperty('--demo-bg-light', theme.bgLight);
-        content.style.setProperty('--demo-text', theme.text);
-        content.style.setProperty('--demo-text-light', theme.textLight);
-        content.style.setProperty('--demo-accent', theme.accent);
-        content.style.setProperty('--demo-accent-dim', theme.accentDim);
-        
-        content.style.background = `linear-gradient(180deg, ${theme.bg} 0%, ${theme.bgLight} 100%)`;
-    }
-    
+    // === CAMBIAR BROWSER FRAME (borde exterior del navegador) ===
     if (browserFrame) {
-        browserFrame.style.background = theme.isDark ? '#1e293b' : '#ffffff';
-        browserFrame.style.boxShadow = theme.isDark 
-            ? '0 25px 80px rgba(0,0,0,0.5)' 
-            : '0 25px 80px rgba(0,0,0,0.15)';
+        browserFrame.style.background = theme.bg;
+        browserFrame.style.border = theme.isDark ? '1px solid rgba(255,255,255,0.15)' : '1px solid rgba(0,0,0,0.1)';
     }
     
+    // === CAMBIAR BROWSER TOOLBAR (barra de título) ===
     if (browserToolbar) {
         browserToolbar.style.background = theme.isDark ? '#0f172a' : '#f8fafc';
+        browserToolbar.style.borderBottom = theme.isDark ? '1px solid rgba(255,255,255,0.1)' : '1px solid rgba(0,0,0,0.08)';
     }
     
+    // === CAMBIAR URL BAR ===
     if (urlBar) {
         urlBar.style.background = theme.isDark ? '#334155' : '#e2e8f0';
         urlBar.style.color = theme.isDark ? 'rgba(255,255,255,0.5)' : 'rgba(0,0,0,0.5)';
     }
     
+    // === CAMBIAR FONDO PRINCIPAL DEL CONTENIDO (browser-content) ===
+    if (browserContent) {
+        // Forzar el fondo con !important
+        browserContent.style.setProperty('background', `linear-gradient(180deg, ${theme.bg} 0%, ${theme.bgLight} 100%)`, 'important');
+        browserContent.style.background = `linear-gradient(180deg, ${theme.bg} 0%, ${theme.bgLight} 100%)`;
+        
+        // También cambiar las variables CSS que usan los elementos internos
+        browserContent.style.setProperty('--demo-bg', theme.bg, 'important');
+        browserContent.style.setProperty('--demo-bg-light', theme.bgLight, 'important');
+        browserContent.style.setProperty('--demo-text', theme.text, 'important');
+        browserContent.style.setProperty('--demo-text-light', theme.textLight, 'important');
+        browserContent.style.setProperty('--demo-accent', theme.accent, 'important');
+        browserContent.style.setProperty('--demo-accent-dim', theme.accentDim, 'important');
+        
+        // Cambiar todos los elementos dentro del browser-content
+        const allElements = browserContent.querySelectorAll('*');
+        allElements.forEach(el => {
+            const style = el.style;
+            const computedStyle = window.getComputedStyle(el);
+            
+            // Si el elemento tiene texto, cambiar color según contexto
+            if (el.tagName === 'H1' || el.tagName === 'H2' || el.tagName === 'H3' || el.tagName === 'H4') {
+                style.color = theme.text;
+            }
+            
+            if (el.tagName === 'P' && !el.closest('button')) {
+                style.color = theme.textLight;
+            }
+            
+            if (el.tagName === 'A') {
+                style.color = theme.textLight;
+            }
+            
+            // Si es botón, cambiar fondo
+            if (el.tagName === 'BUTTON') {
+                style.background = theme.accent;
+                style.boxShadow = theme.accentDim;
+            }
+            
+            // Si es div con fondo blanco, cambiar según tema
+            if (el.classList.contains('demo-hero-visual') || el.closest('.demo-hero-visual')) {
+                if (el.style.background && el.style.background.includes('rgb')) {
+                    style.background = theme.accent;
+                    style.boxShadow = theme.accentDim;
+                }
+            }
+        });
+        
+        // === CAMBIAR DEMO NAV (navegación) ===
+        const demoNav = browserContent.querySelector('.demo-nav');
+        if (demoNav) {
+            demoNav.style.background = theme.bg;
+            demoNav.style.borderBottom = `2px solid ${theme.accent}`;
+            const brand = demoNav.querySelector('.demo-brand');
+            if (brand) brand.style.color = theme.text;
+            const menuLinks = demoNav.querySelectorAll('.demo-menu a');
+            menuLinks.forEach(link => link.style.color = theme.textLight);
+            const ctaTop = demoNav.querySelector('.demo-cta-top');
+            if (ctaTop) {
+                ctaTop.style.background = theme.accent;
+                ctaTop.style.color = 'white';
+            }
+        }
+        
+        // === CAMBIAR HERO SECTION ===
+        const heroSection = browserContent.querySelector('.demo-hero-section');
+        if (heroSection) {
+            heroSection.style.background = theme.bgLight;
+            const heroTitle = heroSection.querySelector('h1');
+            if (heroTitle) heroTitle.style.color = theme.text;
+            const heroSubtitle = heroSection.querySelector('p');
+            if (heroSubtitle) heroSubtitle.style.color = theme.textLight;
+            const heroButton = heroSection.querySelector('button');
+            if (heroButton) {
+                heroButton.style.background = theme.accent;
+                heroButton.style.boxShadow = theme.accentDim;
+            }
+            const heroVisual = heroSection.querySelector('.demo-hero-visual div');
+            if (heroVisual) {
+                heroVisual.style.background = theme.accent;
+                heroVisual.style.boxShadow = theme.accentDim;
+            }
+        }
+        
+        // === CAMBIAR SERVICE CARDS ===
+        const serviceCards = browserContent.querySelectorAll('[style*="border-radius: 16px"]');
+        serviceCards.forEach(card => {
+            if (!card.closest('.browser-toolbar') && !card.closest('.demo-controls-panel')) {
+                // Cambiar fondo de la card
+                card.style.background = theme.isDark ? '#1e293b' : '#ffffff';
+                card.style.border = theme.isDark ? '1px solid rgba(255,255,255,0.1)' : '1px solid rgba(0,0,0,0.05)';
+                
+                // Cambiar título
+                const title = card.querySelector('h4');
+                if (title) title.style.color = theme.text;
+                
+                // Cambiar descripción
+                const desc = card.querySelector('p');
+                if (desc) desc.style.color = theme.textLight;
+                
+                // Cambiar icono
+                const iconBox = card.querySelector('div:first-child');
+                if (iconBox && iconBox.style.background && iconBox.style.background.includes('var')) {
+                    iconBox.style.background = theme.accent;
+                }
+            }
+        });
+        
+        // === CAMBIAR FEATURES BAR ===
+        const featuresBar = browserContent.querySelector('.demo-hero-section + div');
+        if (featuresBar) {
+            featuresBar.style.background = theme.isDark ? 'rgba(255,255,255,0.05)' : 'rgba(0,0,0,0.03)';
+            const featureTexts = featuresBar.querySelectorAll('span');
+            featureTexts.forEach(span => span.style.color = theme.textLight);
+        }
+        
+        // === CAMBIAR FOOTER ===
+        const footer = browserContent.querySelector('.demo-hero-section + div + div');
+        if (footer) {
+            footer.style.borderTop = theme.isDark ? '1px solid rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.1)';
+            const footerText = footer.querySelector('p');
+            if (footerText) footerText.style.color = theme.isDark ? 'rgba(255,255,255,0.5)' : '#94a3b8';
+        }
+    }
+    
+    // === ACTUALIZAR BOTONES DE COLOR ===
     document.querySelectorAll('.demo-color-btn').forEach(btn => {
         btn.style.borderColor = 'transparent';
         btn.style.opacity = '0.6';
     });
-    event.target.style.borderColor = theme.accent;
-    event.target.style.opacity = '1';
+    if (event && event.target) {
+        event.target.style.borderColor = theme.accent;
+        event.target.style.opacity = '1';
+    }
 }
 
 function setDemoBiz2(biz) {

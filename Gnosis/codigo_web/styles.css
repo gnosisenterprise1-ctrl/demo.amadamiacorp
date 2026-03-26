@@ -1677,6 +1677,42 @@ h4 { font-size: 1.25rem; }
     }
 }
 
+@media (max-width: 768px) {
+    .demo-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        padding: 16px;
+    }
+    
+    .demo-controls-panel {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+    
+    .demo-controls-panel > div {
+        padding: 16px;
+    }
+    
+    .color-options {
+        display: grid !important;
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 8px !important;
+    }
+    
+    .biz-options {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 8px !important;
+    }
+    
+    .biz-options button {
+        padding: 10px 8px !important;
+        font-size: 0.75rem !important;
+    }
+}
+
 .demo-cta {
     text-align: center;
     margin-top: 50px;
