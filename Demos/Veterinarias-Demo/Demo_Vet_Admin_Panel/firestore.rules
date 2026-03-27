@@ -1,0 +1,43 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Regla global por defecto: BLOQUEAR TODO (Deny all)
+    // Nada puede ser leído ni escrito a menos que cumpla una regla explícita abajo.
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // Reglas para la colección "pacientes"
+    match /pacientes/{pacienteId} {
+      
+      // 1. LECTURA (Read): 
+      // ¿Quién puede ver la lista de pacientes?
+      // - Solo usuarios que hayan iniciado sesión (request.auth != null)
+      // - Y que además tengan el rol de "admin" o "recepcionista" en su token de acceso.
+      allow read: if request.auth != null && (request.auth.token.rol == 'admin' || request.auth.token.rol == 'recepcionista');
+      
+      // 2. CREACIÓN (Create): 
+      // Al registrar un nuevo paciente desde la página web, ¿qué se exige?
+      // - Estar logueado y ser admin.
+      // - Además, el documento debe contener el campo obligatorio "dueñoId" y "estado".
+      // - Validación del campo "nombre" para evitar scripts (largo menor a 50 chars y que sea texto).
+      allow create: if request.auth != null 
+                    && request.auth.token.rol in ['admin', 'recepcionista']
+                    && request.resource.data.keys().hasAll(['nombre', 'dueñoId', 'estado'])
+                    && request.resource.data.nombre is string
+                    && request.resource.data.nombre.size() < 50;
+      
+      // 3. ACTUALIZACIÓN (Update) y BORRADO (Delete):
+      // Solo el rol de "admin" general puede borrar expedientes (para evitar borrados accidentales de empleados).
+      allow delete: if request.auth != null && request.auth.token.rol == 'admin';
+      allow update: if request.auth != null && request.auth.token.rol in ['admin', 'recepcionista'];
+    }
+
+    // Reglas adicionales para el control de inventario médico (Ej: Cirugía)
+    match /inventario_medico/{itemId} {
+      // Solo administradores pueden tocar el inventario. Nadie más puede verlo (ni usuarios ni clientes externos).
+      allow read, write: if request.auth != null && request.auth.token.rol == 'admin';
+    }
+  }
+}

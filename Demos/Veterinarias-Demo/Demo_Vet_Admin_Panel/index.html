@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VetCare Admin Software</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <i data-lucide="paw-print" class="logo-icon" size="28"></i>
+            <div>
+                <div class="logo-text">VetCare OS</div>
+                <div class="badge-admin">Admin Portal</div>
+            </div>
+        </div>
+
+        <nav class="nav-menu">
+            <a href="#" class="nav-item active">
+                <i data-lucide="layout-dashboard"></i> Recepción (Hoy)
+            </a>
+            <a href="#" class="nav-item">
+                <i data-lucide="calendar"></i> Agenda Médica
+            </a>
+            <a href="#" class="nav-item">
+                <i data-lucide="users"></i> Expedientes
+            </a>
+            <a href="#" class="nav-item">
+                <i data-lucide="moon"></i> Control de Pensión
+            </a>
+            <a href="#" class="nav-item">
+                <i data-lucide="package"></i> Inventario Farmacia
+            </a>
+            <div style="border-top: 1px solid var(--border-color); margin: 20px 0;"></div>
+            <a href="#" class="nav-item">
+                <i data-lucide="credit-card"></i> Pagos y Membresías
+            </a>
+            <a href="#" class="nav-item">
+                <i data-lucide="settings"></i> Configuración
+            </a>
+        </nav>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-wrapper">
+        
+        <!-- TOP NAV -->
+        <header class="top-header">
+            <div class="search-bar">
+                <i data-lucide="search" size="18" style="color: var(--text-secondary)"></i>
+                <input type="text" placeholder="Buscar paciente por nombre o chip...">
+            </div>
+
+            <div class="user-profile">
+                <div style="text-align: right;">
+                    <div style="font-weight: 600; font-size: 0.9rem;">Dra. Elena Ruiz</div>
+                    <div style="font-size: 0.8rem; color: var(--text-secondary);">Directora Médica</div>
+                </div>
+                <div class="avatar">ER</div>
+            </div>
+        </header>
+
+        <!-- DASHBOARD BODY -->
+        <div class="content">
+            <div class="page-title">
+                <h1>Panorama Central (Tiempo Real)</h1>
+                <button class="btn-primary" onclick="alert('Demo: Abre modal de creación conectada a Firebase')">
+                    <i data-lucide="plus" size="18"></i> Nuevo Ingreso
+                </button>
+            </div>
+
+            <!-- KPIs -->
+            <div class="kpi-grid">
+                <div class="kpi-card">
+                    <div class="kpi-header">
+                        Citas para Hoy <i data-lucide="calendar-clock" size="18" style="color:var(--brand-blue)"></i>
+                    </div>
+                    <div class="kpi-value">
+                        14 <span class="kpi-trend positive"><i data-lucide="trending-up" size="14"></i> +2 turnos extra</span>
+                    </div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-header">
+                        Ingresados en Pensión <i data-lucide="moon" size="18" style="color:#8B5CF6"></i>
+                    </div>
+                    <div class="kpi-value">
+                        8 <span style="font-size:0.9rem; color:var(--text-secondary); font-weight:500;">/ 15 Suites</span>
+                    </div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-header">
+                        Ingresos del Día (MXN) <i data-lucide="dollar-sign" size="18" style="color:var(--success-text)"></i>
+                    </div>
+                    <div class="kpi-value">
+                        $9,450 <span class="kpi-trend positive"><i data-lucide="check-circle" size="14"></i> Corte Sano</span>
+                    </div>
+                </div>
+                <div class="kpi-card" style="border-left: 4px solid var(--danger-text);">
+                    <div class="kpi-header">
+                        Alertas Médicas <i data-lucide="alert-circle" size="18" style="color:var(--danger-text)"></i>
+                    </div>
+                    <div class="kpi-value" style="color:var(--danger-text)">
+                        2 <span style="font-size:0.9rem; color:var(--text-secondary); font-weight:500;">Vacunas Vencidas</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TABLE -->
+            <div class="card-section">
+                <div class="card-header">
+                    <h2>Últimos Pacientes Registrados en Recepción</h2>
+                    <button class="action-btn"><i data-lucide="filter" size="18"></i> Filtrar</button>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Paciente / Dueño</th>
+                            <th>Motivo Acceso</th>
+                            <th>Hora LLegada</th>
+                            <th>Estado de Cuenta / Sistema</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="patient-info">
+                                    <!-- Use placekitten for pet photos -->
+                                    <img src="https://images.unsplash.com/photo-1543852786-1cf6624b9987?q=80&w=100&auto=format&fit=crop" class="pet-avatar" alt="Milo">
+                                    <div>
+                                        <span class="pet-name">Milo (Gato Persa)</span>
+                                        <span class="owner-name">Eduardo Ríos • +52 999 123 4567</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td><span style="font-weight:600; color:var(--brand-dark);">Cirugía Tejido Blando</span><br><span style="font-size:0.8rem;color:var(--text-secondary)">Dr. Méndez</span></td>
+                            <td>08:15 AM</td>
+                            <td>
+                                <span class="status status-green"><i data-lucide="check-circle" size="12"></i> Depósito Pagado</span>
+                            </td>
+                            <td>
+                                <button class="action-btn" title="Ver Expediente Médico"><i data-lucide="file-text"></i></button>
+                                <button class="action-btn" title="Notificar a WhatsApp"><i data-lucide="message-square"></i></button>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <div class="patient-info">
+                                    <div class="pet-avatar" style="background:#f3f4f6; display:flex; justify-content:center; align-items:center; color:#9ca3af;"><i data-lucide="dog"></i></div>
+                                    <div>
+                                        <span class="pet-name">Rocky (Husky)</span>
+                                        <span class="owner-name">Sofía Álvarez • +52 999 987 6543</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>Baño y DeslanadoVIP</td>
+                            <td>09:00 AM</td>
+                            <td>
+                                <span class="status status-yellow"><i data-lucide="clock" size="12"></i> En Proceso</span>
+                            </td>
+                            <td>
+                                <button class="action-btn" title="Ver Expediente Médico"><i data-lucide="file-text"></i></button>
+                                <button class="action-btn" title="Notificar a WhatsApp"><i data-lucide="message-square"></i></button>
+                            </td>
+                        </tr>
+
+                        <tr style="background-color: #FEF2F2;">
+                            <td>
+                                <div class="patient-info">
+                                    <img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?q=80&w=100&auto=format&fit=crop" class="pet-avatar" alt="Luna">
+                                    <div>
+                                        <span class="pet-name">Luna (Mestiza)</span>
+                                        <span class="owner-name">Carlos G. • No contesta</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>Pensión (Guardería)</td>
+                            <td>Ayer, 06:00 PM</td>
+                            <td>
+                                <span class="status status-red"><i data-lucide="alert-triangle" size="12"></i> Bloqueo: Debe 2 mensualidades</span>
+                            </td>
+                            <td>
+                                <button class="action-btn" title="Ver Expediente Médico"><i data-lucide="file-text"></i></button>
+                                <button class="action-btn" title="Mandar Link de Pago"><i data-lucide="link"></i></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </main>
+
+    <script src="security-protocols.js"></script>
+    <script>lucide.createIcons();</script>
+</body>
+</html>
