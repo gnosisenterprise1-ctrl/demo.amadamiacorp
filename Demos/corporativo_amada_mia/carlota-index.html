@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mundo Carlota | Directorio</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body id="carlota-world" class="carlota-page theme-forest" style="background-image: url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&q=80&w=1600'); background-size: cover; background-position: center; background-attachment: fixed;">
+
+  <!-- Capa de oscurecimiento absoluto para lujo -->
+  <div style="position: fixed; top:0; left:0; width:100%; height:100%; background: rgba(15,18,14,0.85); z-index: -1;"></div>
+
+  <header class="header" style="background: transparent; border-bottom: none;">
+    <div class="logo-container">
+      <a href="index.html" class="logo-text carlota-brand" style="color:white !important;"><i class="fa-solid fa-arrow-left"></i> Cambiar de Mundo</a>
+    </div>
+  </header>
+
+  <section class="directory-section" style="padding-top: 10rem;">
+    <h1 class="section-title" data-aos="fade-down" style="color: white; border-bottom-color: var(--carlota-accent);">Alta Cocina de Autor</h1>
+    <p style="text-align: center; max-width: 650px; margin: 0 auto 5rem auto; font-size: 1.15rem; font-weight: 300; color: #ddd" data-aos="fade-up">
+      Desayunos, brunch y cenas íntimas. Un espacio de texturas profundas para quienes aprecian la buena mesa. Por favor, selecciona la sede de tu preferencia.
+    </p>
+    
+    <div class="branches-grid" style="max-width: 900px;">
+      <!-- Caukel -->
+      <a href="carlotta-bistro.html" class="branch-card" data-aos="zoom-in" data-aos-delay="0" style="background: rgba(30,51,21,0.6); backdrop-filter: blur(8px);">
+        <div class="branch-img-wrapper">
+          <div class="branch-img" style="background-image: url('https://images.unsplash.com/photo-1544148103-0773bf10d330?auto=format&fit=crop&q=80&w=800');"></div>
+        </div>
+        <div class="branch-info">
+          <h3 class="branch-title carlota-brand" style="color:#a5d6a7 !important;">Carlota <span>Caucel</span></h3>
+          <p class="branch-desc" style="color: #bbb;">Atmósfera boscosa y elegante. Cortes, vinos y platillos de alto nivel pensados para negocios o romance.</p>
+          <span class="branch-link">Ingresar <i class="fa-solid fa-arrow-right"></i></span>
+        </div>
+      </a>
+
+      <!-- Chuburná -->
+      <a href="carlotta-chuburna.html" class="branch-card" data-aos="zoom-in" data-aos-delay="150" style="background: rgba(43,31,28,0.6); backdrop-filter: blur(8px);">
+        <div class="branch-img-wrapper" style="position: relative;">
+          <div class="branch-img" style="background-image: url('fachada-chuburna.png');"></div>
+          <div style="position:absolute; top:15px; right:15px; background: #bf360c; color: white; padding: 5px 15px; border-radius: 20px; font-size: 0.8rem; letter-spacing: 2px;">VIBRA TERRACOTA</div>
+        </div>
+        <div class="branch-info">
+          <h3 class="branch-title carlota-brand" style="color:#ffab91 !important;">Carlota <span>Chuburná</span></h3>
+          <p class="branch-desc" style="color: #bbb;">Desayunos y brunch de autor en el corazón de Chuburná de Hidalgo. Ambiente en cálidos tonos arcilla y barro.</p>
+          <span class="branch-link" style="color: #ff8a65;">Ingresar <i class="fa-solid fa-arrow-right"></i></span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>AOS.init({once:true});</script>
+</body>
+</html>

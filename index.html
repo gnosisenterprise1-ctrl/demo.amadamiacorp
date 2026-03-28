@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Corporativo Amada Mía | Nuestras Marcas</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <style>
+    :root {
+      --transition: all 0.7s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body, html { height: 100vh; overflow: hidden; background: #0b0d0c; font-family: 'Outfit', sans-serif; }
+    
+    .mosaic-container { display: flex; height: 100vh; width: 100vw; }
+    
+    .panel { 
+      flex: 1; position: relative; display: flex; align-items: center; justify-content: center; 
+      transition: var(--transition); cursor: pointer; overflow: hidden; 
+      border-right: 1px solid rgba(255,255,255,0.05);
+    }
+    .panel:last-child { border-right: none; }
+    
+    .panel-bg {
+      position: absolute; inset: 0;
+      background-size: cover; background-position: center;
+      transition: transform 1.2s ease; z-index: 1;
+      filter: grayscale(20%) brightness(0.7);
+    }
+    
+    .panel:hover { flex: 2.5; }
+    .panel:hover .panel-bg { transform: scale(1.1); filter: grayscale(0%) brightness(0.9); }
+
+    .panel-overlay {
+      position: absolute; inset: 0; z-index: 2;
+      display: flex; flex-direction: column; justify-content: center; align-items: center;
+      text-align: center; padding: 2rem;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.6));
+      transition: var(--transition);
+    }
+    
+    .panel:hover .panel-overlay { background: rgba(0,0,0,0.3); }
+
+    .content-box {
+      z-index: 3; transform: translateY(30px); opacity: 0;
+      transition: var(--transition); transition-delay: 0.1s;
+      max-width: 350px;
+    }
+    .panel:hover .content-box { transform: translateY(0); opacity: 1; }
+
+    .label-vertical {
+      position: absolute; bottom: 5rem; z-index: 4;
+      font-family: 'Playfair Display', serif; font-size: 2.5rem; color: #fff;
+      text-transform: uppercase; letter-spacing: 4px;
+      writing-mode: vertical-rl; transform: rotate(180deg);
+      transition: var(--transition); pointer-events: none;
+    }
+    .panel:hover .label-vertical { opacity: 0; transform: translateY(-20px); }
+
+    .brand-title { font-family: 'Playfair Display', serif; font-size: 3.5rem; color: #fff; margin-bottom: 10px; line-height: 1; }
+    .subtitle { text-transform: uppercase; letter-spacing: 5px; font-weight: 300; font-size: 0.8rem; color: #fff; margin-bottom: 1.5rem; }
+    .desc { font-size: 1rem; font-weight: 300; color: #eee; margin-bottom: 2rem; }
+
+    .btn-enter {
+      display: inline-block; padding: 0.8rem 2.5rem; border-radius: 50px; font-weight: 500;
+      text-transform: uppercase; letter-spacing: 2px; transition: 0.4s; font-size: 0.8rem;
+      text-decoration: none; border: 1px solid #fff; color: #fff;
+    }
+    .btn-enter:hover { background: #fff; color: #000; }
+
+    /* Brand Specific Styles */
+    .panel-amada .panel-bg { background-image: url('fachada-caucel.png'); }
+    .panel-carlota .panel-bg { background-image: url('fachada-chuburna.png'); }
+    .panel-vita .panel-bg { background-image: url('https://images.unsplash.com/photo-1541167760496-1628856ab772?auto=format&fit=crop&q=80&w=800'); } /* Temporarily stock */
+    .panel-jacinto .panel-bg { background-image: url('https://images.unsplash.com/photo-1551632432-c735e8306321?auto=format&fit=crop&q=80&w=800'); }
+    .panel-venettia .panel-bg { background-image: url('https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&q=80&w=800'); }
+
+    .panel-amada .brand-title { color: #f8bbd0; }
+    .panel-carlota .brand-title { color: #81c784; }
+    .panel-vita .brand-title { color: #d4af37; }
+    .panel-jacinto .brand-title { color: #81d4fa; }
+    .panel-venettia .brand-title { color: #ffab91; }
+
+    @media (max-width: 900px) {
+      .mosaic-container { flex-direction: column; }
+      .panel { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.05); }
+      .label-vertical { writing-mode: horizontal-tb; transform: rotate(0); bottom: 2rem; left: 2rem; }
+      .panel:hover { flex: 4; }
+    }
+  </style>
+</head>
+<body>
+
+  <section class="mosaic-container">
+    
+    <!-- Amada Mia -->
+    <div class="panel panel-amada">
+      <div class="panel-bg"></div>
+      <div class="panel-overlay">
+        <div class="label-vertical">Amada Mía</div>
+        <div class="content-box">
+          <h2 class="brand-title">Amada Mía</h2>
+          <p class="subtitle">Bistro & Café</p>
+          <p class="desc">El santuario visual de la alta repostería y desayunos de autor.</p>
+          <a href="amada-mia-index.html" class="btn-enter">Descubrir Mundo</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Carlota -->
+    <div class="panel panel-carlota">
+      <div class="panel-bg"></div>
+      <div class="panel-overlay">
+        <div class="label-vertical">Carlota</div>
+        <div class="content-box">
+          <h2 class="brand-title">Carlota</h2>
+          <p class="subtitle">Fine Dining</p>
+          <p class="desc">Sofisticación y autor en atmósferas profundas y elegantes.</p>
+          <a href="carlota-index.html" class="btn-enter">Descubrir Mundo</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- VITA memories -->
+    <div class="panel panel-vita">
+      <div class="panel-bg"></div>
+      <div class="panel-overlay">
+        <div class="label-vertical">VITA memories</div>
+        <div class="content-box">
+          <h2 class="brand-title">VITA memories</h2>
+          <p class="subtitle">Diner & Brunch</p>
+          <p class="desc">Un oasis orgánico diseñado para crear memorias inolvidables.</p>
+          <a href="vita-index.html" class="btn-enter">Descubrir Mundo</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Jacinto Puerto -->
+    <div class="panel panel-jacinto">
+      <div class="panel-bg"></div>
+      <div class="panel-overlay">
+        <div class="label-vertical">Jacinto Puerto</div>
+        <div class="content-box">
+          <h2 class="brand-title">Jacinto Puerto</h2>
+          <p class="subtitle">Arrecife Cervecero</p>
+          <p class="desc">Mariscos frescos y copas en un ambiente de puerto industrial.</p>
+          <a href="jacinto-index.html" class="btn-enter">Descubrir Mundo</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Venettia -->
+    <div class="panel panel-venettia">
+      <div class="panel-bg"></div>
+      <div class="panel-overlay">
+        <div class="label-vertical">Venettia</div>
+        <div class="content-box">
+          <h2 class="brand-title">Venettia</h2>
+          <p class="subtitle">Boutique Brunch</p>
+          <p class="desc">Maximalismo y sabores intensos en una experiencia artística única.</p>
+          <a href="venettia-index.html" class="btn-enter">Descubrir Mundo</a>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+</body>
+</html>
