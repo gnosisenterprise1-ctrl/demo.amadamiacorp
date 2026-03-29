@@ -14,9 +14,9 @@
     nav{position:fixed;top:0;width:100%;padding:1.4rem 6%;display:flex;justify-content:space-between;align-items:center;z-index:100;background:rgba(253,250,243,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--light);gap:1rem}
     .nav-brand{font-family:var(--ff-head);font-size:1.8rem;color:var(--brown);white-space:nowrap}
     .nav-brand span{color:var(--pink)}
-    .nav-links{display:flex;gap:2.5rem;align-items:center}
-    .nav-links a{font-size:.75rem;letter-spacing:3px;text-transform:uppercase;color:var(--brown);font-weight:400;transition:.3s}
-    .nav-links a:hover{color:var(--rose)}
+    .nav-links{display:flex;gap:2rem;align-items:center;flex-wrap:wrap}
+    .nav-links a{font-size:.75rem;letter-spacing:3px;text-transform:uppercase;color:#5d4037 !important;font-weight:500;transition:.3s;text-decoration:none !important;border-bottom:2px solid transparent;padding-bottom:2px}
+    .nav-links a:hover{color:var(--rose) !important;border-bottom-color:var(--rose)}
     .hero{height:100vh;background:linear-gradient(rgba(253,250,243,.2),rgba(93,64,55,.75)),url('fachada-heroes.png') center/cover fixed;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:0 6%}
     .hero-label{font-size:.8rem;letter-spacing:6px;text-transform:uppercase;color:var(--pink);margin-bottom:1.5rem;text-shadow:0 1px 4px rgba(93,64,55,.4)}
     .hero h1{font-family:var(--ff-head);font-size:7rem;color:#fff;line-height:.9;margin-bottom:1.5rem;text-shadow:0 4px 20px rgba(93,64,55,.3)}
@@ -109,11 +109,11 @@
   <nav>
     <div class="nav-brand">Amada <span>Mía</span> Héroes</div>
     <div class="nav-links">
-      <a href="#nosotros">Nosotros</a>
-      <a href="#menu">Menú</a>
-      <a href="#galeria">Galería</a>
-      <a href="#ubicacion">Ubicación</a>
-      <a href="amada-mia-index.html" style="color:var(--rose)"><i class="fa-solid fa-arrow-left"></i> Sucursales</a>
+      <a href="#nosotros" style="color:#5d4037;text-decoration:none">Nosotros</a>
+      <a href="#menu" style="color:#5d4037;text-decoration:none">Menú</a>
+      <a href="#galeria" style="color:#5d4037;text-decoration:none">Galería</a>
+      <a href="#ubicacion" style="color:#5d4037;text-decoration:none">Ubicación</a>
+      <a href="amada-mia-index.html" style="color:#e91e63;text-decoration:none"><i class="fa-solid fa-arrow-left"></i> Amada Mía</a>
     </div>
   </nav>
 
