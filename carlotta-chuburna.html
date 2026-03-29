@@ -3,173 +3,190 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Carlota Chuburná | Corporativo Carlota</title>
-  
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <title>Carlota Chuburná | Brunch & Terracota</title>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-  <link rel="stylesheet" href="css/style.css">
   <style>
-    body { background: var(--carlota-bg); color: var(--carlota-text); }
-    /* Making sure it is NOT white, totally dark/luxury */
-    
-    .carlota-hero { height: 100vh; width: 100vw; background: url("fachada-chuburna.png") center/cover fixed; position: relative; display: flex; flex-direction: column; }
-    .carlota-hero::before { content: ""; position: absolute; top:0; left:0; right:0; bottom:0; background: rgba(0,0,0,0.5); z-index: 1; }
-
-    header { position: relative; z-index: 10; padding: 2rem 5%; display: flex; justify-content: space-between; align-items: center; }
-    .brand-logo { font-size: 2rem; font-weight: 600; text-decoration: none; color: white; letter-spacing: -1px; font-family: "Playfair Display", serif;}
-    nav { display: flex; gap: 2rem; align-items: center; }
-    nav a { text-decoration: none; color: rgba(255,255,255,0.85); font-size: 0.85rem; letter-spacing: 2px; text-transform: uppercase; font-weight: 400; transition: 0.3s; }
-    nav a:hover { color: white; }
-
-    .btn-reservar-nav { background: var(--carlota-accent); padding: 0.6rem 2rem; border-radius: 50px; color: var(--carlota-bg); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; font-size: 0.85rem; border: none; cursor: pointer; transition: 0.3s; }
-    .btn-reservar-nav:hover { background: white; }
-
-    .hero-center { position: relative; z-index: 10; flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 0 5%; }
-    .subtitle-dots { color: white; font-size: 1rem; letter-spacing: 6px; text-transform: uppercase; margin-bottom: 5px; }
-    .main-title { font-size: 7rem; color: white; margin-bottom: 10px; line-height: 1; font-family: "Playfair Display", serif;}
-    .main-desc { font-size: 1.4rem; color: white; font-weight: 300; max-width: 700px; text-shadow: 0 2px 4px rgba(0,0,0,0.4); margin-bottom: 40px; }
-    .hero-buttons { display: flex; gap: 20px; }
-    
-    .btn-solid { background: var(--carlota-accent); color: var(--carlota-bg); padding: 1rem 2.5rem; border-radius: 50px; text-decoration: none; font-size: 0.9rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; box-shadow: 0 10px 20px rgba(0,0,0,0.2); border: 2px solid var(--carlota-accent);}
-    .btn-solid:hover { background: white; border-color: white;}
-    
-    .btn-outline { background: transparent; color: white; padding: 1rem 2.5rem; border-radius: 50px; text-decoration: none; font-size: 0.9rem; font-weight: 500; text-transform: uppercase; letter-spacing: 1px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); border: 2px solid rgba(255,255,255,0.8); transition: 0.3s;}
-    .btn-outline:hover { background: rgba(255,255,255,0.1); border-color: white;}
-
-    /* NOSOTROS */
-    .overlap-section { max-width: 1000px; margin: -50px auto 100px auto; background: var(--carlota-bg); backdrop-filter: blur(10px); padding: 5rem; border-radius: 20px; box-shadow: 0 30px 60px rgba(0,0,0,0.8); position: relative; z-index: 10; text-align: center; border: 1px solid rgba(255,255,255,0.05); }
-
-    /* MENU SECTION */
-    .menu-container { max-width: 1200px; margin: 0 auto 5rem auto; padding: 0 5%; }
-    .luxury-menu-item { display: flex; align-items: center; gap: 30px; margin-bottom: 4rem; }
-    .luxury-menu-img { width: 400px; height: 300px; border-radius: 10px; object-fit: cover; box-shadow: 0 20px 40px rgba(0,0,0,0.5); }
-    .luxury-menu-text h3 { font-size: 2.2rem; color: var(--carlota-accent); font-family: var(--font-heading); margin-bottom: 10px;}
-    .luxury-menu-text p { color: #aaa; font-size: 1.1rem; line-height: 1.8; margin-bottom: 15px; font-weight: 300; }
-    .price-line { display: flex; align-items: center; justify-content: flex-start; gap: 15px; }
-    .price-line .price { font-size: 1.5rem; color: white; font-weight: bold; }
-    .price-line .line { flex: 1; height: 1px; background: rgba(255,255,255,0.2); max-width: 200px; }
-
+    :root{--terra:#bf4e30;--warm:#efebe9;--cream:#fdf8f5;--brown:#4e342e;--gold:#c5a059;--ff-head:"Playfair Display",serif;--ff-body:"Outfit",sans-serif}
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:var(--ff-body);background:var(--cream);color:var(--brown);overflow-x:hidden}
+    a{text-decoration:none;color:inherit}
+    nav{position:fixed;top:0;width:100%;padding:1.4rem 6%;display:flex;justify-content:space-between;align-items:center;z-index:100;background:rgba(253,248,245,.92);backdrop-filter:blur(14px);border-bottom:1px solid rgba(191,78,48,.15)}
+    .nav-brand{font-family:var(--ff-head);font-size:1.8rem;color:var(--brown)}
+    .nav-brand span{color:var(--terra)}
+    .nav-links{display:flex;gap:2.5rem;align-items:center}
+    .nav-links a{font-size:.75rem;letter-spacing:3px;text-transform:uppercase;color:var(--brown);font-weight:400;transition:.3s}
+    .nav-links a:hover{color:var(--terra)}
+    /* HERO */
+    .hero{height:100vh;background:linear-gradient(rgba(78,52,46,.35),rgba(78,52,46,.8)),url('fachada-chuburna.png') center/cover fixed;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:0 6%}
+    .hero-badge{display:inline-block;background:var(--terra);color:#fff;font-size:.75rem;letter-spacing:3px;text-transform:uppercase;padding:6px 20px;border-radius:30px;margin-bottom:1.5rem;font-weight:600}
+    .hero h1{font-family:var(--ff-head);font-size:6.5rem;color:#fff;line-height:.9;margin-bottom:1.5rem}
+    .hero h1 em{color:#ffccbc;font-style:italic}
+    .hero p{font-size:1.15rem;max-width:550px;color:rgba(255,255,255,.85);font-weight:300;line-height:1.8;margin-bottom:2.5rem}
+    .btn-row{display:flex;gap:1.2rem;flex-wrap:wrap;justify-content:center}
+    .btn{display:inline-flex;align-items:center;gap:.6rem;padding:1rem 2.5rem;border-radius:3px;font-size:.85rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;transition:.35s;cursor:pointer}
+    .btn-terra{background:var(--terra);color:#fff}
+    .btn-terra:hover{background:#d4634a;transform:translateY(-2px)}
+    .btn-outline{border:1px solid rgba(255,204,188,.5);color:#ffccbc}
+    .btn-outline:hover{background:rgba(255,204,188,.1);transform:translateY(-2px)}
+    /* SECTIONS */
+    section{padding:8rem 6%}
+    .section-label{font-size:.75rem;letter-spacing:4px;text-transform:uppercase;color:var(--terra);margin-bottom:1rem;display:block}
+    .section-title{font-family:var(--ff-head);font-size:3.2rem;color:var(--brown);line-height:1.2;margin-bottom:.8rem}
+    .section-sub{color:#8d6e63;font-weight:300;max-width:600px;line-height:1.8;margin-bottom:4rem;font-size:1.05rem}
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+    .col-img{border-radius:20px;overflow:hidden;height:500px;box-shadow:0 30px 80px rgba(78,52,46,.15)}
+    .col-img img{width:100%;height:100%;object-fit:cover}
+    .col-text p{color:#8d6e63;font-weight:300;line-height:1.9;font-size:1.05rem;margin-bottom:1.5rem}
+    /* MENU */
+    .menu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2.5rem}
+    .menu-card{background:#fff;border:1px solid rgba(191,78,48,.1);border-radius:18px;overflow:hidden;box-shadow:0 10px 30px rgba(78,52,46,.06);transition:.4s}
+    .menu-card:hover{border-color:var(--terra);transform:translateY(-8px);box-shadow:0 20px 50px rgba(78,52,46,.1)}
+    .menu-img{height:220px;background-size:cover;background-position:center}
+    .menu-info{padding:1.8rem}
+    .menu-info h4{font-family:var(--ff-head);font-size:1.5rem;color:var(--brown);margin-bottom:.5rem}
+    .menu-info p{color:#8d6e63;font-size:.9rem;font-weight:300;line-height:1.6}
+    .menu-price{margin-top:1rem;color:var(--terra);font-size:1.1rem;font-weight:600}
     /* GALLERY */
-    .section-title { font-family: "Playfair Display", serif; font-size: 3rem; color: var(--carlota-accent); text-align: center; margin-bottom: 3rem; }
-    .luxury-gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; padding: 0 5%; margin-bottom: 5rem; max-width: 1200px; margin-left: auto; margin-right: auto;}
-    .luxury-gallery img { width: 100%; height: 350px; object-fit: cover; border-radius: 10px; transition: transform 0.5s; cursor: pointer; filter: grayscale(30%) brightness(0.8);}
-    .luxury-gallery img:hover { transform: scale(1.03); filter: grayscale(0%) brightness(1.1); }
-
-    /* MAP */
-    .map-section { padding: 4rem 5%; background: rgba(0,0,0,0.3); border-radius: 30px; max-width: 1200px; margin: 0 auto 5rem auto; border: 1px solid rgba(255,255,255,0.02);}
-    .map-container { width: 100%; height: 500px; border-radius: 20px; overflow: hidden; margin-top: 2rem; box-shadow: 0 30px 60px rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.05); }
-
-    @media(max-width:768px) { nav { display: none;} .main-title { font-size: 4rem;} .luxury-menu-item { flex-direction: column !important; } .luxury-menu-img { width: 100%; height: auto;} }
+    .gallery{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:280px 280px;gap:12px}
+    .gal-item{border-radius:14px;overflow:hidden;background-size:cover;background-position:center;transition:.5s}
+    .gal-item:hover{transform:scale(1.02)}
+    .gal-item.big{grid-column:1;grid-row:1/3}
+    /* RESERVA */
+    .map-section{border-radius:20px;overflow:hidden;height:380px;border:2px solid rgba(191,78,48,.15)}
+    .map-section iframe{width:100%;height:100%;border:none}
+    .reserva-box{background:linear-gradient(135deg,rgba(191,78,48,.08),rgba(191,78,48,.02));border:1px solid rgba(191,78,48,.2);border-radius:20px;padding:4rem;text-align:center}
+    .reserva-box h3{font-family:var(--ff-head);font-size:2.5rem;color:var(--brown);margin-bottom:1rem}
+    .reserva-box p{color:#8d6e63;font-weight:300;margin-bottom:2.5rem;font-size:1.1rem}
+    .info-row{display:flex;gap:2rem;flex-wrap:wrap;justify-content:center;margin-bottom:3rem}
+    .info-item{display:flex;align-items:center;gap:.8rem;color:#8d6e63;font-size:.95rem}
+    .info-item i{color:var(--terra);font-size:1.1rem}
+    footer{background:var(--brown);color:rgba(255,255,255,.6);text-align:center;padding:2.5rem;font-size:.85rem}
+    footer b{color:#ffccbc}
+    @media(max-width:900px){.two-col{grid-template-columns:1fr}.hero h1{font-size:3.5rem}.gallery{grid-template-columns:1fr 1fr;grid-template-rows:auto}.gal-item.big{grid-column:auto;grid-row:auto}}
   </style>
 </head>
-<body class="carlotta-page theme-clay">
+<body>
 
-  <section class="carlota-hero">
-    <header>
-      <a href="carlota-index.html" class="brand-logo"><i class="fa-solid fa-arrow-left" style="font-size: 1rem; margin-right: 10px;"></i>Carlota</a>
-      <nav>
-        <a href="#nosotros">Nosotros</a>
-        <a href="#menu">Menú</a>
-        <a href="#galeria">Galería</a>
-        <a href="#ubicacion">Ubicación</a>
-        <button class="btn-reservar-nav">Reservar</button>
-      </nav>
-    </header>
+  <nav>
+    <div class="nav-brand">Car<span>lota</span> Chuburná</div>
+    <div class="nav-links">
+      <a href="#nosotros">Nosotros</a>
+      <a href="#menu">Menú</a>
+      <a href="#galeria">Galería</a>
+      <a href="#ubicacion">Ubicación</a>
+      <a href="carlota-index.html" style="color:var(--terra)"><i class="fa-solid fa-arrow-left"></i> Carlota</a>
+    </div>
+  </nav>
 
-    <div class="hero-center" data-aos="fade-up" data-aos-duration="1500">
-      <div class="subtitle-dots">Bistró · Café · Mérida</div>
-      <h1 class="main-title">Carlota</h1>
-      <p class="main-desc">Gastronomía sofisticada, brunch y cenas de autor en Chuburná de Hidalgo</p>
-      
-      <div class="hero-buttons">
-        <a href="#menu" class="btn-solid">Ver Menú</a>
-        <a href="#ubicacion" class="btn-outline">Reservar Mesa</a>
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-badge"><i class="fa-solid fa-fire-flame-curved"></i> Vibra Terracota</div>
+    <h1>Carlota <em>Chuburná</em></h1>
+    <p>Desayunos y brunch de autor en el corazón de Chuburná de Hidalgo. Tonos arcilla, barro y la brisa del mar a pasos de distancia.</p>
+    <div class="btn-row">
+      <a href="https://wa.me/529999999999?text=Hola,%20quiero%20reservar%20en%20Carlota%20Chuburná" class="btn btn-terra" target="_blank"><i class="fa-brands fa-whatsapp"></i> Reservar Mesa</a>
+      <a href="#menu" class="btn btn-outline"><i class="fa-solid fa-utensils"></i> Ver Menú</a>
+    </div>
+  </div>
+
+  <!-- NOSOTROS -->
+  <section id="nosotros" style="background:#fdf3ef">
+    <div class="two-col">
+      <div class="col-img">
+        <img src="fachada-chuburna.png" alt="Carlota Chuburná">
+      </div>
+      <div>
+        <span class="section-label">Nuestra Historia</span>
+        <h2 class="section-title">El calor del barro hecho experiencia</h2>
+        <div class="col-text">
+          <p>Carlota Chuburná nació para ser el refugio perfecto en uno de los destinos más queridos de la costa yucateca. Un espacio donde el diseño en terracota, arcilla y madera rústica se convierte en el marco ideal para un brunch que celebra la vida.</p>
+          <p>Nuestra cocina es honesta, de temporada, con influencias mediterráneas y sabores yucatecos. Cada platillo es diseñado para sorprender sin perder el calor del hogar.</p>
+          <a href="#menu" class="btn btn-terra" style="margin-top:1rem"><i class="fa-solid fa-arrow-down"></i> Explorar el Menú</a>
+        </div>
       </div>
     </div>
-  </section>
-
-  <!-- NOSOTROS (NUEVA HISTORIA) -->
-  <section id="nosotros" class="overlap-section" data-aos="fade-up">
-    <h2 class="carlota-brand" style="font-size: 2.5rem; margin-bottom: 20px; color: var(--carlota-accent) !important;">Pasión por el Detalle</h2>
-    <p style="color: #bbb; font-size: 1.15rem; line-height: 1.9;">
-      <strong>Carlota</strong> nace del respeto por los ingredientes y la elegancia sombría. Queríamos alejarnos del bullicio tradicional para crear un bistro de clase mundial en <strong>Chuburná de Hidalgo</strong>. 
-      Aquí, cada textura, desde nuestros muros oscuros y acabados orgánicos hasta el emplatado de nuestras mesas, fue seleccionado para envolverte en una atmósfera de calma, placer y hedonismo culinario absoluto.
-    </p>
   </section>
 
   <!-- MENÚ -->
-  <section id="menu" class="menu-container">
-    <h2 class="section-title">Autor & Tradición</h2>
-    
-    <div class="luxury-menu-item" data-aos="fade-right">
-      <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&q=80&w=800" class="luxury-menu-img" alt="Corte">
-      <div class="luxury-menu-text">
-        <h3>Lomo de Res en Cenizas</h3>
-        <p>Corte premium sellado al carbón con cenizas de cebolla asada. Servido sobre un puré trufado de papa silvestre y terminado con salsa demi-glace de oporto.</p>
-        <div class="price-line"><span class="price">$590 MXN</span><div class="line"></div></div>
+  <section id="menu">
+    <span class="section-label">Carta de Brunch</span>
+    <h2 class="section-title">Menú Destacado</h2>
+    <p class="section-sub">Desayunos y brunch de autor, pensados para compartir. Con café de especialidad de Chiapas y postres artesanales.</p>
+    <div class="menu-grid">
+      <div class="menu-card">
+        <div class="menu-img" style="background-image:url('https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?auto=format&fit=crop&q=80&w=800')"></div>
+        <div class="menu-info">
+          <h4>Huevos Benedictinos de Mar</h4>
+          <p>Con salmón ahumado artesanal, salsa holandesa al chipotle y pan brioche de masa madre.</p>
+          <div class="menu-price">$185 MXN</div>
+        </div>
+      </div>
+      <div class="menu-card">
+        <div class="menu-img" style="background-image:url('https://images.unsplash.com/photo-1484723091739-30a097e8f929?auto=format&fit=crop&q=80&w=800')"></div>
+        <div class="menu-info">
+          <h4>Tostada de Aguacate & Higo</h4>
+          <p>Pan multigrano tostado con guacamole de limón, higos frescos caramelizados y semillas de amapola.</p>
+          <div class="menu-price">$145 MXN</div>
+        </div>
+      </div>
+      <div class="menu-card">
+        <div class="menu-img" style="background-image:url('https://images.unsplash.com/photo-1495147466023-ac5c588e2e94?auto=format&fit=crop&q=80&w=800')"></div>
+        <div class="menu-info">
+          <h4>Pancakes de Horchata</h4>
+          <p>Cuatro capas esponjosas con mantequilla de canela, té de Jamaica reducido y coco tostado.</p>
+          <div class="menu-price">$165 MXN</div>
+        </div>
       </div>
     </div>
-    
-    <div class="luxury-menu-item" style="flex-direction: row-reverse;" data-aos="fade-left">
-      <img src="https://images.unsplash.com/photo-1600891964092-4316c288032e?auto=format&fit=crop&q=80&w=800" class="luxury-menu-img" alt="Pato">
-      <div class="luxury-menu-text" style="text-align: right;">
-        <h3 style="margin-left:auto;">Pato Carlota Braseado</h3>
-        <p>Magret de pato braseado a fuego muy lento por 12 horas, marinada oscura y coulis de frutos otoñales con romero. Acompaña perfecto con nuestro Cabernet insignia.</p>
-        <div class="price-line" style="flex-direction: row-reverse;"><span class="price">$420 MXN</span><div class="line"></div></div>
-      </div>
-    </div>
-
-    <div class="luxury-menu-item" data-aos="fade-right">
-      <img src="https://images.unsplash.com/photo-1495474472200-408ba091448b?auto=format&fit=crop&q=80&w=800" class="luxury-menu-img" alt="Brunch">
-      <div class="luxury-menu-text">
-        <h3>Brioche Rústico de Salmón</h3>
-        <p>Lonjas de salmón ahumado en casa sobre cama de quezo crema botánico, eneldo cristalizado y pan brioche recién horneado al momento.</p>
-        <div class="price-line"><span class="price">$285 MXN</span><div class="line"></div></div>
-      </div>
-    </div>
-    
-    <!-- BOTÓN MENÚ COMPLETO PROVISIONAL -->
-    <div style="text-align: center; margin-top: 4rem;" data-aos="fade-up">
-      <a href="#" class="btn-solid" style="display: inline-block;">Ver Menú Completo</a>
+    <div style="text-align:center;margin-top:3rem">
+      <a href="https://wa.me/529999999999?text=Hola,%20quiero%20el%20menú%20completo%20de%20Carlota%20Chuburná" class="btn btn-terra" target="_blank"><i class="fa-brands fa-whatsapp"></i> Ver Menú Completo</a>
     </div>
   </section>
 
-  <!-- GALERIA -->
-  <section id="galeria">
-    <h2 class="section-title">El Refugio Perfecto</h2>
-    <div class="luxury-gallery">
-      <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&q=80&w=800" data-aos="zoom-in" data-aos-delay="0">
-      <img src="https://images.unsplash.com/photo-1544148103-0773bf10d330?auto=format&fit=crop&q=80&w=1600" data-aos="zoom-in" data-aos-delay="200">
-      <img src="https://images.unsplash.com/photo-1559925393-8be0ec4767c8?auto=format&fit=crop&q=80&w=800" data-aos="zoom-in" data-aos-delay="400">
+  <!-- GALERÍA -->
+  <section id="galeria" style="background:#fdf3ef">
+    <span class="section-label">Atmósfera Terracota</span>
+    <h2 class="section-title">El Ambiente Chuburná</h2>
+    <p class="section-sub" style="margin-bottom:3rem">Espacios abiertos, brisa marina y colores que calientan el alma. Tu rincón favorito en Mérida.</p>
+    <div class="gallery">
+      <div class="gal-item big" style="background-image:url('fachada-chuburna.png')"></div>
+      <div class="gal-item" style="background-image:url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&q=80&w=800')"></div>
+      <div class="gal-item" style="background-image:url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&q=80&w=800')"></div>
+      <div class="gal-item" style="background-image:url('https://images.unsplash.com/photo-1495147466023-ac5c588e2e94?auto=format&fit=crop&q=80&w=800')"></div>
+      <div class="gal-item" style="background-image:url('https://images.unsplash.com/photo-1559925393-8be0ec4767c8?auto=format&fit=crop&q=80&w=800')"></div>
     </div>
   </section>
 
-  <!-- UBICACIÓN Y RESERVAS -->
-  <section id="ubicacion" class="map-section" data-aos="fade-up">
-    <div style="text-align: center; margin-bottom: 2rem;">
-      <i class="fa-solid fa-wine-glass" style="font-size: 3rem; color: var(--carlota-accent); margin-bottom: 1rem;"></i>
-      <h2 class="section-title" style="margin-bottom: 0;">Realiza tu reservación</h2>
-      <p style="color: #ddd; max-width: 600px; margin: 1rem auto; font-size: 1.1rem;">Tu noche en Chuburná de Hidalgo empieza con una reserva exclusiva. Hazlo directo o visita nuestro bistro.</p>
-      
-      <a href="https://share.google/WnuyzCraJsrY5SyWp" target="_blank" class="btn-solid" style="display: inline-flex; align-items: center; gap: 10px; margin-top: 10px;">
-        <i class="fa-brands fa-whatsapp"></i> Hablar con Recepción
-      </a>
-    </div>
-
-    <div class="map-container">
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d119229!2d-89.7042!3d21.0116!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0!2zTWVyaWRh!5e0!3m2!1ses!2smx!4v169229!5m2!1ses!2smx" width="100%" height="100%" style="border:0; filter: invert(90%) hue-rotate(180deg) brightness(85%);" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  <!-- UBICACIÓN + RESERVA -->
+  <section id="ubicacion">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start">
+      <div>
+        <span class="section-label">¿Cómo llegar?</span>
+        <h2 class="section-title">Encuéntranos en Chuburná</h2>
+        <div class="info-row" style="justify-content:flex-start;margin-bottom:2rem;flex-direction:column;align-items:flex-start">
+          <div class="info-item"><i class="fa-solid fa-location-dot"></i> Chuburná de Hidalgo, Mérida, Yucatán</div>
+          <div class="info-item"><i class="fa-solid fa-clock"></i> Mar–Dom: 7:30am – 3:00pm</div>
+          <div class="info-item"><i class="fa-solid fa-phone"></i> Reservaciones por WhatsApp</div>
+        </div>
+        <div class="map-section">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.9!2d-89.83!3d21.08!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sChuburn%C3%A1+Merida!5e0!3m2!1ses!2smx!4v1" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+      </div>
+      <div class="reserva-box">
+        <span class="section-label" style="display:block;text-align:center">Reserva tu Mesa</span>
+        <h3>¿Te esperamos este fin de semana?</h3>
+        <p>Brunch de autor con el mejor café de Chiapas. Grupos de hasta 20 personas, eventos privados disponibles.</p>
+        <div class="info-row">
+          <div class="info-item"><i class="fa-solid fa-users"></i> 1 a 20 personas</div>
+          <div class="info-item"><i class="fa-solid fa-sun"></i> Sólo desayuno y brunch</div>
+        </div>
+        <a href="https://wa.me/529999999999?text=Hola,%20quiero%20hacer%20una%20reservación%20en%20Carlota%20Chuburná" class="btn btn-terra" target="_blank" style="font-size:1rem;padding:1.2rem 3.5rem"><i class="fa-brands fa-whatsapp"></i> Reservar Ahora</a>
+      </div>
     </div>
   </section>
 
-  <footer style="padding: 4rem 5%; text-align: center; border-top: 1px solid rgba(255,255,255,0.05); color: #666;">
-    <div class="logo-text carlota-brand" style="color: white !important;">Car<span style="color:var(--carlota-accent);">lota</span></div>
-    <p style="margin-top: 1rem;"><i class="fa-solid fa-location-dot"></i> Chuburná de Hidalgo &copy; 2026</p>
-  </footer>
+  <footer><b>Carlota Chuburná</b> — Brunch de Autor en la Costa, Mérida &copy; 2025</footer>
 
-  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-  <script>AOS.init({ once: true });</script>
 </body>
 </html>

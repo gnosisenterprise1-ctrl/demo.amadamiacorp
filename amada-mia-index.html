@@ -3,118 +3,101 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mundo Amada Mía | Directorio</title>
-  
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <title>Mundo Amada Mía | Directorio de Sucursales</title>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
   <style>
-    :root {
-      --primary-color: #f8bbd0;
-      --secondary-color: #fff0f5;
-      --accent-color: #d4af37;
-      --amada-bg: #fdfaf3;
-      --amada-text: #5d4037;
-      --font-heading: "Playfair Display", serif;
-      --font-body: "Outfit", sans-serif;
-      --transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
-    }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: var(--font-body); background-color: var(--amada-bg); color: var(--amada-text); overflow-x: hidden; }
-    h1,h2,h3,h4,h5,h6 { font-family: var(--font-heading); }
-    a { text-decoration: none; color: inherit; }
-
-    .header { position: fixed; top: 0; width: 100%; padding: 1.5rem 5%; display: flex; justify-content: space-between; align-items: center; z-index: 1000; background: rgba(255,255,255,0.85); backdrop-filter: blur(12px); border-bottom: 1px solid var(--secondary-color); }
-    .logo-container { display: flex; align-items: center; gap: 1rem; }
-    .logo-text { font-family: var(--font-heading); font-size: 1.5rem; letter-spacing: 1px; }
-    .amada-brand { font-weight: 700; color: var(--amada-text) !important; }
-    .amada-brand span { color: var(--accent-color); }
-
-    .directory-section { padding: 8rem 5%; min-height: 100vh; }
-    .section-title { text-align: center; font-size: 3rem; margin-bottom: 1.5rem; color: var(--primary-color); display: block; }
-    .section-title::after { content: ""; display: block; width: 80px; height: 2px; background: var(--accent-color); margin: 15px auto 0; }
-
-    .branches-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 3rem; max-width: 1200px; margin: 0 auto; }
-    .branch-card { border-radius: 15px; overflow: hidden; transition: var(--transition); display: flex; flex-direction: column; cursor: pointer; background: white; box-shadow: 0 20px 40px rgba(0,0,0,0.07); }
-    .branch-card:hover { transform: translateY(-10px); box-shadow: 0 30px 60px rgba(0,0,0,0.12); }
-    .branch-img-wrapper { overflow: hidden; height: 300px; }
-    .branch-img { width: 100%; height: 100%; background-size: cover; background-position: center; transition: transform 0.6s ease; }
-    .branch-card:hover .branch-img { transform: scale(1.05); }
-    .branch-info { padding: 2rem; flex-grow: 1; display: flex; flex-direction: column; text-align: center; }
-    .branch-title { color: var(--primary-color); font-size: 2rem; margin-bottom: 1rem; }
-    .branch-desc { color: #8d6e63; font-size: 1rem; margin-bottom: 1.5rem; flex-grow: 1; font-weight: 300; line-height: 1.6; }
-    .branch-link { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; font-weight: 500; text-transform: uppercase; letter-spacing: 2px; font-size: 0.85rem; color: var(--accent-color); transition: 0.3s; }
-    .branch-card:hover .branch-link { color: var(--primary-color); }
+    :root{--pink:#f8bbd0;--gold:#d4af37;--cream:#fdfaf3;--brown:#5d4037;--light:#fce4ec;--ff-head:"Playfair Display",serif;--ff-body:"Outfit",sans-serif}
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:var(--ff-body);background:var(--cream);color:var(--brown);overflow-x:hidden}
+    a{text-decoration:none;color:inherit}
+    nav{position:fixed;top:0;width:100%;padding:1.4rem 6%;display:flex;justify-content:space-between;align-items:center;z-index:100;background:rgba(253,250,243,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--light)}
+    .nav-brand{font-family:var(--ff-head);font-size:1.6rem;font-weight:700;color:var(--brown)}
+    .nav-brand span{color:var(--gold)}
+    .nav-back{display:flex;align-items:center;gap:.5rem;font-size:.8rem;letter-spacing:2px;text-transform:uppercase;color:var(--brown);font-weight:500;transition:.3s}
+    .nav-back:hover{color:var(--gold)}
+    .hero-dir{padding:10rem 6% 5rem;text-align:center}
+    .hero-dir h1{font-family:var(--ff-head);font-size:3.8rem;color:var(--brown);margin-bottom:1rem}
+    .hero-dir h1 em{color:var(--pink);font-style:italic}
+    .hero-dir p{font-size:1.1rem;max-width:600px;margin:0 auto 3rem;font-weight:300;color:#8d6e63;line-height:1.8}
+    .divider{display:flex;align-items:center;gap:1.5rem;max-width:200px;margin:0 auto 5rem}
+    .divider::before,.divider::after{content:"";flex:1;height:1px;background:var(--gold)}
+    .divider i{color:var(--gold);font-size:.9rem}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:2.5rem;max-width:1280px;margin:0 auto;padding:0 6% 8rem}
+    .card{border-radius:18px;overflow:hidden;background:#fff;box-shadow:0 15px 45px rgba(93,64,55,.08);border:1px solid var(--light);transition:all .45s cubic-bezier(.25,.8,.25,1);display:flex;flex-direction:column}
+    .card:hover{transform:translateY(-12px);box-shadow:0 30px 70px rgba(93,64,55,.13)}
+    .card-img{height:270px;background-size:cover;background-position:center;transition:transform .6s ease;position:relative}
+    .card:hover .card-img{transform:scale(1.04)}
+    .card-tag{position:absolute;top:16px;right:16px;background:var(--gold);color:#fff;font-size:.7rem;letter-spacing:2px;text-transform:uppercase;padding:5px 14px;border-radius:30px;font-weight:600}
+    .card-body{padding:2rem;flex:1;display:flex;flex-direction:column}
+    .card-body h3{font-family:var(--ff-head);font-size:1.9rem;color:var(--brown);margin-bottom:.5rem}
+    .card-body h3 span{color:var(--gold)}
+    .card-body p{font-size:.95rem;color:#8d6e63;font-weight:300;line-height:1.7;flex:1;margin-bottom:1.5rem}
+    .card-link{display:inline-flex;align-items:center;gap:.5rem;font-size:.8rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--gold);transition:.3s}
+    .card-link:hover{gap:1rem;color:var(--pink)}
+    footer{background:var(--brown);color:rgba(255,255,255,.7);text-align:center;padding:2.5rem;font-size:.85rem}
+    footer b{color:var(--gold)}
   </style>
 </head>
-<body id="amada-world" class="amada-page theme-pink">
+<body>
+  <nav>
+    <div class="nav-brand">Amada <span>Mía</span></div>
+    <a href="index.html" class="nav-back"><i class="fa-solid fa-arrow-left"></i> Todos los Mundos</a>
+  </nav>
 
-  <header class="header">
-    <div class="logo-container">
-      <a href="index.html" class="logo-text amada-brand"><i class="fa-solid fa-arrow-left"></i> Cambiar de Mundo</a>
-    </div>
-  </header>
+  <div class="hero-dir">
+    <h1>El Mundo <em>Amada Mía</em></h1>
+    <p>Desayunos de autor, repostería de alta costura y café de especialidad. Selecciona tu sucursal más cercana.</p>
+    <div class="divider"><i class="fa-solid fa-leaf"></i></div>
+  </div>
 
-  <section class="directory-section" style="padding-top: 10rem;">
-    <h1 class="section-title" data-aos="fade-down">El Mundo Amada Mía</h1>
-    <p style="text-align: center; max-width: 600px; margin: 0 auto 5rem auto; font-size: 1.15rem; font-weight: 300;" data-aos="fade-up">
-      Desayunos de autor, diseño impecable y repostería inolvidable. Selecciona tu sucursal más cercana para adentrarte en la elegancia.
-    </p>
-    
-    <div class="branches-grid">
-      <!-- Héroes -->
-      <a href="amada-mia-heroes.html" class="branch-card" data-aos="zoom-in" data-aos-delay="0">
-        <div class="branch-img-wrapper">
-          <div class="branch-img" style="background-image: url('https://images.unsplash.com/photo-1497935586351-b67a49e012bf?auto=format&fit=crop&q=80&w=800');"></div>
-        </div>
-        <div class="branch-info">
-          <h3 class="branch-title amada-brand">Amada Mía <span>Héroes</span></h3>
-          <p class="branch-desc">Un rincón rosa pastel lleno de encanto y café de especialidad.</p>
-          <span class="branch-link">Navegar al Menú de Sucursal <i class="fa-solid fa-arrow-right"></i></span>
-        </div>
-      </a>
+  <div class="grid">
+    <!-- Héroes -->
+    <a href="amada-mia-heroes.html" class="card">
+      <div class="card-img" style="background-image:url('fachada-heroes.png')">
+        <div class="card-tag">Sucursal</div>
+      </div>
+      <div class="card-body">
+        <h3>Amada Mía <span>Héroes</span></h3>
+        <p>Rosa pastel y flores silvestres. El rincón perfecto para un brunch que enamora en el corazón de la ciudad.</p>
+        <div class="card-link">Ingresar <i class="fa-solid fa-arrow-right"></i></div>
+      </div>
+    </a>
+    <!-- Temozón -->
+    <a href="amada-mia-temozon.html" class="card">
+      <div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&q=80&w=800')">
+        <div class="card-tag">Sucursal</div>
+      </div>
+      <div class="card-body">
+        <h3>Amada Mía <span>Temozón</span></h3>
+        <p>Tonos beige, naturales y florales en el norte de Mérida. Luz blanca y brunches que no se olvidan.</p>
+        <div class="card-link">Ingresar <i class="fa-solid fa-arrow-right"></i></div>
+      </div>
+    </a>
+    <!-- Caucel -->
+    <a href="amada-mia-caucel.html" class="card">
+      <div class="card-img" style="background-image:url('fachada-caucel.png')">
+        <div class="card-tag">Sucursal</div>
+      </div>
+      <div class="card-body">
+        <h3>Amada Mía <span>Caucel</span></h3>
+        <p>Mármol blanco y detalles dorados. Diseño impecable, café perfecto y postres que son obras de arte.</p>
+        <div class="card-link">Ingresar <i class="fa-solid fa-arrow-right"></i></div>
+      </div>
+    </a>
+    <!-- Árbol -->
+    <a href="amada-mia-arbol.html" class="card">
+      <div class="card-img" style="background-image:url('fachada-arbol.png')">
+        <div class="card-tag">Sucursal</div>
+      </div>
+      <div class="card-body">
+        <h3>Amada Mía <span>Árbol</span></h3>
+        <p>Verde menta y jardines verticales. Una atmósfera natural que invita a quedarse horas con un capuchino.</p>
+        <div class="card-link">Ingresar <i class="fa-solid fa-arrow-right"></i></div>
+      </div>
+    </a>
+  </div>
 
-      <!-- Temozón -->
-      <a href="amada-mia-temozon.html" class="branch-card" data-aos="zoom-in" data-aos-delay="100">
-        <div class="branch-img-wrapper">
-          <div class="branch-img" style="background-image: url('https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&q=80&w=800');"></div>
-        </div>
-        <div class="branch-info">
-          <h3 class="branch-title amada-brand" style="color: #bcaaa4 !important">Amada Mía <span>Temozón</span></h3>
-          <p class="branch-desc">Estética floral beige en el norte, luz blanca y brunches inolvidables.</p>
-          <span class="branch-link">Navegar al Menú de Sucursal <i class="fa-solid fa-arrow-right"></i></span>
-        </div>
-      </a>
-
-      <!-- Caucel -->
-      <a href="amada-mia-caucel.html" class="branch-card" data-aos="zoom-in" data-aos-delay="200">
-        <div class="branch-img-wrapper">
-          <div class="branch-img" style="background-image: url('https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&q=80&w=800');"></div>
-        </div>
-        <div class="branch-info">
-          <h3 class="branch-title amada-brand" style="color: #d4af37 !important">Amada Mía <span>Caucel</span></h3>
-          <p class="branch-desc">Blanco prístino y lámparas doradas. El descanso perfecto en tu día.</p>
-          <span class="branch-link">Navegar al Menú de Sucursal <i class="fa-solid fa-arrow-right"></i></span>
-        </div>
-      </a>
-
-       <!-- Árbol -->
-       <a href="amada-mia-arbol.html" class="branch-card" data-aos="zoom-in" data-aos-delay="300">
-        <div class="branch-img-wrapper">
-          <div class="branch-img" style="background-image: url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&q=80&w=800');"></div>
-        </div>
-        <div class="branch-info">
-          <h3 class="branch-title amada-brand" style="color: #81c784 !important">Amada Mía <span>Árbol</span></h3>
-          <p class="branch-desc">Un respiro natural de verde menta con jardines verticales florales.</p>
-          <span class="branch-link">Navegar al Menú de Sucursal <i class="fa-solid fa-arrow-right"></i></span>
-        </div>
-      </a>
-    </div>
-  </section>
-
-  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-  <script>AOS.init({once:true});</script>
+  <footer><b>Amada Mía</b> — Alta Gastronomía y Repostería &copy; 2025</footer>
 </body>
 </html>
