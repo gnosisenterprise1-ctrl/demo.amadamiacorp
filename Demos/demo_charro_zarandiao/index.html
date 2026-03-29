@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Charro Zarandiao | Auténticos Mariscos en Mérida</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a href="index.html" class="logo">CHARRO<br><span style="font-size: 1rem; color: var(--accent); letter-spacing: 3px;">ZARANDIAO</span></a>
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="nav-links">
+            <a href="index.html" class="active">Inicio</a>
+            <a href="menu.html">El Menú</a>
+            <a href="servicios.html">Reservaciones</a>
+            <a href="galeria.html">Galería</a>
+            <a href="nosotros.html">La Historia</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <img src="fachada.jpg" alt="Fachada Charro Zarandiao" class="hero-img">
+        <div class="hero-content fade-in">
+            <h1>DEL MAR<br>A TU MESA</h1>
+            <p>La mejor fusión de mariscos y sabor tapatío en Mérida, Yucatán.</p>
+            <a href="menu.html" class="btn btn-filled" style="margin-right: 15px;">Ver Menú</a>
+            <a href="servicios.html" class="btn" style="color: var(--bg-color); border-color: var(--bg-color);">Reservar</a>
+        </div>
+    </header>
+
+    <!-- Intro Teaser -->
+    <section class="section intro-teaser">
+        <div class="section-header fade-in">
+            <h2>Nuestra Especialidad</h2>
+            <p>El toque zarandeado perfecto y los platillos que levantan el alma.</p>
+        </div>
+        <div class="intro-grid fade-in">
+            <div style="display: flex; gap: 40px; align-items: center; max-width: 1000px; margin: 0 auto; flex-wrap: wrap;">
+                <div style="flex: 1; min-width: 300px;">
+                    <img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?q=80&w=2542&auto=format&fit=crop" alt="Pescado y Mariscos Zarandeados" style="width: 100%; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.15);">
+                </div>
+                <div style="flex: 1; min-width: 300px;">
+                    <h3 style="font-size: 2.2rem; margin-bottom: 20px;">Sabor Tapatío y Costero</h3>
+                    <p style="color: var(--text-muted); margin-bottom: 20px;">No solo somos mariscos; somos experiencia. Desde nuestros famosos <strong>Camarones Zarandiaos</strong> hasta las inigualables <strong>Quesabirrias</strong> y refrescantes Cantaritos, combinamos el calor de Guadalajara con la frescura del mar del Pacífico.</p>
+                    <a href="nosotros.html" class="btn">Conoce Nuestra Historia</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Teaser -->
+    <section class="section" style="background-color: var(--surface-color);">
+        <div class="section-header fade-in">
+            <h2>Favoritos del Comensal</h2>
+            <p>Lo que todos piden cuando visitan El Charro.</p>
+        </div>
+        <div class="menu-highlights fade-in" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; max-width: 1200px; margin: 0 auto; text-align: center;">
+            
+            <div class="dish-card" style="background-color: var(--bg-color); border-radius: 8px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
+                <img src="https://images.unsplash.com/photo-1564834724105-918b73d1b9e0?q=80&w=2576&auto=format&fit=crop" alt="Camarones Cucaracha" style="width: 100%; height: 250px; object-fit: cover;">
+                <div style="padding: 20px;">
+                    <h4 style="font-size: 1.5rem; margin-bottom: 10px;">Camarones Cucaracha</h4>
+                    <p style="color: var(--text-muted);">Salseados con nuestra salsa negra especial de la casa (220g de puro sabor).</p>
+                </div>
+            </div>
+            
+            <div class="dish-card" style="background-color: var(--bg-color); border-radius: 8px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
+                <img src="https://images.unsplash.com/photo-1551504734-5ee1c4a1479b?q=80&w=2670&auto=format&fit=crop" alt="Toritos" style="width: 100%; height: 250px; object-fit: cover;">
+                <div style="padding: 20px;">
+                    <h4 style="font-size: 1.5rem; margin-bottom: 10px;">Toritos Rellenos</h4>
+                    <p style="color: var(--text-muted);">Chile güero relleno de pulpo, marlín o camarón para los paladares más exigentes.</p>
+                </div>
+            </div>
+            
+            <div class="dish-card" style="background-color: var(--bg-color); border-radius: 8px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
+                <img src="https://images.unsplash.com/photo-1596765796245-7977a4c7a5f9?q=80&w=2574&auto=format&fit=crop" alt="Ruleta Rusa" style="width: 100%; height: 250px; object-fit: cover;">
+                <div style="padding: 20px;">
+                    <h4 style="font-size: 1.5rem; margin-bottom: 10px;">La Ruleta Rusa</h4>
+                    <p style="color: var(--text-muted);">5 shots de ostión o camarón. ¡Cuidado, porque uno trae Tequila!</p>
+                </div>
+            </div>
+
+        </div>
+        <div style="text-align: center; margin-top: 50px;" class="fade-in">
+            <a href="menu.html" class="btn btn-filled">Ver Menú Completo</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content" style="max-width: 1200px; margin: 0 auto;">
+            <div class="footer-col">
+                <h3 style="color: var(--accent);">CHARRO ZARANDIAO</h3>
+                <p>Mariscos estilo Pacífico y antojitos Tapatíos que enamoran el paladar en pleno corazón de Yucatán.</p>
+            </div>
+            <div class="footer-col">
+                <h3 style="color: var(--accent);">Visítanos</h3>
+                <p>Av. Yucatán #383, Col. Los Pinos</p>
+                <p>C.P. 97138, Mérida, Yucatán.</p>
+                <p>Tel: 999 746 3653</p>
+                <p><a href="https://maps.app.goo.gl/1EjAokEEdnHQ9VXC6" target="_blank" style="color: var(--primary); text-decoration: underline;">Abrir en Google Maps</a></p>
+            </div>
+            <div class="footer-col">
+                <h3 style="color: var(--accent);">Horario</h3>
+                <p>Lun, Mié, Jue: 1:00 PM - 10:00 PM</p>
+                <p>Vie, Sáb, Dom: 1:00 PM - 12:00 AM</p>
+                <p>Martes: Cerrado</p>
+            </div>
+            <div class="footer-col">
+                <h3 style="color: var(--accent);">Síguenos</h3>
+                <div class="social-icons">
+                    <a href="https://www.instagram.com/charro_zarandiao" target="_blank">IG</a>
+                    <a href="#">FB</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Restaurante Charro Zarandiao. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

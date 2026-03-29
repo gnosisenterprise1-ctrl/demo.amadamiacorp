@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú | Charro Zarandiao</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .page-header {
+            height: 50vh;
+            background: linear-gradient(rgba(30, 42, 56, 0.7), rgba(30, 42, 56, 0.7)), url('https://images.unsplash.com/photo-1624300629298-e9ad39c5952f?q=80&w=2670&auto=format&fit=crop') center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 60px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .menu-category h3 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 30px;
+            border-bottom: 3px solid var(--accent);
+            padding-bottom: 15px;
+            display: inline-block;
+        }
+        .menu-item {
+            margin-bottom: 30px;
+            display: flex;
+            flex-direction: column;
+            background: var(--surface-color);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: var(--transition);
+        }
+        .menu-item:hover {
+            transform: translateX(10px);
+            border-left: 4px solid var(--primary);
+        }
+        .menu-item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 10px;
+        }
+        .menu-item-title {
+            font-family: var(--font-display);
+            font-size: 1.4rem;
+            color: var(--text-dark);
+            letter-spacing: 0.5px;
+        }
+        .menu-item-price {
+            font-family: var(--font-body);
+            color: var(--primary);
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+        .menu-item-desc {
+            font-size: 1rem;
+            color: var(--text-muted);
+        }
+        .menu-badge {
+            background: var(--accent);
+            color: var(--text-dark);
+            font-size: 0.7rem;
+            padding: 3px 8px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            font-family: var(--font-display);
+            margin-left: 10px;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar scrolled">
+        <a href="index.html" class="logo">CHARRO<span style="font-size: 1rem; color: var(--accent); letter-spacing: 3px;">ZARANDIAO</span></a>
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Inicio</a>
+            <a href="menu.html" class="active">El Menú</a>
+            <a href="servicios.html">Reservaciones</a>
+            <a href="galeria.html">Galería</a>
+            <a href="nosotros.html">La Historia</a>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <div class="fade-in">
+            <h1 style="font-size: 5rem; color: var(--bg-color);">Nuestro Menú</h1>
+            <p style="font-size: 1.3rem; margin-top: 15px; color: var(--bg-color); font-weight: 600;">Sabor de mar, fuego de leña y tradición tapatía.</p>
+        </div>
+    </header>
+
+    <section class="section" style="background-color: var(--bg-color);">
+        <div class="menu-grid">
+            
+            <div class="menu-category fade-in">
+                <h3>Entradas & Botaneros</h3>
+                
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <span class="menu-item-title">Toritos<span class="menu-badge">Popular</span></span>
+                        <span class="menu-item-price">$150 - $165</span>
+                    </div>
+                    <div class="menu-item-desc">Chile güero relleno del mar. Pulpo ($165), Camarón ($155) o Marlín ($150).</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <span class="menu-item-title">Camarones Cucaracha</span>
+                        <span class="menu-item-price">$195</span>
+                    </div>
+                    <div class="menu-item-desc">220g de camarones bañados en nuestra intensa salsa negra secreta de la casa.</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <span class="menu-item-title">Guacamole Charro</span>
+                        <span class="menu-item-price">$155</span>
+                    </div>
+                    <div class="menu-item-desc">Clásico y cremoso guacamole (220g) con un toque especial: deliciosa barbacoa tapatía encima.</div>
+                </div>
+                
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <span class="menu-item-title">Tostada Ceviche Sierra</span>
+                        <span class="menu-item-price">$55 / $135 (x3)</span>
+                    </div>
+                    <div class="menu-item-desc">La clásica tostada del mar Pacífico directo a tu mesa.</div>
+                </div>
+            </div>
+
+            <div class="menu-category fade-in">
+                <h3>Especialidades y Alitas</h3>
+                
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <span class="menu-item-title">Ceviche Tigre (150g)<span class="menu-badge">Perú/Mx</span></span>
+                        <span class="menu-item-price">$195</span>
+                    </div>
+                    <div class="menu-item-desc">Inspiración peruana con leche de tigre cítrica, pescado fresco y crujiente poro frito.</div>
+                </div>
+                
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <span class="menu-item-title">Ruleta Rusa (5 Shots)</span>
+                        <span class="menu-item-price">$99 - $149</span>
+                    </div>
+                    <div class="menu-item-desc">Ostión ($99), Camarón ($119) o Mixtos ($149). ¡Cuidado, uno de los 5 trae un buen golpe de tequila!</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <span class="menu-item-title">Levanta Muertos</span>
+                        <span class="menu-item-price">$75</span>
+                    </div>
+                    <div class="menu-item-desc">Nuestro concentrado consomé de mariscos calientito. Ideal para curar malestares.</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <span class="menu-item-title">Alitas (¡LO NUEVO!)</span>
+                        <span class="menu-item-price">$189 / 6 Pzas</span>
+                    </div>
+                    <div class="menu-item-desc">También en 12 pzas ($289) o Kilo ($459). Sabores: Charreada, Negrita, Roja Sabrosa, Machinca, Cocofuego (Mango habanero), Barbecue e Infierno.</div>
+                </div>
+            </div>
+
+            <div class="menu-category fade-in">
+                <h3>El Charro Zarandiao</h3>
+                
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <span class="menu-item-title">Pesca del Día Zarandiada</span>
+                        <span class="menu-item-price">Según peso</span>
+                    </div>
+                    <div class="menu-item-desc">Huachinango ($0.80/g) o Robalo/Pargo ($0.75/g). Marinado rojo riquísimo, sobre leña quemada y al centro de la mesa.</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <span class="menu-item-title">Pulpo Zarandiao</span>
+                        <span class="menu-item-price">$0.95/gramo</span>
+                    </div>
+                    <div class="menu-item-desc">Pulpo cocido a la perfección y asado al grill con nuestras salsas. Suave por dentro, tostado por fuera.</div>
+                </div>
+                
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <span class="menu-item-title">Quesadillas Zarandiadas (3 pzas)</span>
+                        <span class="menu-item-price">$99</span>
+                    </div>
+                    <div class="menu-item-desc">Tortilla pasadita por nuestro adobo zarandeado y rellenas de puro sabor.</div>
+                </div>
+            </div>
+
+            <div class="menu-category fade-in">
+                <h3>Desayunos y Antojo Tapatío</h3>
+                
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <span class="menu-item-title">Chilaquiles del Puerto</span>
+                        <span class="menu-item-price">$149</span>
+                    </div>
+                    <div class="menu-item-desc">Bañados en salsa secreta, acompañados con camarón fresco asado y pulpo.</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <span class="menu-item-title">Torta Ahogada de Barbacoa</span>
+                        <span class="menu-item-price">$95</span>
+                    </div>
+                    <div class="menu-item-desc">El clásico Tapatío directo hasta Mérida. Pan birote ahogado en salsa y rellena de barbacoa jugosa.</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <span class="menu-item-title">Molletes con Barbacoa</span>
+                        <span class="menu-item-price">$85</span>
+                    </div>
+                    <div class="menu-item-desc">Pan tostadito, frijoles refritos, costra de queso asadero y una buena montaña de barbacoa.</div>
+                </div>
+            </div>
+
+        </div>
+        
+        <div style="text-align: center; margin-top: 80px;" class="fade-in">
+            <a href="servicios.html" class="btn btn-filled">Hacer una Reservación</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content" style="max-width: 1200px; margin: 0 auto;">
+            <div class="footer-col">
+                <h3 style="color: var(--accent);">CHARRO ZARANDIAO</h3>
+                <p>Mérida, Yucatán.</p>
+            </div>
+            <div class="footer-col">
+                <h3 style="color: var(--accent);">Visítanos</h3>
+                <p>Av. Yucatán #383, Col. Los Pinos</p>
+                <p>C.P. 97138, Mérida, Yucatán.</p>
+                <p>Tel: 999 746 3653</p>
+                <p><a href="https://maps.app.goo.gl/1EjAokEEdnHQ9VXC6" target="_blank" style="color: var(--primary);">Google Maps</a></p>
+            </div>
+            <div class="footer-col">
+                <h3 style="color: var(--accent);">Horario</h3>
+                <p>Lun, Mié, Jue: 1:00 PM - 10:00 PM</p>
+                <p>Vie, Sáb, Dom: 1:00 PM - 12:00 AM</p>
+                <p>Martes: Cerrado</p>
+            </div>
+            <div class="footer-col">
+                <h3 style="color: var(--accent);">Síguenos</h3>
+                <div class="social-icons">
+                    <a href="https://www.instagram.com/charro_zarandiao" target="_blank">IG</a>
+                    <a href="#">FB</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Restaurante Charro Zarandiao.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuestra Historia | Charro Zarandiao</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .page-header {
+            height: 50vh;
+            background: linear-gradient(rgba(30, 42, 56, 0.7), rgba(30, 42, 56, 0.7)), url('https://images.unsplash.com/photo-1599974579688-827f4da41214?q=80&w=2670&auto=format&fit=crop') center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .about-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 60px;
+            max-width: 1200px;
+            margin: 0 auto 100px;
+            align-items: center;
+            background: var(--surface-color);
+            padding: 50px;
+            border-radius: 8px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+
+        .about-content.alt {
+            flex-direction: row-reverse;
+            background: transparent;
+            box-shadow: none;
+            padding: 0;
+        }
+
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+            position: relative;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+
+        .about-image::after {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: -20px;
+            width: 100%;
+            height: 100%;
+            background-color: var(--accent);
+            z-index: -1;
+            border-radius: 8px;
+        }
+        
+        .about-content.alt .about-image::after {
+            left: auto;
+            right: -20px;
+            background-color: var(--primary);
+        }
+
+        .manifesto {
+            background: var(--dark-accent);
+            color: var(--bg-color);
+            padding: 100px 5%;
+            text-align: center;
+            background-image: url('https://images.unsplash.com/photo-1624300629298-e9ad39c5952f?q=80&w=2670&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            background-blend-mode: multiply;
+        }
+
+        .manifesto-quote {
+            font-family: var(--font-display);
+            font-size: 3rem;
+            color: var(--accent);
+            text-transform: uppercase;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.2;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .manifesto-author {
+            margin-top: 30px;
+            font-size: 1.2rem;
+            font-family: var(--font-body);
+            font-weight: 700;
+            color: var(--bg-color);
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar scrolled">
+        <a href="index.html" class="logo">CHARRO<span style="font-size: 1rem; color: var(--accent); letter-spacing: 3px;">ZARANDIAO</span></a>
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Inicio</a>
+            <a href="menu.html">El Menú</a>
+            <a href="servicios.html">Reservaciones</a>
+            <a href="galeria.html">Galería</a>
+            <a href="nosotros.html" class="active">La Historia</a>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <div class="fade-in">
+            <h1 style="font-size: 5rem; color: var(--bg-color);">De Occidente P'al Sur</h1>
+            <p style="font-size: 1.3rem; margin-top: 15px; color: var(--accent); font-weight: bold;">Cómo trajimos el Pacífico y La Perla Tapatía a Mérida.</p>
+        </div>
+    </header>
+
+    <section class="section" style="background-color: var(--bg-color);">
+        <div class="about-content fade-in">
+            <div class="about-text">
+                <h2 style="font-size: 3rem; margin-bottom: 20px; color: var(--primary);">Nuestras Raíces</h2>
+                <p style="color: var(--text-muted); margin-bottom: 20px; font-size: 1.1rem; line-height: 1.8;">
+                    <strong>Charro Zarandiao</strong> no nació por casualidad. Nació del antojo. Del antojo que daba no encontrar en Mérida ese aguachile verdaderamente picante de Sinaloa o unas quesabirrias reales y caldosas directas de Guadalajara.
+                </p>
+                <p style="color: var(--text-muted); font-size: 1.1rem; line-height: 1.8;">
+                    Decidimos traer ese sazón y crear algo chingón aquí. Empezamos zarandeando marisco en la leña a un calor de 40 grados porque sabemos que el fuego es el secreto que hace la diferencia entre comer mariscos y <em>experimentar</em> el zarandeado del Pacífico.
+                </p>
+            </div>
+            <div class="about-image fade-in">
+                <img src="https://images.unsplash.com/photo-1514326640560-7d063ef2aed5?q=80&w=2670&auto=format&fit=crop" alt="Cazuela Mariscos">
+            </div>
+        </div>
+
+        <div class="about-content alt fade-in">
+            <div class="about-text">
+                <h2 style="font-size: 3rem; margin-bottom: 20px; color: var(--primary);">La Fusión Que Faltaba</h2>
+                <p style="color: var(--text-muted); margin-bottom: 20px; font-size: 1.1rem; line-height: 1.8;">
+                    ¿Qué pasa cuando juntas los mariscos de Nayarit y Sinaloa con la cultura tapatía de las Birrias, Cantaritos y Jericallas? Pasa algo mágico. Pasa que todos los días es domingo de fiesta en nuestra casa.
+                </p>
+                <p style="color: var(--text-muted); font-size: 1.1rem; line-height: 1.8;">
+                    Aseguramos que todos nuestros ingredientes guarden esa frescura costera, y las recetas, respeten totalmente la esencia casera de Jalisco.
+                </p>
+                <div style="margin-top: 30px;">
+                    <a href="menu.html" class="btn btn-filled">Explorar el Menú</a>
+                </div>
+            </div>
+            <div class="about-image fade-in">
+                <img src="https://images.unsplash.com/photo-1551504734-5ee1c4a1479b?q=80&w=2670&auto=format&fit=crop" alt="Birria en Mérida">
+            </div>
+        </div>
+    </section>
+
+    <div class="manifesto fade-in">
+        <p class="manifesto-quote">"El mar se come fresco, la birria caliente, y el tequila se toma derecho."</p>
+        <p class="manifesto-author">— Charro Zarandiao</p>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content" style="max-width: 1200px; margin: 0 auto;">
+            <div class="footer-col">
+                <h3 style="color: var(--accent);">CHARRO ZARANDIAO</h3>
+                <p>Mérida, Yucatán.</p>
+            </div>
+            <div class="footer-col">
+                <h3 style="color: var(--accent);">Visítanos</h3>
+                <p>Av. Yucatán #383, Col. Los Pinos</p>
+                <p>C.P. 97138, Mérida, Yucatán.</p>
+                <p>Tel / WA: 999 746 3653</p>
+                <p><a href="https://maps.app.goo.gl/1EjAokEEdnHQ9VXC6" target="_blank" style="color: var(--primary);">Google Maps</a></p>
+            </div>
+            <div class="footer-col">
+                <h3 style="color: var(--accent);">Horario</h3>
+                <p>Lun, Mié, Jue: 1:00 PM - 10:00 PM</p>
+                <p>Vie, Sáb, Dom: 1:00 PM - 12:00 AM</p>
+                <p>Martes: Cerrado</p>
+            </div>
+            <div class="footer-col">
+                <h3 style="color: var(--accent);">Síguenos</h3>
+                <div class="social-icons">
+                    <a href="https://www.instagram.com/charro_zarandiao" target="_blank">IG</a>
+                    <a href="#">FB</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Restaurante Charro Zarandiao. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

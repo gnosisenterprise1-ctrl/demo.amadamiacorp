@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clínica & Cirugía | VetCare Premium</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="styles.css">
+    
+    <style>
+        .page-header { background: var(--bg-white); padding: 60px 5%; text-align: center; border-bottom: 2px solid var(--bg-light); }
+        .page-header h1 { font-size: 3.5rem; margin-bottom: 15px; }
+        .page-header p { max-width: 600px; margin: 0 auto; }
+        
+        .service-block { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; margin-bottom: 80px; align-items: center; }
+        .service-block.reverse { grid-template-columns: 1fr 1fr; }
+        .service-block.reverse .service-img { order: 2; }
+        .service-block.reverse .service-info { order: 1; }
+        
+        @media (max-width: 900px) {
+            .service-block, .service-block.reverse { grid-template-columns: 1fr; }
+            .service-block.reverse .service-img { order: 1; }
+            .service-block.reverse .service-info { order: 2; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="logo">
+            <i data-lucide="paw-print" size="32" style="color:var(--orange)"></i> VetCare
+        </a>
+        <div class="nav-links">
+            <a href="index.html">Inicio</a>
+            <a href="servicios.html" class="active">Cirugía & Clínica</a>
+            <a href="pension.html">Pensión / Hotel</a>
+            <a href="estetica.html">Estética</a>
+        </div>
+        <div>
+            <a href="tel:+529990000000" class="btn btn-emergency"><i data-lucide="phone"></i> Urgencias 24h</a>
+        </div>
+    </nav>
+
+    <div class="page-header">
+        <h1 class="highlight-blue">Excelencia Médica.</h1>
+        <p>Nuestro equipo de especialistas veterinarios está capacitado para diagnosticar y tratar casos complejos. Contamos con tecnología hospitalaria de punta.</p>
+    </div>
+
+    <section class="section">
+        
+        <div class="service-block">
+            <div class="service-img">
+                <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=1000&auto=format&fit=crop" alt="Consulta" class="img-rounded">
+            </div>
+            <div class="service-info">
+                <div class="icon-wrapper"><i data-lucide="stethoscope"></i></div>
+                <h2>Medicina Preventiva y <span class="highlight-orange">Consultas.</span></h2>
+                <p style="margin-bottom: 20px;">La prevención es la intervención más importante. Realizamos check-ups anuales, esquemas de vacunación personalizados y desparasitación protocolizada.</p>
+                <ul style="list-style: none;">
+                    <li style="margin-bottom: 10px; font-weight:700;"><i data-lucide="chevron-right" style="color:var(--orange);"></i> Control de peso y nutrición</li>
+                    <li style="margin-bottom: 10px; font-weight:700;"><i data-lucide="chevron-right" style="color:var(--orange);"></i> Geriatría (Más de 7 años)</li>
+                    <li style="margin-bottom: 10px; font-weight:700;"><i data-lucide="chevron-right" style="color:var(--orange);"></i> Dermatología y alergias</li>
+                </ul>
+                <a href="reserva.html" class="btn btn-primary" style="margin-top: 20px;">Agendar Valoración</a>
+            </div>
+        </div>
+
+        <div class="service-block reverse">
+            <div class="service-img">
+                <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=1000&auto=format&fit=crop" alt="Cirugía Especializada" class="img-rounded">
+            </div>
+            <div class="service-info">
+                <div class="icon-wrapper"><i data-lucide="activity"></i></div>
+                <h2>Quirófano e <span class="highlight-blue">Intervenciones.</span></h2>
+                <p style="margin-bottom: 20px;">Minimizamos todos los riesgos. Nuestro quirófano está equipado con máquinas de anestesia inhalatoria, monitores multiparámetros y concentradores de oxígeno quirúrgico.</p>
+                <ul style="list-style: none;">
+                    <li style="margin-bottom: 10px; font-weight:700;"><i data-lucide="chevron-right" style="color:var(--blue);"></i> Esterilizaciones de mínima invasión</li>
+                    <li style="margin-bottom: 10px; font-weight:700;"><i data-lucide="chevron-right" style="color:var(--blue);"></i> Cirugía de tejidos blandos</li>
+                    <li style="margin-bottom: 10px; font-weight:700;"><i data-lucide="chevron-right" style="color:var(--blue);"></i> Traumatología y Ortopedia</li>
+                </ul>
+                <a href="reserva.html" class="btn btn-primary" style="margin-top: 20px;">Hablar con Cirugía</a>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="grid-4" style="align-items:start;">
+            <div>
+                <div class="logo"><i data-lucide="paw-print" size="28" style="color:var(--orange)"></i> VetCare</div>
+                <p style="color:#aaa; font-size:0.9rem; margin-top:15px;">Hospital veterinario de referencia. Tu mascota es nuestra vocación máxima.</p>
+            </div>
+            <div>
+                <h4>Servicios</h4>
+                <ul style="list-style:none;">
+                    <li style="margin-bottom:10px;"><a href="servicios.html">Clínica & Cirugía</a></li>
+                    <li style="margin-bottom:10px;"><a href="pension.html">Hotel (Pensión)</a></li>
+                    <li style="margin-bottom:10px;"><a href="estetica.html">Estética & Spa</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>¿Urgencias Médicas?</h4>
+                <p style="color:#aaa; font-size:0.9rem; margin-bottom:15px;">Comunícate de inmediato y dirígete a la clínica.</p>
+                <a href="#" class="btn btn-emergency" style="font-size: 0.9rem; padding: 10px 20px;"><i data-lucide="phone"></i> +52 999 000 0000</a>
+            </div>
+        </div>
+    </footer>
+
+    <a href="reserva.html" class="whatsapp-float"><i data-lucide="calendar" size="28"></i></a>
+
+    <script>lucide.createIcons();</script>
+</body>
+</html>
