@@ -3,180 +3,122 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Amada Mía El Árbol | Verde & Natural</title>
+  <title>Amada Mía El Árbol | Alta Repostería & Café</title>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    :root{--green:#81c784;--dark-green:#388e3c;--cream:#f1f8f1;--brown:#3e2723;--gold:#d4af37;--ff-head:"Playfair Display",serif;--ff-body:"Outfit",sans-serif}
+    :root{--green:#81c784;--dark-green:#388e3c;--brown:#3e2723;--cream:#f1f8f1;--ff-head:"Playfair Display",serif;--ff-body:"Outfit",sans-serif}
     *{margin:0;padding:0;box-sizing:border-box}
     body{font-family:var(--ff-body);background:var(--cream);color:var(--brown);overflow-x:hidden}
-    a{text-decoration:none !important;color:var(--brown)}
-    nav{position:fixed;top:0;width:100%;padding:1.4rem 6%;display:flex;justify-content:space-between;align-items:center;z-index:100;background:rgba(241,248,241,.92);backdrop-filter:blur(14px);border-bottom:1px solid rgba(129,199,132,.3);gap:1rem}
-    .nav-brand{font-family:var(--ff-head);font-size:1.8rem;color:var(--brown);white-space:nowrap}
+    a{text-decoration:none !important}
+    nav{position:fixed;top:0;width:100%;padding:1.2rem 6%;display:flex;justify-content:space-between;align-items:center;z-index:9999;background:rgba(255,255,255,.98);backdrop-filter:blur(10px);border-bottom:1px solid #c8e6c9;box-shadow:0 4px 20px rgba(0,0,0,.04)}
+    .nav-brand{font-family:var(--ff-head);font-size:1.6rem;color:var(--brown);white-space:nowrap}
     .nav-brand span{color:var(--dark-green)}
     .nav-links{display:flex;gap:1.5rem;align-items:center}
-    .nav-links a{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#3e2723 !important;font-weight:600;text-decoration:none !important;transition:.3s}
-    .nav-links a:hover{color:#388e3c !important}
-    .hero{height:100vh;background:linear-gradient(rgba(62,39,35,.25),rgba(62,39,35,.7)),url('fachada-arbol.png') center/cover fixed;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:0 6%}
-    .hero-label{font-size:.8rem;letter-spacing:6px;text-transform:uppercase;color:var(--green);margin-bottom:1.5rem}
-    .hero h1{font-family:var(--ff-head);font-size:7rem;color:#fff;line-height:.9;margin-bottom:1.5rem}
-    .hero h1 em{color:var(--green);font-style:italic}
-    .hero p{font-size:1.15rem;max-width:550px;color:rgba(255,255,255,.9);font-weight:300;line-height:1.8;margin-bottom:2.5rem}
-    .btn-row{display:flex;gap:1.2rem;flex-wrap:wrap;justify-content:center}
-    .btn{display:inline-flex;align-items:center;gap:.6rem;padding:1rem 2.5rem;border-radius:50px;font-size:.85rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;transition:.35s}
-    .btn-green{background:var(--dark-green);color:#fff}
-    .btn-green:hover{background:#2e7d32;transform:translateY(-2px)}
-    .btn-outline{border:1px solid rgba(129,199,132,.6);color:#fff}
-    .btn-outline:hover{background:rgba(129,199,132,.15);transform:translateY(-2px)}
-    section{padding:8rem 6%}
-    .section-label{font-size:.75rem;letter-spacing:4px;text-transform:uppercase;color:var(--dark-green);margin-bottom:1rem;display:block}
-    .section-title{font-family:var(--ff-head);font-size:3.2rem;color:var(--brown);line-height:1.2;margin-bottom:.8rem}
-    .section-sub{color:#6d4c41;font-weight:300;max-width:600px;line-height:1.8;margin-bottom:4rem;font-size:1.05rem}
-    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
-    .col-img{border-radius:20px;overflow:hidden;height:500px;box-shadow:0 30px 80px rgba(62,39,35,.1)}
+    .nav-links a{font-size:10px;text-transform:uppercase;color:#3e2723 !important;font-weight:600;letter-spacing:1.5px;text-decoration:none !important}
+    .nav-links a.vol{color:#388e3c !important;font-weight:700}
+    .hero{height:100vh;background:linear-gradient(rgba(39,62,35,.1),rgba(39,62,35,.6)),url('fachada-arbol.png') center/cover fixed;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:0 6%}
+    .hero h1{font-family:var(--ff-head);font-size:6rem;color:#fff;margin-bottom:1.5rem;text-shadow:0 5px 25px rgba(0,0,0,.2)}
+    .hero p{font-size:1.1rem;max-width:550px;color:#fff;font-weight:300;margin-bottom:2.5rem;line-height:1.7}
+    .btn{display:inline-flex;align-items:center;gap:.6rem;padding:1rem 2.5rem;border-radius:50px;font-size:.8rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;transition:.3s}
+    .btn-grn{background:var(--dark-green);color:#fff}
+    .btn-grn:hover{background:#2e7d32;transform:translateY(-2px)}
+    .btn-outline{border:2px solid #fff;color:#fff}
+    .btn-outline:hover{background:rgba(255,255,255,.1);transform:translateY(-2px)}
+    section{padding:7rem 6%}
+    .section-title{font-family:var(--ff-head);font-size:3rem;color:var(--brown);margin-bottom:1rem}
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+    .col-img{border-radius:20px;overflow:hidden;height:450px}
     .col-img img{width:100%;height:100%;object-fit:cover}
-    .col-text p{color:#6d4c41;font-weight:300;line-height:1.9;font-size:1.05rem;margin-bottom:1.5rem}
-    .menu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2.5rem}
-    .menu-card{background:#fff;border:1px solid rgba(129,199,132,.2);border-radius:18px;overflow:hidden;box-shadow:0 10px 30px rgba(62,39,35,.05);transition:.4s}
-    .menu-card:hover{border-color:var(--dark-green);transform:translateY(-8px)}
-    .menu-img{height:220px;background-size:cover;background-position:center}
-    .menu-info{padding:1.8rem}
-    .menu-info h4{font-family:var(--ff-head);font-size:1.5rem;color:var(--brown);margin-bottom:.5rem}
-    .menu-info p{color:#6d4c41;font-size:.9rem;font-weight:300;line-height:1.6}
-    .menu-price{margin-top:1rem;color:var(--gold);font-size:1.1rem;font-weight:600}
-    .gallery{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:280px 280px;gap:12px}
-    .gal-item{border-radius:14px;overflow:hidden;background-size:cover;background-position:center;transition:.5s}
-    .gal-item:hover{transform:scale(1.02)}
-    .gal-item.big{grid-column:1;grid-row:1/3}
-    .map-section{border-radius:20px;overflow:hidden;height:380px;border:2px solid rgba(129,199,132,.3)}
-    .map-section iframe{width:100%;height:100%;border:none}
-    .reserva-box{background:linear-gradient(135deg,rgba(129,199,132,.12),rgba(129,199,132,.02));border:1px solid rgba(129,199,132,.25);border-radius:20px;padding:4rem;text-align:center}
-    .reserva-box h3{font-family:var(--ff-head);font-size:2.5rem;color:var(--brown);margin-bottom:1rem}
-    .reserva-box p{color:#6d4c41;font-weight:300;margin-bottom:2.5rem;font-size:1.1rem}
-    .info-row{display:flex;gap:2rem;flex-wrap:wrap;justify-content:center;margin-bottom:3rem}
-    .info-item{display:flex;align-items:center;gap:.8rem;color:#6d4c41;font-size:.95rem}
-    .info-item i{color:var(--dark-green);font-size:1.1rem}
-    footer{background:var(--brown);color:rgba(255,255,255,.6);text-align:center;padding:2.5rem;font-size:.85rem}
-    footer b{color:var(--green)}
-    @media(max-width:1024px){.hero h1{font-size:5rem}.two-col{gap:3rem}.gallery{grid-template-columns:1fr 1fr;grid-template-rows:auto}.gal-item.big{grid-column:auto;grid-row:auto}}
-    @media(max-width:768px){nav{padding:1rem 4%;flex-wrap:wrap}.nav-brand{font-size:1.3rem}.nav-links{gap:1rem;flex-wrap:wrap;justify-content:flex-end}.nav-links a{font-size:.65rem;letter-spacing:1px}.hero{height:auto;min-height:100vh;padding:8rem 5% 4rem}.hero h1{font-size:3rem}.hero p{font-size:.95rem}.btn{padding:.8rem 1.8rem;font-size:.75rem}.btn-row{gap:.8rem}section{padding:5rem 5%}.section-title{font-size:2.2rem}.two-col{grid-template-columns:1fr;gap:2.5rem}.col-img{height:280px}.menu-grid{grid-template-columns:1fr}.gallery{grid-template-columns:1fr 1fr;gap:8px}.gal-item{height:200px !important}.gal-item.big{grid-column:auto;grid-row:auto}#ubicacion>div{grid-template-columns:1fr}.reserva-box{padding:2rem}.reserva-box h3{font-size:1.8rem}.map-section{height:280px}.info-row{flex-direction:column;gap:1rem;align-items:flex-start}}
-    @media(max-width:480px){nav{padding:.8rem 4%}.nav-brand{font-size:1.1rem}.nav-links{gap:.7rem}.nav-links a{font-size:.6rem;letter-spacing:.5px}.hero h1{font-size:2.3rem}.hero p{font-size:.88rem}.section-title{font-size:1.8rem}.menu-info h4{font-size:1.2rem}.reserva-box{padding:1.5rem}.reserva-box h3{font-size:1.5rem}}
+    .menu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem}
+    .menu-card{background:#fff;border-radius:15px;box-shadow:0 10px 30px rgba(0,0,0,.05);overflow:hidden}
+    .menu-img{height:200px;background-size:cover;background-position:center}
+    .menu-info{padding:1.5rem}
+    .reserva-box{background:#fdfaf3;padding:3rem;border-radius:20px;text-align:center;border:1px solid #c8e6c9}
+    footer{background:var(--brown);color:rgba(255,255,255,.5);text-align:center;padding:2.5rem;font-size:.8rem}
+    @media(max-width:768px){
+      .nav-links{gap:.8rem}
+      .nav-links a{font-size:9px}
+      .hero h1{font-size:3rem}
+      .hero p{font-size:.9rem}
+      .two-col{grid-template-columns:1fr}
+    }
   </style>
 </head>
 <body>
-  <nav style="background:#fff;border-bottom:1px solid #f1f8f1;position:fixed;top:0;width:100%;padding:1.4rem 6%;display:flex;justify-content:space-between;align-items:center;z-index:1000">
-    <div class="nav-brand" style="color:#3e2723;font-family:'Playfair Display',serif;font-size:1.8rem">Amada <span style="color:#388e3c">Mía</span> El Árbol</div>
-    <div class="nav-links" style="display:flex;gap:1.5rem;align-items:center">
-      <a href="#nosotros" style="color:#3e2723 !important;text-decoration:none !important;font-family:'Outfit',sans-serif;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:600">Nuestra Historia</a>
-      <a href="#menu" style="color:#3e2723 !important;text-decoration:none !important;font-family:'Outfit',sans-serif;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:600">Menú</a>
-      <a href="#galeria" style="color:#3e2723 !important;text-decoration:none !important;font-family:'Outfit',sans-serif;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:600">Galería</a>
-      <a href="#ubicacion" style="color:#3e2723 !important;text-decoration:none !important;font-family:'Outfit',sans-serif;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:600">Ubicación</a>
-      <a href="amada-mia-index.html" style="color:#388e3c !important;text-decoration:none !important;font-weight:bold;font-family:'Outfit',sans-serif;font-size:11px;letter-spacing:1px"><i class="fa-solid fa-arrow-left"></i> Volver</a>
+  <nav>
+    <div class="nav-brand">Amada <span>Mía</span> El Árbol</div>
+    <div class="nav-links">
+      <a href="#nosotros" style="color:#3e2723 !important;text-decoration:none !important">Nosotros</a>
+      <a href="#menu" style="color:#3e2723 !important;text-decoration:none !important">Menú</a>
+      <a href="#galeria" style="color:#3e2723 !important;text-decoration:none !important">Galería</a>
+      <a href="#ubicacion" style="color:#3e2723 !important;text-decoration:none !important">Ubicación</a>
+      <a href="amada-mia-index.html" class="vol" style="color:#388e3c !important;text-decoration:none !important;font-weight:bold">← Volver</a>
     </div>
   </nav>
 
   <div class="hero">
-    <div class="hero-label">Verde Menta & Naturaleza · Plaza El Árbol · Mérida</div>
-    <h1>Amada <em>Mía</em></h1>
-    <p>Un respiro verde en medio de la ciudad. Jardines verticales, luz natural y una carta de desayunos que celebra lo orgánico a cada bocado.</p>
-    <div class="btn-row">
-      <a href="https://wa.me/529999999999?text=Hola,%20quiero%20reservar%20en%20Amada%20Mía%20El%20Árbol" class="btn btn-green" target="_blank"><i class="fa-brands fa-whatsapp"></i> Reservar Mesa</a>
+    <h1>El Árbol</h1>
+    <p>Nuestra sucursal más orgánica, donde la naturaleza y la repostería artesanal conviven en perfecta armonía.</p>
+    <div style="display:flex;gap:1.2rem;justify-content:center;flex-wrap:wrap">
+      <a href="https://wa.me/529999999999" class="btn btn-grn" target="_blank"><i class="fa-brands fa-whatsapp"></i> Reservar Mesa</a>
       <a href="#menu" class="btn btn-outline"><i class="fa-solid fa-utensils"></i> Ver Menú</a>
     </div>
   </div>
 
-  <section id="nosotros" style="background:#e8f5e9">
+  <section id="nosotros">
     <div class="two-col">
-      <div class="col-img">
-        <img src="fachada-arbol.png" alt="Amada Mía El Árbol">
-      </div>
       <div>
-        <span class="section-label">Nuestro Origen</span>
-        <h2 class="section-title">Donde la naturaleza entra al plato</h2>
-        <div class="col-text">
-          <p>Plaza El Árbol fue elegida porque respira naturaleza. Aquí, los jardines verticales bordean cada mesa y las plantas aromáticas crecen en nuestra barra. Todo el espacio fue diseñado para conectar a quien llega con lo más esencial: el presente.</p>
-          <p>Nuestra carta privilegia ingredientes orgánicos, locales y de temporada. Nada congelado, nada artificial. Solo la honestidad de la buena cocina con identidad yucateca.</p>
-          <a href="#menu" class="btn btn-green" style="margin-top:1rem"><i class="fa-solid fa-arrow-down"></i> Explorar el Menú</a>
-        </div>
+        <h2 class="section-title">Concepto Natural</h2>
+        <p style="color:#8d6e63;line-height:1.8;margin-bottom:1.5rem">Amada Mía El Árbol rinde homenaje a la frescura. Un pulmón verde en la ciudad para disfrutar de desayunos al aire libre y sabores auténticos.</p>
+        <p style="color:#8d6e63;line-height:1.8">Inspirados por la botánica, cada plato es una obra de arte visual y gustativa.</p>
+      </div>
+      <div class="col-img">
+        <img src="https://images.unsplash.com/photo-1497935586351-b67a49e012bf?auto=format&fit=crop&q=80&w=800" alt="El Arbol">
       </div>
     </div>
   </section>
 
-  <section id="menu">
-    <span class="section-label">Nuestra Carta</span>
-    <h2 class="section-title">Menú El Árbol</h2>
-    <p class="section-sub">Sabores verdes, frescos y orgánicos. Café de especialidad con identificación de origen y recetas que cuidan el cuerpo.</p>
+  <section id="menu" style="background:#fffafa">
+    <h2 class="section-title" style="text-align:center;margin-bottom:3rem">Menú Fresco</h2>
     <div class="menu-grid">
       <div class="menu-card">
-        <div class="menu-img" style="background-image:url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&q=80&w=800')"></div>
+        <div class="menu-img" style="background-image:url('https://images.unsplash.com/photo-1565958011703-44f9829ba187?auto=format&fit=crop&q=80&w=800')"></div>
         <div class="menu-info">
-          <h4>Bowl Verde de Quinoa</h4>
-          <p>Quinoa roja con espinaca salteada, aguacate, pepino persa, hummus de betabel y aliño tahini-limón.</p>
-          <div class="menu-price">$165 MXN</div>
+          <h4>Mousse de Pistache</h4>
+          <p>Textura sedosa con corazón de pistache persa y base de galleta.</p>
         </div>
       </div>
       <div class="menu-card">
-        <div class="menu-img" style="background-image:url('https://images.unsplash.com/photo-1484723091739-30a097e8f929?auto=format&fit=crop&q=80&w=800')"></div>
+        <div class="menu-img" style="background-image:url('https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?auto=format&fit=crop&q=80&w=800')"></div>
         <div class="menu-info">
-          <h4>Tostadas de Jardín</h4>
-          <p>Pan de semillas recién horneado con ricotta, zucchini asado, flores de temporada y aceite de oliva árbol.</p>
-          <div class="menu-price">$145 MXN</div>
+          <h4>Bowl El Árbol</h4>
+          <p>Fruta de temporada, yogurt griego artesanal y semillas hidratadas.</p>
         </div>
       </div>
       <div class="menu-card">
-        <div class="menu-img" style="background-image:url('https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&q=80&w=800')"></div>
+        <div class="menu-img" style="background-image:url('https://images.unsplash.com/photo-1495147466023-ac5c588e2e94?auto=format&fit=crop&q=80&w=800')"></div>
         <div class="menu-info">
-          <h4>Cold Brew de Especialidad</h4>
-          <p>Café frío de 18 horas con notas a caramelo, manzana y jengibre. Perfecto para los días calurosos.</p>
-          <div class="menu-price">$75 MXN</div>
+          <h4>Tisana Herbolaria</h4>
+          <p>Mezcla fresca de flores comestibles y frutos silvestres.</p>
         </div>
       </div>
     </div>
-    <div style="text-align:center;margin-top:3rem">
-      <a href="https://wa.me/529999999999?text=Hola,%20quiero%20el%20menú%20completo%20de%20Amada%20Mía%20El%20Árbol" class="btn btn-green" target="_blank"><i class="fa-brands fa-whatsapp"></i> Ver Menú Completo</a>
-    </div>
   </section>
 
-  <section id="galeria" style="background:#e8f5e9">
-    <span class="section-label">Nuestros Espacios</span>
-    <h2 class="section-title">El Mundo Verde</h2>
-    <p class="section-sub" style="margin-bottom:3rem">Jardines, plantas, madera y luz. El ambiente más orgánico y relajante del grupo.</p>
-    <div class="gallery">
-      <div class="gal-item big" style="background-image:url('fachada-arbol.png')"></div>
-      <div class="gal-item" style="background-image:url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&q=80&w=800')"></div>
-      <div class="gal-item" style="background-image:url('https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?auto=format&fit=crop&q=80&w=800')"></div>
-      <div class="gal-item" style="background-image:url('https://images.unsplash.com/photo-1484723091739-30a097e8f929?auto=format&fit=crop&q=80&w=800')"></div>
-      <div class="gal-item" style="background-image:url('https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&q=80&w=800')"></div>
-    </div>
-  </section>
-
-  <section id="ubicacion">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start">
-      <div>
-        <span class="section-label">Encuéntranos</span>
-        <h2 class="section-title">En Plaza El Árbol</h2>
-        <div class="info-row" style="justify-content:flex-start;flex-direction:column;align-items:flex-start;margin-bottom:2rem">
-          <div class="info-item"><i class="fa-solid fa-location-dot"></i> Plaza El Árbol, Mérida, Yucatán</div>
-          <div class="info-item"><i class="fa-solid fa-clock"></i> Lun–Vie: 7:30am – 6:00pm</div>
-          <div class="info-item"><i class="fa-solid fa-clock"></i> Sáb–Dom: 8:00am – 6:30pm</div>
-        </div>
-        <div class="map-section">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.9!2d-89.68!3d21.06!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sAmada+M%C3%ADa+El+%C3%81rbol+M%C3%A9rida!5e0!3m2!1ses!2smx!4v1" allowfullscreen="" loading="lazy"></iframe>
-        </div>
+  <section id="ubicacion" style="background:#fff">
+    <div class="two-col">
+      <div class="map-section">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.8!2d-89.6!3d21.05!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f567!2sEl+Arbol+Merida!5e0!3m2!1ses!2smx!4v1" allowfullscreen="" loading="lazy"></iframe>
       </div>
       <div class="reserva-box">
-        <span class="section-label" style="display:block;text-align:center">Tu Mesa Verde</span>
-        <h3>Naturaleza y desayuno te esperan</h3>
-        <p>El espacio ideal para empezar el día o para reuniones de trabajo en un ambiente único e inspirador.</p>
-        <div class="info-row">
-          <div class="info-item"><i class="fa-solid fa-users"></i> 1 a 25 personas</div>
-          <div class="info-item"><i class="fa-solid fa-tree"></i> Terraza con jardín</div>
-        </div>
-        <a href="https://wa.me/529999999999?text=Hola,%20quiero%20hacer%20una%20reservación%20en%20Amada%20Mía%20El%20Árbol" class="btn btn-green" target="_blank" style="font-size:1rem;padding:1.2rem 3.5rem"><i class="fa-brands fa-whatsapp"></i> Reservar Ahora</a>
+        <h3>Tu Jardín Interior</h3>
+        <p>Calle 22 #551, Col. San Ramón.<br>Mérida, Yucatán México.</p>
+        <a href="https://wa.me/529999999999" class="btn btn-grn" target="_blank">Reservar por WhatsApp</a>
       </div>
     </div>
   </section>
 
-  <footer><b>Amada Mía El Árbol</b> — Verde Natural en Mérida &copy; 2025</footer>
+  <footer><b>Amada Mía El Árbol</b> — Alta Repostería &copy; 2025</footer>
 </body>
 </html>
