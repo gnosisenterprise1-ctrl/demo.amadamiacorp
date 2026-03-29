@@ -12,57 +12,167 @@
   <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
   <link rel="stylesheet" href="css/style.css">
   <style>
-    body { background: var(--carlota-bg); color: var(--carlota-text); }
-    /* Making sure it is NOT white, totally dark/luxury */
+    /* VARIABLES BLINDADAS - PALETA TERRACOTA ARTESANAL */
+    :root {
+      --carlota-bg: #8E3E33; /* Terracota Profundo */
+      --carlota-bg-alt: #7A352B; /* Terracota Sombra */
+      --carlota-accent: #D4AF37; /* Dorado Bistro */
+      --carlota-text: #FDF5E6; /* Ivory / Blanco Hueso */
+      --carlota-text-muted: #E0C9A6;
+      --font-heading: 'Playfair Display', serif;
+      --font-body: 'Outfit', sans-serif;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body { 
+      background: var(--carlota-bg) !important; 
+      color: var(--carlota-text) !important; 
+      font-family: var(--font-body);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    /* Blindaje de Enlaces (Evitar azul de navegador) */
+    a { color: inherit !important; text-decoration: none !important; }
+    a:visited { color: inherit !important; }
     
-    .carlota-hero { height: 100vh; width: 100vw; background: url("fachada-chuburna.png") center/cover fixed; position: relative; display: flex; flex-direction: column; }
-    .carlota-hero::before { content: ""; position: absolute; top:0; left:0; right:0; bottom:0; background: rgba(0,0,0,0.5); z-index: 1; }
+    .carlota-hero { 
+      height: 100vh; 
+      width: 100vw; 
+      background: url("fachada-chuburna.png") center/cover fixed; 
+      position: relative; 
+      display: flex; 
+      flex-direction: column; 
+    }
+    .carlota-hero::before { 
+      content: ""; 
+      position: absolute; 
+      top:0; left:0; right:0; bottom:0; 
+      background: linear-gradient(to bottom, rgba(142,62,51,0.4), rgba(142,62,51,0.9)); 
+      z-index: 1; 
+    }
 
     header { position: relative; z-index: 10; padding: 2rem 5%; display: flex; justify-content: space-between; align-items: center; }
-    .brand-logo { font-size: 2rem; font-weight: 600; text-decoration: none; color: white; letter-spacing: -1px; font-family: "Playfair Display", serif;}
-    nav { display: flex; gap: 2rem; align-items: center; }
-    nav a { text-decoration: none; color: rgba(255,255,255,0.85); font-size: 0.85rem; letter-spacing: 2px; text-transform: uppercase; font-weight: 400; transition: 0.3s; }
-    nav a:hover { color: white; }
+    .brand-logo { font-size: 2.2rem; font-weight: 600; color: white !important; font-family: var(--font-heading); }
+    
+    nav { display: flex; gap: 2.5rem; align-items: center; }
+    nav a { 
+      color: rgba(255,255,255,0.9) !important; 
+      font-size: 0.8rem; 
+      letter-spacing: 2px; 
+      text-transform: uppercase; 
+      font-weight: 500; 
+      transition: 0.3s; 
+    }
+    nav a:hover { color: var(--carlota-accent) !important; }
 
-    .btn-reservar-nav { background: var(--carlota-accent); padding: 0.6rem 2rem; border-radius: 50px; color: var(--carlota-bg); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; font-size: 0.85rem; border: none; cursor: pointer; transition: 0.3s; }
-    .btn-reservar-nav:hover { background: white; }
+    .btn-reservar-nav { 
+      background: var(--carlota-accent); 
+      padding: 0.7rem 2.2rem; 
+      border-radius: 50px; 
+      color: white !important; 
+      font-weight: 600; 
+      text-transform: uppercase; 
+      letter-spacing: 1px; 
+      font-size: 0.8rem; 
+      border: none; 
+      cursor: pointer; 
+      transition: 0.3s;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+    .btn-reservar-nav:hover { background: white; color: var(--carlota-bg) !important; transform: translateY(-2px); }
 
     .hero-center { position: relative; z-index: 10; flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 0 5%; }
-    .subtitle-dots { color: white; font-size: 1rem; letter-spacing: 6px; text-transform: uppercase; margin-bottom: 5px; }
-    .main-title { font-size: 7rem; color: white; margin-bottom: 10px; line-height: 1; font-family: "Playfair Display", serif;}
-    .main-desc { font-size: 1.4rem; color: white; font-weight: 300; max-width: 700px; text-shadow: 0 2px 4px rgba(0,0,0,0.4); margin-bottom: 40px; }
+    .subtitle-dots { color: var(--carlota-accent); font-size: 1rem; letter-spacing: 8px; text-transform: uppercase; margin-bottom: 5px; font-weight: 500; }
+    .main-title { font-size: 7.5rem; color: white !important; margin-bottom: 10px; line-height: 1; font-family: var(--font-heading); font-weight: 700; text-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+    .main-desc { font-size: 1.5rem; color: white !important; font-weight: 300; max-width: 800px; margin-bottom: 45px; font-family: var(--font-heading); font-style: italic; }
+    
     .hero-buttons { display: flex; gap: 20px; }
+    .btn-solid { 
+      background: var(--carlota-accent); 
+      color: white !important; 
+      padding: 1.2rem 3rem; 
+      border-radius: 50px; 
+      font-size: 0.9rem; 
+      font-weight: 600; 
+      text-transform: uppercase; 
+      letter-spacing: 2px; 
+      transition: 0.3s; 
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2); 
+      border: 2px solid var(--carlota-accent); 
+    }
+    .btn-solid:hover { background: white; border-color: white; color: var(--carlota-bg) !important; transform: translateY(-3px); }
     
-    .btn-solid { background: var(--carlota-accent); color: var(--carlota-bg); padding: 1rem 2.5rem; border-radius: 50px; text-decoration: none; font-size: 0.9rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; box-shadow: 0 10px 20px rgba(0,0,0,0.2); border: 2px solid var(--carlota-accent);}
-    .btn-solid:hover { background: white; border-color: white;}
-    
-    .btn-outline { background: transparent; color: white; padding: 1rem 2.5rem; border-radius: 50px; text-decoration: none; font-size: 0.9rem; font-weight: 500; text-transform: uppercase; letter-spacing: 1px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); border: 2px solid rgba(255,255,255,0.8); transition: 0.3s;}
-    .btn-outline:hover { background: rgba(255,255,255,0.1); border-color: white;}
+    .btn-outline { 
+      background: transparent; 
+      color: white !important; 
+      padding: 1.2rem 3rem; 
+      border-radius: 50px; 
+      font-size: 0.9rem; 
+      font-weight: 500; 
+      text-transform: uppercase; 
+      letter-spacing: 2px; 
+      border: 2px solid rgba(255,255,255,0.6); 
+      transition: 0.3s; 
+    }
+    .btn-outline:hover { background: rgba(255,255,255,0.1); border-color: white; transform: translateY(-3px); }
 
-    /* NOSOTROS */
-    .overlap-section { max-width: 1000px; margin: -50px auto 100px auto; background: var(--carlota-bg); backdrop-filter: blur(10px); padding: 5rem; border-radius: 20px; box-shadow: 0 30px 60px rgba(0,0,0,0.8); position: relative; z-index: 10; text-align: center; border: 1px solid rgba(255,255,255,0.05); }
+    /* SECCIÓN TRASLAPADA CON FONDO TERRACOTA SELECCIONADO */
+    .overlap-section { 
+      max-width: 1050px; 
+      margin: -80px auto 100px auto; 
+      background: var(--carlota-bg-alt); 
+      padding: 6rem; 
+      border-radius: 20px; 
+      box-shadow: 0 40px 80px rgba(0,0,0,0.4); 
+      position: relative; 
+      z-index: 10; 
+      text-align: center; 
+      border: 1px solid rgba(255,255,255,0.1); 
+    }
 
-    /* MENU SECTION */
     .menu-container { max-width: 1200px; margin: 0 auto 5rem auto; padding: 0 5%; }
-    .luxury-menu-item { display: flex; align-items: center; gap: 30px; margin-bottom: 4rem; }
-    .luxury-menu-img { width: 400px; height: 300px; border-radius: 10px; object-fit: cover; box-shadow: 0 20px 40px rgba(0,0,0,0.5); }
-    .luxury-menu-text h3 { font-size: 2.2rem; color: var(--carlota-accent); font-family: var(--font-heading); margin-bottom: 10px;}
-    .luxury-menu-text p { color: #aaa; font-size: 1.1rem; line-height: 1.8; margin-bottom: 15px; font-weight: 300; }
-    .price-line { display: flex; align-items: center; justify-content: flex-start; gap: 15px; }
-    .price-line .price { font-size: 1.5rem; color: white; font-weight: bold; }
-    .price-line .line { flex: 1; height: 1px; background: rgba(255,255,255,0.2); max-width: 200px; }
+    .luxury-menu-item { display: flex; align-items: center; gap: 50px; margin-bottom: 6rem; }
+    .luxury-menu-img { width: 450px; height: 350px; border-radius: 15px; object-fit: cover; box-shadow: 0 25px 50px rgba(0,0,0,0.3); filter: brightness(0.9); transition: 0.5s; }
+    .luxury-menu-img:hover { filter: brightness(1.1); transform: scale(1.02); }
+    
+    .luxury-menu-text h3 { font-size: 2.5rem; color: var(--carlota-accent); font-family: var(--font-heading); margin-bottom: 15px; font-weight: 600; }
+    .luxury-menu-text p { color: var(--carlota-text-muted); font-size: 1.15rem; line-height: 1.8; margin-bottom: 20px; font-weight: 300; }
+    
+    .price-line { display: flex; align-items: center; justify-content: flex-start; gap: 20px; }
+    .price-line .price { font-size: 1.7rem; color: white !important; font-weight: 600; font-family: var(--font-heading); }
+    .price-line .line { flex: 1; height: 1px; background: rgba(212,175,55,0.3); max-width: 200px; }
 
-    /* GALLERY */
-    .section-title { font-family: "Playfair Display", serif; font-size: 3rem; color: var(--carlota-accent); text-align: center; margin-bottom: 3rem; }
-    .luxury-gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; padding: 0 5%; margin-bottom: 5rem; max-width: 1200px; margin-left: auto; margin-right: auto;}
-    .luxury-gallery img { width: 100%; height: 350px; object-fit: cover; border-radius: 10px; transition: transform 0.5s; cursor: pointer; filter: grayscale(30%) brightness(0.8);}
-    .luxury-gallery img:hover { transform: scale(1.03); filter: grayscale(0%) brightness(1.1); }
+    .section-title { font-family: var(--font-heading); font-size: 3.5rem; color: var(--carlota-accent); text-align: center; margin-bottom: 4rem; }
+    
+    .luxury-gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; padding: 0 5%; margin-bottom: 8rem; max-width: 1200px; margin-left: auto; margin-right: auto;}
+    .luxury-gallery img { 
+      width: 100%; 
+      height: 400px; 
+      object-fit: cover; 
+      border-radius: 12px; 
+      transition: 0.6s cubic-bezier(0.165, 0.84, 0.44, 1); 
+      cursor: pointer; 
+      filter: brightness(0.8) sepia(20%); 
+    }
+    .luxury-gallery img:hover { transform: translateY(-10px); filter: brightness(1.1) sepia(0%); box-shadow: 0 30px 60px rgba(0,0,0,0.4); }
 
-    /* MAP */
-    .map-section { padding: 4rem 5%; background: rgba(0,0,0,0.3); border-radius: 30px; max-width: 1200px; margin: 0 auto 5rem auto; border: 1px solid rgba(255,255,255,0.02);}
-    .map-container { width: 100%; height: 500px; border-radius: 20px; overflow: hidden; margin-top: 2rem; box-shadow: 0 30px 60px rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.05); }
+    .map-section { padding: 6rem 5%; background: var(--carlota-bg-alt); border-radius: 40px; max-width: 1200px; margin: 0 auto 8rem auto; border: 1px solid rgba(255,255,255,0.05); text-align: center; }
+    .map-container { width: 100%; height: 550px; border-radius: 25px; overflow: hidden; margin-top: 3rem; box-shadow: 0 40px 80px rgba(0,0,0,0.5); border: 2px solid rgba(255,255,255,0.05); }
 
-    @media(max-width:768px) { nav { display: none;} .main-title { font-size: 4rem;} .luxury-menu-item { flex-direction: column !important; } .luxury-menu-img { width: 100%; height: auto;} }
+    footer { padding: 5rem 5%; text-align: center; background: rgba(0,0,0,0.2); color: var(--carlota-text-muted); }
+    .logo-text { font-family: var(--font-heading); font-size: 2.5rem; margin-bottom: 1rem; color: white !important; }
+
+    @media(max-width:992px) { 
+      .main-title { font-size: 5rem; }
+      .luxury-menu-item { flex-direction: column !important; text-align: center; }
+      .luxury-menu-img { width: 100%; height: auto; }
+      .price-line { justify-content: center; }
+      .overlap-section { padding: 3rem; margin-top: -40px; }
+      .luxury-gallery { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body class="carlotta-page theme-clay">
