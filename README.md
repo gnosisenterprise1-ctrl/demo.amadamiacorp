@@ -1,2 +1,0 @@
-# Manager-paginas.web-antigravity
-
