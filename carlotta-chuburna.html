@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carlota Chuburná | Corporativo Carlota</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <style>
+    /* VARIABLES BLINDADAS - PALETA TERRACOTA SELECCIONADA */
+    :root {
+      --carlota-bg: #8E3E33; /* Terracota Profundo */
+      --carlota-bg-alt: #7A352B; /* Terracota Sombra */
+      --carlota-accent: #D4AF37; /* Dorado Bistro */
+      --carlota-text: #FDF5E6; /* Ivory / Blanco Hueso */
+      --carlota-text-muted: #E0C9A6;
+      --font-heading: 'Playfair Display', serif;
+      --font-body: 'Outfit', sans-serif;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body { 
+      background: var(--carlota-bg) !important; 
+      color: var(--carlota-text) !important; 
+      font-family: var(--font-body);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    /* Blindaje de Enlaces (Evitar azul de navegador) */
+    a { color: inherit !important; text-decoration: none !important; }
+    a:visited { color: inherit !important; }
+    
+    .carlota-hero { 
+      height: 100vh; 
+      width: 100vw; 
+      background: url("fachada-chuburna.png") center/cover fixed; 
+      position: relative; 
+      display: flex; 
+      flex-direction: column; 
+    }
+    .carlota-hero::before { 
+      content: ""; 
+      position: absolute; 
+      top:0; left:0; right:0; bottom:0; 
+      background: linear-gradient(to bottom, rgba(142,62,51,0.4), rgba(142,62,51,0.9)); 
+      z-index: 1; 
+    }
+
+    header { position: relative; z-index: 10; padding: 2rem 5%; display: flex; justify-content: space-between; align-items: center; }
+    .brand-logo { font-size: 2.2rem; font-weight: 600; color: white !important; font-family: var(--font-heading); }
+    
+    nav { display: flex; gap: 2.5rem; align-items: center; }
+    nav a { 
+      color: rgba(255,255,255,0.9) !important; 
+      font-size: 0.8rem; 
+      letter-spacing: 2px; 
+      text-transform: uppercase; 
+      font-weight: 500; 
+      transition: 0.3s; 
+    }
+    nav a:hover { color: var(--carlota-accent) !important; }
+
+    .btn-reservar-nav { 
+      background: var(--carlota-accent); 
+      padding: 0.7rem 2.2rem; 
+      border-radius: 50px; 
+      color: white !important; 
+      font-weight: 600; 
+      text-transform: uppercase; 
+      letter-spacing: 1px; 
+      font-size: 0.8rem; 
+      border: none; 
+      cursor: pointer; 
+      transition: 0.3s;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+    .btn-reservar-nav:hover { background: white; color: var(--carlota-bg) !important; transform: translateY(-2px); }
+
+    .hero-center { position: relative; z-index: 10; flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 0 5%; }
+    .subtitle-dots { color: var(--carlota-accent); font-size: 1rem; letter-spacing: 8px; text-transform: uppercase; margin-bottom: 5px; font-weight: 500; }
+    .main-title { font-size: 7.5rem; color: white !important; margin-bottom: 10px; line-height: 1; font-family: var(--font-heading); font-weight: 700; text-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+    .main-desc { font-size: 1.5rem; color: white !important; font-weight: 300; max-width: 800px; margin-bottom: 45px; font-family: var(--font-heading); font-style: italic; }
+    
+    .hero-buttons { display: flex; gap: 20px; }
+    .btn-solid { 
+      background: var(--carlota-accent); 
+      color: white !important; 
+      padding: 1.2rem 3rem; 
+      border-radius: 50px; 
+      font-size: 0.9rem; 
+      font-weight: 600; 
+      text-transform: uppercase; 
+      letter-spacing: 2px; 
+      transition: 0.3s; 
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2); 
+      border: 2px solid var(--carlota-accent); 
+    }
+    .btn-solid:hover { background: white; border-color: white; color: var(--carlota-bg) !important; transform: translateY(-3px); }
+    
+    .btn-outline { 
+      background: transparent; 
+      color: white !important; 
+      padding: 1.2rem 3rem; 
+      border-radius: 50px; 
+      font-size: 0.9rem; 
+      font-weight: 500; 
+      text-transform: uppercase; 
+      letter-spacing: 2px; 
+      border: 2px solid rgba(255,255,255,0.6); 
+      transition: 0.3s; 
+    }
+    .btn-outline:hover { background: rgba(255,255,255,0.1); border-color: white; transform: translateY(-3px); }
+
+    /* SECCIÓN TRASLAPADA CON FONDO TERRACOTA SELECCIONADO */
+    .overlap-section { 
+      max-width: 1050px; 
+      margin: -80px auto 100px auto; 
+      background: var(--carlota-bg-alt); 
+      padding: 6rem; 
+      border-radius: 20px; 
+      box-shadow: 0 40px 80px rgba(0,0,0,0.4); 
+      position: relative; 
+      z-index: 10; 
+      text-align: center; 
+      border: 1px solid rgba(255,255,255,0.1); 
+    }
+
+    .menu-container { max-width: 1200px; margin: 0 auto 5rem auto; padding: 0 5%; }
+    .luxury-menu-item { display: flex; align-items: center; gap: 50px; margin-bottom: 6rem; }
+    .luxury-menu-img { width: 450px; height: 350px; border-radius: 15px; object-fit: cover; box-shadow: 0 25px 50px rgba(0,0,0,0.3); filter: brightness(0.9); transition: 0.5s; }
+    .luxury-menu-img:hover { filter: brightness(1.1); transform: scale(1.02); }
+    
+    .luxury-menu-text h3 { font-size: 2.5rem; color: var(--carlota-accent); font-family: var(--font-heading); margin-bottom: 15px; font-weight: 600; }
+    .luxury-menu-text p { color: var(--carlota-text-muted); font-size: 1.15rem; line-height: 1.8; margin-bottom: 20px; font-weight: 300; }
+    
+    .price-line { display: flex; align-items: center; justify-content: flex-start; gap: 20px; }
+    .price-line .price { font-size: 1.7rem; color: white !important; font-weight: 600; font-family: var(--font-heading); }
+    .price-line .line { flex: 1; height: 1px; background: rgba(212,175,55,0.3); max-width: 200px; }
+
+    .section-title { font-family: var(--font-heading); font-size: 3.5rem; color: var(--carlota-accent); text-align: center; margin-bottom: 4rem; }
+    
+    .luxury-gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; padding: 0 5%; margin-bottom: 8rem; max-width: 1200px; margin-left: auto; margin-right: auto;}
+    .luxury-gallery img { 
+      width: 100%; 
+      height: 400px; 
+      object-fit: cover; 
+      border-radius: 12px; 
+      transition: 0.6s cubic-bezier(0.165, 0.84, 0.44, 1); 
+      cursor: pointer; 
+      filter: brightness(0.8) sepia(20%); 
+    }
+    .luxury-gallery img:hover { transform: translateY(-10px); filter: brightness(1.1) sepia(0%); box-shadow: 0 30px 60px rgba(0,0,0,0.4); }
+
+    .map-section { padding: 0 5% 6rem 5%; }
+    .map-wrapper { max-width: 1200px; margin: 0 auto; position: relative; }
+    .map-container { position: relative; border-radius: 30px; overflow: hidden; box-shadow: 0 40px 100px rgba(0,0,0,0.4); border: 2px solid rgba(255,255,255,0.05); height: 550px; }
+
+    footer { padding: 5rem 5%; text-align: center; background: rgba(0,0,0,0.2); color: var(--carlota-text-muted); }
+    .logo-text { font-family: var(--font-heading); font-size: 2.5rem; margin-bottom: 1rem; color: white !important; }
+
+    @media(max-width:992px) { 
+      .main-title { font-size: 5rem; }
+      .luxury-menu-item { flex-direction: column !important; text-align: center; }
+      .luxury-menu-img { width: 100%; height: auto; }
+      .price-line { justify-content: center; }
+      .overlap-section { padding: 3rem; margin-top: -40px; }
+      .luxury-gallery { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body class="carlotta-page theme-clay">
+
+  <section class="carlota-hero">
+    <header>
+      <a href="amada-mia-index.html" class="brand-logo"><i class="fa-solid fa-arrow-left" style="font-size: 1rem; margin-right: 10px;"></i>Carlota</a>
+      <nav>
+        <a href="#nosotros">Nosotros</a>
+        <a href="#menu">Menú</a>
+        <a href="#galeria">Galería</a>
+        <a href="#ubicacion">Ubicación</a>
+        <button class="btn-reservar-nav">Reservar</button>
+      </nav>
+    </header>
+
+    <div class="hero-center" data-aos="fade-up" data-aos-duration="1500">
+      <div class="subtitle-dots">Bistró · Café · Mérida</div>
+      <h1 class="main-title">Carlota</h1>
+      <p class="main-desc">Gastronomía sofisticada, brunch y cenas de autor en Chuburná de Hidalgo</p>
+      
+      <div class="hero-buttons">
+        <a href="#ubicacion" class="btn-solid">Ver Ubicación</a>
+        <a href="https://wa.me/529990000000" class="btn-outline">Reservar Mesa</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- NOSOTROS -->
+  <section id="nosotros" class="overlap-section" data-aos="fade-up">
+    <h2 class="carlota-brand" style="font-size: 2.5rem; margin-bottom: 20px; color: var(--carlota-accent) !important;">Pasión por el Detalle</h2>
+    <p style="color: #bbb; font-size: 1.15rem; line-height: 1.9;">
+      <strong>Carlota</strong> nace del respeto por los ingredientes y la elegancia rústica. Queríamos alejarnos de lo convencional para crear un espacio de autor en <strong>Chuburná de Hidalgo</strong>. 
+      Aquí, cada textura, desde nuestros muros terracota y acabados orgánicos hasta el emplatado, fue seleccionado para envolverte en una atmósfera de placer culinario absoluto.
+    </p>
+  </section>
+
+  <!-- MENÚ -->
+  <section id="menu" class="menu-container">
+    <h2 class="section-title">Autor & Tradición</h2>
+    
+    <div class="luxury-menu-item" data-aos="fade-right">
+      <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&q=80&w=800" class="luxury-menu-img" alt="Corte">
+      <div class="luxury-menu-text">
+        <h3>Lomo de Res en Cenizas</h3>
+        <p>Corte premium sellado al carbón con cenizas de cebolla asada. Servido sobre un puré trufado de papa silvestre y terminado con salsa demi-glace de oporto.</p>
+        <div class="price-line"><span class="price">$590 MXN</span><div class="line"></div></div>
+      </div>
+    </div>
+    
+    <div class="luxury-menu-item" style="flex-direction: row-reverse;" data-aos="fade-left">
+      <img src="https://images.unsplash.com/photo-1600891964092-4316c288032e?auto=format&fit=crop&q=80&w=800" class="luxury-menu-img" alt="Pato">
+      <div class="luxury-menu-text" style="text-align: right;">
+        <h3 style="margin-left:auto;">Pato Carlota Braseado</h3>
+        <p>Magret de pato braseado a fuego lento, marinada oscura y coulis de frutos otoñales con romero. Acompaña perfecto con nuestro Cabernet insignia.</p>
+        <div class="price-line" style="flex-direction: row-reverse;"><span class="price">$420 MXN</span><div class="line"></div></div>
+      </div>
+    </div>
+
+    <div class="luxury-menu-item" data-aos="fade-right">
+      <img src="https://images.unsplash.com/photo-1495474472200-408ba091448b?auto=format&fit=crop&q=80&w=800" class="luxury-menu-img" alt="Brunch">
+      <div class="luxury-menu-text">
+        <h3>Brioche Rústico de Salmón</h3>
+        <p>Lonjas de salmón ahumado en casa sobre cama de quezo crema botánico, eneldo cristalizado y pan brioche recién horneado al momento.</p>
+        <div class="price-line"><span class="price">$285 MXN</span><div class="line"></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALERIA -->
+  <section id="galeria">
+    <h2 class="section-title">El Refugio Perfecto</h2>
+    <div class="luxury-gallery">
+      <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&q=80&w=800" data-aos="zoom-in" data-aos-delay="0">
+      <img src="https://images.unsplash.com/photo-1544148103-0773bf10d330?auto=format&fit=crop&q=80&w=1600" data-aos="zoom-in" data-aos-delay="200">
+      <img src="https://images.unsplash.com/photo-1559925393-8be0ec4767c8?auto=format&fit=crop&q=80&w=800" data-aos="zoom-in" data-aos-delay="400">
+    </div>
+  </section>
+
+  <!-- UBICACIÓN PREMIUM MAP -->
+  <section id="ubicacion" class="map-section" data-aos="fade-up">
+    <div class="map-wrapper">
+      <h2 class="section-title" style="margin-bottom: 3rem;">Visítanos en Chuburná</h2>
+      
+      <div class="map-container">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3725.2674488!2d-89.6224!3d21.0334!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0!2zTWVyaWRh!5e0!3m2!1ses!2smx!4v169229!5m2!1ses!2smx" width="100%" height="100%" style="border:0; filter: grayscale(1) invert(90%) contrast(90%) brightness(85%);" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        
+        <!-- TARJETA FLOTANTE PREMIUM -->
+        <div style="position: absolute; top: 40px; left: 40px; background: rgba(50, 20, 15, 0.95); backdrop-filter: blur(20px); padding: 2.5rem; border-radius: 20px; width: 350px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 20px 40px rgba(0,0,0,0.4); z-index: 20;">
+          <div style="color: var(--carlota-accent); font-size: 0.8rem; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 15px; font-weight: 600;">Sucursal Chuburná</div>
+          <h3 style="font-family: var(--font-heading); color: white; font-size: 1.8rem; margin-bottom: 15px;">Mérida, Yucatán</h3>
+          <p style="color: #ccc; font-size: 1rem; margin-bottom: 25px; line-height: 1.6;">Calle Secundaria #402, Local 51, Chuburná de Hidalgo.</p>
+          
+          <a href="https://goo.gl/maps/...." target="_blank" style="background: var(--carlota-accent); color: white !important; display: block; text-align: center; padding: 1rem; border-radius: 50px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; font-size: 0.8rem; transition: 0.3s; box-shadow: 0 10px 20px rgba(0,0,0,0.3);">
+            <i class="fa-solid fa-location-arrow" style="margin-right: 8px;"></i> Cómo Llegar
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer style="padding: 4rem 5%; text-align: center; background: rgba(0,0,0,0.2); color: #888;">
+    <div class="logo-text carlota-brand" style="color: white !important;">Car<span style="color:var(--carlota-accent);">lota</span></div>
+    <p style="margin-top: 1rem;"><i class="fa-solid fa-location-dot"></i> Chuburná de Hidalgo &copy; 2026</p>
+  </footer>
+
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>AOS.init({ once: true });</script>
+</body>
+</html>
