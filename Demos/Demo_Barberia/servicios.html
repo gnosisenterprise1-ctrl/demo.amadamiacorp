@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THE GUILD | Menú de Servicios</title>
+    <!-- Modern Typefaces -->
+    <link href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .page-header {
+            padding: 180px 5% 80px;
+            text-align: center;
+            background: linear-gradient(180deg, rgba(7,7,9,0.8) 0%, var(--bg-surface) 60%, var(--bg-dark) 100%);
+            border-bottom: 1px solid var(--border-glass);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .glow-bg {
+            position: absolute;
+            background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+            width: 800px;
+            height: 400px;
+            top: -100px;
+            left: 50%;
+            transform: translateX(-50%);
+            filter: blur(60px);
+            z-index: 0;
+            opacity: 0.6;
+            pointer-events: none;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 10;
+        }
+
+        .services-wrapper {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 80px 5%;
+        }
+
+        .menu-category {
+            margin-bottom: 80px;
+        }
+
+        .category-title {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            color: var(--text-main);
+            padding-bottom: 15px;
+            margin-bottom: 40px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .category-title i {
+            color: var(--accent);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .service-card {
+            background: var(--surface-glass);
+            border: 1px solid var(--border-glass);
+            padding: 30px;
+            border-radius: var(--radius);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .service-card:hover {
+            border-color: rgba(229, 169, 60, 0.3);
+            background: var(--surface-glass-hover);
+            transform: translateY(-4px);
+        }
+
+        .service-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+
+        .item-name {
+            font-family: var(--font-display);
+            font-size: 1.4rem;
+            color: var(--text-main);
+            font-weight: 500;
+        }
+
+        .item-price {
+            font-family: var(--font-display);
+            font-size: 1.4rem;
+            color: var(--accent);
+            background: rgba(229, 169, 60, 0.1);
+            padding: 4px 12px;
+            border-radius: 100px;
+            border: 1px solid rgba(229, 169, 60, 0.2);
+        }
+
+        .item-desc {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        .service-cta {
+            text-align: center;
+            padding: 100px 5%;
+            background: var(--bg-surface);
+            border-top: 1px solid var(--border-glass);
+        }
+
+        @media (max-width: 768px) {
+            .services-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="logo">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"></circle><circle cx="6" cy="18" r="3"></circle><line x1="20" y1="4" x2="8.12" y2="15.88"></line><line x1="14.47" y1="14.48" x2="20" y2="20"></line><line x1="8.12" y1="8.12" x2="12" y2="12"></line></svg> 
+            THE GUILD
+        </a>
+        <div class="nav-links">
+            <a href="index.html">Inicio</a>
+            <a href="servicios.html" class="active">Servicios</a>
+            <a href="barberos.html">El Equipo</a>
+            <a href="galeria.html">Galería</a>
+            <a href="reserva.html" class="btn-solid">Agendar Cita</a>
+        </div>
+        <div class="menu-toggle">
+            <span></span><span></span><span></span>
+        </div>
+    </nav>
+
+    <div class="page-header">
+        <div class="glow-bg"></div>
+        <div class="header-content">
+            <div style="color: var(--accent); font-weight: 600; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 15px; font-size: 0.9rem;">Menú Completo</div>
+            <h1>Catálogo de <span class="text-accent">Renovación.</span></h1>
+            <p style="max-width: 600px; margin: 20px auto 0;">Servicios meticulosamente diseñados para el caballero moderno. Todo servicio incluye diagnóstico estructural y técnica experta.</p>
+        </div>
+    </div>
+
+    <div class="main-wrapper" style="padding-top: 0;">
+        <div class="services-wrapper">
+            
+            <div class="menu-category">
+                <div class="category-title">
+                    <i data-lucide="scissors" size="32"></i> Estructura & Corte
+                </div>
+                
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-header">
+                            <div class="item-name">The Guild Fade</div>
+                            <div class="item-price">$380</div>
+                        </div>
+                        <div class="item-desc">Degradado perfecto (Skin Fade/Taper) a nivel de la piel, delineado hiper-preciso, lavado vigorizante y peinado profesional con arcilla mate o pomada.</div>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-header">
+                            <div class="item-name">Signature Scissors</div>
+                            <div class="item-price">$350</div>
+                        </div>
+                        <div class="item-desc">Corte clásico totalmente a tijera. Ideal para cabellos largos, medios o texturizados. Incluye lavado profundo y secado direccional.</div>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-header">
+                            <div class="item-name">Junior Grooming</div>
+                            <div class="item-price">$280</div>
+                        </div>
+                        <div class="item-desc">Servicio premium adaptado para los herederos (hasta 12 años). Máxima paciencia garantizada para un resultado de adulto.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-category">
+                <div class="category-title">
+                    <i data-lucide="shield-check" size="32"></i> Afeitado & Spa
+                </div>
+                
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-header">
+                            <div class="item-name">Hot Towel Ritual</div>
+                            <div class="item-price">$290</div>
+                        </div>
+                        <div class="item-desc">El ritual supremo de afeitado tradicional. Navaja libre, 3 toallas calientes aromáticas, espuma espesa y masaje facial hidratante para la piel.</div>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-header">
+                            <div class="item-name">Premium Beard Trim</div>
+                            <div class="item-price">$250</div>
+                        </div>
+                        <div class="item-desc">Diseño geométrico y arquitectura de barba. Recorte de volúmenes, contornos navajados con toalla caliente y bálsamo esencial.</div>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-header">
+                            <div class="item-name">Camuflaje de Canas</div>
+                            <div class="item-price">$180</div>
+                        </div>
+                        <div class="item-desc">Pigmentación progresiva y varonil. Disimula áreas grises en la barba devolviendo 5 años de juventud de forma completamente natural.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-category">
+                <div class="category-title">
+                    <i data-lucide="crown" size="32"></i> Membresías VIP
+                </div>
+                
+                <div class="services-grid">
+                    <div class="service-card" style="border-color: var(--accent); background: rgba(229, 169, 60, 0.03);">
+                        <div class="service-header">
+                            <div class="item-name" style="color: var(--accent);">Black Card Combo</div>
+                            <div class="item-price">$550</div>
+                        </div>
+                        <div class="item-desc">Combo integral 60 mins: Cualquier corte a tijera o máquina + Diseño arquitectónico de barba (O afeitado tradicional completo).</div>
+                    </div>
+
+                    <div class="service-card" style="border-color: var(--accent); background: rgba(229, 169, 60, 0.03);">
+                        <div class="service-header">
+                            <div class="item-name" style="color: var(--accent);">El Padrino (Full Spa)</div>
+                            <div class="item-price">$750</div>
+                        </div>
+                        <div class="item-desc">Momento de desconexión absoluta. Corte general, arreglo de barba, Black Mask purificante, limpieza facial rápida y masaje cefálico estimulante.</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="service-cta">
+            <h2 style="font-size: 2.8rem; margin-bottom: 15px;">Transforma tu Imagen Hoy</h2>
+            <p style="margin-bottom: 40px; font-size: 1.1rem;">Selecciona el servicio perfecto directamente en nuestro calendario en vivo.</p>
+            <a href="reserva.html" class="btn-solid">Abrir Agenda de Citas <i data-lucide="arrow-right"></i></a>
+        </div>
+    </div>
+
+    <a href="https://wa.me/521" class="whatsapp-float" title="Consultas rápidas por WhatsApp">
+        <i data-lucide="message-circle" size="28"></i>
+    </a>
+
+    <script>lucide.createIcons();</script>
+</body>
+</html>

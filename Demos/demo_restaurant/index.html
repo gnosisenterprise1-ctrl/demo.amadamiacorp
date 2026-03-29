@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AURA | Restaurante de Lujo</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a href="index.html" class="logo">Aura</a>
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="nav-links">
+            <a href="index.html" class="active">Inicio</a>
+            <a href="menu.html">Menú</a>
+            <a href="servicios.html">Reservaciones</a>
+            <a href="galeria.html">Galería</a>
+            <a href="nosotros.html">Nosotros</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?q=80&w=2574&auto=format&fit=crop" alt="AURA Interior" class="hero-img">
+        <div class="hero-content fade-in">
+            <h1>Una Experiencia<br>Inolvidable</h1>
+            <p>Alta cocina, ambiente sofisticado y servicio excepcional.</p>
+            <a href="servicios.html" class="btn btn-filled">Reservar Mesa</a>
+        </div>
+    </header>
+
+    <!-- Intro Teaser -->
+    <section class="section intro-teaser">
+        <div class="section-header fade-in">
+            <h2>Nuestra Esencia</h2>
+            <p>Descubre el arte de la gastronomía contemporánea en el corazón de la ciudad.</p>
+        </div>
+        <div class="intro-grid fade-in">
+            <!-- Styling this later in CSS -->
+            <div style="display: flex; gap: 40px; align-items: center; max-width: 1000px; margin: 0 auto; flex-wrap: wrap;">
+                <div style="flex: 1; min-width: 300px;">
+                    <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=2670&auto=format&fit=crop" alt="Chef Preparing Dish" style="width: 100%; border-radius: 4px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+                </div>
+                <div style="flex: 1; min-width: 300px;">
+                    <h3 style="font-size: 2rem; margin-bottom: 20px;">Pasión por el Detalle</h3>
+                    <p style="color: var(--text-muted); margin-bottom: 20px;">En Aura, cada platillo es una obra de arte diseñada para despertar los sentidos. Utilizamos ingredientes locales de la más alta calidad para crear sabores únicos.</p>
+                    <a href="nosotros.html" class="btn">Conoce Nuestra Historia</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Teaser -->
+    <section class="section" style="background-color: var(--surface-color);">
+        <div class="section-header fade-in">
+            <h2>Aperitivos Destacados</h2>
+            <p>Una muestra de nuestras creaciones más aclamadas.</p>
+        </div>
+        <div class="menu-highlights fade-in" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; max-width: 1200px; margin: 0 auto; text-align: center;">
+            <div class="dish-card">
+                <img src="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=2669&auto=format&fit=crop" alt="Platillo" style="width: 100%; height: 250px; object-fit: cover; border-radius: 4px; margin-bottom: 20px;">
+                <h4 style="font-size: 1.4rem; margin-bottom: 10px;">Corte Wagyu A5</h4>
+                <p style="color: var(--text-muted);">Servido con puré trufado y espárragos de temporada. <br><span style="color: var(--gold); font-family: var(--font-serif); font-size: 1.2rem;">$120</span></p>
+            </div>
+            <div class="dish-card">
+                <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=2670&auto=format&fit=crop" alt="Platillo" style="width: 100%; height: 250px; object-fit: cover; border-radius: 4px; margin-bottom: 20px;">
+                <h4 style="font-size: 1.4rem; margin-bottom: 10px;">Tataki de Atún Aleta Azul</h4>
+                <p style="color: var(--text-muted);">Costra de sésamo, emulsión de wasabi y ponzu de cítricos. <br><span style="color: var(--gold); font-family: var(--font-serif); font-size: 1.2rem;">$45</span></p>
+            </div>
+            <div class="dish-card">
+                <img src="https://images.unsplash.com/photo-1512132411229-c30391241dd8?q=80&w=2670&auto=format&fit=crop" alt="Platillo" style="width: 100%; height: 250px; object-fit: cover; border-radius: 4px; margin-bottom: 20px;">
+                <h4 style="font-size: 1.4rem; margin-bottom: 10px;">Risotto de Setas Silvestres</h4>
+                <p style="color: var(--text-muted);">Lluvia de parmesano Reggiano curado por 24 meses y aceite de trufa. <br><span style="color: var(--gold); font-family: var(--font-serif); font-size: 1.2rem;">$38</span></p>
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 50px;" class="fade-in">
+            <a href="menu.html" class="btn">Ver Menú Completo</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content" style="max-width: 1200px; margin: 0 auto;">
+            <div class="footer-col">
+                <h3 style="color: var(--gold); font-family: var(--font-serif);">AURA</h3>
+                <p>Una experiencia culinaria que trasciende lo convencional. Sabores excepcionales en un ambiente inigualable.</p>
+            </div>
+            <div class="footer-col">
+                <h3 style="color: var(--gold); font-family: var(--font-serif);">Ubicación</h3>
+                <p>Av. Gastronomía 1234, Ciudad de Sabores, Gourmet Land.</p>
+                <p>Tel: +123 456 7890</p>
+                <p>Email: reservaciones@aura.com</p>
+            </div>
+            <div class="footer-col">
+                <h3 style="color: var(--gold); font-family: var(--font-serif);">Horario</h3>
+                <p>Mar - Jue: 18:00 - 23:00</p>
+                <p>Vie - Sáb: 18:00 - 01:00</p>
+                <p>Domingo: 13:00 - 20:00</p>
+            </div>
+            <div class="footer-col">
+                <h3 style="color: var(--gold); font-family: var(--font-serif);">Síguenos</h3>
+                <div class="social-icons">
+                    <a href="#">Fb</a>
+                    <a href="#">Ig</a>
+                    <a href="#">Tw</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 AURA Restaurant. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

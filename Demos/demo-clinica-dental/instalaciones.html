@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Estudio | SMILE STUDIO</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(2, 350px);
+            gap: 20px;
+        }
+
+        .g-item {
+            position: relative;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+        }
+
+        .g-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .g-item:hover img { transform: scale(1.05); }
+
+        .g-large { grid-column: span 2; grid-row: span 2; }
+        .g-wide { grid-column: span 2; }
+
+        .overlay {
+            position: absolute;
+            bottom: 0; left: 0; width: 100%;
+            padding: 30px;
+            background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.8) 100%);
+            color: #fff;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: var(--transition);
+        }
+
+        .g-item:hover .overlay { opacity: 1; transform: translateY(0); }
+        .overlay h3 { font-size: 1.5rem; margin-bottom: 5px; }
+
+        .amenities {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-top: 80px;
+            padding: 60px;
+            background: var(--text-dark);
+            color: #fff;
+            border-radius: var(--radius-lg);
+            text-align: center;
+        }
+
+        .amenity i { color: var(--brand-main); margin-bottom: 20px; }
+        .amenity h4 { font-size: 1.2rem; margin-bottom: 10px; }
+        .amenity p { color: #aaa; font-size: 0.9rem; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="logo">SMILE<span>STUDIO</span></a>
+        <div class="nav-links">
+            <a href="index.html">Inicio</a>
+            <a href="servicios.html">Tratamientos</a>
+            <a href="equipo.html">Especialistas</a>
+            <a href="instalaciones.html" class="active">El Estudio</a>
+            <a href="agendar.html" class="btn-nav">Agendar Cita</a>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <h1>Diseño enfocado en <span>tu relajación.</span></h1>
+        <p>Olvídate del estrés y olor hospitalario. Hemos diseñado cada rincón de nuestras instalaciones para brindarte paz mental y un servicio cinco estrellas.</p>
+    </header>
+
+    <section class="section">
+        
+        <div class="gallery-grid">
+            <div class="g-item g-large">
+                <img src="https://images.unsplash.com/photo-1629909615184-74f495363b67?q=80&w=2000&auto=format&fit=crop" alt="Lobby">
+                <div class="overlay">
+                    <h3>Recepción & Coffee Bar</h3>
+                    <p>Espera tu turno degustando nuestro menú de cafés de especialidad.</p>
+                </div>
+            </div>
+            <div class="g-item g-wide">
+                <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=1500&auto=format&fit=crop" alt="Consultorio Premium">
+                <div class="overlay">
+                    <h3>Suites de Tratamiento</h3>
+                    <p>Privacidad absoluta y sillones ergonómicos con masaje.</p>
+                </div>
+            </div>
+            <div class="g-item">
+                <img src="https://images.unsplash.com/photo-1584362917165-526a968579e8?q=80&w=1000&auto=format&fit=crop" alt="Steri Center">
+                <div class="overlay">
+                    <h3>Centro de Esterilización</h3>
+                    <p>Protocolos de grado hospitalario visibles al público.</p>
+                </div>
+            </div>
+            <div class="g-item">
+                <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?q=80&w=1000&auto=format&fit=crop" alt="Scanner 3D">
+                <div class="overlay">
+                    <h3>Laboratorio 3D in-House</h3>
+                    <p>Resultados inmediatos sin tiempos de espera largos.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="amenities">
+            <div class="amenity">
+                <i data-lucide="music" size="36"></i>
+                <h4>Playlist Personalizada</h4>
+                <p>Elige la música o podcast que escucharás durante tu sesión con nuestros audífonos Cancel-Noise.</p>
+            </div>
+            <div class="amenity">
+                <i data-lucide="wifi" size="36"></i>
+                <h4>WiFi Alta Velocidad</h4>
+                <p>No te desconectes. Trabaja cómodamente desde nuestras salas Lounge exclusivas para pacientes.</p>
+            </div>
+            <div class="amenity">
+                <i data-lucide="tv" size="36"></i>
+                <h4>Netflix & Prime</h4>
+                <p>Pantallas montadas en el techo para que te entretengas durante toda tu limpieza o procedimiento.</p>
+            </div>
+            <div class="amenity">
+                <i data-lucide="coffee" size="36"></i>
+                <h4>Barra de Bedidas</h4>
+                <p>Agua premium, tés orgánicos y opciones descafeinadas disponibles sin costo para ti o tus acompañantes.</p>
+            </div>
+        </div>
+
+    </section>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <a class="logo" style="color:#fff; margin-bottom: 20px; display:inline-block;">SMILE<span>STUDIO</span></a>
+                <p style="color: #888; font-size: 0.9rem;">Odontología de alta precisión enfocada en una experiencia del paciente 100% libre de dolor.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Enlaces Rápidos</h4>
+                <a href="index.html">Inicio</a>
+                <a href="servicios.html">Tratamientos</a>
+                <a href="equipo.html">Nuestro Staff Médico</a>
+            </div>
+            <div class="footer-col">
+                <h4>Contacto Premium</h4>
+                <a href="#"><i data-lucide="map-pin" size="16"></i> Altabrisa, Mérida, Yucatán</a>
+                <a href="#"><i data-lucide="phone" size="16"></i> (999) 111 - 2233</a>
+                <a href="#"><i data-lucide="mail" size="16"></i> citas@smilestudio.com</a>
+            </div>
+        </div>
+        <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 30px; font-size: 0.8rem; color: #666;">
+            &copy; 2024 Smile Studio. Diseñado exclusivamente para el programa de Demos Élite.
+        </div>
+    </footer>
+
+    <a href="https://wa.me/521?text=Hola,%20tengo%20una%20urgencia%20dental." class="wa-float" title="Urgencias Dentales 24/7">
+        <i data-lucide="message-square" size="28"></i>
+    </a>
+
+    <script>lucide.createIcons();</script>
+</body>
+</html>

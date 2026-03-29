@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservaciones | Charro Zarandiao</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .page-header {
+            height: 50vh;
+            background: linear-gradient(rgba(30, 42, 56, 0.7), rgba(30, 42, 56, 0.7)), url('https://images.unsplash.com/photo-1596765796245-7977a4c7a5f9?q=80&w=2574&auto=format&fit=crop') center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto 80px;
+        }
+        
+        .service-card {
+            background: var(--surface-color);
+            border-top: 5px solid var(--accent);
+            padding: 40px 30px;
+            text-align: center;
+            transition: var(--transition);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            border-radius: 8px;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        .service-card h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        
+        .service-card p {
+            color: var(--text-muted);
+            margin-bottom: 30px;
+        }
+        
+        /* Formulario de Reservación */
+        .reservation-wrapper {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--surface-color);
+            padding: 60px;
+            border-radius: 8px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        
+        @media (max-width: 600px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            .reservation-wrapper {
+                padding: 30px;
+            }
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-family: var(--font-body);
+            font-weight: 700;
+            color: var(--dark-accent);
+            font-size: 1rem;
+        }
+        
+        input, select, textarea {
+            width: 100%;
+            padding: 15px;
+            background: #f9f9f9;
+            border: 2px solid #e0e0e0;
+            color: var(--text-dark);
+            font-family: var(--font-body);
+            font-size: 1rem;
+            border-radius: 4px;
+            transition: var(--transition);
+        }
+        
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            background: #fff;
+        }
+        
+        textarea {
+            resize: vertical;
+            height: 120px;
+        }
+        
+        .btn-submit {
+            width: 100%;
+            margin-top: 20px;
+            font-size: 1.2rem;
+            padding: 18px;
+            font-weight: 700;
+            cursor: pointer;
+            border: none;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar scrolled">
+        <a href="index.html" class="logo">CHARRO<span style="font-size: 1rem; color: var(--accent); letter-spacing: 3px;">ZARANDIAO</span></a>
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Inicio</a>
+            <a href="menu.html">El Menú</a>
+            <a href="servicios.html" class="active">Reservaciones</a>
+            <a href="galeria.html">Galería</a>
+            <a href="nosotros.html">La Historia</a>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <div class="fade-in">
+            <h1 style="font-size: 4rem; color: var(--bg-color);">Ven a Disfrutar</h1>
+            <p style="font-size: 1.2rem; margin-top: 15px; color: var(--accent); font-weight: bold;">Tu mesa está lista para el mejor marisco de la ciudad.</p>
+        </div>
+    </header>
+
+    <section class="section" style="background-color: var(--bg-color);">
+        <div class="section-header fade-in">
+            <h2>Nuestros Servicios</h2>
+            <p>El lugar ideal para la comida familiar de domingo o el inicio de una gran noche tapatía.</p>
+        </div>
+        
+        <div class="services-grid fade-in">
+            <div class="service-card">
+                <h3>Grupos, Familias y Área VIP</h3>
+                <p>Nuestras largas mesas son ideales para compartir. Además, contamos con Área VIP con Aire Acondicionado para que disfrutes de tu zarandiao sin que te afecte el calor yucateco. ¡También tenemos área infantil!</p>
+            </div>
+            
+            <div class="service-card">
+                <h3>Ambiente Fiestero y Mariachi En Vivo</h3>
+                <p>Todos los fines de semana contamos con Mariachi en vivo para cantar tus favoritas mientas te tomas un buen trago y pasas las penas. El puro estilo Sinaloa y Jalisco reunidos en un solo lugar.</p>
+            </div>
+            
+            <div class="service-card">
+                <h3>Pedidos Para Llevar</h3>
+                <p>¿No quieres salir? Pide tus Levanta Muertos o Quesabirrias al momento. Te las preparamos para que lleguen calentitas hasta tu puerta.</p>
+                <div style="font-weight: bold; margin-top: 10px; color: var(--dark-accent);">Llámanos o Manda un WhatsApp al:<br>999 746 3653</div>
+            </div>
+        </div>
+        
+        <div class="section-header fade-in" id="reservar" style="margin-top: 100px;">
+            <h2>Haz tu Reservación</h2>
+            <p>Vente a probar el sazón que está revolucionando Mérida.</p>
+        </div>
+        
+        <div class="reservation-wrapper fade-in">
+            <form action="#" method="get">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="name">Tu Nombre Compadre/Comadre</label>
+                        <input type="text" id="name" name="name" required placeholder="Ej. Carlos Mendoza">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Teléfono / WhatsApp</label>
+                        <input type="tel" id="phone" name="phone" required placeholder="999 000 0000">
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="date">Fecha del Antojo</label>
+                        <input type="date" id="date" name="date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="time">Horario</label>
+                        <select id="time" name="time" required>
+                            <option value="">¿A qué hora le caen?</option>
+                            <option value="12:00">12:00 PM (El curacrudas)</option>
+                            <option value="14:00">2:00 PM (Hora de comer)</option>
+                            <option value="16:00">4:00 PM</option>
+                            <option value="18:00">6:00 PM</option>
+                            <option value="20:00">8:00 PM (Cerrando)</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="guests">¿Cuántos vienen?</label>
+                        <select id="guests" name="guests" required>
+                            <option value="2">Par de 2</option>
+                            <option value="4">Mesa de 4 (La pandilla)</option>
+                            <option value="6">Hasta 6 amigos</option>
+                            <option value="8">Familia de 8+</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="notes">Alguna nota extra...</label>
+                    <textarea id="notes" name="notes" placeholder="¿Cumpleaños?, ¿Alérgico al camarón? (¡No digas!), Dinos acá..."></textarea>
+                </div>
+                
+                <button type="button" class="btn btn-filled btn-submit">¡Apartar Nuestra Mesa!</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content" style="max-width: 1200px; margin: 0 auto;">
+            <div class="footer-col">
+                <h3 style="color: var(--accent);">CHARRO ZARANDIAO</h3>
+                <p>Mérida, Yucatán.</p>
+            </div>
+            <div class="footer-col">
+                <h3 style="color: var(--accent);">Visítanos</h3>
+                <p>Av. Yucatán #383, Col. Los Pinos</p>
+                <p>C.P. 97138, Mérida, Yucatán.</p>
+                <p>Tel / WA: 999 746 3653</p>
+                <p><a href="https://maps.app.goo.gl/1EjAokEEdnHQ9VXC6" target="_blank" style="color: var(--primary);">Google Maps</a></p>
+            </div>
+            <div class="footer-col">
+                <h3 style="color: var(--accent);">Horario</h3>
+                <p>Lun, Mié, Jue: 1:00 PM - 10:00 PM</p>
+                <p>Vie, Sáb, Dom: 1:00 PM - 12:00 AM</p>
+                <p>Martes: Cerrado</p>
+            </div>
+            <div class="footer-col">
+                <h3 style="color: var(--accent);">Síguenos</h3>
+                <div class="social-icons">
+                    <a href="https://www.instagram.com/charro_zarandiao" target="_blank">IG</a>
+                    <a href="#">FB</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Restaurante Charro Zarandiao.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

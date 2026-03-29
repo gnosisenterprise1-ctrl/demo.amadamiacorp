@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amada Mía Caucel | Alta Repostería & Café</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root{--pink:#f8bbd0;--gold:#d4af37;--cream:#fdfaf3;--brown:#5d4037;--light:#fce4ec;--rose:#e91e63;--ff-head:"Playfair Display",serif;--ff-body:"Outfit",sans-serif}
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:var(--ff-body);background:var(--cream);color:var(--brown);overflow-x:hidden}
+    a{text-decoration:none !important}
+    nav{position:fixed;top:0;width:100%;padding:1.2rem 6%;display:flex;justify-content:space-between;align-items:center;z-index:9999;background:rgba(255,255,255,.98);backdrop-filter:blur(10px);border-bottom:1px solid #f5f0e8;box-shadow:0 4px 20px rgba(0,0,0,.04)}
+    .nav-brand{font-family:var(--ff-head);font-size:1.6rem;color:var(--brown);white-space:nowrap}
+    .nav-brand span{color:var(--gold)}
+    .nav-links{display:flex;gap:1.5rem;align-items:center}
+    .nav-links a{font-size:10px;text-transform:uppercase;color:#5d4037 !important;font-weight:600;letter-spacing:1.5px;text-decoration:none !important}
+    .nav-links a.vol{color:#d4af37 !important;font-weight:700}
+    .hero{height:100vh;background:linear-gradient(rgba(253,250,243,.1),rgba(93,64,55,.6)),url('fachada-caucel.png') center/cover fixed;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:0 6%}
+    .hero-label{font-size:.8rem;letter-spacing:6px;text-transform:uppercase;color:#fff;margin-bottom:1.5rem;text-shadow:0 1px 4px rgba(0,0,0,.3)}
+    .hero h1{font-family:var(--ff-head);font-size:6rem;color:#fff;margin-bottom:1.5rem;text-shadow:0 5px 25px rgba(0,0,0,.2)}
+    .hero p{font-size:1.1rem;max-width:550px;color:#fff;font-weight:300;margin-bottom:2.5rem;line-height:1.7}
+    .btn{display:inline-flex;align-items:center;gap:.6rem;padding:1rem 2.5rem;border-radius:50px;font-size:.8rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;transition:.3s}
+    .btn-gold{background:var(--gold);color:#fff}
+    .btn-gold:hover{background:#b89530;transform:translateY(-2px)}
+    .btn-outline{border:2px solid #fff;color:#fff}
+    .btn-outline:hover{background:rgba(255,255,255,.1);transform:translateY(-2px)}
+    section{padding:7rem 6%}
+    .section-title{font-family:var(--ff-head);font-size:3rem;color:var(--brown);margin-bottom:1rem}
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+    .col-img{border-radius:20px;overflow:hidden;height:450px}
+    .col-img img{width:100%;height:100%;object-fit:cover}
+    .menu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem}
+    .menu-card{background:#fff;border-radius:15px;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,.05)}
+    .menu-img{height:200px;background-size:cover;background-position:center}
+    .menu-info{padding:1.5rem}
+    .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;height:500px}
+    .gal-item{border-radius:10px;overflow:hidden;background-size:cover;background-position:center}
+    .map-section{height:350px;border-radius:15px;overflow:hidden;border:1px solid #eee}
+    .reserva-box{background:#fdfaf3;padding:3rem;border-radius:20px;text-align:center;border:1px solid #f5f0e8}
+    footer{background:var(--brown);color:rgba(255,255,255,.5);text-align:center;padding:2.5rem;font-size:.8rem}
+    @media(max-width:768px){
+      .nav-links{gap:.8rem}
+      .nav-links a{font-size:9px}
+      .hero h1{font-size:3rem}
+      .hero p{font-size:.9rem}
+      .two-col{grid-template-columns:1fr}
+      .gallery{grid-template-columns:1fr 1fr;height:auto}
+      .gal-item{height:180px}
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-brand">Amada <span>Mía</span> Caucel</div>
+    <div class="nav-links">
+      <a href="#nosotros" style="color:#5d4037 !important;text-decoration:none !important">Nosotros</a>
+      <a href="#menu" style="color:#5d4037 !important;text-decoration:none !important">Menú</a>
+      <a href="#galeria" style="color:#5d4037 !important;text-decoration:none !important">Galería</a>
+      <a href="#ubicacion" style="color:#5d4037 !important;text-decoration:none !important">Ubicación</a>
+      <a href="amada-mia-index.html" class="vol" style="color:#d4af37 !important;text-decoration:none !important;font-weight:bold">← Volver</a>
+    </div>
+  </nav>
+
+  <div class="hero">
+    <div class="hero-label">Alta Repostería · Caucel · Mérida</div>
+    <h1>Amada Mía</h1>
+    <p>Elegancia y sabor en el corazón de Caucel. Disfruta de una tarde mágica envuelta en aromas de café y flores.</p>
+    <div style="display:flex;gap:1.2rem;justify-content:center;flex-wrap:wrap">
+      <a href="https://wa.me/529999999999" class="btn btn-gold" target="_blank"><i class="fa-brands fa-whatsapp"></i> Reservar Mesa</a>
+      <a href="#menu" class="btn btn-outline"><i class="fa-solid fa-utensils"></i> Ver Menú</a>
+    </div>
+  </div>
+
+  <section id="nosotros">
+    <div class="two-col">
+      <div>
+        <h2 class="section-title">Nuestra Pasión</h2>
+        <p style="color:#8d6e63;line-height:1.8;margin-bottom:1.5rem">Amada Mía Caucel combina el lujo boutique con la calidez de un hogar. Un espacio diseñado para compartir momentos inolvidables.</p>
+        <p style="color:#8d6e63;line-height:1.8">Descubre nuestra selección Premium de repostería francesa y desayunos yucatecos gourmet.</p>
+      </div>
+      <div class="col-img">
+        <img src="fachada-caucel.png" alt="Amada Mía Caucel">
+      </div>
+    </div>
+  </section>
+
+  <section id="menu" style="background:#fdfaf3">
+    <h2 class="section-title" style="text-align:center;margin-bottom:3rem">Menú Caucel</h2>
+    <div class="menu-grid">
+      <div class="menu-card">
+        <div class="menu-img" style="background-image:url('https://images.unsplash.com/photo-1565958011703-44f9829ba187?auto=format&fit=crop&q=80&w=800')"></div>
+        <div class="menu-info">
+          <h4>Delicia de Caucel</h4>
+          <p>Mousse de chocolate blanco con frutos rojos del bosque.</p>
+        </div>
+      </div>
+      <div class="menu-card">
+        <div class="menu-img" style="background-image:url('https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?auto=format&fit=crop&q=80&w=800')"></div>
+        <div class="menu-info">
+          <h4>Omelette Royal</h4>
+          <p>Con espárragos, queso crema y lluvia de nuez tostada.</p>
+        </div>
+      </div>
+      <div class="menu-card">
+        <div class="menu-img" style="background-image:url('https://images.unsplash.com/photo-1495147466023-ac5c588e2e94?auto=format&fit=crop&q=80&w=800')"></div>
+        <div class="menu-info">
+          <h4>Chocolate Caliente</h4>
+          <p>Receta secreta Amada Mía con especias y malvaviscos.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="galeria">
+    <div class="gallery">
+      <div class="gal-item big" style="background-image:url('fachada-caucel.png')"></div>
+      <div class="gal-item" style="background-image:url('https://images.unsplash.com/photo-1497935586351-b67a49e012bf?auto=format&fit=crop&q=80&w=800')"></div>
+      <div class="gal-item" style="background-image:url('https://images.unsplash.com/photo-1565958011703-44f9829ba187?auto=format&fit=crop&q=80&w=800')"></div>
+      <div class="gal-item" style="background-image:url('https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&q=80&w=800')"></div>
+      <div class="gal-item" style="background-image:url('https://images.unsplash.com/photo-1495147466023-ac5c588e2e94?auto=format&fit=crop&q=80&w=800')"></div>
+    </div>
+  </section>
+
+  <section id="ubicacion" style="background:#fdfaf3">
+    <div style="max-width: 1200px; margin: 0 auto; position: relative;">
+      <h2 class="section-title" style="text-align:center;margin-bottom:3.5rem">Ven a Caucel</h2>
+      
+      <div style="position: relative; border-radius: 30px; overflow: hidden; box-shadow: 0 40px 100px rgba(93,64,55,0.1); border: 2px solid #fff; height: 500px;">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.8!2d-89.68!3d21.01!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f5670!2sAmada+M%C3%ADa+Caucel!5e0!3m2!1ses!2smx!4v1" width="100%" height="100%" style="border:0; filter: grayscale(100%) brightness(1.02) contrast(0.9);" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        
+        <!-- TARJETA FLOTANTE AMADA MIA CAUCEL -->
+        <div style="position: absolute; top: 40px; right: 40px; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(15px); padding: 2.5rem; border-radius: 25px; width: 320px; border: 1px solid #f5f0e8; box-shadow: 0 20px 50px rgba(93,64,55,0.08); z-index: 20; text-align: center;">
+          <div style="color: var(--gold); font-size: 0.75rem; letter-spacing: 5px; text-transform: uppercase; margin-bottom: 12px; font-weight: 700;">Caucel · Mérida</div>
+          <h3 style="font-family: var(--ff-head); color: var(--brown); font-size: 2rem; margin-bottom: 15px;">Pasaje Caucel</h3>
+          <p style="color: #8d6e63; font-size: 0.95rem; margin-bottom: 25px; line-height: 1.6;">Abierto todos los días.<br>Circuito Colonias, Caucel, Mérida.</p>
+          
+          <a href="https://wa.me/529999999999" target="_blank" style="background: var(--gold); color: #fff !important; display: block; text-align: center; padding: 1rem; border-radius: 50px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; font-size: 0.75rem; transition: 0.4s; box-shadow: 0 5px 15px rgba(212,175,55,0.4);">
+            <i class="fa-solid fa-location-arrow" style="margin-right: 8px;"></i> Cómo Llegar
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer><b>Amada Mía Caucel</b> — Alta Repostería &copy; 2025</footer>
+</body>
+</html>

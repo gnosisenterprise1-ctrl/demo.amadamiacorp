@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú | AURA</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .page-header {
+            height: 50vh;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?q=80&w=2670&auto=format&fit=crop') center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 60px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .menu-category h3 {
+            font-size: 2rem;
+            color: var(--gold);
+            margin-bottom: 30px;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+            padding-bottom: 15px;
+        }
+        .menu-item {
+            margin-bottom: 25px;
+            display: flex;
+            flex-direction: column;
+        }
+        .menu-item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 8px;
+        }
+        .menu-item-title {
+            font-family: var(--font-serif);
+            font-size: 1.2rem;
+            color: var(--text-light);
+            font-weight: 600;
+        }
+        .menu-item-price {
+            font-family: var(--font-serif);
+            color: var(--gold);
+            font-size: 1.2rem;
+        }
+        .menu-item-desc {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar scrolled">
+        <a href="index.html" class="logo">Aura</a>
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Inicio</a>
+            <a href="menu.html" class="active">Menú</a>
+            <a href="servicios.html">Reservaciones</a>
+            <a href="galeria.html">Galería</a>
+            <a href="nosotros.html">Nosotros</a>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <div class="fade-in">
+            <h1 style="font-size: 4rem; letter-spacing: 2px;">Nuestro Menú</h1>
+            <p style="font-size: 1.2rem; margin-top: 15px;">Una selección curada para paladares exigentes.</p>
+        </div>
+    </header>
+
+    <section class="section">
+        <div class="menu-grid">
+            <div class="menu-category fade-in">
+                <h3>Primer Tiempo</h3>
+                
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <span class="menu-item-title">Ostras Kumamoto</span>
+                        <span class="menu-item-price">$28</span>
+                    </div>
+                    <div class="menu-item-desc">Media docena, mignonette de chalota y vinagre de champaña, caviar oscietra.</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <span class="menu-item-title">Carpaccio de Res Wagyu</span>
+                        <span class="menu-item-price">$35</span>
+                    </div>
+                    <div class="menu-item-desc">Láminas finas de wagyu, emulsión de trufa blanca, alcaparras crujientes, parmesano.</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <span class="menu-item-title">Burrata Tibia</span>
+                        <span class="menu-item-price">$22</span>
+                    </div>
+                    <div class="menu-item-desc">Tomates heirloom ahumados, pesto de pistacho, reducción de balsámico añejo.</div>
+                </div>
+            </div>
+
+            <div class="menu-category fade-in">
+                <h3>Plato Principal</h3>
+                
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <span class="menu-item-title">Costillar de Cordero de Nueva Zelanda</span>
+                        <span class="menu-item-price">$58</span>
+                    </div>
+                    <div class="menu-item-desc">Costra de hierbas frescas, puré de guisantes, jus de cordero a la menta.</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <span class="menu-item-title">Róbalo Chileno Glaseado al Miso</span>
+                        <span class="menu-item-price">$48</span>
+                    </div>
+                    <div class="menu-item-desc">Bok choy salteado, dashi de setas shiitake, perlas de tapioca.</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <span class="menu-item-title">Pato Confitado</span>
+                        <span class="menu-item-price">$42</span>
+                    </div>
+                    <div class="menu-item-desc">Pierna de pato crujiente, puré de camote especiado, reducción de cereza negra.</div>
+                </div>
+            </div>
+
+            <div class="menu-category fade-in" style="margin-top: 50px;">
+                <h3>Postres</h3>
+                
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <span class="menu-item-title">Esfera de Chocolate Valrhona</span>
+                        <span class="menu-item-price">$18</span>
+                    </div>
+                    <div class="menu-item-desc">Mousse de avellana, centro líquido de caramelo salado, polvo de oro comestible.</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <span class="menu-item-title">Tarta de Limón Meyer Deconstruida</span>
+                        <span class="menu-item-price">$16</span>
+                    </div>
+                    <div class="menu-item-desc">Crema de limón asado, crumble de almendra, merengue suizo tostado.</div>
+                </div>
+            </div>
+
+            <div class="menu-category fade-in" style="margin-top: 50px;">
+                <h3>Coctelería de Autor</h3>
+                
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <span class="menu-item-title">Ahumado de Roble viejo</span>
+                        <span class="menu-item-price">$24</span>
+                    </div>
+                    <div class="menu-item-desc">Bourbon de añejamiento especial, bitters de nuez, servido en campana con humo de roble.</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <span class="menu-item-title">Jazmín y Seda</span>
+                        <span class="menu-item-price">$20</span>
+                    </div>
+                    <div class="menu-item-desc">Ginebra infusionada con flores de jazmín, yuzu fresco, clara de huevo, polvo de lavanda.</div>
+                </div>
+            </div>
+        </div>
+        
+        <div style="text-align: center; margin-top: 80px;" class="fade-in">
+            <a href="servicios.html" class="btn btn-filled">Hacer una Reservación</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content" style="max-width: 1200px; margin: 0 auto;">
+            <div class="footer-col">
+                <h3 style="color: var(--gold); font-family: var(--font-serif);">AURA</h3>
+                <p>Una experiencia culinaria que trasciende lo convencional.</p>
+            </div>
+            <div class="footer-col">
+                <h3 style="color: var(--gold); font-family: var(--font-serif);">Ubicación</h3>
+                <p>Av. Gastronomía 1234, Gourmet Land.</p>
+                <p>Tel: +123 456 7890</p>
+            </div>
+            <div class="footer-col">
+                <h3 style="color: var(--gold); font-family: var(--font-serif);">Horario</h3>
+                <p>Mar - Jue: 18:00 - 23:00</p>
+                <p>Vie - Sáb: 18:00 - 01:00</p>
+                <p>Domingo: 13:00 - 20:00</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 AURA Restaurant. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

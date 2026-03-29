@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMILE STUDIO | Clínica Dental Boutique</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        /* Home Specific Styles */
+        .hero {
+            display: flex;
+            min-height: 100vh;
+            padding: 120px 5% 0;
+            align-items: center;
+            gap: 60px;
+        }
+
+        .hero-content { flex: 1; padding-right: 40px; }
+        .hero-content h1 span { color: var(--brand-dark); display: block; }
+        
+        .hero-image {
+            flex: 1;
+            height: 80vh;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            position: relative;
+        }
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Stats Bar */
+        .stats-bar {
+            display: flex;
+            gap: 50px;
+            margin-top: 60px;
+            padding-top: 40px;
+            border-top: 1px solid rgba(0,0,0,0.05);
+        }
+        .stat-num { font-size: 2.5rem; font-weight: 800; color: var(--brand-dark); }
+        .stat-label { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; font-weight: 500;}
+
+        /* Brief Services */
+        .services-preview {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 60px;
+        }
+        .s-card {
+            background: #fff;
+            padding: 40px;
+            border-radius: var(--radius-lg);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.03);
+            transition: var(--transition);
+            text-decoration: none;
+            color: var(--text-dark);
+            border: 1px solid rgba(0, 171, 118, 0.05);
+        }
+        .s-card:hover { transform: translateY(-10px); box-shadow: 0 20px 50px rgba(0, 171, 118, 0.1); border-color: var(--brand-dark);}
+        .s-icon { width: 60px; height: 60px; background: var(--surface); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--brand-dark); margin-bottom: 25px; }
+        .s-card h3 { font-size: 1.5rem; margin-bottom: 15px;}
+        .s-card p { font-size: 0.95rem; margin-bottom: 25px; }
+        .s-action { font-weight: 600; color: var(--brand-dark); display: flex; align-items: center; gap: 8px;}
+
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="logo">SMILE<span>STUDIO</span></a>
+        <div class="nav-links">
+            <a href="index.html" class="active">Inicio</a>
+            <a href="servicios.html">Tratamientos</a>
+            <a href="equipo.html">Especialistas</a>
+            <a href="instalaciones.html">El Estudio</a>
+            <a href="agendar.html" class="btn-nav">Agendar Cita</a>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Expertos en <span>Alta Estética</span></h1>
+            <p style="font-size: 1.25rem; font-weight: 400; margin-bottom: 50px;">
+                Transformamos tu salud dental en una experiencia de lujo. Tecnología láser indolora, ambiente relajado y profesionales certificados en Mérida.
+            </p>
+            <div style="display: flex; gap: 20px;">
+                <a href="agendar.html" class="btn-primary">Reservar Valoración <i data-lucide="arrow-right"></i></a>
+                <a href="servicios.html" class="btn-outline"><i data-lucide="info"></i> Ver Tratamientos</a>
+            </div>
+
+            <div class="stats-bar">
+                <div>
+                    <div class="stat-num">+2,500</div>
+                    <div class="stat-label">Sonrisas Diseñadas</div>
+                </div>
+                <div>
+                    <div class="stat-num">4D</div>
+                    <div class="stat-label">Scanner Láser</div>
+                </div>
+                <div>
+                    <div class="stat-num">0%</div>
+                    <div class="stat-label">Dolor Garantizado</div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?q=80&w=1500&auto=format&fit=crop" alt="Smile Studio Patient">
+        </div>
+    </header>
+
+    <section class="section section-alt">
+        <div style="text-align: center; max-width: 800px; margin: 0 auto;">
+            <h2>Especialidades Clínicas</h2>
+            <p>Atención personalizada centrada en resultados duraderos y la preservación natural de tus piezas dentales.</p>
+        </div>
+
+        <div class="services-preview">
+            <a href="servicios.html" class="s-card">
+                <div class="s-icon"><i data-lucide="smile"></i></div>
+                <h3>Diseño de Sonrisa</h3>
+                <p>Carillas de disilicato de litio ultra delgadas sin desgaste agresivo, modeladas digitalmente.</p>
+                <div class="s-action">Saber más <i data-lucide="chevron-right" size="18"></i></div>
+            </a>
+            <a href="servicios.html" class="s-card">
+                <div class="s-icon"><i data-lucide="shield-check"></i></div>
+                <h3>Implantología</h3>
+                <p>Reemplazo seguro con implantes de titanio suizo grado médico con integración acelerada.</p>
+                <div class="s-action">Saber más <i data-lucide="chevron-right" size="18"></i></div>
+            </a>
+            <a href="servicios.html" class="s-card">
+                <div class="s-icon"><i data-lucide="maximize"></i></div>
+                <h3>Ortodoncia Invisible</h3>
+                <p>Alineadores transparentes 3D. Menos tiempo de tratamiento, más comodidad y estética impecable.</p>
+                <div class="s-action">Saber más <i data-lucide="chevron-right" size="18"></i></div>
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <a class="logo" style="color:#fff; margin-bottom: 20px; display:inline-block;">SMILE<span>STUDIO</span></a>
+                <p style="color: #888; font-size: 0.9rem;">Odontología de alta precisión enfocada en una experiencia del paciente 100% libre de dolor.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Enlaces Rápidos</h4>
+                <a href="index.html">Inicio</a>
+                <a href="servicios.html">Tratamientos</a>
+                <a href="equipo.html">Nuestro Staff Médico</a>
+            </div>
+            <div class="footer-col">
+                <h4>Contacto Premium</h4>
+                <a href="#"><i data-lucide="map-pin" size="16"></i> Altabrisa, Mérida, Yucatán</a>
+                <a href="#"><i data-lucide="phone" size="16"></i> (999) 111 - 2233</a>
+                <a href="#"><i data-lucide="mail" size="16"></i> citas@smilestudio.com</a>
+            </div>
+        </div>
+        <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 30px; font-size: 0.8rem; color: #666;">
+            &copy; 2024 Smile Studio. Diseñado exclusivamente para el programa de Demos Élite.
+        </div>
+    </footer>
+
+    <!-- Emergencias WhatsApp -->
+    <a href="https://wa.me/521?text=Hola,%20tengo%20una%20urgencia%20dental." class="wa-float" title="Urgencias Dentales 24/7">
+        <i data-lucide="message-square" size="28"></i>
+    </a>
+
+    <script>lucide.createIcons();</script>
+</body>
+</html>

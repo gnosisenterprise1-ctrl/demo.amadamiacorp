@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THE GUILD | Reserva Vip</title>
+    <!-- Modern Typefaces -->
+    <link href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            /* Removing body scroll if we want the widget to be the main focus, but let's keep it standard */
+        }
+
+        .booking-layout {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            min-height: 100vh;
+            padding-top: 80px; /* nav offset */
+        }
+
+        /* Sidebar Info */
+        .booking-sidebar {
+            position: relative;
+            background: linear-gradient(180deg, rgba(7,7,9,0.9) 0%, var(--bg-surface) 100%);
+            padding: 80px 10% 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .booking-sidebar::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: url('https://images.unsplash.com/photo-1621605815971-fbc98d665033?q=80&w=1000&auto=format&fit=crop') center/cover;
+            opacity: 0.15;
+            filter: grayscale(100%);
+            z-index: 0;
+        }
+
+        .sidebar-content {
+            position: relative;
+            z-index: 10;
+        }
+
+        .booking-sidebar h1 {
+            border-bottom: 2px solid rgba(229, 169, 60, 0.3);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        .info-list {
+            list-style: none;
+        }
+        
+        .info-list li {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            color: var(--text-main);
+            font-weight: 400;
+        }
+
+        .info-list i { color: var(--accent); }
+
+        /* Booking Widget Area */
+        .booking-widget-area {
+            background: var(--bg-surface);
+            padding: 40px 5% 0px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .glow-bg {
+            position: absolute;
+            background: radial-gradient(circle, var(--accent-glow) 0%, transparent 60%);
+            width: 600px;
+            height: 600px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            filter: blur(80px);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .booking-container {
+            width: 100%;
+            max-width: 900px; /* Increased to fit Calendly comfortably */
+            background: var(--surface-glass);
+            border: 1px solid var(--border-glass);
+            border-radius: var(--radius-lg);
+            padding: 20px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            backdrop-filter: blur(20px);
+            position: relative;
+            z-index: 10;
+            margin-bottom: 50px;
+        }
+
+        @media (max-width: 1024px) {
+            .booking-layout { grid-template-columns: 1fr; }
+            .booking-sidebar { padding: 60px 5% 40px; }
+            .booking-widget-area { padding: 40px 2%; }
+        }
+
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="logo">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"></circle><circle cx="6" cy="18" r="3"></circle><line x1="20" y1="4" x2="8.12" y2="15.88"></line><line x1="14.47" y1="14.48" x2="20" y2="20"></line><line x1="8.12" y1="8.12" x2="12" y2="12"></line></svg> 
+            THE GUILD
+        </a>
+        <div class="nav-links">
+            <a href="index.html">Inicio</a>
+            <a href="servicios.html">Servicios</a>
+            <a href="barberos.html">El Equipo</a>
+            <a href="galeria.html">Galería</a>
+            <a href="reserva.html" class="btn-solid" style="padding: 10px 24px;">Agendar Cita</a>
+        </div>
+        <div class="menu-toggle">
+            <span></span><span></span><span></span>
+        </div>
+    </nav>
+
+    <div class="booking-layout">
+        
+        <div class="booking-sidebar">
+            <div class="sidebar-content">
+                <h1>Agenda <br><span class="text-accent">Directa.</span></h1>
+                <p style="margin-bottom: 40px; max-width: 400px; color: var(--text-muted);">Asegura tu silla y optimiza tu tiempo. Selecciona el servicio, el barbero y preséntate 10 minutos antes para disfrutar nuestro lounge.</p>
+                
+                <ul class="info-list">
+                    <li><i data-lucide="map-pin"></i> Av. Tecnológico #123, Plaza VIP</li>
+                    <li><i data-lucide="clock"></i> Lun - Sáb: 10:00 AM - 9:00 PM</li>
+                    <li>
+                        <i data-lucide="phone"></i> 
+                        <a href="https://wa.me/521" style="color: var(--text-main); text-decoration: none;">+52 999 000 0000</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="booking-widget-area">
+            <div class="glow-bg"></div>
+            
+            <div class="booking-container">
+                <!-- CALENDLY INTEGRATION -->
+                <!-- Note parameters: hide_event_type_details=1, background_color=0a0a0d (our dark surface), text_color=F4F4F5 (main text), primary_color=E5A93C (our amber accent) -->
+                
+                <!-- Calendly inline widget begin -->
+                <div class="calendly-inline-widget" data-url="https://calendly.com/gnosis-enterprise/new-meeting?hide_event_type_details=1&hide_gdpr_banner=1&background_color=0a0a0d&text_color=F4F4F5&primary_color=E5A93C" style="min-width:320px;height:700px;"></div>
+                <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+                <!-- Calendly inline widget end -->
+                
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
